@@ -23,9 +23,13 @@ export default function Home() {
         }
         subline={
           <>
-            Mehr als 20 Jahre Erfahrung in der Kampagnenentwicklung und fünf Jahre KI-Nutzung. Menschen erreichen, Teams motivieren, Marken aufbauen und komplexe Themen auf einen Punkt bringen.
+            Mehr als 20 Jahre Kampagnenentwicklung und fünf Jahre Erfahrung
+            im Umgang mit KI. Menschen erreichen, Teams motivieren, Marken
+            aufbauen und komplexe Themen auf einen Punkt bringen.
             <br /><br />
-            Jetzt nutze ich mein zertifiziertes KI-Know-how, um Lösungen zu entwickeln, die Marketing skalieren und Geschäftsprozesse optimieren.
+            Heute nutze ich mein zertifiziertes KI-Know-how, um Lösungen
+            zu entwickeln, die Marketing skalieren und Geschäftsprozesse
+            optimieren.
           </>
         }
         cta={{ label: "Jetzt direkt zum AI-Potential-Check", href: "#potential-check" }}
