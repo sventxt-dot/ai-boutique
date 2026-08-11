@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     description: "Strategische KI-Implementierung und Agentic Marketing. Künstliche Intelligenz für kleine Unternehmen — mit 20+ Jahren Markenerfahrung.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/images/OG_Titel.png",
         width: 1200,
         height: 630,
         alt: "ai-boutique — Kreative Intelligenz von der Idee bis zur Auslieferung"
@@ -54,6 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ai-boutique — KI Beratung für KMU & Mittelstand",
     description: "Strategische KI-Implementierung und Agentic Marketing für kleine Unternehmen.",
+    images: ["/images/OG_Titel.png"]
   },
   robots: {
     index: true,
