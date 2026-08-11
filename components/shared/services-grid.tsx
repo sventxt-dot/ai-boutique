@@ -41,7 +41,7 @@ export default function ServicesGrid() {
         Was kann die KI für Sie tun?
       </p>
       <p className="text-lg font-sans font-medium text-white/60 leading-relaxed mb-10 max-w-2xl text-left">
-        Soviel ist sicher, die künstliche Intelligenz kann mehr als nur chatten. Sie arbeitet bereits in vielen Unternehmen als unverzichtbarer Assistent, verschwiegener Ratgeber oder allwissender Kollege. Hier sind acht Beispiele, wie ich KI zu einer lukrativen Anwendung mache:
+        Soviel ist sicher, die künstliche Intelligenz kann mehr als nur chatten. Sie arbeitet bereits in vielen Unternehmen als unverzichtbarer Assistent, verschwiegener Ratgeber oder allwissender Kollege. Hier sind acht Beispiele, wie ich KI in ein hilfreiches Tool verwandle:
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
         {services.map((service) => (
