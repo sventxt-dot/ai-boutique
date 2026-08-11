@@ -29,7 +29,7 @@ export default function KontaktPage() {
 
         <a
           href="tel:+4917949706860"
-          className="font-mono text-sm text-white/70 hover:text-[#C77DFF] transition-colors mt-8 inline-block"
+          className="font-sans font-medium text-sm text-white/70 hover:text-[#C77DFF] transition-colors mt-8 inline-block"
         >
           +49 179 49 70 686
         </a>

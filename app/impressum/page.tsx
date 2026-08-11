@@ -13,7 +13,7 @@ export default function ImpressumPage() {
         <h1 className="text-4xl font-bold text-white mt-4 mb-12">Impressum</h1>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Angaben gemäß § 5 TMG
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -25,7 +25,7 @@ export default function ImpressumPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Kontakt
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -42,7 +42,7 @@ export default function ImpressumPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Umsatzsteuer
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -52,7 +52,7 @@ export default function ImpressumPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Steuernummer
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -61,7 +61,7 @@ export default function ImpressumPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Berufsbezeichnung
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -71,7 +71,7 @@ export default function ImpressumPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -82,7 +82,7 @@ export default function ImpressumPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Haftung für Inhalte
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -99,7 +99,7 @@ export default function ImpressumPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Haftung für Links
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -116,7 +116,7 @@ export default function ImpressumPage() {
         </section>
 
         <section>
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Urheberrecht
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">

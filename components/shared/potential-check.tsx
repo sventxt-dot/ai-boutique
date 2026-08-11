@@ -80,7 +80,7 @@ function MultiSelect({ label, step, options, selected, onChange, placeholder }: 
 
   return (
     <div ref={ref} className="relative">
-      <div className="font-mono text-xs text-[#C77DFF] uppercase tracking-widest mb-2">{step}</div>
+      <div className="font-display text-xs text-[#C77DFF] uppercase tracking-widest mb-2">{step}</div>
       <p className="text-2xl font-bold text-white mb-4">{label}</p>
 
       <button
@@ -270,7 +270,11 @@ export default function PotentialCheck() {
           Neugierig, wie KI ihre Prozesse optimiert?
         </h2>
         <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl font-medium">
-          Mit dem Potential Check, bekommen Sie drei maßgeschneiderte KI-Anwendungen, die sich auf ihre Branche, ihre Engpässe und ihre Wünsche beziehen. Kostet nichts und wird Sie sicher inspirieren.
+          Mit dem Potential-Check bekommen Sie Vorschläge für drei
+          maßgeschneiderte KI-Anwendungen, die sich auf ihre Branche,
+          ihre Engpässe und ihre Wünsche beziehen. Kostet nichts und
+          demonstriert, was KI für Sie tun kann. Gehen Sie jetzt den
+          ersten Schritt und probieren Sie es aus.
         </p>
       </div>
 
@@ -283,7 +287,7 @@ export default function PotentialCheck() {
           >
             {/* 01 — Branche */}
             <div>
-              <div className="font-mono text-xs text-[#C77DFF] uppercase tracking-widest mb-2">01</div>
+              <div className="font-display text-xs text-[#C77DFF] uppercase tracking-widest mb-2">01</div>
               <p className="text-2xl font-bold text-white mb-4">Ihre Branche</p>
               <input
                 type="text"
@@ -334,7 +338,7 @@ export default function PotentialCheck() {
 
             {/* 04 — Ergänzung (optional) */}
             <div>
-              <div className="font-mono text-xs text-[#C77DFF] uppercase tracking-widest mb-2">04</div>
+              <div className="font-display text-xs text-[#C77DFF] uppercase tracking-widest mb-2">04</div>
               <p className="text-2xl font-bold text-white mb-4">
                 Noch etwas?{" "}
                 <span className="text-white/60 font-normal text-lg">Optional</span>

@@ -42,7 +42,7 @@ function ScaleCard({ pillar, flipped }: { pillar: Pillar; flipped: boolean }) {
             <span className="font-sans font-bold text-2xl uppercase text-[#C77DFF] leading-none">
               {pillar.name}
             </span>
-            <span className="font-mono text-xs uppercase tracking-wide text-foreground/70">
+            <span className="font-display text-xs uppercase tracking-wide text-foreground/70">
               {pillar.tagline}
             </span>
             <p className="text-base text-foreground/80 leading-relaxed mt-2 font-medium">

@@ -89,12 +89,12 @@ export default function VideoHero({
         className="relative z-10 w-full max-w-[1440px] mx-auto px-8 md:px-16 lg:px-20 text-foreground"
       >
         {/* Eyebrow */}
-        <MonoLabel className="text-foreground/70 mb-6 block text-center">
+        <MonoLabel className="text-foreground/70 mb-6 block text-left">
           {eyebrow}
         </MonoLabel>
 
         {/* Headline */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase leading-tight mb-8 tracking-[0px] text-center">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase leading-tight mb-8 tracking-[0px] text-left">
           {headline}
         </h1>
 

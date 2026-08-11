@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Montserrat, Anton } from "next/font/google";
+import { Geist, Montserrat, Anton } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/layout/navbar";
@@ -10,11 +10,6 @@ const anton = Anton({ subsets: ['latin'], weight: '400', variable: '--font-displ
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -40,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={cn("dark h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", montserrat.variable, anton.variable)}
+      className={cn("dark h-full", "antialiased", geistSans.variable, "font-sans", montserrat.variable, anton.variable)}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">

@@ -35,7 +35,7 @@ export default function AboutMe() {
           Rezepte ausspucken.
         </p>
 
-        <p className="font-mono text-sm text-foreground/60 leading-relaxed mb-4">
+        <p className="font-sans font-medium text-sm text-foreground/60 leading-relaxed mb-4">
           RAG mit Hybrid Search, Agentic Workflows mit Tool-Calling und Memory, multimodale
           Foundation Models, Fine-Tuning auf Markendaten, REST- und Streaming-APIs,
           MCP-Protokoll – deployed auf eigenen Servern.

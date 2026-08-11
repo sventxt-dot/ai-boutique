@@ -15,7 +15,7 @@ export default function DatenschutzPage() {
         </h1>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             1. Verantwortlicher
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -36,7 +36,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             2. Erhebung und Verarbeitung personenbezogener Daten
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -48,7 +48,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             3. Zweck der Datenverarbeitung
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -59,7 +59,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             4. Rechtsgrundlage
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -71,7 +71,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             5. Speicherung und Löschung
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -83,7 +83,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             6. Einsatz von KI-Diensten
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -96,7 +96,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             7. Hosting
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -109,7 +109,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             8. Cookies
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -120,7 +120,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             9. Ihre Rechte
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">
@@ -135,7 +135,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section>
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#C77DFF] mb-4">
+          <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             10. Aktualität
           </h2>
           <p className="text-white/80 leading-relaxed font-medium">

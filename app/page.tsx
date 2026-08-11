@@ -23,20 +23,19 @@ export default function Home() {
         }
         subline={
           <>
-            Mehr als 20 Jahre Kampagnenentwicklung und fünf Jahre Erfahrung
-            im Umgang mit KI. Menschen erreichen, Teams motivieren, Marken
-            aufbauen und komplexe Themen auf einen Punkt bringen.
+            Mehr als 20 Jahre Kampagnenentwicklung und fünf Jahre
+            Erfahrung im Umgang mit KI.
             <br /><br />
-            Heute ergänze ich dieses Wissen mit zertifizierter KI-Expertise,
-            um Lösungen zu entwickeln, die Marketing skalieren und
-            Geschäftsprozesse optimieren.
+            Heute ergänze ich dieses Wissen mit zertifizierter
+            KI-Expertise, um Lösungen zu entwickeln, die Marketing
+            skalieren und Geschäftsprozesse optimieren.
           </>
         }
         cta={{ label: "Jetzt direkt zum AI-Potential-Check", href: "#potential-check" }}
       />
 
       {/* Services Bento Grid */}
-      <Section id="leistungen">
+      <Section className="pt-8 md:pt-12" id="leistungen">
         <ServicesGrid />
       </Section>
 
