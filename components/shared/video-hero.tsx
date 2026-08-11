@@ -47,7 +47,7 @@ export default function VideoHero({
   }, []);
 
   return (
-    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-screen flex items-center overflow-hidden">
       {/* Background: Video or Poster */}
       <div className="absolute inset-0 w-full h-full">
         {showVideo && !prefersReducedMotion ? (
@@ -86,20 +86,20 @@ export default function VideoHero({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center text-foreground"
+        className="relative z-10 w-full max-w-[1440px] mx-auto px-8 md:px-16 lg:px-20 text-foreground"
       >
         {/* Eyebrow */}
-        <MonoLabel className="text-foreground/70 mb-6 inline-block">
+        <MonoLabel className="text-foreground/70 mb-6 block text-center">
           {eyebrow}
         </MonoLabel>
 
         {/* Headline */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase leading-tight mb-8 tracking-[0px]">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase leading-tight mb-8 tracking-[0px] text-center">
           {headline}
         </h1>
 
         {/* Subline */}
-        <p className="text-base md:text-lg text-foreground/80 max-w-2xl mx-auto mb-10 font-semibold">
+        <p className="text-xl md:text-2xl font-sans font-medium text-white/90 leading-relaxed max-w-2xl mb-10 text-left">
           {subline}
         </p>
 

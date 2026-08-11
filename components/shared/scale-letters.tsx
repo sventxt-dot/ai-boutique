@@ -39,13 +39,13 @@ function ScaleCard({ pillar, flipped }: { pillar: Pillar; flipped: boolean }) {
           }}
         >
           <div className="flex flex-col gap-1">
-            <span className="font-display text-2xl uppercase text-[#C77DFF] leading-none">
+            <span className="font-sans font-bold text-2xl uppercase text-[#C77DFF] leading-none">
               {pillar.name}
             </span>
-            <span className="font-mono text-xs uppercase tracking-wide text-foreground/50">
+            <span className="font-mono text-xs uppercase tracking-wide text-foreground/70">
               {pillar.tagline}
             </span>
-            <p className="text-sm text-foreground/80 leading-relaxed mt-2">
+            <p className="text-base text-foreground/80 leading-relaxed mt-2 font-medium">
               {pillar.description}
             </p>
           </div>

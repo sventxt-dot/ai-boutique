@@ -21,13 +21,13 @@ export default function AboutMe() {
           <span className="block mb-6">Über mich</span>
         </MonoLabel>
 
-        <p className="text-base text-foreground/80 leading-relaxed mb-6">
+        <p className="text-base text-foreground/80 leading-relaxed mb-6 font-medium">
           Mit der ai-boutique bilde ich die Schnittstelle zwischen kreativer Markenführung und
           operativer Performance. Zentrale Fragen: Wie lassen sich kreative Leitideen maschinell
           skalieren? Und in welchen Geschäftsbereichen kann KI Ihr Geschäft effektiver machen?
         </p>
 
-        <p className="text-base text-foreground/80 leading-relaxed mb-6">
+        <p className="text-base text-foreground/80 leading-relaxed mb-6 font-medium">
           25 Jahre Erfahrung in Markenpositionierung, Kampagnenentwicklung, Copywriting und Social
           Media geben mir einen praxisorientierten Blick auf die KI. Ich verkaufe nicht „irgendwas
           mit Agenten" oder „irgendeinen Chatbot" – ich erkenne Potentiale, berate Sie und setze
@@ -50,7 +50,7 @@ export default function AboutMe() {
           </Badge>
         </div>
 
-        <p className="font-display text-3xl md:text-4xl uppercase text-foreground leading-tight">
+        <p className="font-sans font-bold text-3xl md:text-4xl uppercase text-foreground leading-tight">
           Klingt kompliziert? Ich mach's einfach.
         </p>
       </div>

@@ -9,87 +9,21 @@ export default function Footer() {
     <footer className="bg-background border-t border-foreground/10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-20">
         {/* Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
           {/* Brand */}
           <div>
             <Link href="/" className="inline-flex mb-6">
-              <div
-                className="relative overflow-hidden rounded-lg"
-                style={{
-                  background: "linear-gradient(135deg, #1a0a2e 0%, #0d0d1a 100%)",
-                  padding: "8px 16px",
-                }}
-              >
-                <Image
-                  src="/images/logo-source.png"
-                  alt="Ai Boutique"
-                  width={140}
-                  height={48}
-                  className="object-contain h-10 w-auto"
-                />
-              </div>
+              <Image
+                src="/images/logo-source.png"
+                alt="Ai Boutique"
+                width={140}
+                height={48}
+                className="object-contain h-10 w-auto"
+              />
             </Link>
             <p className="text-sm text-foreground/60">
               Kreative Intelligenz. Skaliert.
             </p>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-sm font-semibold text-foreground mb-4 uppercase">
-              Leistungen
-            </h4>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/leistungen"
-                  className="text-sm text-foreground/60 hover:text-foreground transition-colors"
-                >
-                  Alle Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/leistungen#copywriting"
-                  className="text-sm text-foreground/60 hover:text-foreground transition-colors"
-                >
-                  Copywriting
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/leistungen#content"
-                  className="text-sm text-foreground/60 hover:text-foreground transition-colors"
-                >
-                  Content
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="text-sm font-semibold text-foreground mb-4 uppercase">
-              Unternehmen
-            </h4>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-sm text-foreground/60 hover:text-foreground transition-colors"
-                >
-                  Über uns
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/kontakt"
-                  className="text-sm text-foreground/60 hover:text-foreground transition-colors"
-                >
-                  Kontakt
-                </Link>
-              </li>
-            </ul>
           </div>
 
           {/* Legal */}

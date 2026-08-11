@@ -23,7 +23,7 @@ function ServiceCard({ service }: { service: Service }) {
         <div className="text-sm font-semibold font-mono tracking-[0.12em] uppercase text-[#C77DFF] mb-2">
           {service.title}
         </div>
-        <p className="text-sm text-white/60 leading-relaxed">
+        <p className="text-sm md:text-base text-white/60 leading-relaxed font-medium">
           {service.copy}
         </p>
       </div>
@@ -34,10 +34,10 @@ function ServiceCard({ service }: { service: Service }) {
 export default function ServicesGrid() {
   return (
     <>
-      <p className="text-lg font-semibold text-white leading-relaxed mb-4 max-w-2xl">
+      <p className="text-2xl md:text-3xl font-sans font-bold text-white leading-relaxed mb-4 max-w-2xl text-left">
         Wertvolle Zeit sparen. Mitarbeitende entlasten. Wettbewerbsvorteil ausbauen. Was kann die KI für Sie tun?
       </p>
-      <p className="text-base text-white/60 leading-relaxed mb-10 max-w-2xl">
+      <p className="text-lg font-sans font-medium text-white/60 leading-relaxed mb-10 max-w-2xl text-left">
         Soviel ist sicher, die künstliche Intelligenz kann mehr als nur chatten. Sie arbeitet bereits in vielen Unternehmen als unverzichtbarer Assistent, verschwiegener Ratgeber oder allwissender Kollege. Hier sind acht Beispiele, wie ich KI zu einer lukrativen Anwendung mache:
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">

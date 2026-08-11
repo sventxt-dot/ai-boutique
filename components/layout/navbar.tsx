@@ -24,16 +24,16 @@ export default function Navbar() {
           : "bg-transparent"
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-8 md:px-16 lg:px-20 py-4 flex items-center justify-between">
         {/* Logo — transparent PNG, no wrapper */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/smart intelligenz_trans_weiss.png"
+            src="/images/AiB_Logo_Trans-Weiss.png"
             alt="Ai Boutique"
-            width={240}
-            height={80}
+            width={300}
+            height={100}
             priority
-            className="h-14 w-auto object-contain"
+            className="h-20 w-auto object-contain"
           />
         </Link>
 

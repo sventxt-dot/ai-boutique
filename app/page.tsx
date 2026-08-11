@@ -27,9 +27,9 @@ export default function Home() {
             im Umgang mit KI. Menschen erreichen, Teams motivieren, Marken
             aufbauen und komplexe Themen auf einen Punkt bringen.
             <br /><br />
-            Heute nutze ich mein zertifiziertes KI-Know-how, um Lösungen
-            zu entwickeln, die Marketing skalieren und Geschäftsprozesse
-            optimieren.
+            Heute ergänze ich dieses Wissen mit zertifizierter KI-Expertise,
+            um Lösungen zu entwickeln, die Marketing skalieren und
+            Geschäftsprozesse optimieren.
           </>
         }
         cta={{ label: "Jetzt direkt zum AI-Potential-Check", href: "#potential-check" }}

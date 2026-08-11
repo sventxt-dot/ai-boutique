@@ -94,7 +94,7 @@ function MultiSelect({ label, step, options, selected, onChange, placeholder }: 
           <span className="text-white">{selected.length} ausgewählt</span>
         )}
         <svg
-          className={`w-4 h-4 text-white/40 transition-transform duration-200 flex-shrink-0 ${open ? "rotate-180" : ""}`}
+          className={`w-4 h-4 text-white/60 transition-transform duration-200 flex-shrink-0 ${open ? "rotate-180" : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -114,7 +114,7 @@ function MultiSelect({ label, step, options, selected, onChange, placeholder }: 
               <button
                 type="button"
                 onClick={() => toggle(s)}
-                className="text-white/50 hover:text-white ml-1"
+                className="text-white/70 hover:text-white ml-1"
               >
                 ×
               </button>
@@ -269,7 +269,7 @@ export default function PotentialCheck() {
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
           Neugierig, wie KI ihre Prozesse optimiert?
         </h2>
-        <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl">
+        <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl font-medium">
           Mit dem Potential Check, bekommen Sie drei maßgeschneiderte KI-Anwendungen, die sich auf ihre Branche, ihre Engpässe und ihre Wünsche beziehen. Kostet nichts und wird Sie sicher inspirieren.
         </p>
       </div>
@@ -337,7 +337,7 @@ export default function PotentialCheck() {
               <div className="font-mono text-xs text-[#C77DFF] uppercase tracking-widest mb-2">04</div>
               <p className="text-2xl font-bold text-white mb-4">
                 Noch etwas?{" "}
-                <span className="text-white/30 font-normal text-lg">Optional</span>
+                <span className="text-white/60 font-normal text-lg">Optional</span>
               </p>
               <textarea
                 value={ergaenzung}
@@ -367,8 +367,8 @@ export default function PotentialCheck() {
             <div className="absolute inset-5 rounded-full bg-[#C77DFF]/60" />
           </div>
           <div className="text-center">
-            <p className="text-white/70 text-lg mb-1">KI analysiert Ihr Potenzial...</p>
-            <p className="text-white/30 text-sm">Das dauert einen Moment.</p>
+            <p className="text-white/70 text-lg mb-1 font-medium">KI analysiert Ihr Potenzial...</p>
+            <p className="text-white/60 text-base font-medium">Das dauert einen Moment.</p>
           </div>
         </div>
       )}
@@ -387,7 +387,7 @@ export default function PotentialCheck() {
             </svg>
           </div>
           <h3 className="text-2xl font-bold text-white mb-4">Ihre Anfrage wird bearbeitet.</h3>
-          <p className="text-base text-white/60 leading-relaxed mb-10">
+          <p className="text-base text-white/60 leading-relaxed mb-10 font-medium">
             Wir schicken Ihnen das Ergebnis umgehend mit einer
             personalisierten E-Mail zu. Und weiter nichts, versprochen.
           </p>
@@ -416,7 +416,7 @@ export default function PotentialCheck() {
       {step === "thankyou" && (
         <div className="py-12 text-center max-w-md mx-auto">
           <h3 className="text-2xl font-bold text-white mb-4">Vielen Dank.</h3>
-          <p className="text-base text-white/60 leading-relaxed">
+          <p className="text-base text-white/60 leading-relaxed font-medium">
             Ihre AI-Potential Analyse wird persönlich bearbeitet und Ihnen asap zugeschickt.
           </p>
         </div>

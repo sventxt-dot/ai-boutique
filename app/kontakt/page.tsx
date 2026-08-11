@@ -16,7 +16,7 @@ export default function KontaktPage() {
           Lassen Sie uns sprechen.
         </h1>
 
-        <p className="text-lg text-white/60 leading-relaxed mb-12">
+        <p className="text-lg text-white/60 leading-relaxed mb-12 font-medium">
           Schreiben Sie mir direkt — ich melde mich persönlich.
         </p>
 
@@ -27,9 +27,12 @@ export default function KontaktPage() {
           sven@ai-boutique.de
         </a>
 
-        <p className="mt-8 font-mono text-sm text-white/30">
-          Oder direkt: +49 (0) XX XXXXXXX
-        </p>
+        <a
+          href="tel:+4917949706860"
+          className="font-mono text-sm text-white/70 hover:text-[#C77DFF] transition-colors mt-8 inline-block"
+        >
+          +49 179 49 70 686
+        </a>
       </div>
     </div>
   );
