@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import MonoLabel from "@/components/shared/mono-label";
 
-export const metadata: Metadata = {
-  title: "Datenschutz — ai-boutique.de",
+export const metadata = {
+  title: "Datenschutz",
+  description: "Datenschutzerklärung der ai-boutique gemäß DSGVO.",
+  robots: { index: false, follow: false },
+  alternates: { canonical: "https://www.ai-boutique.de/datenschutz" }
 };
 
 export default function DatenschutzPage() {

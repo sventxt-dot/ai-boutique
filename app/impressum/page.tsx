@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import MonoLabel from "@/components/shared/mono-label";
 
-export const metadata: Metadata = {
-  title: "Impressum — ai-boutique.de",
+export const metadata = {
+  title: "Impressum",
+  description: "Impressum der ai-boutique — Sven Günzel, KI-Berater, Prien am Chiemsee.",
+  robots: { index: false, follow: false },
+  alternates: { canonical: "https://www.ai-boutique.de/impressum" }
 };
 
 export default function ImpressumPage() {

@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
+import { JsonLd } from "@/components/shared/json-ld";
 
 const montserrat = Montserrat({subsets:['latin'],variable:'--font-sans'});
 const anton = Anton({ subsets: ['latin'], weight: '400', variable: '--font-display' });
@@ -14,17 +15,57 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.ai-boutique.de"),
   title: {
-    template: "%s | AI-Boutique.de",
-    default: "AI-Boutique.de — Kreative Intelligenz. Skaliert."
+    default: "ai-boutique — KI Beratung für KMU & Mittelstand",
+    template: "%s | ai-boutique"
   },
-  description: "Markenwissen aus Jahren in Werbung und Copywriting, vervielfacht durch AI-Systeme. Text, Ton, Workflow.",
-  authors: [{ name: "AI-Boutique.de" }],
+  description: "Kreative Intelligenz von der Idee bis zur Auslieferung. Strategische KI-Implementierung, Agentic Marketing und künstliche Intelligenz für kleine Unternehmen. 20+ Jahre Markenerfahrung.",
+  keywords: [
+    "KI Beratung Mittelstand",
+    "Künstliche Intelligenz kleine Unternehmen",
+    "Agentic Marketing",
+    "KI Implementierung KMU",
+    "AI Agentur Deutschland",
+    "KI Beratung",
+    "AI Voice Bots",
+    "Corporate LLM",
+    "RAG Systeme"
+  ],
+  authors: [{ name: "Sven Günzel" }],
+  creator: "Sven Günzel",
   openGraph: {
-    title: "AI-Boutique.de",
-    description: "Kreative Intelligenz lässt sich nicht ersetzen. Sie lässt sich skalieren.",
     type: "website",
+    locale: "de_DE",
+    url: "https://www.ai-boutique.de",
+    siteName: "ai-boutique",
+    title: "ai-boutique — KI Beratung für KMU & Mittelstand",
+    description: "Strategische KI-Implementierung und Agentic Marketing. Künstliche Intelligenz für kleine Unternehmen — mit 20+ Jahren Markenerfahrung.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ai-boutique — Kreative Intelligenz von der Idee bis zur Auslieferung"
+      }
+    ]
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "ai-boutique — KI Beratung für KMU & Mittelstand",
+    description: "Strategische KI-Implementierung und Agentic Marketing für kleine Unternehmen.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    }
+  },
+  alternates: {
+    canonical: "https://www.ai-boutique.de"
+  }
 };
 
 export default function RootLayout({
@@ -39,6 +80,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <JsonLd />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

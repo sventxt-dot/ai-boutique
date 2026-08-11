@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import VideoHero from "@/components/shared/video-hero";
 import Section from "@/components/shared/section";
 import MonoLabel from "@/components/shared/mono-label";
@@ -7,6 +8,12 @@ import PotentialCheck from "@/components/shared/potential-check";
 import AboutMe from "@/components/shared/about-me";
 import CtaClosing from "@/components/shared/cta-closing";
 import { Separator } from "@/components/ui/separator";
+
+export const metadata: Metadata = {
+  title: "KI Beratung für KMU — Künstliche Intelligenz für kleine Unternehmen",
+  description: "ai-boutique bietet strategische KI-Implementierung, Agentic Marketing und KI Beratung für KMU und Mittelstand. Jetzt kostenlosen AI-Potential-Check starten.",
+  alternates: { canonical: "https://www.ai-boutique.de" }
+}
 
 export default function Home() {
   return (
