@@ -40,7 +40,7 @@ export default function Navbar() {
         {/* Menu */}
         <div className="flex items-center gap-8">
           <Link
-            href="/leistungen"
+            href="/#leistungen"
             className="text-sm text-foreground hover:text-foreground/70 transition-colors underline-offset-4 hover:underline hover:decoration-accent-yellow"
           >
             Leistungen
