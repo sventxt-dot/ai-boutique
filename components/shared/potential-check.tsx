@@ -272,9 +272,9 @@ export default function PotentialCheck() {
         <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl font-medium">
           Ihre Branche, Ihre Engpässe, Ihre Wünsche – mit dem
           KI-Potential-Check erhalten Sie drei maßgeschneiderte
-          KI-Anwendungen. Kostet nichts und demonstriert, was KI
-          für Sie tun kann. Neugierig? Dann gehen Sie jetzt den
-          ersten Schritt und probieren es aus.
+          KI-Anwendungen. Kostenlos und garantiert inspirierend.
+          Gehen Sie jetzt den ersten Schritt und checken Sie,
+          was KI für Sie tun kann.
         </p>
       </div>
 
