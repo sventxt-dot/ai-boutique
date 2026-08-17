@@ -270,11 +270,11 @@ export default function PotentialCheck() {
           Neugierig, wie KI ihre Prozesse optimiert?
         </h2>
         <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl font-medium">
-          Mit dem Potential-Check bekommen Sie Vorschläge für drei
-          maßgeschneiderte KI-Anwendungen, die sich auf ihre Branche,
-          ihre Engpässe und ihre Wünsche beziehen. Kostet nichts und
-          demonstriert, was KI für Sie tun kann. Gehen Sie jetzt den
-          ersten Schritt und probieren Sie es aus.
+          Ihre Branche, Ihre Engpässe, Ihre Wünsche – mit dem
+          KI-Potential-Check erhalten Sie drei maßgeschneiderte
+          KI-Anwendungen. Kostet nichts und demonstriert, was KI
+          für Sie tun kann. Neugierig? Dann gehen Sie jetzt den
+          ersten Schritt und probieren es aus.
         </p>
       </div>
 
