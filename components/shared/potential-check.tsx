@@ -396,8 +396,8 @@ export default function PotentialCheck() {
           </div>
           <h3 className="text-2xl font-bold text-white mb-4">Ihre Anfrage wird bearbeitet.</h3>
           <p className="text-base text-white/60 leading-relaxed mb-10 font-medium">
-            Wir schicken Ihnen das Ergebnis umgehend mit einer
-            personalisierten E-Mail zu. Und weiter nichts, versprochen.
+            Ich schicke Ihnen das Ergebnis in einer persönlichen E-Mail zu.
+            Und weiter nichts, versprochen.
           </p>
           <div className="flex flex-col gap-3 w-full max-w-md mx-auto">
             <input
