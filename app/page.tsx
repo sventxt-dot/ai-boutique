@@ -11,7 +11,7 @@ import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
   title: "KI Beratung für KMU — Künstliche Intelligenz für kleine Unternehmen",
-  description: "ai-boutique bietet strategische KI-Implementierung, Agentic Marketing und KI Beratung für KMU und Mittelstand. Jetzt kostenlosen AI-Potential-Check starten.",
+  description: "ai-boutique bietet strategische KI-Implementierung, Agentic Marketing und KI Beratung für KMU und Mittelstand. Jetzt kostenlosen KI-Potential-Check starten.",
   alternates: { canonical: "https://www.ai-boutique.de" }
 }
 
@@ -21,24 +21,22 @@ export default function Home() {
       <VideoHero
         videoSrc="/video/hero-placeholder.mp4"
         posterSrc="/images/hero-poster.jpg"
-        eyebrow="AI-Boutique.de — Marketing & AI"
+        eyebrow="AI-Boutique.de — Kreative Intelligenz"
         headline={
           <>
-            <span className="block">Kreative Intelligenz</span>
-            <span className="block">von der Idee bis zur Auslieferung.</span>
+            Was Ihr Team täglich wiederholt, läuft ab morgen automatisch.
           </>
         }
         subline={
           <>
-            Mehr als 20 Jahre Kampagnenentwicklung und fünf Jahre
-            Erfahrung im Umgang mit KI.
-            <br /><br />
-            Heute ergänze ich dieses Wissen mit zertifizierter
-            KI-Expertise, um Lösungen zu entwickeln, die Marketing
-            skalieren und Geschäftsprozesse optimieren.
+            Ich finde die Aufgaben, die Marketingteams und Agenturen am
+            meisten Zeit kosten, und baue die KI-Lösung, die sie übernimmt.
+            Ihre Daten bleiben dabei auf eigenen Servern. Dahinter stehen
+            mehr als 20 Jahre Kampagnenentwicklung und fünf Jahre Arbeit
+            mit KI.
           </>
         }
-        cta={{ label: "Jetzt direkt zum AI-Potential-Check", href: "#potential-check" }}
+        cta={{ label: "Drei KI-Maßnahmen ermitteln", href: "#potential-check" }}
       />
 
       {/* Services Bento Grid */}
@@ -53,7 +51,7 @@ export default function Home() {
         <div className="mb-12 md:mb-16">
           <MonoLabel><span className="block mb-4">Framework</span></MonoLabel>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Künstliche Intelligenz ist per se enorm dumm. Mit dem S. C. A. L. E. Prinzip implementieren wir dieses Potential smart, scharfsinnig und gewinnbringend in Ihre Prozesse.
+            KI hilft nur dort, wo sie zu Ihren Abläufen passt. Deshalb gehe ich in fünf Schritten vor, und Sie wissen bei jedem, was als Nächstes passiert.
           </p>
         </div>
         <ScaleLetters />

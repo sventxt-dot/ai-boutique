@@ -28,17 +28,15 @@ export default function AboutMe() {
         </p>
 
         <p className="text-base text-foreground/80 leading-relaxed mb-6 font-medium">
-          25 Jahre Erfahrung in Markenpositionierung, Kampagnenentwicklung, Copywriting und Social
+          Mehr als 20 Jahre Erfahrung in Markenpositionierung, Kampagnenentwicklung, Copywriting und Social
           Media geben mir einen praxisorientierten Blick auf die KI. Ich verkaufe nicht „irgendwas
           mit Agenten" oder „irgendeinen Chatbot" – ich erkenne Potentiale, berate Sie und setze
           die richtigen Tools um. Sie werden vielleicht überrascht sein, aber ChatGPT kann mehr als
-          Rezepte ausspucken.
+          Rezepte ausspucken. Heute ergänze ich dieses Wissen mit zertifizierter KI-Expertise.
         </p>
 
         <p className="font-sans font-medium text-sm text-foreground/60 leading-relaxed mb-4">
-          RAG mit Hybrid Search, Agentic Workflows mit Tool-Calling und Memory, multimodale
-          Foundation Models, Fine-Tuning auf Markendaten, REST- und Streaming-APIs,
-          MCP-Protokoll – deployed auf eigenen Servern.
+          RAG, Agentic Workflows, MCP-Protokoll.
         </p>
 
         <div className="flex gap-2 mb-10">
@@ -52,6 +50,10 @@ export default function AboutMe() {
 
         <p className="font-sans font-bold text-3xl md:text-4xl uppercase text-foreground leading-tight">
           Klingt kompliziert? Ich mach's einfach.
+        </p>
+
+        <p className="font-sans font-medium text-sm text-foreground/60 leading-relaxed mt-4">
+          Ihre Daten bleiben auf eigenen Servern, und Ihr Team bedient die Lösung ohne Umwege.
         </p>
       </div>
     </div>

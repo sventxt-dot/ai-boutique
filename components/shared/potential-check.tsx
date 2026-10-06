@@ -264,16 +264,17 @@ export default function PotentialCheck() {
       {/* Header */}
       <div className="mb-12">
         <MonoLabel>
-          <span className="block mb-4">KI-Potential Check</span>
+          <span className="block mb-4">KI-Potential-Check</span>
         </MonoLabel>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Neugierig, wie KI ihre Prozesse optimiert?
+          Finden Sie heraus, welche drei Aufgaben KI in Ihrem Unternehmen zuerst übernimmt.
         </h2>
         <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl font-medium">
           Ihre Branche, Ihre Engpässe, Ihre Wünsche – mit dem
-          KI-Potential-Check erhalten Sie drei maßgeschneiderte
-          KI-Anwendungen. Kostenlos und garantiert inspirierend.
-          Gehen Sie jetzt den ersten Schritt und checken Sie,
+          KI-Potential-Check erhalten Sie drei konkrete KI-Maßnahmen für
+          Ihr Unternehmen. Kostenlos. Die drei Maßnahmen passen zu Ihrer
+          Branche und zu Ihrem größten Engpass.
+          Gehen Sie den ersten Schritt und prüfen Sie,
           was KI für Sie tun kann.
         </p>
       </div>
@@ -358,6 +359,9 @@ export default function PotentialCheck() {
             >
               KI-Potential analysieren →
             </button>
+            <p className="text-sm text-white/60 leading-relaxed font-medium">
+              Im nächsten Schritt geben Sie Ihre E-Mail-Adresse an. Ich bearbeite Ihre Analyse persönlich und schicke sie Ihnen zu.
+            </p>
           </form>
         </div>
       )}
@@ -421,7 +425,7 @@ export default function PotentialCheck() {
         <div className="py-12 text-center max-w-md mx-auto">
           <h3 className="text-2xl font-bold text-white mb-4">Vielen Dank.</h3>
           <p className="text-base text-white/60 leading-relaxed font-medium">
-            Ihre AI-Potential Analyse wird persönlich bearbeitet und Ihnen asap zugeschickt.
+            Ich bearbeite Ihren KI-Potential-Check persönlich und schicke Ihnen die drei KI-Maßnahmen per E-Mail zu.
           </p>
         </div>
       )}

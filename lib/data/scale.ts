@@ -16,7 +16,7 @@ export const pillars: Pillar[] = [
     letter: "S",
     name: "SCAN",
     tagline: "Audit",
-    description: "Am Anfang stehen die richtigen Fragen. Nicht aus dem Handbuch sondern aus 25 Jahren Markenerfahrung. Wo liegt das Potenzial?",
+    description: "Am Anfang stehen die richtigen Fragen. Nicht aus dem Handbuch sondern aus mehr als 20 Jahren Markenerfahrung. Wo liegt das Potenzial?",
     services: []
   },
   {
