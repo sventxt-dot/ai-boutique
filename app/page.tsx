@@ -29,11 +29,12 @@ export default function Home() {
         }
         subline={
           <>
-            Ich finde die Aufgaben, die Marketingteams und Agenturen am
-            meisten Zeit kosten, und baue die KI-Lösung, die sie übernimmt.
-            Ihre Daten bleiben dabei auf eigenen Servern. Dahinter stehen
-            mehr als 20 Jahre Kampagnenentwicklung und fünf Jahre Arbeit
-            mit KI.
+            Sie lauern überall: Aufgaben, die Marketingteams und Agenturen
+            unnötig Zeit kosten und lähmen. Ich finde sie und baue passende
+            KI-Lösungen, die Ihr Team produktiver machen. Daten bleiben dabei
+            auf eigenen EU-Servern. Dahinter stecken über 20 Jahre im operativen
+            Marketing sowie fünf Jahre kontinuierliche Arbeit und
+            Weiterbildung mit KI.
           </>
         }
         cta={{ label: "Drei KI-Maßnahmen ermitteln", href: "#potential-check" }}
