@@ -36,7 +36,7 @@ export default function ServicesGrid() {
   return (
     <>
       <p className="text-2xl md:text-3xl font-bold font-sans text-left text-white mb-6 leading-snug">
-        Hier verliert Ihr Team heute Zeit und Geld.
+        Wo verliert Ihr Team Zeit und Geld?
       </p>
       <p className="text-lg font-sans font-medium text-white/60 leading-relaxed mb-10 max-w-2xl text-left">
         Acht Wege, wie KI diese Arbeit übernimmt.
