@@ -29,13 +29,11 @@ export default function Home() {
         }
         subline={
           <>
-            Sie lauern überall: Aufgaben, die Marketingteams und Agenturen
-            unnötig Zeit kosten. Wettbewerber beobachten, Kundenstimmen
-            auswerten, Landingpages bauen, Reportings zusammentragen. Ich
-            baue KI-Agenten, die diese Arbeit übernehmen, nach Ihren
-            Markenregeln und mit Ihrer Freigabe. Dafür sorge ich persönlich:
-            mit über 20 Jahren Erfahrung im operativen Marketing und fünf
-            Jahren Arbeit und Weiterbildung mit KI.
+            Ich entwickle KI-Lösungen für Aufgaben, die Marketingteams und
+            Agenturen unnötig Zeit kosten: von der Wettbewerbsanalyse bis zum
+            fertigen Funnel. Markenkonform und nur mit Ihrer Freigabe. Dafür
+            sorge ich persönlich, mit über 20 Jahren Marketing- und fünf
+            Jahren KI-Erfahrung.
           </>
         }
         cta={{ label: "Drei KI-Maßnahmen ermitteln", href: "#potential-check" }}
