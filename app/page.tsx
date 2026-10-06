@@ -38,6 +38,7 @@ export default function Home() {
           </>
         }
         cta={{ label: "Drei KI-Maßnahmen ermitteln", href: "#potential-check" }}
+        badge={{ src: "/EU-Hosting_Logo.png", alt: "100 % EU-Hosting" }}
       />
 
       {/* Services Bento Grid */}

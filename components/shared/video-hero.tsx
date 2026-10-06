@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import MonoLabel from "./mono-label";
 
@@ -11,6 +12,7 @@ interface VideoHeroProps {
   headline: React.ReactNode;
   subline: React.ReactNode;
   cta: { label: string; href: string };
+  badge?: { src: string; alt: string };
 }
 
 export default function VideoHero({
@@ -20,6 +22,7 @@ export default function VideoHero({
   headline,
   subline,
   cta,
+  badge,
 }: VideoHeroProps) {
   const [showVideo, setShowVideo] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -104,12 +107,23 @@ export default function VideoHero({
         </p>
 
         {/* CTA */}
-        <a
-          href={cta.href}
-          className="inline-block bg-[#C77DFF] hover:bg-[#d490ff] text-black font-bold text-base rounded-xl px-8 py-4 transition-colors"
-        >
-          {cta.label}
-        </a>
+        <div className="flex flex-wrap items-center gap-5">
+          <a
+            href={cta.href}
+            className="inline-block bg-[#C77DFF] hover:bg-[#d490ff] text-black font-bold text-base rounded-xl px-8 py-4 transition-colors"
+          >
+            {cta.label}
+          </a>
+          {badge && (
+            <Image
+              src={badge.src}
+              alt={badge.alt}
+              width={96}
+              height={96}
+              className="h-[96px] w-[96px]"
+            />
+          )}
+        </div>
       </motion.div>
     </section>
   );
