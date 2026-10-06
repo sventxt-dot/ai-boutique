@@ -31,14 +31,16 @@ export default function Home() {
           <>
             Sie lauern überall: Aufgaben, die Marketingteams und Agenturen
             unnötig Zeit kosten und lähmen. Ich finde sie und baue passende
-            KI-Lösungen, die Ihr Team produktiver machen. Daten bleiben dabei
-            auf eigenen EU-Servern. Dahinter stecken über 20 Jahre im operativen
-            Marketing sowie fünf Jahre kontinuierliche Arbeit und
-            Weiterbildung mit KI.
+            KI-Lösungen, die Ihr Team produktiver machen. Dahinter stecken
+            über 20 Jahre Erfahrung im operativen Marketing sowie fünf Jahre
+            kontinuierliche Arbeit und Weiterbildung mit KI.
           </>
         }
         cta={{ label: "Drei KI-Maßnahmen ermitteln", href: "#potential-check" }}
-        badge={{ src: "/EU-Hosting_Logo.png", alt: "100 % EU-Hosting" }}
+        badges={[
+          { src: "/EU-Hosting_Logo.png", alt: "100 % EU-Hosting" },
+          { src: "/Siegel_MMAI.png", alt: "Zertifiziert MMAI – Master Management with AI" },
+        ]}
       />
 
       {/* Services Bento Grid */}

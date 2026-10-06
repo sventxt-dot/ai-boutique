@@ -12,7 +12,7 @@ interface VideoHeroProps {
   headline: React.ReactNode;
   subline: React.ReactNode;
   cta: { label: string; href: string };
-  badge?: { src: string; alt: string };
+  badges?: { src: string; alt: string }[];
 }
 
 export default function VideoHero({
@@ -22,7 +22,7 @@ export default function VideoHero({
   headline,
   subline,
   cta,
-  badge,
+  badges,
 }: VideoHeroProps) {
   const [showVideo, setShowVideo] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -114,15 +114,16 @@ export default function VideoHero({
           >
             {cta.label}
           </a>
-          {badge && (
+          {badges?.map((badge) => (
             <Image
+              key={badge.src}
               src={badge.src}
               alt={badge.alt}
-              width={96}
-              height={96}
-              className="h-[96px] w-[96px]"
+              width={106}
+              height={106}
+              className="h-[106px] w-[106px] [clip-path:circle(46.5%)]"
             />
-          )}
+          ))}
         </div>
       </motion.div>
     </section>
