@@ -30,10 +30,12 @@ export default function Home() {
         subline={
           <>
             Sie lauern überall: Aufgaben, die Marketingteams und Agenturen
-            unnötig Zeit kosten und lähmen. Ich finde sie und baue passende
-            KI-Lösungen, die Ihr Team produktiver machen. Dahinter stecken
-            über 20 Jahre Erfahrung im operativen Marketing sowie fünf Jahre
-            kontinuierliche Arbeit und Weiterbildung mit KI.
+            unnötig Zeit kosten. Wettbewerber beobachten, Kundenstimmen
+            auswerten, Landingpages bauen, Reportings zusammentragen. Ich
+            baue KI-Agenten, die diese Arbeit übernehmen, nach Ihren
+            Markenregeln und mit Ihrer Freigabe. Dafür sorge ich persönlich:
+            mit über 20 Jahren Erfahrung im operativen Marketing und fünf
+            Jahren Arbeit und Weiterbildung mit KI.
           </>
         }
         cta={{ label: "Drei KI-Maßnahmen ermitteln", href: "#potential-check" }}
