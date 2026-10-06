@@ -18,7 +18,7 @@ export const services: Service[] = [
   },
   {
     title: "Agentic Marketing",
-    copy: "Jede Kampagne braucht Dutzende Formate, und jedes entsteht von Hand. Kampagnen in allen Kanälen skalieren mit CI-konformen Werbemitteln. Automatisch generiert, A/B-Tests und Reporting. Ein System, das lernt. Ihr Team entscheidet über Idee und Richtung, die Varianten entstehen automatisch.",
+    copy: "Von der Wettbewerbsanalyse bis zum Reporting: KI-Agenten übernehmen die Fleißarbeit im Marketing. Strategie und Freigabe bleiben bei Ihrem Team.",
     image: "/AI-Boutique_Images/3. AI Copywriting.png"
   },
   {
