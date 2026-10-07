@@ -65,15 +65,42 @@ export default function ScaleLetters() {
   }, []);
 
   return (
-    <div
-      className="flex flex-wrap sm:flex-nowrap w-full gap-4 md:gap-6 cursor-pointer"
-      onMouseEnter={() => { if (!isTouch) setFlipped(true); }}
-      onMouseLeave={() => { if (!isTouch) setFlipped(false); }}
-      onClick={() => { if (isTouch) setFlipped(f => !f); }}
-    >
-      {pillars.map((pillar) => (
-        <ScaleCard key={pillar.letter} pillar={pillar} flipped={flipped} />
-      ))}
-    </div>
+    <>
+      {/* Below lg: static list, no tapping needed */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:hidden">
+        {pillars.map((pillar) => (
+          <div
+            key={pillar.letter}
+            className="flex items-start gap-5 bg-foreground/5 rounded-xl p-5"
+          >
+            <span className="font-display uppercase text-[#C77DFF] text-6xl leading-none select-none">
+              {pillar.letter}
+            </span>
+            <div className="flex flex-col gap-1">
+              <span className="font-sans font-bold text-2xl uppercase text-[#C77DFF] leading-none">
+                {pillar.name}
+              </span>
+              <span className="font-display text-xs uppercase tracking-wide text-foreground/70">
+                {pillar.tagline}
+              </span>
+              <p className="text-base text-foreground/80 leading-relaxed mt-2 font-medium">
+                {pillar.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div
+        className="hidden lg:flex flex-nowrap w-full gap-6 cursor-pointer"
+        onMouseEnter={() => { if (!isTouch) setFlipped(true); }}
+        onMouseLeave={() => { if (!isTouch) setFlipped(false); }}
+        onClick={() => { if (isTouch) setFlipped(f => !f); }}
+      >
+        {pillars.map((pillar) => (
+          <ScaleCard key={pillar.letter} pillar={pillar} flipped={flipped} />
+        ))}
+      </div>
+    </>
   );
 }

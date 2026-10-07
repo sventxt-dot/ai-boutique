@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 export default function CtaClosing() {
   return (
     <div className="text-center space-y-6">
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-snug">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-snug break-words">
         Ich bringe KI auf den Punkt und automatisiere damit Geschäftsprozesse für Marketingteams und Agenturen.
       </h2>
       <p className="text-foreground/60 text-lg">

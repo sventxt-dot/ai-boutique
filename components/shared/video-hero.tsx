@@ -50,7 +50,7 @@ export default function VideoHero({
   }, []);
 
   return (
-    <section className="relative w-full h-screen flex items-center overflow-hidden">
+    <section className="relative w-full min-h-svh pt-28 pb-16 md:py-28 flex items-center overflow-hidden">
       {/* Background: Video or Poster */}
       <div className="absolute inset-0 w-full h-full">
         {showVideo && !prefersReducedMotion ? (
@@ -73,6 +73,9 @@ export default function VideoHero({
         )}
       </div>
 
+      {/* Mobile darkening over poster */}
+      <div className="absolute inset-0 bg-background/45 pointer-events-none md:hidden" />
+
       {/* Gradient Scrim */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80 pointer-events-none" />
 
@@ -92,25 +95,25 @@ export default function VideoHero({
         className="relative z-10 w-full max-w-[1440px] mx-auto px-8 md:px-16 lg:px-20 text-foreground"
       >
         {/* Eyebrow */}
-        <MonoLabel className="text-foreground/70 mb-6 block text-left">
+        <MonoLabel className="text-foreground/70 mb-4 md:mb-6 block text-left">
           {eyebrow}
         </MonoLabel>
 
         {/* Headline */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase leading-tight mb-8 tracking-[0px] text-left">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display uppercase leading-tight mb-6 md:mb-8 tracking-[0px] text-left">
           {headline}
         </h1>
 
         {/* Subline */}
-        <p className="text-xl md:text-2xl font-sans font-medium text-white/90 leading-relaxed max-w-2xl mb-10 text-left">
+        <p className="text-base sm:text-xl md:text-2xl font-sans font-medium text-white/90 leading-relaxed max-w-2xl mb-8 md:mb-10 text-left">
           {subline}
         </p>
 
         {/* CTA */}
-        <div className="flex flex-wrap items-center gap-5">
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-6">
           <a
             href={cta.href}
-            className="inline-block bg-[#C77DFF] hover:bg-[#d490ff] text-black font-bold text-base rounded-xl px-8 py-4 transition-colors"
+            className="inline-block w-full sm:w-auto text-center bg-[#C77DFF] hover:bg-[#d490ff] text-black font-bold text-base rounded-xl px-5 sm:px-8 py-4 transition-colors"
           >
             {cta.label}
           </a>
@@ -121,7 +124,7 @@ export default function VideoHero({
               alt={badge.alt}
               width={106}
               height={106}
-              className="h-[106px] w-[106px] [clip-path:circle(46.5%)]"
+              className="h-20 w-20 md:h-[106px] md:w-[106px] [clip-path:circle(46.5%)]"
             />
           ))}
         </div>

@@ -13,7 +13,7 @@ export default function DatenschutzPage() {
     <main className="min-h-screen bg-background pt-32 pb-24 px-6 md:px-12">
       <div className="max-w-2xl mx-auto">
         <MonoLabel>Rechtliches</MonoLabel>
-        <h1 className="text-4xl font-bold text-white mt-4 mb-12">
+        <h1 className="text-[1.75rem] sm:text-4xl break-words hyphens-auto font-bold text-white mt-4 mb-12">
           Datenschutzerklärung
         </h1>
 
