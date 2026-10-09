@@ -32,7 +32,7 @@ export default function PortfolioTeaser() {
       </h2>
       {/* DRAFT */}
       <p className="text-base md:text-lg text-white/70 leading-relaxed font-medium max-w-3xl mb-6">
-        Mehr als 20 Jahre Kampagnenentwicklung, fünf Jahre Arbeit und kontinuierliche Weiterbildung im Bereich der KI. Hier ein Überblick auf mein kreatechnisches Portfolio.
+        Mehr als 20 Jahre Kampagnenentwicklung sowie fünf Jahre Arbeit und kontinuierliche Weiterbildung im Bereich der KI. Hier ein Überblick auf mein kreativ technisches Portfolio.
       </p>
       <div
         role="tablist"
