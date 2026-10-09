@@ -28,10 +28,10 @@ export default function ServicesGrid() {
   return (
     <>
       <p className="text-2xl md:text-3xl font-bold font-sans text-left text-white mb-6 leading-snug">
-        Wie KI den Unternehmen hilft, um langfristig Zeit und Geld zu sparen.
+        So arbeitet KI für Ihr Unternehmen.
       </p>
       <p className="text-lg font-sans font-medium text-white/60 leading-relaxed mb-10 max-w-2xl text-left">
-        Acht Marketing-Tools, die ich schnell einsetze und sofort Ergebnisse liefern.
+        Acht Marketing-Tools, die ich schnell einsetze und sofort Ergebnisse zu liefern.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10">
         {services.map((service) => (
