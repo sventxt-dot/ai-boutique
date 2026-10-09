@@ -18,7 +18,7 @@ export default function KontaktPage() {
         </h1>
 
         <p className="text-lg text-white/60 leading-relaxed mb-12 font-medium">
-          Schreiben Sie mir direkt — ich melde mich persönlich.
+          Schreiben Sie mir in zwei Sätzen, welche Aufgabe Ihr Team am meisten Zeit kostet. Ich antworte persönlich.
         </p>
 
         <a

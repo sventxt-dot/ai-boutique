@@ -267,15 +267,10 @@ export default function PotentialCheck() {
           <span className="block mb-4">KI-Potential-Check</span>
         </MonoLabel>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Finden Sie heraus, welche drei Aufgaben KI in Ihrem Unternehmen zuerst übernimmt.
+          Wo kann KI Ihr Unternehmen supporten?
         </h2>
         <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl font-medium">
-          Ihre Branche, Ihre Engpässe, Ihre Wünsche – mit dem
-          KI-Potential-Check erhalten Sie drei konkrete KI-Maßnahmen für
-          Ihr Unternehmen. Kostenlos. Die drei Maßnahmen passen zu Ihrer
-          Branche und zu Ihrem größten Engpass.
-          Gehen Sie den ersten Schritt und prüfen Sie,
-          was KI für Sie tun kann.
+          Mit dem KI-Potential-Check erhalten Sie drei konkrete KI-Maßnahmen für Ihr Unternehmen. Angepasst an Ihre Branche, Ihre Pains und Ihre Ziele. Kostenlos.
         </p>
       </div>
 

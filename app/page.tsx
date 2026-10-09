@@ -31,7 +31,7 @@ export default function Home() {
           <>
             Ich entwickle KI-Lösungen für Aufgaben, die Marketingteams und
             Agenturen unnötig Zeit kosten: von der Wettbewerbsanalyse bis zum
-            fertigen Funnel. Markenkonform und nur mit Ihrer Freigabe. Dafür
+            fertigen Funnel. Markenkonform und nur nach Freigabe Ihres Teams. Dafür
             sorge ich persönlich, mit über 20 Jahren Marketing- und fünf
             Jahren KI-Erfahrung.
           </>

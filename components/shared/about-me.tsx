@@ -29,17 +29,18 @@ export default function AboutMe() {
 
         <p className="text-base text-foreground/80 leading-relaxed mb-6 font-medium">
           Mehr als 20 Jahre Erfahrung in Markenpositionierung, Kampagnenentwicklung, Copywriting und Social
-          Media geben mir einen praxisorientierten Blick auf die KI. Ich verkaufe nicht „irgendwas
-          mit Agenten" oder „irgendeinen Chatbot" – ich erkenne Potentiale, berate Sie und setze
-          die richtigen Tools um. Sie werden vielleicht überrascht sein, aber ChatGPT kann mehr als
-          Rezepte ausspucken. Heute ergänze ich dieses Wissen mit zertifizierter KI-Expertise.
+          Media geben mir einen praxisorientierten Blick auf die KI. Mit zertifizierter KI-Expertise
+          verkaufe ich nicht „irgendwas mit Agenten" oder „irgendeinen Chatbot" – ich rede mit
+          Ihnen, erkenne Potentiale und implementiere die richtigen Tools. Und wenn Sie in Ihrem Unternehmen bereits KI nutzen, helfe ich Ihnen
+          gerne, diese Fähigkeiten sauber zu skalieren. Ohne Schatten-KI und Kollegen, die
+          Firmenwissen ungefiltert ins Netz schmeißen.
         </p>
 
         <p className="font-sans font-medium text-sm text-foreground/60 leading-relaxed mb-4">
           RAG, Agentic Workflows, MCP-Protokoll.
         </p>
 
-        <div className="flex gap-2 mb-10">
+        <div className="flex gap-2 mb-6">
           <Badge variant="outline" className="text-xs border-[#C77DFF] text-[#C77DFF]">
             DSGVO-konform
           </Badge>
@@ -48,12 +49,8 @@ export default function AboutMe() {
           </Badge>
         </div>
 
-        <p className="font-sans font-bold text-3xl md:text-4xl uppercase text-foreground leading-tight">
-          Klingt kompliziert? Ich mach's einfach.
-        </p>
-
-        <p className="font-sans font-medium text-sm text-foreground/60 leading-relaxed mt-4">
-          Ihre Daten bleiben auf eigenen Servern, und Ihr Team bedient die Lösung ohne Umwege.
+        <p className="font-sans font-medium text-sm text-foreground/60 leading-relaxed">
+          Ihre Daten bleiben auf eigenen Servern, und Ihr Team bedient die Tools völlig intuitiv ohne Umwege auf einem firmeninternen Dashboard. Versteckt hinter einem verschlüsselten Login.
         </p>
       </div>
     </div>
