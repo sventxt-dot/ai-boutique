@@ -56,7 +56,7 @@ export default function Home() {
           <MonoLabel><span className="block mb-4">Framework</span></MonoLabel>
           {/* DRAFT */}
           <h2 className="text-2xl md:text-3xl font-bold font-sans text-white leading-snug mb-6">
-            Mein Prozedere: die fünf Schritte mit dem S.C.A.L.E.-Framework.
+            Mein Prozedere: das S.C.A.L.E.-Framework.
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
             KI hilft nur dort, wo sie zu Ihren Abläufen passt. Diese lassen sich ganz einfach und ganz systematisch lokalisieren. Mit diesen fünf Schritten kommt KI bei Ihnen effektiv zum Einsatz.
