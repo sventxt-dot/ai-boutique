@@ -42,3 +42,7 @@ public/video/hero-source.mp4
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# knowledge base: CRM data stays local
+kontext/crm/*
+!kontext/crm/README.md
