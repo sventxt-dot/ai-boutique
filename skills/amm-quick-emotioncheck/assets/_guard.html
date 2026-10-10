@@ -1,0 +1,216 @@
+<script>
+
+/* ═══════════════════════════════════════════════════════════════════
+   ZEILENUMBRUCH-GUARD  ·  Pflicht-Snippet fuer JEDE kilernen-Slide
+   Verhindert zwei Fehler in JEDEM Textelement der Seite:
+     1. Waisenzeilen (Zeile mit zu wenigen Woertern)
+     2. Treppen      (letzte Zeile viel kuerzer als die Zeilen darueber)
+   Sucht die Elemente selbst, ohne gepflegte Selektorliste: jedes Element,
+   das Text direkt enthaelt und keine Block-Kinder hat.
+   Nimmt jede Aenderung zurueck, die den Umbruch verschlechtert oder das
+   Element ueberlaufen laesst. Dann ist der Text zu lang und muss umgetextet
+   werden: der Guard ersetzt kein gutes Texten.
+   Doku: .claude/references/zeilenumbruch-guard.md
+   ═══════════════════════════════════════════════════════════════════ */
+(function () {
+  var NB = '\u00A0';
+  var SKIP = /^(SCRIPT|STYLE|SVG|PATH|CIRCLE|LINE|POLYLINE|RECT|CODE|PRE|IFRAME|VIDEO|IMG|INPUT|TEXTAREA|SELECT|OPTION)$/;
+  var MIN_CHARS = 24;        // kurze Schnipsel wie Tags und Labels ignorieren
+  var MIN_LAST_RATIO = 0.3;  // letzte Zeile muss mindestens 30% der Breite fuellen
+  var MIN_MID_RATIO = 0.72;  // Zeilen davor duerfen keine Delle in die rechte Kante reissen
+
+  function minWords(el) {
+    var attr = el.getAttribute('data-guard');
+    if (attr === 'off') return 0;
+    if (attr && !isNaN(parseInt(attr, 10))) return parseInt(attr, 10);
+    if (/^H[1-6]$/.test(el.tagName)) return 3;
+    var cl = el.classList;
+    if (cl.contains('t-big') || cl.contains('c-big') || cl.contains('cmp-claim') ||
+        cl.contains('def-main') || cl.contains('fc-main') || cl.contains('path-title')) return 3;
+    return 2;
+  }
+
+  // Alle Elemente, die selbst Text tragen und keine Block-Kinder haben
+  function candidates() {
+    var out = [], all = document.body.querySelectorAll('*');
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i];
+      if (SKIP.test(el.tagName)) continue;
+      if (el.getAttribute('data-guard') === 'off') continue;
+      if (el.closest('.topbar') || el.closest('.site-footer')) continue;
+      if (el.textContent.trim().length < MIN_CHARS) continue;
+      // Inline-Elemente wie <strong> oder <a> nie einzeln messen:
+      // ihr Umbruch gehoert zum umgebenden Absatz.
+      if (getComputedStyle(el).display === 'inline') continue;
+
+      var hasText = false, hasBlockChild = false;
+      for (var c = 0; c < el.childNodes.length; c++) {
+        var n = el.childNodes[c];
+        if (n.nodeType === 3 && n.nodeValue.trim()) hasText = true;
+        if (n.nodeType === 1 && !SKIP.test(n.tagName)) {
+          var d = getComputedStyle(n).display;
+          if (d !== 'inline' && d !== 'inline-block' && d !== 'contents') hasBlockChild = true;
+        }
+      }
+      if (hasText && !hasBlockChild) out.push(el);
+    }
+    return out;
+  }
+
+  function textNodes(el) {
+    var out = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), n;
+    while ((n = w.nextNode())) { if (n.nodeValue.trim()) out.push(n); }
+    return out;
+  }
+
+  function snapshot(el) {
+    var nodes = textNodes(el), s = [];
+    for (var i = 0; i < nodes.length; i++) s.push([nodes[i], nodes[i].nodeValue]);
+    return s;
+  }
+  function restore(s) { for (var i = 0; i < s.length; i++) s[i][0].nodeValue = s[i][1]; }
+  function reset(el) {
+    var nodes = textNodes(el);
+    for (var i = 0; i < nodes.length; i++) {
+      if (nodes[i].nodeValue.indexOf(NB) !== -1) {
+        nodes[i].nodeValue = nodes[i].nodeValue.replace(/\u00A0/g, ' ');
+      }
+    }
+  }
+
+  function words(el) {
+    var out = [], nodes = textNodes(el);
+    for (var i = 0; i < nodes.length; i++) {
+      var node = nodes[i], text = node.nodeValue, start = -1;
+      for (var c = 0; c <= text.length; c++) {
+        var isSpace = c === text.length || /[\s\u00A0]/.test(text[c]);
+        if (!isSpace && start === -1) start = c;
+        if (isSpace && start !== -1) {
+          var r = document.createRange();
+          r.setStart(node, start); r.setEnd(node, c);
+          var rect = r.getBoundingClientRect();
+          if (rect.width || rect.height) {
+            out.push({ node: node, start: start, top: Math.round(rect.top), left: rect.left, right: rect.right });
+          }
+          start = -1;
+        }
+      }
+    }
+    return out;
+  }
+
+  function lines(el) {
+    var w = words(el), ls = [];
+    for (var i = 0; i < w.length; i++) {
+      var last = ls[ls.length - 1];
+      if (last && Math.abs(last.top - w[i].top) <= 3) {
+        last.words.push(w[i]); last.right = w[i].right;
+      } else {
+        ls.push({ top: w[i].top, words: [w[i]], first: i, left: w[i].left, right: w[i].right });
+      }
+    }
+    return ls;
+  }
+
+  function minLineWords(ls) {
+    var m = Infinity;
+    for (var i = 0; i < ls.length; i++) m = Math.min(m, ls[i].words.length);
+    return m;
+  }
+  // Anteil, den die letzte Zeile gegenueber der breitesten Zeile fuellt
+  function lastRatio(ls) {
+    var widest = 0;
+    for (var i = 0; i < ls.length; i++) widest = Math.max(widest, ls[i].right - ls[i].left);
+    if (!widest) return 1;
+    var last = ls[ls.length - 1];
+    return (last.right - last.left) / widest;
+  }
+  // Schlechteste Zeile AUSSER der letzten. Faellt sie zu weit ab, entsteht mitten
+  // im Absatz eine Delle und die rechte Kante wirkt zerrissen.
+  function midRatio(ls) {
+    var widest = 0, worst = 1;
+    for (var i = 0; i < ls.length; i++) widest = Math.max(widest, ls[i].right - ls[i].left);
+    if (!widest || ls.length < 2) return 1;
+    for (var j = 0; j < ls.length - 1; j++) {
+      worst = Math.min(worst, (ls[j].right - ls[j].left) / widest);
+    }
+    return worst;
+  }
+  function overflows(el) { return el.scrollWidth > el.clientWidth + 1; }
+
+  // Den GESAMTEN Whitespace vor dem Wort durch ein geschuetztes Leerzeichen ersetzen.
+  // Im formatierten Quelltext steht dort meist Zeilenumbruch plus Einrueckung.
+  function glueBefore(word) {
+    var node = word.node, text = node.nodeValue, end = word.start, i = end - 1;
+    while (i >= 0 && /[\s\u00A0]/.test(text[i])) i--;
+    if (i < 0 || i === end - 1) return false;
+    if (text.slice(i + 1, end) === NB) return false;
+    node.nodeValue = text.slice(0, i + 1) + NB + text.slice(end);
+    return true;
+  }
+
+  function fix(el) {
+    var need = minWords(el);
+    if (!need) return;
+    reset(el);
+
+    for (var pass = 0; pass < 8; pass++) {
+      var w = words(el), ls = lines(el);
+      if (ls.length < 2) return;
+
+      var mw = minLineWords(ls), lr = lastRatio(ls);
+      var wordProblem = mw < need;
+      var stairProblem = lr < MIN_LAST_RATIO;
+      if (!wordProblem && !stairProblem) return;
+
+      // Zuerst die zu kurze Zeile, sonst die Treppe am Ende
+      var bad = -1;
+      if (wordProblem) {
+        for (var i = ls.length - 1; i >= 0; i--) { if (ls[i].words.length < need) { bad = i; break; } }
+      } else {
+        bad = ls.length - 1;
+      }
+      if (bad <= 0) return; // erste Zeile betroffen: nur Umtexten hilft
+
+      var idx = ls[bad].first;
+      if (idx <= 0) return;
+      var snap = snapshot(el);
+      if (!glueBefore(w[idx])) { restore(snap); return; }
+
+      var after = lines(el);
+      var improved = wordProblem
+        ? (minLineWords(after) > mw || (minLineWords(after) === mw && lastRatio(after) > lr))
+        : (lastRatio(after) > lr && minLineWords(after) >= Math.min(mw, need));
+
+      // Kein Fix darf mitten im Absatz eine Delle reissen: sonst ist die Waise weg,
+      // dafuer sieht die rechte Kante zerrissen aus.
+      var dented = midRatio(after) < MIN_MID_RATIO && midRatio(after) < midRatio(ls);
+
+      if (overflows(el) || after.length > ls.length || dented || !improved) {
+        restore(snap); return;
+      }
+    }
+  }
+
+  function run() {
+    var els = candidates();
+    for (var i = 0; i < els.length; i++) fix(els[i]);
+  }
+
+  var t;
+  function debounced() { clearTimeout(t); t = setTimeout(run, 120); }
+
+  // Mehrfach anstossen: 'load' allein reicht nicht, weil eine externe Font-Datei
+  // das Event verzoegern oder (ohne Netz) ganz ausbleiben lassen kann.
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+  window.addEventListener('load', run);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(run);
+  setTimeout(run, 400);
+  setTimeout(run, 1500);
+  window.addEventListener('resize', debounced);
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<style>
+/* ---------- Emotions-Check: Score, Leiter, Zitate ---------- */
+.scorebox{
+  display:grid;grid-template-columns:230px 1fr;gap:28px;align-items:center;
+  background:rgba(250,239,112,.05);border:1px solid rgba(250,239,112,.2);
+  border-radius:16px;padding:26px 30px;margin-top:26px;transition:all .3s ease;
+}
+.scorebox:hover{border-color:rgba(250,239,112,.42);box-shadow:0 8px 30px rgba(0,0,0,.42),0 0 24px rgba(250,239,112,.08);transform:translateY(-2px)}
+body.hell .scorebox{background:rgba(122,108,0,.05);border-color:rgba(122,108,0,.25)}
+body.hell .scorebox:hover{border-color:rgba(122,108,0,.45);box-shadow:0 6px 26px rgba(0,0,0,.09)}
+.sc-n{font-family:var(--mono);font-size:4.2rem;font-weight:800;color:var(--brand);line-height:1}
+.sc-max{font-family:var(--mono);font-size:.86rem;color:var(--muted);margin-top:2px}
+.sc-t{font-family:var(--mono);font-size:1.35rem;font-weight:800;color:var(--brand);line-height:1.25;margin-bottom:7px}
+.sc-b{font-size:.94rem;color:var(--muted);line-height:1.65}
+.sc-gauge{height:12px;border-radius:50px;background:rgba(136,136,160,.14);overflow:hidden;margin-top:14px}
+body.hell .sc-gauge{background:rgba(0,0,0,.08)}
+.sc-gauge i{display:block;height:100%;border-radius:50px;background:var(--brand);box-shadow:0 0 14px rgba(250,239,112,.45)}
+body.hell .sc-gauge i{box-shadow:none}
+.leiter{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.lt{
+  display:grid;grid-template-columns:38px 150px 1fr;gap:16px;align-items:center;
+  border:1px solid var(--line);border-radius:12px;padding:13px 16px;background:var(--card);
+  transition:border-color .3s,box-shadow .3s,transform .3s;
+}
+.lt:hover{border-color:rgba(250,239,112,.35);box-shadow:0 6px 26px rgba(0,0,0,.4);transform:translateY(-2px)}
+body.hell .lt:hover{box-shadow:0 6px 26px rgba(0,0,0,.09)}
+.lt.hier{border-color:var(--hot-stroke);background:var(--hot-fill)}
+.lt-n{font-family:var(--mono);font-weight:800;font-size:.95rem;text-align:center;padding:6px 0;
+  border-radius:8px;border:1px solid var(--line-2);color:var(--dim)}
+.lt.hier .lt-n{border-color:var(--brand);color:var(--brand)}
+.lt-t{font-family:var(--mono);font-weight:700;font-size:.9rem}
+.lt.hier .lt-t{color:var(--brand)}
+.lt-b{font-size:.86rem;color:var(--muted);line-height:1.6}
+.zit{
+  border-left:3px solid var(--line-2);padding:10px 0 10px 15px;margin:10px 0;
+  font-size:.94rem;line-height:1.66;color:var(--text);
+}
+.zit i{display:block;font-family:var(--mono);font-size:.72rem;color:var(--dim);
+  font-style:normal;letter-spacing:.4px;margin-top:7px}
+.zit.gut{border-left-color:var(--f-e)}
+.zit.schwach{border-left-color:var(--q-b)}
+.besser{
+  margin-top:11px;padding:13px 16px;border:1px solid var(--f-e-a);border-radius:12px;
+  background:rgba(112,250,160,.05);font-size:.92rem;line-height:1.65;color:var(--text);
+}
+body.hell .besser{background:rgba(13,122,69,.05)}
+.besser b{font-family:var(--mono);font-size:.72rem;letter-spacing:.9px;text-transform:uppercase;
+  color:var(--f-e);display:block;margin-bottom:6px}
+.faktor{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.fk{border:1px solid var(--line);border-radius:13px;padding:18px 20px;background:var(--card);
+  transition:border-color .3s,box-shadow .3s,transform .3s}
+.fk:hover{border-color:rgba(250,239,112,.35);box-shadow:0 6px 26px rgba(0,0,0,.4);transform:translateY(-2px)}
+body.hell .fk:hover{box-shadow:0 6px 26px rgba(0,0,0,.09)}
+.fk-l{font-family:var(--mono);font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.fk-n{font-family:var(--mono);font-size:2rem;font-weight:800;color:var(--brand);line-height:1.1;margin:6px 0 4px}
+.fk-n s{font-size:.9rem;color:var(--dim);font-weight:400;margin-left:6px}
+.fk-b{font-size:.88rem;color:var(--muted);line-height:1.6}
+.rechnung{font-family:var(--mono);font-size:.9rem;color:var(--text);text-align:center;
+  padding:15px;border:1px solid var(--line);border-radius:12px;background:var(--sunken);margin-bottom:18px}
+.rechnung b{color:var(--brand)}
+.hinweis{font-family:var(--mono);font-size:.82rem;color:var(--q-b);line-height:1.6;
+  margin-top:14px;padding:12px 16px;border:1px solid var(--q-b-a);border-radius:12px;background:var(--q-b-w)}
+/* Barometer je Kaufemotion. Der helle Rest hinter dem Balken ist das, was bei
+   diesem Antrieb noch zu holen waere, und genau davon handelt das Potential. */
+.baro{display:grid;grid-template-columns:150px 1fr 56px;gap:14px;align-items:center;width:100%}
+.baro-n{font-family:var(--mono);font-weight:700;font-size:.9rem;color:var(--text)}
+.baro-bar{height:14px;border-radius:50px;background:rgba(136,136,160,.14);overflow:hidden;position:relative}
+body.hell .baro-bar{background:rgba(0,0,0,.08)}
+.baro-bar i{display:block;height:100%;border-radius:50px;transition:width .4s ease}
+.baro-w{font-family:var(--mono);font-weight:800;font-size:1.02rem;text-align:right}
+.pot{margin-top:14px;padding:14px 17px;border:1px solid var(--q-a-a);border-radius:12px;
+  background:var(--q-a-w);font-size:.92rem;line-height:1.65;color:var(--text)}
+.pot b{font-family:var(--mono);font-size:.72rem;letter-spacing:.9px;text-transform:uppercase;
+  color:var(--q-a);display:block;margin-bottom:6px}
+@media(max-width:700px){
+  .baro{grid-template-columns:1fr 56px;row-gap:8px}
+  .baro-bar{grid-column:1 / -1;order:3}
+}
+/* Der auto-Track eines Grids bemisst ein Flex-Kind ohne dessen gap und ohne die
+   Aussenabstaende seiner Kinder. Die rechte Spalte einer Kartenueberschrift wird
+   dadurch zu schmal und der Pfeil faellt aus dem Kasten. Der Abstand liegt
+   deshalb als Innenabstand im Pfeil: Padding zaehlt bei der Breite immer mit. */
+.th-head,.wb-head{grid-template-columns:minmax(0,1fr) auto}
+.sig-right{flex-shrink:0;gap:0}
+.sig-right .caret{padding-left:11px;box-sizing:content-box}
+.sig-right .bed{flex-shrink:0}
+.mass{display:flex;flex-direction:column;gap:11px}
+@media(max-width:900px){
+  .scorebox{grid-template-columns:1fr}
+  .lt{grid-template-columns:38px 1fr;row-gap:8px}
+  .lt-b{grid-column:1 / -1}
+  .faktor{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .scorebox:hover,.lt:hover,.fk:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="tb-in">
+    <div class="tb-l"><span class="tb-mark"></span>kilernen.de</div>
+    <div class="tb-rechts">
+      <button class="tb-modus" id="btnModus" type="button" title="Zwischen hell und dunkel wechseln" aria-label="Farbmodus wechseln"></button>
+      <div class="tb-badge">Kursinterner Inhalt</div>
+    </div>
+  </div>
+</div>
+
+<nav class="rail" id="rail" aria-label="Abschnitte"></nav>
+
+<div class="wrap">
+
+<section class="fade" id="start">
+  <div class="eyebrow"><span class="dot"></span>Quick Win, Kaufpsychologie</div>
+  <h1><span class="gradient-text">Emotions-Check</span>:<br>wie der Text zum Kaufmotiv steht</h1>
+  <p class="lead">Menschen kaufen kein Produkt, sondern das Gefühl danach. Dieser Check prüft die Werbetexte einer Website gegen die vier Dinge, die laut Kaufpsychologie zu einer Entscheidung führen: auf welcher Stufe der Text steht, welchen Antrieb er bedient, ob Vertrauen und Problembewusstsein zusammenkommen, und welche Kaufbremsen er stehen lässt. Bewertet wird ausschließlich, was auf der Seite sichtbar ist, denn ein echter Interessent sieht auch nichts anderes.</p>
+  <div class="actions">
+    <button class="abtn primary" id="btnPdf" type="button">Check als PDF</button>
+    <button class="abtn" id="btnMd" type="button">Check als Markdown</button>
+    <button class="abtn" id="btnCopy" type="button">Inhalt kopieren</button>
+  </div>
+  <div class="scorebox">
+    <div><div class="sc-n" id="scN" data-guard="off"></div><div class="sc-max" data-guard="off">von 100 Punkten</div></div>
+    <div><div class="sc-t" id="scT" data-guard="off"></div><div class="sc-b" id="scB" data-guard="2"></div>
+      <div class="sc-gauge"><i id="scG"></i></div></div>
+  </div>
+  <div class="stats" id="stats"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="dimensionen">
+  <div class="eyebrow"><span class="dot"></span>Das Ergebnis in vier Teilen</div>
+  <h2>Woraus sich der Score zusammensetzt</h2>
+  <p class="lead">Vier Dimensionen, zusammen hundert Punkte. Jede stammt aus einer eigenen Lektion der Kaufpsychologie, und keine ersetzt eine andere. Der niedrigste Wert zeigt, wo die Arbeit am meisten bringt.</p>
+  <div class="mg" id="dims"></div>
+  <div class="saeulen" id="dimtext" style="margin-top:22px"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="leiter">
+  <div class="eyebrow"><span class="dot"></span>Dimension 1</div>
+  <h2>Auf welcher Stufe der Text steht</h2>
+  <p class="lead">Vom Produkt zum Gefühl führt eine Kette aus fünf Stufen: die Eigenschaften, die Funktion, das Ergebnis, der Zustand danach und das Gefühl dahinter. Die meisten Werbetexte bleiben auf den ersten beiden stehen. Gewichtet wird nach Sichtbarkeit, denn ein Gefühlssatz im Fußbereich hebt einen Produkttext nicht nach oben.</p>
+  <div class="leiter" id="leiterstufen"></div>
+  <div id="leiterbloecke"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="antrieb">
+  <div class="eyebrow"><span class="dot"></span>Dimension 2</div>
+  <h2>Welcher Antrieb bedient wird</h2>
+  <p class="lead">Fast jede Kaufentscheidung zahlt auf einen von drei Antrieben ein: Zugehörigkeit, Status oder Seelenfrieden. Jeder bekommt einen eigenen Wert von 0 bis 100, denn ein Text muss nicht alle drei bedienen, er muss einen davon treffen. Aufklappen zeigt die Zitate, auf denen der Wert beruht, und darunter das Potential: was diesen Antrieb heben würde, hergeleitet aus der Zielgruppe, die sich aus der Seite erschließen lässt.</p>
+  <div id="antriebe"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="formel">
+  <div class="eyebrow"><span class="dot"></span>Dimension 3</div>
+  <h2>Beziehung und Problembewusstsein</h2>
+  <p class="lead">Vertrauen mal Problembewusstsein ergibt die Kaufentscheidung, und das Malzeichen ist der Kern: Zwei Faktoren, die multipliziert werden, können sich nicht gegenseitig retten. Steht einer auf null, ist das Ergebnis null, egal wie stark der andere ist.</p>
+  <div class="faktor" id="faktoren"></div>
+  <div class="rechnung" id="rechnung" data-guard="off"></div>
+  <div id="formeltext"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="bremsen">
+  <div class="eyebrow"><span class="dot"></span>Dimension 4</div>
+  <h2>Welche Kaufbremsen stehen bleiben</h2>
+  <p class="lead">Die meisten Käufe scheitern nicht am Angebot, sondern an etwas, das dagegen steht und selten ausgesprochen wird. Sechs Bremsen kommen dafür infrage. Geprüft wird nicht, ob das Thema vorkommt, sondern ob der Text das tut, was gegen diese Bremse hilft.</p>
+  <div class="tab-wrap"><table class="tab" id="bremstab"></table></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="saetze">
+  <div class="eyebrow"><span class="dot"></span>Am konkreten Satz</div>
+  <h2>Was trägt und was umgeschrieben gehört</h2>
+  <p class="lead">Der praktisch nutzbarste Teil des Checks. Zu jedem schwachen Satz steht eine Umformulierung, die so auf der Seite stehen könnte. Sie verspricht nichts, was die Seite nicht ohnehin belegt.</p>
+  <div class="grid2" id="saetzelisten"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="massnahmen">
+  <div class="eyebrow"><span class="dot"></span>Was zuerst</div>
+  <h2>Drei Schritte in dieser Reihenfolge</h2>
+  <p class="lead">Genau drei, sortiert nach Wirkung je Aufwand. Wer aus jeder Dimension eine Maßnahme ableitet, bekommt am Ende keine.</p>
+  <div class="mass" id="massn"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="basis">
+  <div class="eyebrow"><span class="dot"></span>Grundlage</div>
+  <h2>Geprüfte Seiten und erschlossene Zielgruppe</h2>
+  <p class="lead">Der Check liest nur, was öffentlich auf der Seite steht, und leitet die Zielgruppe allein daraus ab. Das ist Absicht: Was der Text nicht sagt, weiß der Interessent nicht. Eine Lücke hier ist deshalb ein Befund über die Seite und kein fehlender Input.</p>
+  <div class="tab-wrap"><table class="tab" id="seitentab"></table></div>
+  <div class="saeulen" id="zielg" style="margin-top:22px"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="grenzen">
+  <div class="eyebrow"><span class="dot"></span>Konfidenz und Grenzen</div>
+  <h2>Was dieser Check nicht zeigt</h2>
+  <p class="lead">Der Check misst den Text, nicht die Wirkung. Ob eine Seite verkauft, zeigt nur eine Messung am Markt. Was er beantwortet, ist die Frage davor: ob der Text überhaupt die Dinge tut, die zu einer Kaufentscheidung führen.</p>
+  <div class="warn" id="warn"></div>
+</section>
+
+</div>
+
+<div class="site-footer">&copy; {{FOOTER}}. Alle Rechte vorbehalten.</div>

@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emotions-Check: AI-Boutique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300..800&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#FAEF70; --brand-light:#FFFBCC;
+  --black:#000000; --card:#0a0a0c; --card-2:#0e0e11; --line:#1c1c22; --line-2:#26262f;
+  --text:#e8e8ef; --muted:#8b8b9e; --dim:#5a5a6b;
+  --green:#70FAA0; --blue:#70B8FA; --orange:#FAB870; --violet:#A78BFA; --red:#FA7070;
+  --mono:'JetBrains Mono',monospace; --sans:'Inter',sans-serif;
+  --tb:54px;
+  /* Feld- und Quadrantenfarben als Variablen, damit auch die Diagramme
+     beim Umschalten auf hell mitwechseln. */
+  --f-s:#70B8FA; --f-t:#FAEF70; --f-e:#70FAA0; --f-p:#A78BFA;
+  --f-s-a:rgba(112,184,250,.34); --f-t-a:rgba(250,239,112,.34);
+  --f-e-a:rgba(112,250,160,.34); --f-p-a:rgba(167,139,250,.34);
+  --q-a:#FAEF70; --q-b:#FAB870; --q-c:#70B8FA; --q-d:#5a5a6b;
+  --q-a-a:rgba(250,239,112,.34); --q-b-a:rgba(250,184,112,.34);
+  --q-c-a:rgba(112,184,250,.34); --q-d-a:rgba(90,90,107,.34);
+  --q-a-w:rgba(250,239,112,.07); --q-b-w:rgba(250,184,112,.07);
+  --q-c-w:rgba(112,184,250,.07); --q-d-w:rgba(255,255,255,.03);
+  --sunken:#000; --dot-text:#000; --svg-zone:rgba(255,255,255,.014);
+  --hot-fill:rgba(250,239,112,.045); --hot-stroke:rgba(250,239,112,.25);
+  --stat-top:#fff;
+}
+
+/* ---------- Heller Modus ---------- */
+body.hell{
+  --black:#f6f6f9; --card:#ffffff; --card-2:#fbfbfd; --line:#e4e4ec; --line-2:#d0d0dc;
+  --text:#14141b; --muted:#54546a; --dim:#82829a;
+  --brand:#7a6c00; --brand-light:#9a8900;
+  --f-s:#1565c0; --f-t:#7a6c00; --f-e:#0d7a45; --f-p:#5b34c0;
+  --f-s-a:rgba(21,101,192,.45); --f-t-a:rgba(122,108,0,.45);
+  --f-e-a:rgba(13,122,69,.45); --f-p-a:rgba(91,52,192,.45);
+  --q-a:#7a6c00; --q-b:#a35b00; --q-c:#1565c0; --q-d:#82829a;
+  --q-a-a:rgba(122,108,0,.45); --q-b-a:rgba(163,91,0,.45);
+  --q-c-a:rgba(21,101,192,.45); --q-d-a:rgba(130,130,154,.45);
+  --q-a-w:rgba(122,108,0,.09); --q-b-w:rgba(163,91,0,.09);
+  --q-c-w:rgba(21,101,192,.09); --q-d-w:rgba(0,0,0,.04);
+  --sunken:#f3f3f7; --dot-text:#fff; --svg-zone:rgba(0,0,0,.022);
+  --hot-fill:rgba(122,108,0,.06); --hot-stroke:rgba(122,108,0,.3);
+  --stat-top:#3a3a48;
+}
+/* Die gelben Flaechen des dunklen Modus tragen auf Weiss nicht. */
+body.hell .eyebrow{border-color:rgba(122,108,0,.32);background:rgba(122,108,0,.07)}
+body.hell .topbar{background:rgba(255,255,255,.86)}
+body.hell .topbar::after,body.hell .section-divider{background:linear-gradient(90deg,transparent,rgba(122,108,0,.28),transparent)}
+body.hell .rail::before{background:linear-gradient(180deg,transparent,rgba(122,108,0,.28),transparent)}
+body.hell .rail-label{background:rgba(255,255,255,.96);border-color:rgba(0,0,0,.12)}
+body.hell .abtn.primary{border-color:rgba(122,108,0,.45);background:rgba(122,108,0,.08)}
+body.hell .abtn:hover,body.hell .fb:hover,body.hell .card:hover{box-shadow:0 6px 26px rgba(0,0,0,.09)}
+body.hell .sig:hover,body.hell .th:hover,body.hell .pr:hover,body.hell .cal-row:hover,body.hell .meta:hover{box-shadow:0 6px 26px rgba(0,0,0,.09)}
+body.hell .konseq,body.hell .ft-wirk{border-color:rgba(122,108,0,.28);background:rgba(122,108,0,.05)}
+body.hell .mt-leit{background:rgba(122,108,0,.05)}
+body.hell .pill.on{background:rgba(122,108,0,.1);border-color:rgba(122,108,0,.45)}
+body.hell .copy-btn,body.hell .ws-save{background:rgba(122,108,0,.09);border-color:rgba(122,108,0,.35)}
+body.hell .fb:hover{background:rgba(122,108,0,.02)}
+body.hell .fb-head:hover{background:rgba(122,108,0,.035)}
+body.hell .ft-head::before,body.hell .fb-list li::before,body.hell .mt-tr::before,body.hell .ws-item::before{opacity:.85}
+body.hell .stat:hover{background:rgba(122,108,0,.04)}
+body.hell .warn{background:rgba(250,112,112,.05);border-color:rgba(200,60,60,.28)}
+body.hell .gegen{background:rgba(250,112,112,.05);border-color:rgba(200,60,60,.24)}
+body.hell .tb-mark{box-shadow:0 0 10px rgba(122,108,0,.5)}
+body.hell .dot{box-shadow:0 0 8px rgba(122,108,0,.5)}
+body.hell .dr-back{background:rgba(20,20,27,.5)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(250,239,112,.25);color:#fff}
+p,li{text-wrap:pretty}
+
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:200;background:rgba(0,0,0,.78);backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);height:var(--tb);display:flex;align-items:center}
+.topbar::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(250,239,112,.22),transparent)}
+.tb-in{max-width:1180px;margin:0 auto;padding:0 26px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.tb-l{display:flex;align-items:center;gap:11px;font-family:var(--mono);font-weight:700;font-size:.85rem}
+.tb-mark{width:9px;height:9px;border-radius:2px;background:var(--brand);box-shadow:0 0 14px rgba(250,239,112,.7)}
+.tb-rechts{display:flex;align-items:center;gap:12px}
+.tb-modus{width:34px;height:30px;border-radius:9px;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:.9rem;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0;transition:border-color .25s,color .25s}
+.tb-modus:hover{border-color:rgba(250,239,112,.4);color:var(--brand)}
+body.hell .tb-modus:hover{border-color:rgba(122,108,0,.45)}
+.tb-badge{font-family:var(--mono);font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--dim);border:1px solid var(--line);border-radius:100px;padding:5px 12px;white-space:nowrap}
+
+/* Abschnitts-Leiste links */
+.rail{position:fixed;left:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:17px;padding:6px 0}
+.rail::before{content:'';position:absolute;left:5px;top:2px;bottom:2px;width:1px;background:linear-gradient(180deg,transparent,rgba(250,239,112,.22),transparent)}
+.rail-item{position:relative;display:flex;align-items:center;gap:13px;text-decoration:none;padding:2px 0}
+.rail-dot{position:relative;z-index:1;width:11px;height:11px;border-radius:50%;flex-shrink:0;background:var(--black);border:1px solid rgba(139,139,158,.4);box-shadow:0 0 0 4px var(--black);transition:all .35s cubic-bezier(.16,1,.3,1)}
+.rail-item:hover .rail-dot{border-color:rgba(250,239,112,.6);transform:scale(1.2)}
+.rail-item.active .rail-dot{background:var(--brand);border-color:var(--brand);transform:scale(1.25);box-shadow:0 0 0 4px var(--black),0 0 14px rgba(250,239,112,.65)}
+.rail-label{font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;padding:6px 13px;border-radius:50px;background:rgba(0,0,0,.94);border:1px solid rgba(139,139,158,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;transform:translateX(-8px);pointer-events:none;transition:opacity .3s,transform .35s cubic-bezier(.16,1,.3,1),color .3s,border-color .3s}
+.rail:hover .rail-label{opacity:1;transform:translateX(0)}
+.rail:hover .rail-item.active .rail-label{color:var(--brand);border-color:rgba(250,239,112,.3)}
+.rail-item:hover .rail-label{color:var(--brand);border-color:rgba(250,239,112,.35);transform:translateX(3px)}
+/* Inhaltsspalte ist 1180 breit und zentriert: die Leiste darf erst erscheinen,
+   wenn seitlich wirklich Platz ist, sonst laeuft sie ueber den Text. */
+@media(max-width:1620px){ .rail-label{display:none} }
+@media(max-width:1300px){ .rail{display:none} }
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px;position:relative;z-index:1}
+section{padding:78px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 16px;border-radius:100px;border:1px solid rgba(250,239,112,.22);background:rgba(250,239,112,.05);font-family:var(--mono);font-size:.68rem;font-weight:700;color:var(--brand);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:22px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 10px var(--brand);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
+h1{font-family:var(--mono);font-weight:800;font-size:clamp(1.9rem,4.4vw,3.2rem);line-height:1.08;letter-spacing:-.01em;margin-bottom:20px}
+h2{font-family:var(--mono);font-weight:700;font-size:clamp(1.5rem,3vw,2.15rem);line-height:1.18;letter-spacing:-.01em;margin-bottom:16px}
+h3{font-family:var(--mono);font-weight:700;font-size:1.02rem;line-height:1.35}
+.lead{font-size:1.02rem;color:var(--muted);max-width:820px;margin-bottom:32px}
+.gradient-text{background:linear-gradient(105deg,var(--brand) 0%,var(--brand-light) 42%,var(--brand) 78%);background-size:220% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shim 9s ease-in-out infinite}
+@keyframes shim{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.section-divider{width:100%;height:1px;position:relative;background:linear-gradient(90deg,transparent,rgba(250,239,112,.18),transparent)}
+.section-divider::after{content:'';position:absolute;top:50%;left:50%;width:5px;height:5px;border-radius:50%;background:var(--brand);box-shadow:0 0 14px rgba(250,239,112,.6);transform:translate(-50%,-50%)}
+.fade{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.fade.in{opacity:1;transform:none}
+
+/* Aktionsleiste */
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.abtn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.78rem;font-weight:700;padding:11px 18px;border-radius:11px;border:1px solid var(--line-2);background:var(--card);color:var(--text);cursor:pointer;transition:border-color .3s,box-shadow .3s,transform .3s,color .3s}
+.abtn:hover{border-color:rgba(250,239,112,.35);box-shadow:0 8px 40px rgba(0,0,0,.4),0 0 30px rgba(250,239,112,.08);transform:translateY(-2px);color:var(--brand)}
+.abtn.primary{border-color:rgba(250,239,112,.4);color:var(--brand);background:rgba(250,239,112,.06)}
+
+/* Stat-Leiste */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:34px;background:var(--card)}
+.stat{padding:24px 18px;text-align:center;border-right:1px solid var(--line);transition:background .35s}
+.stat:last-child{border-right:none}
+.stat:hover{background:rgba(250,239,112,.035)}
+.stat-n{display:block;font-family:var(--mono);font-size:2rem;font-weight:800;letter-spacing:-.02em;background:linear-gradient(160deg,var(--stat-top) 10%,var(--brand) 90%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-l{font-size:.82rem;color:var(--muted);margin-top:6px}
+
+/* Feld-Stichpunkte */
+/* Zwei Spalten, in denen die Boxen aufruecken: feines Zeilenraster plus
+   berechnete Spannweite je Box, damit beim Zuklappen kein Loch bleibt. */
+.matrix4{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;align-items:start;grid-auto-rows:4px;grid-auto-flow:row dense}
+.fb{border:1px solid var(--line);border-radius:16px;background:var(--card);overflow:hidden;margin-bottom:16px;transition:border-color .3s,box-shadow .3s}
+.fb:hover{border-color:rgba(250,239,112,.24)}
+.fb-head{display:flex;flex-direction:column;gap:13px;padding:22px 24px 16px;border-bottom:1px solid var(--line);cursor:pointer;position:relative;transition:background .3s}
+.fb-head:hover{background:rgba(250,239,112,.03)}
+.fb-caret{position:absolute;right:22px;top:30px;font-family:var(--mono);color:var(--dim);font-size:.8rem;transition:transform .3s,color .3s}
+.fb-head:hover .fb-caret{color:var(--brand)}
+.fb.zu .fb-caret{transform:rotate(-90deg)}
+.fb.zu .fb-list{display:none}
+.fb.zu .fb-head{border-bottom:none}
+.fb-id{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:center;padding-right:26px}
+.fb-let{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;font-family:var(--mono);font-weight:800;font-size:1.18rem;border:1px solid;background:rgba(255,255,255,.02)}
+.fb-name{font-family:var(--mono);font-weight:700;font-size:1.05rem}
+.fb-sub{font-size:.82rem;color:var(--muted);margin-top:2px}
+.fb-bar{display:flex;height:7px;width:100%;border-radius:100px;overflow:hidden;border:1px solid var(--line)}
+.fb-bar i{display:block;height:100%}
+.fb-list{list-style:none;padding:4px 24px 18px}
+.fb-list li{border-bottom:1px solid rgba(255,255,255,.04)}
+.fb-list li:last-child{border-bottom:none}
+.ft-head{display:grid;grid-template-columns:1fr 16px;gap:10px;align-items:start;padding:13px 0 13px 20px;cursor:pointer;position:relative;font-size:.88rem;line-height:1.5;transition:color .25s}
+.ft-head::before{content:'';position:absolute;left:2px;top:20px;width:5px;height:5px;border-radius:50%;background:var(--brand);opacity:.7;transition:opacity .25s}
+.ft-head:hover{color:var(--brand)}
+.ft-head:hover::before{opacity:1}
+.ft-c{font-family:var(--mono);color:var(--dim);font-size:.68rem;transition:transform .3s;padding-top:3px;text-align:right}
+li.auf .ft-c{transform:rotate(90deg);color:var(--brand)}
+li.auf .ft-head{color:var(--brand)}
+.ft-body{display:none;padding:0 0 15px 20px}
+li.auf .ft-body{display:block}
+.ft-body p{font-size:.86rem;color:var(--muted);line-height:1.62}
+.ft-wirk{margin-top:10px;padding:11px 13px;border:1px solid rgba(250,239,112,.18);border-radius:9px;background:rgba(250,239,112,.035)}
+.ft-wirk b{color:var(--brand);font-family:var(--mono);font-size:.74rem;font-weight:700}
+/* Kein Kasten und keine abweichende Schriftgroesse: sonst sitzt der Marker
+   auf einer eigenen Zeilenhoehe und zaehlt als eigene Zeile. */
+.ft-jahr{font-family:var(--mono);font-weight:800;color:var(--brand)}
+.fb-gruppe{font-family:var(--mono);font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--dim);padding:15px 24px 4px}
+.fb-gruppe + .fb-list{padding-top:0}
+.fb.zu .fb-gruppe{display:none}
+.src-tag{display:block;margin-top:8px;font-family:var(--mono);font-size:.68rem;color:var(--dim);letter-spacing:.3px}
+.src-tag a{color:var(--dim);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.12)}
+.src-tag a:hover{color:var(--brand);border-color:rgba(250,239,112,.4)}
+
+/* Ablauf-Strip */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card)}
+.fl{padding:24px 22px;border-right:1px solid var(--line);position:relative;transition:background .35s}
+.fl:last-child{border-right:none}
+.fl:hover{background:rgba(250,239,112,.03)}
+.fl-n{font-family:var(--mono);font-size:.68rem;font-weight:800;color:var(--brand);letter-spacing:1.4px;margin-bottom:10px}
+.fl h3{margin-bottom:8px;font-size:.98rem}
+.fl p{font-size:.86rem;color:var(--muted);line-height:1.6}
+
+/* Matrix */
+.mx-wrap{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:26px}
+.mx-legend{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.lg{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.lg i{width:10px;height:10px;border-radius:50%;display:block}
+.mx-hint{font-family:var(--mono);font-size:.7rem;color:var(--dim);margin-top:14px;text-align:center}
+svg .qzone{fill:var(--svg-zone);stroke:var(--line);stroke-width:1}
+svg .qzone.hot{fill:var(--hot-fill);stroke:var(--hot-stroke)}
+svg .qlabel{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;letter-spacing:.5px}
+svg .qcount{font-family:'JetBrains Mono',monospace;font-size:10px;fill:var(--dim)}
+svg .axlabel{font-family:'JetBrains Mono',monospace;font-size:9.5px;fill:var(--dim);letter-spacing:1px}
+svg .sdot{cursor:pointer;transition:r .25s,opacity .25s}
+svg .sdot:hover{opacity:1}
+svg .sdot text{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;fill:var(--dot-text);pointer-events:none}
+
+/* Prioritaeten */
+.prio{display:flex;flex-direction:column;gap:10px}
+.pr{display:grid;grid-template-columns:38px 1fr;gap:16px;align-items:start;border:1px solid var(--line);border-left:3px solid;border-radius:12px;background:var(--card);padding:16px 20px;transition:border-color .3s,box-shadow .3s,transform .3s}
+.pr:hover{box-shadow:0 8px 40px rgba(0,0,0,.4);transform:translateY(-2px)}
+.pr-n{font-family:var(--mono);font-weight:800;font-size:.78rem;color:var(--dim);padding-top:2px}
+.pr-t{font-size:.96rem;color:var(--text)}
+.pr-m{font-family:var(--mono);font-size:.66rem;color:var(--dim);margin-top:6px;letter-spacing:.4px}
+
+/* Zeitleiste */
+.tl-wrap{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:26px 26px 18px;overflow-x:auto}
+
+/* Filter */
+.toolbar{position:sticky;top:var(--tb);z-index:150;background:rgba(0,0,0,.85);backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);padding:16px 0 14px;margin-bottom:20px}
+.toolbar::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(250,239,112,.14),transparent)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border-radius:100px;border:1px solid var(--line);background:var(--card);color:var(--muted);font-family:var(--mono);font-size:.76rem;font-weight:600;cursor:pointer;transition:all .28s;white-space:nowrap}
+.pill:hover{border-color:rgba(250,239,112,.3);color:var(--text)}
+.pill.on{background:rgba(250,239,112,.1);border-color:rgba(250,239,112,.45);color:var(--brand)}
+.pill i{width:8px;height:8px;border-radius:50%;display:block}
+
+/* Signalkarten */
+.signals{display:flex;flex-direction:column;gap:10px}
+.sig{border:1px solid var(--line);border-left:3px solid;border-radius:13px;background:var(--card);overflow:hidden;transition:border-color .3s,box-shadow .3s,transform .3s}
+.sig:hover{box-shadow:0 8px 40px rgba(0,0,0,.4);transform:translateY(-2px)}
+.sig-head{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:16px 20px;cursor:pointer}
+.sig-lead{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center}
+.sig-id{font-family:var(--mono);font-weight:800;font-size:.72rem;text-align:center;padding:5px 0;border-radius:7px;border:1px solid;background:rgba(255,255,255,.02)}
+.sig-t{font-family:var(--mono);font-weight:700;font-size:.94rem;line-height:1.35}
+.sig-k{font-size:.82rem;color:var(--muted);margin-top:4px}
+.sig-right{display:flex;align-items:center;gap:11px}
+.qp{font-family:var(--mono);font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:1.1px;padding:5px 11px;border-radius:100px;white-space:nowrap;border:1px solid}
+.caret{font-family:var(--mono);color:var(--dim);font-size:.75rem;transition:transform .3s}
+.sig.open .caret{transform:rotate(90deg)}
+.sig-body{display:none;padding:0 20px 22px;border-top:1px solid var(--line)}
+.sig.open .sig-body{display:block;padding-top:18px}
+.row{margin-bottom:16px}
+.row-l{font-family:var(--mono);font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:1.3px;color:var(--brand);margin-bottom:6px}
+.row-v{font-size:.9rem;color:var(--muted)}
+.konseq{border:1px solid rgba(250,239,112,.18);border-radius:11px;padding:14px 16px;background:rgba(250,239,112,.035)}
+.konseq .row-v{color:var(--text)}
+.satz-box{border:1px solid var(--line-2);border-radius:11px;padding:14px 16px;background:var(--sunken);position:relative}
+.satz-box .row-v{font-family:var(--mono);font-size:.85rem;color:var(--text);line-height:1.55}
+.copy-btn{position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:5px 10px;border-radius:7px;cursor:pointer;background:rgba(250,239,112,.08);border:1px solid rgba(250,239,112,.25);color:var(--brand);transition:background .25s}
+.copy-btn:hover{background:rgba(250,239,112,.16)}
+.sig-foot{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.ff{border:1px solid var(--line);border-radius:10px;padding:11px 13px;background:rgba(255,255,255,.012)}
+.ff-l{font-family:var(--mono);font-size:.54rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--dim);margin-bottom:4px}
+.ff-v{font-size:.8rem;color:var(--text)}
+.src{font-size:.78rem;color:var(--muted);word-break:break-word}
+.src a{color:var(--blue);text-decoration:none}
+.src a:hover{text-decoration:underline}
+
+/* Karten-Raster */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{border:1px solid var(--line);border-radius:15px;background:var(--card);padding:24px;transition:border-color .3s,box-shadow .3s,transform .3s}
+.card:hover{border-color:rgba(250,239,112,.3);box-shadow:0 8px 40px rgba(0,0,0,.4);transform:translateY(-2px)}
+.card h3{margin-bottom:10px}
+.card p{font-size:.9rem;color:var(--muted)}
+.ct-row{display:flex;gap:6px;margin-bottom:12px}
+.ct{font-family:var(--mono);font-size:.58rem;font-weight:800;width:23px;height:23px;display:grid;place-items:center;border-radius:6px;border:1px solid}
+.q-rhy{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--brand);margin-top:11px}
+
+/* Grenzen */
+.warn{border:1px solid rgba(250,112,112,.22);border-radius:15px;padding:24px;background:rgba(250,112,112,.03)}
+.warn h3{color:var(--red);margin-bottom:12px}
+.warn ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.warn li{font-size:.88rem;color:var(--muted);padding-left:20px;position:relative}
+.warn li::before{content:'!';position:absolute;left:0;color:var(--red);font-family:var(--mono);font-weight:800;font-size:.8rem}
+
+/* Leitthesen und Meta-Trends */
+.hz-wrap{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:26px 26px 18px;overflow-x:auto;margin-bottom:22px}
+.thesen{display:flex;flex-direction:column;gap:11px}
+.th{border:1px solid var(--line);border-left:3px solid;border-radius:13px;background:var(--card);overflow:hidden;transition:border-color .3s,box-shadow .3s,transform .3s}
+.th:hover{box-shadow:0 8px 40px rgba(0,0,0,.4);transform:translateY(-2px)}
+.th-head{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:16px 20px;cursor:pointer}
+.th-lead{display:grid;grid-template-columns:62px 1fr;gap:16px;align-items:center}
+.th-jahr{font-family:var(--mono);font-weight:800;font-size:.95rem;text-align:center;padding:8px 0;border-radius:8px;border:1px solid;background:rgba(255,255,255,.02)}
+.th-t{font-family:var(--mono);font-weight:700;font-size:.95rem;line-height:1.4}
+.th-f{font-size:.8rem;color:var(--muted);margin-top:4px}
+.th-body{display:none;padding:0 20px 22px;border-top:1px solid var(--line)}
+.th.auf .th-body{display:block;padding-top:18px}
+.th.auf .caret{transform:rotate(90deg)}
+.gegen{border:1px solid rgba(250,112,112,.2);border-radius:11px;padding:14px 16px;background:rgba(250,112,112,.03)}
+.gegen .row-l{color:var(--red)}
+svg .hzlabel{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;fill:var(--muted)}
+svg .hzsub{font-family:'JetBrains Mono',monospace;font-size:8.5px;fill:var(--dim)}
+
+.mt-felder{display:flex;flex-direction:column;gap:16px}
+.mt-felder .fb{margin-bottom:0}
+.mt-leit{font-size:.9rem;color:var(--text);padding:16px 22px 18px;border-bottom:1px solid var(--line);background:rgba(250,239,112,.03)}
+.fb.zu .mt-leit,.fb.zu .mt-cl{display:none}
+.mt-cl{padding:16px 22px 4px}
+.mt-cn{font-family:var(--mono);font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:1.3px;color:var(--brand);margin-bottom:10px}
+.mt-tr{padding:9px 0 11px 16px;position:relative;font-size:.84rem;color:var(--muted);line-height:1.55;border-bottom:1px solid rgba(255,255,255,.035)}
+.mt-cl > .mt-tr:last-child{border-bottom:none;margin-bottom:12px}
+.mt-tr::before{content:'';position:absolute;left:0;top:17px;width:4px;height:4px;border-radius:50%;background:var(--brand);opacity:.6}
+.mt-tr b{color:var(--text);font-weight:600;font-family:var(--mono);font-size:.82rem}
+
+/* Agent Workspace */
+.ws-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:20px}
+.ws-count{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+.ws-fb{display:flex;flex-direction:column}
+.ws-fhead{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:center;padding:20px 22px 16px;border-bottom:1px solid var(--line)}
+.ws-list{list-style:none;padding:6px 22px 4px;flex:1}
+.ws-li{border-bottom:1px solid rgba(255,255,255,.04)}
+.ws-li:last-child{border-bottom:none}
+.ws-item{display:grid;grid-template-columns:1fr 24px;gap:12px;align-items:start;padding:11px 0 11px 18px;position:relative}
+.ws-item::before{content:'';position:absolute;left:2px;top:18px;width:5px;height:5px;border-radius:50%;background:var(--brand);opacity:.65}
+.ws-k{font-size:.86rem;line-height:1.5}
+.ws-q{font-family:var(--mono);font-size:.64rem;color:var(--dim);margin-top:4px;letter-spacing:.3px}
+.ws-btn{width:24px;height:24px;border-radius:7px;border:1px solid var(--line-2);background:transparent;color:var(--dim);font-family:var(--mono);font-size:.9rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:border-color .25s,color .25s;padding:0}
+.ws-btn:hover{border-color:var(--red);color:var(--red)}
+.ws-leer{font-size:.85rem;color:var(--dim);padding:14px 0 14px 18px}
+.ws-foot{padding:8px 22px 20px;border-top:1px solid var(--line);margin-top:auto}
+.ws-plus{font-family:var(--mono);font-size:.72rem;font-weight:700;padding:9px 15px;border-radius:9px;border:1px solid var(--line-2);background:transparent;color:var(--muted);cursor:pointer;transition:border-color .25s,color .25s;margin-top:12px}
+.ws-plus:hover{border-color:rgba(250,239,112,.4);color:var(--brand)}
+.ws-plabel{font-family:var(--mono);font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:1.3px;color:var(--brand);margin:20px 0 9px}
+.ws-plabel:first-child{margin-top:0}
+.ws-hinweis{font-size:.8rem;color:var(--dim)}
+.ws-in{width:100%;padding:10px 12px;border-radius:9px;border:1px solid var(--line-2);background:var(--sunken);color:var(--text);font-family:var(--sans);font-size:.85rem;outline:none;margin-bottom:8px;resize:vertical;transition:border-color .25s}
+.ws-in:focus{border-color:rgba(250,239,112,.4)}
+.ws-save{width:100%;font-family:var(--mono);font-size:.74rem;font-weight:700;padding:11px 15px;border-radius:9px;border:1px solid rgba(250,239,112,.4);background:rgba(250,239,112,.07);color:var(--brand);cursor:pointer}
+
+/* Seitenpanel zum Hinzufügen */
+.dr-back{position:fixed;inset:0;background:rgba(0,0,0,.74);z-index:300;opacity:0;pointer-events:none;transition:opacity .3s}
+.dr-back.auf{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(470px,94vw);background:var(--card);border-left:1px solid var(--line-2);z-index:301;transform:translateX(102%);transition:transform .35s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column}
+.drawer.auf{transform:none}
+.dr-head{display:grid;grid-template-columns:1fr 36px;gap:14px;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.dr-t{font-family:var(--mono);font-weight:700;font-size:1rem}
+.dr-s{font-size:.8rem;color:var(--muted);margin-top:3px}
+.dr-x{width:36px;height:36px;border-radius:9px;border:1px solid var(--line-2);background:transparent;color:var(--muted);font-family:var(--mono);font-size:1.05rem;cursor:pointer;display:grid;place-items:center;padding:0;transition:border-color .25s,color .25s}
+.dr-x:hover{border-color:var(--red);color:var(--red)}
+.dr-body{overflow-y:auto;padding:20px 22px 24px;flex:1}
+.dr-foot{padding:14px 22px;border-top:1px solid var(--line)}
+.dr-fertig{width:100%;font-family:var(--mono);font-size:.74rem;font-weight:700;padding:11px 15px;border-radius:9px;border:1px solid var(--line-2);background:transparent;color:var(--text);cursor:pointer;transition:border-color .25s,color .25s}
+.dr-fertig:hover{border-color:rgba(250,239,112,.4);color:var(--brand)}
+.vor{display:grid;grid-template-columns:1fr 26px;gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.045);cursor:pointer}
+.vor:last-child{border-bottom:none}
+.vor-k{font-size:.85rem;line-height:1.45;transition:color .25s}
+.vor:hover .vor-k{color:var(--brand)}
+.vor-q{font-family:var(--mono);font-size:.62rem;color:var(--dim);margin-top:5px;letter-spacing:.3px}
+.vor-p{width:24px;height:24px;border-radius:7px;border:1px solid var(--line-2);color:var(--dim);font-family:var(--mono);font-size:.85rem;display:grid;place-items:center;transition:border-color .25s,color .25s}
+.vor:hover .vor-p{border-color:rgba(250,239,112,.45);color:var(--brand)}
+.vor.drin{opacity:.38;cursor:default}
+.vor.drin:hover .vor-k{color:var(--text)}
+.vor.drin:hover .vor-p{border-color:var(--line-2);color:var(--dim)}
+
+.site-footer{border-top:1px solid var(--line);padding:28px 26px;text-align:center;font-family:var(--mono);font-size:.7rem;color:var(--dim)}
+
+@media(max-width:1024px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:none}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .fl:nth-child(2){border-right:none}
+  .grid2{grid-template-columns:1fr}
+  .sig-foot{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  section{padding:52px 0}
+  .stats,.flow{grid-template-columns:1fr}
+  .stat,.fl{border-right:none;border-bottom:1px solid var(--line)}
+  .stat:last-child,.fl:last-child{border-bottom:none}
+  /* Zeilenraster abschalten, sonst ueberlappen die Boxen einspaltig */
+  .matrix4{grid-template-columns:1fr;grid-auto-rows:auto;grid-auto-flow:row}
+  .mx-legend{grid-template-columns:repeat(2,1fr)}
+  .ws-actions{display:grid;grid-template-columns:1fr}
+  .sig-head{grid-template-columns:1fr;row-gap:12px}
+  .sig-lead{grid-template-columns:52px 1fr;gap:12px}
+  .card:hover,.sig:hover,.pr:hover,.fb:hover,.abtn:hover{transform:none}
+}
+@media(max-width:540px){ .wrap{padding:0 14px} }
+</style>
+<style>
+/* Mikro-spezifisch */
+.saeulen{display:flex;flex-direction:column;gap:16px}
+.sa{border:1px solid var(--line);border-radius:16px;background:var(--card);overflow:hidden;transition:border-color .3s}
+.sa:hover{border-color:rgba(250,239,112,.24)}
+body.hell .sa:hover{border-color:rgba(122,108,0,.3)}
+.sa-head{display:flex;flex-direction:column;gap:12px;padding:20px 24px 16px;border-bottom:1px solid var(--line);cursor:pointer;position:relative;transition:background .3s}
+.sa-head:hover{background:rgba(250,239,112,.03)}
+body.hell .sa-head:hover{background:rgba(122,108,0,.035)}
+.sa-caret{position:absolute;right:22px;top:26px;font-family:var(--mono);color:var(--dim);font-size:.8rem;transition:transform .3s}
+.sa.zu .sa-caret{transform:rotate(-90deg)}
+.sa.zu .sa-body{display:none}
+.sa.zu .sa-head{border-bottom:none}
+.sa-id{display:grid;grid-template-columns:38px 1fr;gap:14px;align-items:center;padding-right:28px}
+.sa-num{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-family:var(--mono);font-weight:800;font-size:.95rem;border:1px solid;background:rgba(255,255,255,.02)}
+body.hell .sa-num{background:rgba(0,0,0,.02)}
+.sa-name{font-family:var(--mono);font-weight:700;font-size:1.02rem}
+.sa-sub{font-size:.82rem;color:var(--muted);margin-top:2px}
+.sa-body{padding:18px 24px 22px}
+
+/* Trichter der Abgrenzung */
+.trichter{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:6px}
+.tr-st{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:rgba(255,255,255,.012);transition:border-color .3s}
+body.hell .tr-st{background:rgba(0,0,0,.015)}
+.tr-st:hover{border-color:rgba(250,239,112,.3)}
+body.hell .tr-st:hover{border-color:rgba(122,108,0,.35)}
+.tr-l{font-family:var(--mono);font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:1.3px;color:var(--brand);margin-bottom:7px}
+.tr-t{font-size:.85rem;line-height:1.55;color:var(--muted)}
+.tr-t b{color:var(--text);font-weight:600}
+
+/* Marktgroesse als geschachtelte Balken */
+.mg{display:flex;flex-direction:column;gap:9px;margin:4px 0 16px}
+.mg-z{display:grid;grid-template-columns:158px 1fr minmax(190px,230px);gap:14px;align-items:center}
+.mg-l{font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.4px;color:var(--muted);text-align:right}
+.mg-bar{height:26px;border-radius:7px;position:relative;background:rgba(255,255,255,.03);overflow:hidden}
+body.hell .mg-bar{background:rgba(0,0,0,.04)}
+.mg-fill{height:100%;border-radius:7px;transition:width .6s cubic-bezier(.16,1,.3,1)}
+.mg-w{font-family:var(--mono);font-size:.7rem;font-weight:700;color:var(--text);line-height:1.5}
+.quoten{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+.qt-k{border:1px solid var(--line);border-radius:12px;padding:15px 17px;background:rgba(255,255,255,.012);transition:border-color .3s}
+body.hell .qt-k{background:rgba(0,0,0,.015)}
+.qt-k:hover{border-color:rgba(250,239,112,.3)}
+body.hell .qt-k:hover{border-color:rgba(122,108,0,.35)}
+.qt-n{font-family:var(--mono);font-weight:800;font-size:1.5rem;background:linear-gradient(160deg,var(--stat-top) 10%,var(--brand) 90%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.qt-l{font-family:var(--mono);font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--dim);margin-top:5px}
+.qt-b{font-size:.8rem;color:var(--muted);margin-top:7px;line-height:1.5}
+
+/* Segmente */
+.segbar{display:flex;height:30px;border-radius:8px;overflow:hidden;border:1px solid var(--line);margin:4px 0 10px}
+.segbar i{display:block;height:100%;position:relative}
+.seg-leg{display:flex;flex-wrap:wrap;gap:14px}
+.seg-l{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted)}
+.seg-l i{width:10px;height:10px;border-radius:3px;display:block}
+.form-b{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:6px 13px;border-radius:100px;border:1px solid}
+
+/* Wettbewerber */
+.wb{border:1px solid var(--line);border-left:3px solid;border-radius:13px;background:var(--card);overflow:hidden;margin-bottom:10px;transition:box-shadow .3s,transform .3s}
+.wb:hover{box-shadow:0 8px 40px rgba(0,0,0,.4);transform:translateY(-2px)}
+body.hell .wb:hover{box-shadow:0 6px 26px rgba(0,0,0,.09)}
+.wb-head{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:15px 19px;cursor:pointer}
+.wb-n{font-family:var(--mono);font-weight:700;font-size:.94rem}
+.wb-s{font-size:.8rem;color:var(--muted);margin-top:3px}
+.wb-body{display:none;padding:0 19px 20px;border-top:1px solid var(--line)}
+.wb.auf .wb-body{display:block;padding-top:16px}
+.wb.auf .caret{transform:rotate(90deg)}
+.bed{font-family:var(--mono);font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:1.1px;padding:5px 11px;border-radius:100px;border:1px solid;white-space:nowrap}
+
+/* Nulloption */
+.null-k{border:1px solid rgba(250,112,112,.22);border-radius:14px;padding:20px 22px;background:rgba(250,112,112,.03);margin-top:14px}
+body.hell .null-k{background:rgba(250,112,112,.05);border-color:rgba(200,60,60,.26)}
+.null-k h4{font-family:var(--mono);font-weight:700;font-size:.9rem;color:var(--red);margin-bottom:11px}
+.null-g{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.null-g li{font-size:.87rem;color:var(--muted);padding-left:18px;position:relative}
+.null-g li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--red);opacity:.7}
+
+/* Tabellen */
+.tab{width:100%;border-collapse:collapse;font-size:.85rem}
+.tab th{font-family:var(--mono);font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--brand);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+.tab td{padding:11px 12px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--muted);vertical-align:top}
+body.hell .tab td{border-bottom-color:rgba(0,0,0,.06)}
+.tab tr:last-child td{border-bottom:none}
+.tab tr{transition:background .25s}
+.tab tbody tr:hover{background:rgba(250,239,112,.03)}
+body.hell .tab tbody tr:hover{background:rgba(122,108,0,.04)}
+.tab td:first-child{color:var(--text);font-weight:500}
+.tab-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:4px 6px}
+
+@media(max-width:1024px){ .trichter{grid-template-columns:repeat(2,1fr)} .quoten{grid-template-columns:1fr} }
+@media(max-width:768px){
+  .trichter{grid-template-columns:1fr}
+  .mg-z{grid-template-columns:1fr;gap:5px}
+  .mg-l{text-align:left}
+  .wb-head{grid-template-columns:1fr;row-gap:11px}
+  .wb:hover,.sa:hover{transform:none}
+}
+</style>
+<style>
+/* ---------- Emotions-Check: Score, Leiter, Zitate ---------- */
+.scorebox{
+  display:grid;grid-template-columns:230px 1fr;gap:28px;align-items:center;
+  background:rgba(250,239,112,.05);border:1px solid rgba(250,239,112,.2);
+  border-radius:16px;padding:26px 30px;margin-top:26px;transition:all .3s ease;
+}
+.scorebox:hover{border-color:rgba(250,239,112,.42);box-shadow:0 8px 30px rgba(0,0,0,.42),0 0 24px rgba(250,239,112,.08);transform:translateY(-2px)}
+body.hell .scorebox{background:rgba(122,108,0,.05);border-color:rgba(122,108,0,.25)}
+body.hell .scorebox:hover{border-color:rgba(122,108,0,.45);box-shadow:0 6px 26px rgba(0,0,0,.09)}
+.sc-n{font-family:var(--mono);font-size:4.2rem;font-weight:800;color:var(--brand);line-height:1}
+.sc-max{font-family:var(--mono);font-size:.86rem;color:var(--muted);margin-top:2px}
+.sc-t{font-family:var(--mono);font-size:1.35rem;font-weight:800;color:var(--brand);line-height:1.25;margin-bottom:7px}
+.sc-b{font-size:.94rem;color:var(--muted);line-height:1.65}
+.sc-gauge{height:12px;border-radius:50px;background:rgba(136,136,160,.14);overflow:hidden;margin-top:14px}
+body.hell .sc-gauge{background:rgba(0,0,0,.08)}
+.sc-gauge i{display:block;height:100%;border-radius:50px;background:var(--brand);box-shadow:0 0 14px rgba(250,239,112,.45)}
+body.hell .sc-gauge i{box-shadow:none}
+.leiter{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.lt{
+  display:grid;grid-template-columns:38px 150px 1fr;gap:16px;align-items:center;
+  border:1px solid var(--line);border-radius:12px;padding:13px 16px;background:var(--card);
+  transition:border-color .3s,box-shadow .3s,transform .3s;
+}
+.lt:hover{border-color:rgba(250,239,112,.35);box-shadow:0 6px 26px rgba(0,0,0,.4);transform:translateY(-2px)}
+body.hell .lt:hover{box-shadow:0 6px 26px rgba(0,0,0,.09)}
+.lt.hier{border-color:var(--hot-stroke);background:var(--hot-fill)}
+.lt-n{font-family:var(--mono);font-weight:800;font-size:.95rem;text-align:center;padding:6px 0;
+  border-radius:8px;border:1px solid var(--line-2);color:var(--dim)}
+.lt.hier .lt-n{border-color:var(--brand);color:var(--brand)}
+.lt-t{font-family:var(--mono);font-weight:700;font-size:.9rem}
+.lt.hier .lt-t{color:var(--brand)}
+.lt-b{font-size:.86rem;color:var(--muted);line-height:1.6}
+.zit{
+  border-left:3px solid var(--line-2);padding:10px 0 10px 15px;margin:10px 0;
+  font-size:.94rem;line-height:1.66;color:var(--text);
+}
+.zit i{display:block;font-family:var(--mono);font-size:.72rem;color:var(--dim);
+  font-style:normal;letter-spacing:.4px;margin-top:7px}
+.zit.gut{border-left-color:var(--f-e)}
+.zit.schwach{border-left-color:var(--q-b)}
+.besser{
+  margin-top:11px;padding:13px 16px;border:1px solid var(--f-e-a);border-radius:12px;
+  background:rgba(112,250,160,.05);font-size:.92rem;line-height:1.65;color:var(--text);
+}
+body.hell .besser{background:rgba(13,122,69,.05)}
+.besser b{font-family:var(--mono);font-size:.72rem;letter-spacing:.9px;text-transform:uppercase;
+  color:var(--f-e);display:block;margin-bottom:6px}
+.faktor{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.fk{border:1px solid var(--line);border-radius:13px;padding:18px 20px;background:var(--card);
+  transition:border-color .3s,box-shadow .3s,transform .3s}
+.fk:hover{border-color:rgba(250,239,112,.35);box-shadow:0 6px 26px rgba(0,0,0,.4);transform:translateY(-2px)}
+body.hell .fk:hover{box-shadow:0 6px 26px rgba(0,0,0,.09)}
+.fk-l{font-family:var(--mono);font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.fk-n{font-family:var(--mono);font-size:2rem;font-weight:800;color:var(--brand);line-height:1.1;margin:6px 0 4px}
+.fk-n s{font-size:.9rem;color:var(--dim);font-weight:400;margin-left:6px}
+.fk-b{font-size:.88rem;color:var(--muted);line-height:1.6}
+.rechnung{font-family:var(--mono);font-size:.9rem;color:var(--text);text-align:center;
+  padding:15px;border:1px solid var(--line);border-radius:12px;background:var(--sunken);margin-bottom:18px}
+.rechnung b{color:var(--brand)}
+.hinweis{font-family:var(--mono);font-size:.82rem;color:var(--q-b);line-height:1.6;
+  margin-top:14px;padding:12px 16px;border:1px solid var(--q-b-a);border-radius:12px;background:var(--q-b-w)}
+/* Barometer je Kaufemotion. Der helle Rest hinter dem Balken ist das, was bei
+   diesem Antrieb noch zu holen waere, und genau davon handelt das Potential. */
+.baro{display:grid;grid-template-columns:150px 1fr 56px;gap:14px;align-items:center;width:100%}
+.baro-n{font-family:var(--mono);font-weight:700;font-size:.9rem;color:var(--text)}
+.baro-bar{height:14px;border-radius:50px;background:rgba(136,136,160,.14);overflow:hidden;position:relative}
+body.hell .baro-bar{background:rgba(0,0,0,.08)}
+.baro-bar i{display:block;height:100%;border-radius:50px;transition:width .4s ease}
+.baro-w{font-family:var(--mono);font-weight:800;font-size:1.02rem;text-align:right}
+.pot{margin-top:14px;padding:14px 17px;border:1px solid var(--q-a-a);border-radius:12px;
+  background:var(--q-a-w);font-size:.92rem;line-height:1.65;color:var(--text)}
+.pot b{font-family:var(--mono);font-size:.72rem;letter-spacing:.9px;text-transform:uppercase;
+  color:var(--q-a);display:block;margin-bottom:6px}
+@media(max-width:700px){
+  .baro{grid-template-columns:1fr 56px;row-gap:8px}
+  .baro-bar{grid-column:1 / -1;order:3}
+}
+/* Der auto-Track eines Grids bemisst ein Flex-Kind ohne dessen gap und ohne die
+   Aussenabstaende seiner Kinder. Die rechte Spalte einer Kartenueberschrift wird
+   dadurch zu schmal und der Pfeil faellt aus dem Kasten. Der Abstand liegt
+   deshalb als Innenabstand im Pfeil: Padding zaehlt bei der Breite immer mit. */
+.th-head,.wb-head{grid-template-columns:minmax(0,1fr) auto}
+.sig-right{flex-shrink:0;gap:0}
+.sig-right .caret{padding-left:11px;box-sizing:content-box}
+.sig-right .bed{flex-shrink:0}
+.mass{display:flex;flex-direction:column;gap:11px}
+@media(max-width:900px){
+  .scorebox{grid-template-columns:1fr}
+  .lt{grid-template-columns:38px 1fr;row-gap:8px}
+  .lt-b{grid-column:1 / -1}
+  .faktor{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .scorebox:hover,.lt:hover,.fk:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="tb-in">
+    <div class="tb-l"><span class="tb-mark"></span>kilernen.de</div>
+    <div class="tb-rechts">
+      <button class="tb-modus" id="btnModus" type="button" title="Zwischen hell und dunkel wechseln" aria-label="Farbmodus wechseln"></button>
+      <div class="tb-badge">Kursinterner Inhalt</div>
+    </div>
+  </div>
+</div>
+
+<nav class="rail" id="rail" aria-label="Abschnitte"></nav>
+
+<div class="wrap">
+
+<section class="fade" id="start">
+  <div class="eyebrow"><span class="dot"></span>Quick Win, Kaufpsychologie</div>
+  <h1><span class="gradient-text">Emotions-Check</span>:<br>wie der Text zum Kaufmotiv steht</h1>
+  <p class="lead">Menschen kaufen kein Produkt, sondern das Gefühl danach. Dieser Check prüft die Werbetexte einer Website gegen die vier Dinge, die laut Kaufpsychologie zu einer Entscheidung führen: auf welcher Stufe der Text steht, welchen Antrieb er bedient, ob Vertrauen und Problembewusstsein zusammenkommen, und welche Kaufbremsen er stehen lässt. Bewertet wird ausschließlich, was auf der Seite sichtbar ist, denn ein echter Interessent sieht auch nichts anderes.</p>
+  <div class="actions">
+    <button class="abtn primary" id="btnPdf" type="button">Check als PDF</button>
+    <button class="abtn" id="btnMd" type="button">Check als Markdown</button>
+    <button class="abtn" id="btnCopy" type="button">Inhalt kopieren</button>
+  </div>
+  <div class="scorebox">
+    <div><div class="sc-n" id="scN" data-guard="off"></div><div class="sc-max" data-guard="off">von 100 Punkten</div></div>
+    <div><div class="sc-t" id="scT" data-guard="off"></div><div class="sc-b" id="scB" data-guard="2"></div>
+      <div class="sc-gauge"><i id="scG"></i></div></div>
+  </div>
+  <div class="stats" id="stats"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="dimensionen">
+  <div class="eyebrow"><span class="dot"></span>Das Ergebnis in vier Teilen</div>
+  <h2>Woraus sich der Score zusammensetzt</h2>
+  <p class="lead">Vier Dimensionen, zusammen hundert Punkte. Jede stammt aus einer eigenen Lektion der Kaufpsychologie, und keine ersetzt eine andere. Der niedrigste Wert zeigt, wo die Arbeit am meisten bringt.</p>
+  <div class="mg" id="dims"></div>
+  <div class="saeulen" id="dimtext" style="margin-top:22px"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="leiter">
+  <div class="eyebrow"><span class="dot"></span>Dimension 1</div>
+  <h2>Auf welcher Stufe der Text steht</h2>
+  <p class="lead">Vom Produkt zum Gefühl führt eine Kette aus fünf Stufen: die Eigenschaften, die Funktion, das Ergebnis, der Zustand danach und das Gefühl dahinter. Die meisten Werbetexte bleiben auf den ersten beiden stehen. Gewichtet wird nach Sichtbarkeit, denn ein Gefühlssatz im Fußbereich hebt einen Produkttext nicht nach oben.</p>
+  <div class="leiter" id="leiterstufen"></div>
+  <div id="leiterbloecke"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="antrieb">
+  <div class="eyebrow"><span class="dot"></span>Dimension 2</div>
+  <h2>Welcher Antrieb bedient wird</h2>
+  <p class="lead">Fast jede Kaufentscheidung zahlt auf einen von drei Antrieben ein: Zugehörigkeit, Status oder Seelenfrieden. Jeder bekommt einen eigenen Wert von 0 bis 100, denn ein Text muss nicht alle drei bedienen, er muss einen davon treffen. Aufklappen zeigt die Zitate, auf denen der Wert beruht, und darunter das Potential: was diesen Antrieb heben würde, hergeleitet aus der Zielgruppe, die sich aus der Seite erschließen lässt.</p>
+  <div id="antriebe"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="formel">
+  <div class="eyebrow"><span class="dot"></span>Dimension 3</div>
+  <h2>Beziehung und Problembewusstsein</h2>
+  <p class="lead">Vertrauen mal Problembewusstsein ergibt die Kaufentscheidung, und das Malzeichen ist der Kern: Zwei Faktoren, die multipliziert werden, können sich nicht gegenseitig retten. Steht einer auf null, ist das Ergebnis null, egal wie stark der andere ist.</p>
+  <div class="faktor" id="faktoren"></div>
+  <div class="rechnung" id="rechnung" data-guard="off"></div>
+  <div id="formeltext"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="bremsen">
+  <div class="eyebrow"><span class="dot"></span>Dimension 4</div>
+  <h2>Welche Kaufbremsen stehen bleiben</h2>
+  <p class="lead">Die meisten Käufe scheitern nicht am Angebot, sondern an etwas, das dagegen steht und selten ausgesprochen wird. Sechs Bremsen kommen dafür infrage. Geprüft wird nicht, ob das Thema vorkommt, sondern ob der Text das tut, was gegen diese Bremse hilft.</p>
+  <div class="tab-wrap"><table class="tab" id="bremstab"></table></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="saetze">
+  <div class="eyebrow"><span class="dot"></span>Am konkreten Satz</div>
+  <h2>Was trägt und was umgeschrieben gehört</h2>
+  <p class="lead">Der praktisch nutzbarste Teil des Checks. Zu jedem schwachen Satz steht eine Umformulierung, die so auf der Seite stehen könnte. Sie verspricht nichts, was die Seite nicht ohnehin belegt.</p>
+  <div class="grid2" id="saetzelisten"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="massnahmen">
+  <div class="eyebrow"><span class="dot"></span>Was zuerst</div>
+  <h2>Drei Schritte in dieser Reihenfolge</h2>
+  <p class="lead">Genau drei, sortiert nach Wirkung je Aufwand. Wer aus jeder Dimension eine Maßnahme ableitet, bekommt am Ende keine.</p>
+  <div class="mass" id="massn"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="basis">
+  <div class="eyebrow"><span class="dot"></span>Grundlage</div>
+  <h2>Geprüfte Seiten und erschlossene Zielgruppe</h2>
+  <p class="lead">Der Check liest nur, was öffentlich auf der Seite steht, und leitet die Zielgruppe allein daraus ab. Das ist Absicht: Was der Text nicht sagt, weiß der Interessent nicht. Eine Lücke hier ist deshalb ein Befund über die Seite und kein fehlender Input.</p>
+  <div class="tab-wrap"><table class="tab" id="seitentab"></table></div>
+  <div class="saeulen" id="zielg" style="margin-top:22px"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="fade" id="grenzen">
+  <div class="eyebrow"><span class="dot"></span>Konfidenz und Grenzen</div>
+  <h2>Was dieser Check nicht zeigt</h2>
+  <p class="lead">Der Check misst den Text, nicht die Wirkung. Ob eine Seite verkauft, zeigt nur eine Messung am Markt. Was er beantwortet, ist die Frage davor: ob der Text überhaupt die Dinge tut, die zu einer Kaufentscheidung führen.</p>
+  <div class="warn" id="warn"></div>
+</section>
+
+</div>
+
+<div class="site-footer">&copy; AI-Boutique. Alle Rechte vorbehalten.</div>
+
+
+<script>
+const D = {
+ "stand": "2026-10-08",
+ "url": "https://www.ai-boutique.de",
+ "firma": "AI-Boutique",
+ "firma_kurz": "AI-Boutique",
+ "slug": "ai-boutique",
+ "footer": "AI-Boutique",
+ "score": 41,
+ "kennzahlen": [
+  {
+   "n": "41",
+   "l": "von 100 Punkten"
+  },
+  {
+   "n": "2",
+   "l": "geprüfte Seiten"
+  },
+  {
+   "n": "32",
+   "l": "ausgewertete Zitate"
+  },
+  {
+   "n": "3",
+   "l": "unbearbeitete Bremsen"
+  }
+ ],
+ "seiten": [
+  {
+   "u": "https://www.ai-boutique.de/",
+   "t": "Startseite",
+   "d": "2026-10-08",
+   "g": "hoch",
+   "b": "Hero, acht Leistungen, Rechenbeispiel, Vorgehen, KI-Potential-Check, Über mich und Schlussaufruf. Hier entscheidet sich, ob ein Besucher weiterliest."
+  },
+  {
+   "u": "https://www.ai-boutique.de/kontakt",
+   "t": "Kontakt",
+   "d": "2026-10-08",
+   "g": "mittel",
+   "b": "Der Weg nach dem Klick auf Erstgespräch anfragen. Steht für die Reibung bis zum Kontakt."
+  }
+ ],
+ "zielgruppe": {
+  "wer": "Marketingteams und Agenturen, vermutlich in kleinen und mittleren Unternehmen mit mehreren Personen im Marketing.",
+  "woran": "Die Einleitung nennt die Gruppe direkt: „Ich entwickle KI-Lösungen für Aufgaben, die Marketingteams und Agenturen unnötig Zeit kosten“. Das Rechenbeispiel rechnet mit „Fünf Personen“, der Schlussaufruf wiederholt „Marketingteams und Agenturen“.",
+  "sicherheit": "mittel",
+  "luecke": "Die Seite sagt nicht, wie groß die Unternehmen sind, welche Rolle den Text liest (Marketingleitung, Geschäftsführung, Agenturinhaber) und was diese Person im Alltag konkret belastet. Bei den Leistungen Voice Bots, Corporate LLM und RAG Systeme ist offen, ob dieselbe Person angesprochen wird wie im Hero. Die Branchenauswahl im Potential-Check lässt zudem offen, ob auch Unternehmen außerhalb von Marketing gemeint sind."
+ },
+ "dimensionen": [
+  {
+   "id": "leiter",
+   "name": "Leiterstufe",
+   "max": 30,
+   "punkte": 14,
+   "f": "S",
+   "kurz": "Der Text steht im gewichteten Schnitt knapp auf Stufe 3, dem Ergebnis.",
+   "b": "Die Hauptüberschrift beschreibt einen Zustand ohne Wiederholungsarbeit, bleibt aber bei der Automatisierung als Ergebnis stehen. Die Einleitung und die meisten Leistungsblöcke beschreiben, was die Lösung tut. Nur die Schulung und der Potential-Check kommen bis zum Alltag danach. Ein Gefühl wird auf der Seite nirgends ausgesprochen.",
+   "bloecke": [
+    {
+     "ort": "Hauptüberschrift",
+     "seite": "Startseite",
+     "zitat": "Was Ihr Team täglich wiederholt, läuft ab morgen automatisch.",
+     "stufe": 3,
+     "gewicht": "hoch",
+     "b": "Nennt das Ergebnis (die Aufgabe läuft von selbst) und deutet den Zustand an, stellt aber nicht dar, wie der Alltag danach aussieht oder wie sich das anfühlt."
+    },
+    {
+     "ort": "Unterzeile",
+     "seite": "Startseite",
+     "zitat": "Ich entwickle KI-Lösungen für Aufgaben, die Marketingteams und Agenturen unnötig Zeit kosten: von der Wettbewerbsanalyse bis zum fertigen Funnel.",
+     "stufe": 2,
+     "gewicht": "hoch",
+     "b": "Beschreibt, was der Anbieter tut (entwickeln) und für welche Aufgaben. Das Ergebnis beim Kunden bleibt offen."
+    },
+    {
+     "ort": "Angebotsblock Voice Bots",
+     "seite": "Startseite",
+     "zitat": "Es nimmt ab, qualifiziert, informiert und bucht",
+     "stufe": 2,
+     "gewicht": "mittel",
+     "b": "Funktion als Vorgang. Der Satz davor („Anrufe kommen, wenn gerade niemand abheben kann.“) benennt ein Problem, danach folgt die Leistung."
+    },
+    {
+     "ort": "Angebotsblock Workflows",
+     "seite": "Startseite",
+     "zitat": "Ein Workflow erledigt diese Schritte, Ihr Team prüft nur noch das Ergebnis.",
+     "stufe": 3,
+     "gewicht": "mittel",
+     "b": "Zeigt, was beim Team ankommt: Prüfen statt Erledigen. Das ist ein Ergebnis, noch kein Zustand."
+    },
+    {
+     "ort": "Angebotsblock AI-Schulung",
+     "seite": "Startseite",
+     "zitat": "Nach der Schulung arbeitet Ihr Team mit klaren Regeln, und Sie können jede Frage dazu beantworten.",
+     "stufe": 4,
+     "gewicht": "mittel",
+     "b": "Der einzige Satz, der den Zustand danach beschreibt. Er steht in der achten und letzten Leistungskachel."
+    },
+    {
+     "ort": "Handlungsaufforderung",
+     "seite": "Startseite",
+     "zitat": "Erstes Gespräch. 30 Minuten. Kostenlos. Direkt mit Sven.",
+     "stufe": 1,
+     "gewicht": "niedrig",
+     "b": "Umfang und Konditionen des Angebots. Nichts darüber, was das Gespräch klärt oder was danach anders ist."
+    }
+   ]
+  },
+  {
+   "id": "antrieb",
+   "name": "Antrieb",
+   "max": 25,
+   "punkte": 14,
+   "f": "T",
+   "kurz": "Seelenfrieden ist der stärkste Antrieb, Status und Zugehörigkeit kommen nur angedeutet vor.",
+   "b": "Die Seite stellt Kontrolle her: Freigabe bleibt beim Team, die Daten bleiben auf eigenen Servern, die Marke bleibt erhalten. Das passt zu einem Leser, der Verantwortung für Marke und Datenschutz trägt. Der Antrieb wird überwiegend als Eigenschaft der Lösung formuliert und seltener als erlebte Wirkung.",
+   "antriebe": [
+    {
+     "name": "Zugehörigkeit",
+     "wert": 20,
+     "b": "Zugehörigkeit entsteht höchstens über die persönliche Ansprache des Gründers. Eine Gruppe, zu der der Leser gehören würde, wird nicht benannt.",
+     "belege": [
+      {
+       "zitat": "Dafür sorge ich persönlich, mit über 20 Jahren Marketing- und fünf Jahren KI-Erfahrung.",
+       "seite": "Startseite",
+       "wirkt": "teilweise",
+       "b": "Persönliche Zusage, aber an eine Person gebunden und nicht an eine Gemeinschaft von Kunden."
+      },
+      {
+       "zitat": "Klingt kompliziert? Ich mach's einfach.",
+       "seite": "Startseite",
+       "wirkt": "nein",
+       "b": "Nimmt dem Leser eine Sorge, stellt aber keine Nähe zu einer Gruppe her."
+      }
+     ],
+     "potential": "Für Marketingteams und Agenturen läge der Hebel in der Branchenzugehörigkeit: ein Satz, der zeigt, dass andere Teams in derselben Lage bereits so arbeiten. Das setzt einen Beleg voraus, den die Seite derzeit nicht trägt.",
+     "hebel": "mittel"
+    },
+    {
+     "name": "Status",
+     "wert": 25,
+     "b": "Status taucht als Souveränität nach innen auf: Das Team soll sicher mit KI umgehen und die Fragen dazu beantworten können. Sonst wird er nicht bedient.",
+     "belege": [
+      {
+       "zitat": "Machen Sie Ihr Team fit für KI.",
+       "seite": "Startseite",
+       "wirkt": "teilweise",
+       "b": "Kompetenzgewinn als Aufforderung, nicht als beschriebene Wirkung."
+      },
+      {
+       "zitat": "Nach der Schulung arbeitet Ihr Team mit klaren Regeln, und Sie können jede Frage dazu beantworten.",
+       "seite": "Startseite",
+       "wirkt": "ja",
+       "b": "Der Leser wird in der Gruppe der Verantwortlichen ernst genommen. Das ist Status nach innen."
+      }
+     ],
+     "potential": "Für Teamleitungen und Agenturinhaber ist Status nach innen der naheliegende Hebel: Wer die Entscheidung für KI im eigenen Haus vertritt, will dort gut dastehen. Ein Satz, der beschreibt, wie das Team den Fortschritt im Haus zeigen kann, würde ihn heben. Er braucht nur einen Beleg, kein neues Versprechen.",
+     "hebel": "hoch"
+    },
+    {
+     "name": "Seelenfrieden",
+     "wert": 55,
+     "b": "Die Seite räumt Kontrollverlust und Datenrisiko aus und setzt das mehrfach an sichtbarer Stelle. Es bleibt bei Eigenschaften (Freigabe, EU-Hosting, DSGVO), selten wird die erlebte Entlastung beschrieben.",
+     "belege": [
+      {
+       "zitat": "Markenkonform und nur mit Ihrer Freigabe.",
+       "seite": "Startseite",
+       "wirkt": "ja",
+       "b": "Steht direkt in der Einleitung und nimmt die Angst vor Kontrollverlust."
+      },
+      {
+       "zitat": "Strategie und Freigabe bleiben bei Ihrem Team.",
+       "seite": "Startseite",
+       "wirkt": "ja",
+       "b": "Wiederholt das Kontrollversprechen im Agentic-Marketing-Block."
+      },
+      {
+       "zitat": "Ihre Daten bleiben auf eigenen Servern, und Ihr Team bedient die Lösung ohne Umwege.",
+       "seite": "Startseite",
+       "wirkt": "teilweise",
+       "b": "Nennt die Absicherung, steht aber weit unten im Über-mich-Block."
+      },
+      {
+       "zitat": "Mehr Zeit für die Arbeit, die wirklich nur Menschen können.",
+       "seite": "Startseite",
+       "wirkt": "nein",
+       "b": "Formelhaft. Beschreibt keine konkrete Entlastung des Lesers."
+      }
+     ],
+     "potential": "Der Leser trägt Verantwortung für Marke und Kundendaten. Der Hebel ist, die Entlastung als Szene zu beschreiben (Freigabe am Montagmorgen statt Zuarbeit am Freitagabend), aber nur mit dem, was die Seite belegen kann, also Freigabeprozess und Datenhaltung.",
+     "hebel": "mittel"
+    }
+   ],
+   "richtung": "nach innen",
+   "richtungB": "Status wirkt nach innen: Anerkennung im eigenen Haus als verantwortlicher Ansprechpartner für KI. Die Seite bedient keinen Status nach oben (Rang, Exklusivität), was zu Marketingteams im Mittelstand passt, die auffällige Werbung für sich selbst meiden.",
+   "konsistenz": "Der stärkste Antrieb bleibt über die Seite hinweg derselbe: Kontrolle und Absicherung ziehen sich vom Hero bis in den Über-mich-Block. Die Rechenaufgabe (Zeitgewinn) und die Aussage über Fleißarbeit sprechen dagegen einen leistungsorientierten Leser an. Das stört nicht, verwässert den Seelenfrieden aber leicht."
+  },
+  {
+   "id": "formel",
+   "name": "Kauf-Formel",
+   "max": 25,
+   "punkte": 6,
+   "f": "E",
+   "kurz": "Beziehung 2 mal Pain 3 ergibt 6 von 25 Punkten.",
+   "b": "Das Problem wird an mehreren Stellen so beschrieben, dass der Leser es wiedererkennt, und das Rechenbeispiel liefert eine Größenordnung. Vertrauen stützt sich auf Erfahrung und Zertifizierung des Gründers. Es gibt keinen benannten Kunden, kein Ergebnis mit Zahl und keine Stimme eines Dritten.",
+   "beziehung": {
+    "wert": 2,
+    "b": "Der Gründer tritt mit Namen, Erfahrung und Zertifizierung auf. Das stiftet Vertrauen in die Person. Prüfbare Ergebnisse, benannte Kunden und Zahlen mit Herkunft fehlen. Die Badges sind Aussagen über Datenschutz, keine Kundenergebnisse.",
+    "belege": [
+     {
+      "zitat": "Zertifiziert MMAI",
+      "seite": "Startseite",
+      "traegt": "teilweise"
+     },
+     {
+      "zitat": "Mehr als 20 Jahre Erfahrung in Markenpositionierung, Kampagnenentwicklung, Copywriting und Social Media geben mir einen praxisorientierten Blick auf die KI.",
+      "seite": "Startseite",
+      "traegt": "teilweise"
+     },
+     {
+      "zitat": "DSGVO-konform",
+      "seite": "Startseite",
+      "traegt": "nein"
+     }
+    ]
+   },
+   "pain": {
+    "wert": 3,
+    "b": "Mehrere Leistungsblöcke beginnen mit einer Szene, die der Leser an sich selbst erkennt, und das Rechenbeispiel nennt Stunden. Es fehlt die Übersetzung in Geld und die Folge für das Team oder die Marke.",
+    "belege": [
+     {
+      "zitat": "Ihr Team beantwortet jeden Tag dieselben Fragen.",
+      "seite": "Startseite",
+      "traegt": "ja"
+     },
+     {
+      "zitat": "Ihr Team behilft sich mit Excel-Listen, weil keine Software zum eigenen Ablauf passt.",
+      "seite": "Startseite",
+      "traegt": "ja"
+     },
+     {
+      "zitat": "Fünf Personen verbringen je drei bis vier Stunden pro Woche mit Angeboten, Reportings und Abstimmungen. Das sind 15 bis 20 Stunden pro Woche und 60 bis 80 Stunden im Monat.",
+      "seite": "Startseite",
+      "traegt": "teilweise"
+     }
+    ]
+   },
+   "verstaerker": "gemischt",
+   "verstaerkerB": "Die Leistungsblöcke argumentieren vom Schmerz weg („Ihr Team behilft sich mit Excel-Listen“), Hero, Vorgehen und Schlussaufruf argumentieren auf ein Zielbild hin („läuft ab morgen automatisch“). Der Hero, die sichtbarste Stelle, trägt damit keinen Verlust.",
+   "nullstelle": ""
+  },
+  {
+   "id": "bremsen",
+   "name": "Bremsen",
+   "max": 20,
+   "punkte": 7,
+   "f": "P",
+   "kurz": "Eine Bremse ist bearbeitet, zwei teilweise, drei stehen offen.",
+   "b": "Der Weg bis zum Kontakt ist kurz und klar beschrieben. Kein Vertrauen, kein Wert und keine Eile bleiben offen. Das Risiko ist durch Kostenlosigkeit und Freigabe teilweise kleiner geschnitten, die Kosten des Nichtstuns sind nur als Stunden beziffert.",
+   "bremsen": [
+    {
+     "name": "Kein Bedarf",
+     "bearbeitet": "teilweise",
+     "seite": "Startseite",
+     "zitat": "Das sind 15 bis 20 Stunden pro Woche und 60 bis 80 Stunden im Monat.",
+     "b": "Die Kosten des Nichtstuns stehen in Stunden da, nicht in Euro, und das Beispiel ist eine Annahme und kein Kundenfall.",
+     "hilft": "Die Stunden in Geld umrechnen und mit einem Kundenfall belegen."
+    },
+    {
+     "name": "Kein Vertrauen",
+     "bearbeitet": "nein",
+     "seite": "Startseite",
+     "zitat": "",
+     "b": "Auf beiden Seiten steht kein Ergebnis eines Kunden, der dem Leser ähnlich ist. Es gibt weder Namen noch Zahlen noch Stimmen.",
+     "hilft": "Ein bis zwei Ergebnisse von Kunden mit Zahl und, wenn möglich, Namen."
+    },
+    {
+     "name": "Kein Wert",
+     "bearbeitet": "nein",
+     "seite": "Startseite",
+     "zitat": "",
+     "b": "Auf keiner der beiden Seiten steht ein Preis, ein Preisrahmen oder ein Vergleich von Kosten und Ergebnis. Nur der Potential-Check und das Erstgespräch sind als kostenlos genannt.",
+     "hilft": "Einen Preisrahmen oder ein Beispielprojekt mit Kosten neben dem Ergebnis nennen."
+    },
+    {
+     "name": "Keine Eile",
+     "bearbeitet": "nein",
+     "seite": "Startseite",
+     "zitat": "Was Ihr Team täglich wiederholt, läuft ab morgen automatisch.",
+     "b": "„Ab morgen“ beschreibt Tempo der Lösung, nicht einen Anlass, jetzt zu handeln. Es gibt keine Frist, keine Kapazitätsangabe und keine Preisstufe.",
+     "hilft": "Einen echten Anlass nennen, etwa freie Plätze im Monat oder einen Starttermin."
+    },
+    {
+     "name": "Zu viel Risiko",
+     "bearbeitet": "teilweise",
+     "seite": "Startseite",
+     "zitat": "Erstes Gespräch. 30 Minuten. Kostenlos. Direkt mit Sven.",
+     "b": "Der Einstieg ist klein und kostenlos, und die Freigabe bleibt beim Team. Eine Testphase, ein Teilprojekt oder eine Ausstiegsregel für das eigentliche Projekt steht nicht da.",
+     "hilft": "Ein begrenztes Pilotprojekt mit klarem Umfang und Ausstiegsregel nennen."
+    },
+    {
+     "name": "Zu viel Reibung",
+     "bearbeitet": "ja",
+     "seite": "Startseite",
+     "zitat": "Im nächsten Schritt geben Sie Ihre E-Mail-Adresse an. Ich bearbeite Ihre Analyse persönlich und schicke sie Ihnen zu.",
+     "b": "Der Check hat vier Felder, drei davon Auswahlfelder, und sagt, was als Nächstes passiert. Das Erstgespräch führt auf eine Kontaktseite mit E-Mail-Adresse und Telefonnummer, also ohne Formular. Das ist kurz, auch wenn kein Termin direkt buchbar ist.",
+     "hilft": ""
+    }
+   ]
+  }
+ ],
+ "saetze": {
+  "stark": [
+   {
+    "zitat": "Ihr Team behilft sich mit Excel-Listen, weil keine Software zum eigenen Ablauf passt.",
+    "seite": "Startseite",
+    "warum": "Eine Szene, die der Leser an sich selbst erkennt, statt einer Kategorie."
+   },
+   {
+    "zitat": "Markenkonform und nur mit Ihrer Freigabe.",
+    "seite": "Startseite",
+    "warum": "Nimmt in fünf Wörtern die größte Sorge eines Marketingteams, den Kontrollverlust über die Marke."
+   },
+   {
+    "zitat": "Nach der Schulung arbeitet Ihr Team mit klaren Regeln, und Sie können jede Frage dazu beantworten.",
+    "seite": "Startseite",
+    "warum": "Beschreibt den Zustand danach aus Sicht des Lesers. Der einzige Satz auf dieser Stufe."
+   },
+   {
+    "zitat": "Fünf Personen verbringen je drei bis vier Stunden pro Woche mit Angeboten, Reportings und Abstimmungen.",
+    "seite": "Startseite",
+    "warum": "Konkrete Aufgaben und eine Spanne statt einer Behauptung. Der Leser kann die eigene Zahl einsetzen."
+   }
+  ],
+  "schwach": [
+   {
+    "zitat": "Mehr Zeit für die Arbeit, die wirklich nur Menschen können.",
+    "seite": "Startseite",
+    "warum": "Formel, die auf jeder KI-Seite stehen könnte. Sie benennt weder die Arbeit noch den Gewinn.",
+    "besser": "Ihr Team prüft Angebote und Reportings, statt sie zu schreiben. Die Zeit geht in Kundengespräche und Konzepte."
+   },
+   {
+    "zitat": "Klingt kompliziert? Ich mach's einfach.",
+    "seite": "Startseite",
+    "warum": "Verspricht Einfachheit, ohne zu zeigen, woran der Leser sie merkt.",
+    "besser": "Sie nennen mir Ihre drei zeitraubendsten Aufgaben. Ich schicke Ihnen einen Plan, den Ihr Team an einem Nachmittag versteht."
+   },
+   {
+    "zitat": "Erstes Gespräch. 30 Minuten. Kostenlos. Direkt mit Sven.",
+    "seite": "Startseite",
+    "warum": "Nennt Umfang und Preis des Gesprächs, aber nicht, was der Leser danach in der Hand hat.",
+    "besser": "Im 30-Minuten-Gespräch klären wir, welche Ihrer Aufgaben sich zuerst automatisieren lässt. Sie gehen mit einer Priorität und einer Zeiteinschätzung."
+   },
+   {
+    "zitat": "Schreiben Sie mir direkt",
+    "seite": "Kontakt",
+    "warum": "Die Aufforderung enthält keinen Anlass und keinen Hinweis, was im Text der Nachricht stehen soll. Der Leser steht vor einem leeren Feld im Mailprogramm.",
+    "besser": "Schreiben Sie mir in zwei Sätzen, welche Aufgabe Ihr Team am meisten Zeit kostet. Ich antworte persönlich."
+   }
+  ]
+ },
+ "massnahmen": [
+  {
+   "titel": "Ein Kundenergebnis mit Zahl auf die Startseite setzen",
+   "warum": "Hebt die Kauf-Formel (Beziehung von 2 auf 3 bis 4) und die Bremse Kein Vertrauen, zusammen etwa 5 bis 9 Punkte.",
+   "wie": "Ein Projekt mit Branche, Ausgangslage und Ergebnis in Stunden oder Prozent nennen, direkt unter dem Rechenbeispiel. Kundenname, wo er freigegeben ist.",
+   "aufwand": "ein halber Tag"
+  },
+  {
+   "titel": "Preisrahmen und Pilotprojekt nennen",
+   "warum": "Öffnet zwei Bremsen (Kein Wert, Zu viel Risiko), etwa 3 bis 5 Punkte.",
+   "wie": "Einen Richtpreis oder ein Beispielprojekt mit Kosten und Ergebnis nennen und einen kleinen Einstieg mit festem Umfang beschreiben.",
+   "aufwand": "eine Stunde"
+  },
+  {
+   "titel": "Die Hauptüberschrift um den Zustand danach ergänzen",
+   "warum": "Hebt die Leiterstufe von 3 auf 4 und damit etwa 4 bis 6 Punkte.",
+   "wie": "In die Unterzeile einen Satz setzen, der den Alltag des Teams danach beschreibt, zum Beispiel Freigabe statt Zuarbeit.",
+   "aufwand": "eine Stunde"
+  }
+ ],
+ "grenzen": [
+  "Der Check misst den Text, nicht die Wirkung. Ob die Seite Potential-Checks und Erstgespräche auslöst, zeigt nur eine Messung der Besuche und Abschlüsse.",
+  "Die Zielgruppe wurde nur aus der Seite erschlossen. Was der Betreiber über seine Kunden weiß und nicht hinschreibt, ist nicht in die Bewertung eingegangen, auch nicht Referenzen, die er im Gespräch nennt.",
+  "Der Check sieht keinen Kontext vor dem Klick. Wer über einen LinkedIn-Beitrag oder eine Empfehlung kommt, liest dieselbe Seite anders als jemand aus der Suche.",
+  "Bewertet wurde eine Momentaufnahme vom 8. Oktober 2026. Das Abrufwerkzeug liefert den Text in aufbereiteter Form. Bilder, Grafiken und die Gestaltung der Badges sind nicht eingeflossen.",
+  "Geprüft wurden nur die Startseite und die Kontaktseite. Eine Seite für Preise oder Referenzen gibt es nicht, die Unterseite /potential-check liefert einen 404-Fehler. Das fehlende Angebot an dieser Stelle ist selbst ein Befund und steht in den Bremsen Kein Vertrauen und Kein Wert.",
+  "Die Schritte nach dem Absenden des Potential-Checks (E-Mail-Abfrage, Ergebnisseite, die drei Maßnahmen) wurden nicht durchlaufen und gehen nicht in die Bewertung ein."
+ ]
+};
+</script>
+
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   DARSTELLUNG
+   ══════════════════════════════════════════════════════════════ */
+var FARBE   = {S:'var(--f-s)', T:'var(--f-t)', E:'var(--f-e)', P:'var(--f-p)'};
+var FARBE_A = {S:'var(--f-s-a)', T:'var(--f-t-a)', E:'var(--f-e-a)', P:'var(--f-p-a)'};
+var FARBE_PDF = {S:'#70B8FA', T:'#FAEF70', E:'#70FAA0', P:'#A78BFA'};
+var JA   = {ja:'var(--f-e)', teilweise:'var(--q-a)', nein:'var(--q-b)'};
+var JA_A = {ja:'var(--f-e-a)', teilweise:'var(--q-a-a)', nein:'var(--q-b-a)'};
+/* Der Hebel sagt, wie viel bei diesem Antrieb noch zu holen ist. Viel Luft
+   wird betont, wenig Luft bleibt zurueckhaltend. */
+var HEB   = {hoch:'var(--q-b)', mittel:'var(--q-a)', niedrig:'var(--dim)'};
+var HEB_A = {hoch:'var(--q-b-a)', mittel:'var(--q-a-a)', niedrig:'var(--line-2)'};
+function hebF(v){ return HEB[v]||'var(--dim)'; }
+function hebA(v){ return HEB_A[v]||'var(--line-2)'; }
+var STUFEN = [
+  {nr:1, t:'Produkt',  b:'Merkmale, Ausstattung, Umfang, Technik. Die Ebene, auf der die meisten Werbetexte stehen bleiben.'},
+  {nr:2, t:'Funktion', b:'Was das Angebot tut, die Leistung als Vorgang beschrieben.'},
+  {nr:3, t:'Ergebnis', b:'Was danach vorliegt, das messbare Resultat beim Kunden.'},
+  {nr:4, t:'Zustand',  b:'Wie der Alltag des Kunden aussieht, wenn das Ergebnis da ist.'},
+  {nr:5, t:'Gefühl',   b:'Wie der Kunde sich danach fühlt, also der eigentliche Kaufgrund.'}
+];
+
+function esc(s){return String(s==null?'':s).replace(/&(?![a-z#]+;)/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function attr(s){return esc(s).replace(/"/g,'&quot;')}
+function dim(id){ for(var i=0;i<D.dimensionen.length;i++) if(D.dimensionen[i].id===id) return D.dimensionen[i]; return null; }
+function jaF(v){ return JA[v]||'var(--dim)'; }
+function jaA(v){ return JA_A[v]||'var(--line-2)'; }
+function zitat(z, seite, klasse){
+  if(!z) return '';
+  return '<div class="zit'+(klasse?' '+klasse:'')+'">&bdquo;'+esc(z)+'&ldquo;'+
+    (seite?'<i data-guard="off">'+esc(seite)+'</i>':'')+'</div>';
+}
+
+/* Der Score wird nachgerechnet, nicht aus dem Feld uebernommen. Eine Abweichung
+   ist ein Datenfehler und wird sichtbar gemeldet statt still geschluckt. */
+function punktsumme(){
+  var s=0; D.dimensionen.forEach(function(d){ s+=d.punkte; }); return s;
+}
+function urteil(s){
+  if(s<=24) return ['Produktprospekt','Der Text beschreibt, was das Angebot ist. Warum jemand kaufen sollte, steht nicht da.'];
+  if(s<=49) return ['Nutzen angedeutet','Der Nutzen kommt vor, aber als Behauptung. Die Übersetzung muss der Leser selbst leisten.'];
+  if(s<=74) return ['Nutzen belegt','Der Text arbeitet mit Ergebnissen und Belegen. Zum Kaufmotiv fehlt der letzte Schritt.'];
+  return ['Kaufmotiv getroffen','Der Text spricht den Antrieb an, belegt ihn und räumt die Bremsen weg.'];
+}
+
+/* Farbmodus */
+(function(){
+  var KEY='ai-boutique-emotion-farbmodus', b=document.getElementById('btnModus');
+  function setze(hell,merken){
+    document.body.classList.toggle('hell',hell);
+    b.textContent = hell ? '☽' : '☀';
+    b.setAttribute('title', hell ? 'Auf dunkel wechseln' : 'Auf hell wechseln');
+    if(merken){ try{ localStorage.setItem(KEY, hell?'hell':'dunkel'); }catch(e){} }
+    window.dispatchEvent(new Event('resize'));
+  }
+  var g=null; try{ g=localStorage.getItem(KEY); }catch(e){}
+  var sys = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  setze(g ? g==='hell' : sys, false);
+  b.addEventListener('click',function(){ setze(!document.body.classList.contains('hell'), true); });
+})();
+
+/* Abschnitts-Leiste */
+(function(){
+  var A=[['start','Start'],['dimensionen','Der Score'],['leiter','Leiterstufe'],
+         ['antrieb','Antrieb'],['formel','Kauf-Formel'],['bremsen','Bremsen'],
+         ['saetze','Die Sätze'],['massnahmen','Maßnahmen'],['basis','Grundlage'],['grenzen','Grenzen']];
+  var rail=document.getElementById('rail');
+  rail.innerHTML=A.map(function(a){
+    return '<a class="rail-item" href="#'+a[0]+'" title="'+a[1]+'"><span class="rail-dot"></span><span class="rail-label">'+a[1]+'</span></a>';
+  }).join('');
+  var items=Array.prototype.slice.call(rail.querySelectorAll('.rail-item'));
+  var ziele=items.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function sync(){
+    var linie=window.scrollY+window.innerHeight*0.34, akt=0;
+    for(var i=0;i<ziele.length;i++){ if(ziele[i] && ziele[i].offsetTop<=linie) akt=i; }
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4) akt=items.length-1;
+    for(var k=0;k<items.length;k++) items[k].classList.toggle('active',k===akt);
+  }
+  var l=false;
+  window.addEventListener('scroll',function(){ if(l) return; l=true; requestAnimationFrame(function(){sync();l=false;}); });
+  window.addEventListener('resize',sync); sync();
+})();
+
+/* Aufklappbare Karten */
+function bindeKlapp(wurzel){
+  (wurzel||document).querySelectorAll('.wb-head, .th-head').forEach(function(h){
+    if(h.dataset.geb) return; h.dataset.geb='1';
+    h.addEventListener('click',function(){ h.parentNode.classList.toggle('auf'); window.dispatchEvent(new Event('resize')); });
+  });
+  (wurzel||document).querySelectorAll('.sa-head').forEach(function(h){
+    if(h.dataset.geb) return; h.dataset.geb='1';
+    h.addEventListener('click',function(){ h.parentNode.classList.toggle('zu'); window.dispatchEvent(new Event('resize')); });
+  });
+}
+
+/* ══════════════════════════════════════════════════════════════
+   KOPF: Score und Kennzahlen
+   ══════════════════════════════════════════════════════════════ */
+var SCORE = punktsumme();
+(function(){
+  var u=urteil(SCORE);
+  document.getElementById('scN').textContent = SCORE;
+  document.getElementById('scT').textContent = u[0];
+  document.getElementById('scB').textContent = u[1];
+  document.getElementById('scG').style.width = Math.max(2,Math.min(100,SCORE))+'%';
+  document.getElementById('stats').innerHTML = D.kennzahlen.map(function(k){
+    return '<div class="stat"><span class="stat-n">'+esc(k.n)+'</span><span class="stat-l">'+esc(k.l)+'</span></div>';
+  }).join('');
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   DIMENSIONEN
+   ══════════════════════════════════════════════════════════════ */
+document.getElementById('dims').innerHTML = D.dimensionen.map(function(d){
+  return '<div class="mg-z">'+
+    '<div class="mg-l" data-guard="off">'+esc(d.name)+'</div>'+
+    '<div class="mg-bar"><div class="mg-fill" style="width:'+Math.max(2,Math.round(d.punkte/d.max*100))+'%;background:'+FARBE[d.f]+';opacity:.85"></div></div>'+
+    '<div class="mg-w" data-guard="off">'+d.punkte+' von '+d.max+'</div></div>';
+}).join('');
+
+(function(){
+  var abw = (D.score!=null && D.score!==SCORE)
+    ? '<div class="hinweis">Der Datensatz nennt '+esc(D.score)+' Punkte, die Summe der vier Dimensionen ergibt '+SCORE+'. Angezeigt wird die Summe.</div>' : '';
+  var schwach = D.dimensionen.slice().sort(function(a,b){ return (a.punkte/a.max)-(b.punkte/b.max); })[0];
+  document.getElementById('dimtext').innerHTML = D.dimensionen.map(function(d,i){
+    return '<div class="sa">'+
+      '<div class="sa-head"><span class="sa-caret">&#9662;</span><div class="sa-id">'+
+        '<div class="sa-num" style="border-color:'+FARBE_A[d.f]+';color:'+FARBE[d.f]+'">'+(i+1)+'</div>'+
+        '<div><div class="sa-name">'+esc(d.name)+'</div>'+
+        '<div class="sa-sub" data-guard="off">'+d.punkte+' von '+d.max+' Punkten'+(d===schwach?', schwächste Dimension':'')+'</div></div>'+
+      '</div></div>'+
+      '<div class="sa-body">'+
+        '<div class="row"><div class="row-l">Befund</div><div class="row-v">'+esc(d.kurz)+'</div></div>'+
+        '<div class="row" style="margin-bottom:0"><div class="row-l">Begründung</div><div class="row-v">'+esc(d.b)+'</div></div>'+
+      '</div></div>';
+  }).join('') + abw;
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   DIMENSION 1: Leiterstufe
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  var d=dim('leiter'); if(!d) return;
+  var bl=d.bloecke||[];
+  var treffer={};
+  bl.forEach(function(b){ treffer[b.stufe]=(treffer[b.stufe]||0)+1; });
+  var schwer=0, summe=0, gew={hoch:3, mittel:2, niedrig:1};
+  bl.forEach(function(b){ var g=gew[b.gewicht]||1; schwer+=g; summe+=b.stufe*g; });
+  var mittel = schwer ? summe/schwer : 0;
+  var hier = Math.max(1, Math.min(5, Math.round(mittel)));
+
+  document.getElementById('leiterstufen').innerHTML = STUFEN.map(function(s){
+    var n=treffer[s.nr]||0;
+    return '<div class="lt'+(s.nr===hier?' hier':'')+'">'+
+      '<div class="lt-n">'+s.nr+'</div>'+
+      '<div class="lt-t" data-guard="off">'+esc(s.t)+(n?' &middot; '+n:'')+'</div>'+
+      '<div class="lt-b">'+esc(s.b)+'</div></div>';
+  }).join('');
+
+  document.getElementById('leiterbloecke').innerHTML =
+    '<div class="rechnung" data-guard="off">Gewichteter Schnitt <b>'+mittel.toFixed(1)+'</b> von 5, das entspricht Stufe <b>'+hier+'</b>: '+esc(STUFEN[hier-1].t)+'</div>'+
+    bl.map(function(b){
+      return '<div class="wb" style="border-left-color:'+FARBE.S+'">'+
+        '<div class="wb-head">'+
+          '<div><div class="wb-n">'+esc(b.ort)+'</div><div class="wb-s">'+esc(b.seite)+' &middot; Gewicht '+esc(b.gewicht)+'</div></div>'+
+          '<div class="sig-right"><span class="bed" style="border-color:'+FARBE_A.S+';color:'+FARBE.S+'">Stufe '+b.stufe+' &middot; '+esc(STUFEN[b.stufe-1]?STUFEN[b.stufe-1].t:'')+'</span><span class="caret">&#9656;</span></div>'+
+        '</div>'+
+        '<div class="wb-body">'+zitat(b.zitat,b.seite)+
+          '<div class="row" style="margin-bottom:0"><div class="row-l">Einordnung</div><div class="row-v">'+esc(b.b)+'</div></div>'+
+        '</div></div>';
+    }).join('');
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   DIMENSION 2: Antrieb
+   ══════════════════════════════════════════════════════════════ */
+/* Die Baender des Barometers, wortgleich aus dem Pruefraster. */
+function baroBand(w){
+  if(w<=19) return ['kommt nicht vor','var(--q-b)'];
+  if(w<=39) return ['angedeutet','var(--q-b)'];
+  if(w<=59) return ['als Eigenschaft','var(--q-a)'];
+  if(w<=79) return ['getragen','var(--f-e)'];
+  return ['tragende Achse','var(--f-e)'];
+}
+(function(){
+  var d=dim('antrieb'); if(!d) return;
+  var liste=d.antriebe||[];
+  var hoechst=0; liste.forEach(function(a){ if(a.wert>hoechst) hoechst=a.wert; });
+  var karten=liste.map(function(a){
+    var band=baroBand(a.wert), c=band[1];
+    var belege=(a.belege||[]).map(function(z){
+      return zitat(z.zitat, z.seite, z.wirkt==='ja'?'gut':(z.wirkt==='nein'?'schwach':''))+
+        (z.b?'<p style="margin:0 0 14px 0">'+esc(z.b)+'</p>':'');
+    }).join('');
+    return '<div class="wb" style="border-left-color:'+c+'">'+
+      '<div class="wb-head">'+
+        '<div class="baro">'+
+          '<div class="baro-n">'+esc(a.name)+'</div>'+
+          '<div class="baro-bar"><i style="width:'+Math.max(2,Math.min(100,a.wert))+'%;background:'+c+'"></i></div>'+
+          '<div class="baro-w" data-guard="off" style="color:'+c+'">'+a.wert+'</div>'+
+        '</div>'+
+        '<div class="sig-right"><span class="bed" style="border-color:'+hebA(a.hebel)+';color:'+hebF(a.hebel)+'">Hebel '+esc(a.hebel||'offen')+'</span><span class="caret">&#9656;</span></div>'+
+      '</div>'+
+      '<div class="wb-body">'+
+        '<div class="row"><div class="row-l">Einordnung</div><div class="row-v">'+esc(a.b)+' Damit steht dieser Antrieb im Band '+esc(band[0])+'.</div></div>'+
+        (belege?'<div style="margin-top:16px">'+belege+'</div>':'')+
+        (a.potential?'<div class="pot"><b>Potential</b>'+esc(a.potential)+'</div>':'')+
+      '</div></div>';
+  }).join('');
+  var soll=Math.round(15*hoechst/100);
+  karten='<div class="rechnung" data-guard="off">Stärkster Antrieb <b>'+hoechst+'</b> von 100, das ergibt <b>'+soll+'</b> von 15 Punkten für die Erkennbarkeit, dazu '+(d.punkte-soll)+' von 10 für Passung und Konsistenz'+
+    ((soll+(d.punkte-soll))!==d.punkte?' (im Datensatz stehen '+d.punkte+')':'')+'</div>'+karten;
+  var extra='';
+  if(d.richtung){
+    extra+='<div class="row" style="margin-top:18px"><div class="row-l">Richtung des Status</div>'+
+      '<div class="row-v"><span class="form-b" style="border-color:'+FARBE_A.T+';color:'+FARBE.T+'">'+esc(d.richtung)+'</span>'+
+      '<br><span style="display:inline-block;margin-top:9px">'+esc(d.richtungB||'')+'</span></div></div>';
+  }
+  if(d.konsistenz){
+    extra+='<div class="row" style="margin-bottom:0'+(d.richtung?'':';margin-top:18px')+'"><div class="row-l">Konsistenz</div><div class="row-v">'+esc(d.konsistenz)+'</div></div>';
+  }
+  document.getElementById('antriebe').innerHTML = karten + extra;
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   DIMENSION 3: Kauf-Formel
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  var d=dim('formel'); if(!d) return;
+  var b=d.beziehung||{wert:0}, p=d.pain||{wert:0};
+  var gerechnet = Math.round(25*(b.wert/5)*(p.wert/5));
+  function karte(l,o){
+    return '<div class="fk"><div class="fk-l" data-guard="off">'+esc(l)+'</div>'+
+      '<div class="fk-n" data-guard="off">'+o.wert+'<s>von 5</s></div>'+
+      '<div class="fk-b">'+esc(o.b)+'</div></div>';
+  }
+  document.getElementById('faktoren').innerHTML = karte('Beziehung, Vertrauen zu dieser Firma',b)+karte('Pain, das bewusste Problem',p);
+  document.getElementById('rechnung').innerHTML =
+    '25 &times; <b>'+b.wert+'</b>/5 &times; <b>'+p.wert+'</b>/5 = <b>'+gerechnet+'</b> Punkte'+
+    (gerechnet!==d.punkte ? ' (im Datensatz stehen '+d.punkte+')' : '');
+  var belege=[].concat(b.belege||[]).concat(p.belege||[]);
+  var out='';
+  if(d.nullstelle){
+    out+='<div class="hinweis">'+esc(d.nullstelle)+'</div>';
+  }
+  if(belege.length){
+    out+='<div style="margin-top:18px">'+belege.map(function(z){
+      return zitat(z.zitat, z.seite, z.traegt==='ja'?'gut':'schwach');
+    }).join('')+'</div>';
+  }
+  if(d.verstaerker){
+    out+='<div class="row" style="margin-top:18px;margin-bottom:0"><div class="row-l">Verstärker</div>'+
+      '<div class="row-v"><span class="form-b" style="border-color:'+FARBE_A.E+';color:'+FARBE.E+'">'+esc(d.verstaerker)+'</span>'+
+      '<br><span style="display:inline-block;margin-top:9px">'+esc(d.verstaerkerB||'')+'</span></div></div>';
+  }
+  document.getElementById('formeltext').innerHTML = out;
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   DIMENSION 4: Bremsen
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  var d=dim('bremsen'); if(!d) return;
+  var rows=(d.bremsen||[]).map(function(x){
+    return '<tr><td style="white-space:nowrap">'+esc(x.name)+'</td>'+
+      '<td><span class="bed" style="border-color:'+jaA(x.bearbeitet)+';color:'+jaF(x.bearbeitet)+'">'+esc(x.bearbeitet)+'</span></td>'+
+      '<td style="min-width:280px">'+esc(x.b)+(x.zitat?zitat(x.zitat,x.seite):'')+'</td>'+
+      '<td style="min-width:230px">'+esc(x.hilft||'')+'</td></tr>';
+  }).join('');
+  document.getElementById('bremstab').innerHTML =
+    '<thead><tr><th>Bremse</th><th>Bearbeitet</th><th>Was der Text tut</th><th>Was helfen würde</th></tr></thead><tbody>'+rows+'</tbody>';
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   SÄTZE
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  var s=D.saetze||{stark:[],schwach:[]};
+  function liste(titel, arr, klasse, mitBesser){
+    return '<div class="card"><h3>'+esc(titel)+'</h3>'+
+      (arr||[]).map(function(x){
+        return '<div style="margin-bottom:18px">'+zitat(x.zitat,x.seite,klasse)+
+          '<p style="margin-top:8px">'+esc(x.warum)+'</p>'+
+          (mitBesser&&x.besser ? '<div class="besser"><b>So könnte es stehen</b>'+esc(x.besser)+'</div>' : '')+
+        '</div>';
+      }).join('')+'</div>';
+  }
+  document.getElementById('saetzelisten').innerHTML =
+    liste('Sätze, die tragen', s.stark, 'gut', false)+
+    liste('Sätze, die umgeschrieben gehören', s.schwach, 'schwach', true);
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   MASSNAHMEN
+   ══════════════════════════════════════════════════════════════ */
+document.getElementById('massn').innerHTML = (D.massnahmen||[]).map(function(m,i){
+  return '<div class="th auf" style="border-left-color:var(--brand)">'+
+    '<div class="th-head">'+
+      '<div><div class="th-t">'+(i+1)+'. '+esc(m.titel)+'</div><div class="wb-s">'+esc(m.warum)+'</div></div>'+
+      '<div class="sig-right"><span class="bed" style="border-color:var(--q-a-a);color:var(--q-a)">'+esc(m.aufwand)+'</span><span class="caret">&#9656;</span></div>'+
+    '</div>'+
+    '<div class="th-body"><div class="row" style="margin-bottom:0"><div class="row-l">Was zu tun ist</div><div class="row-v">'+esc(m.wie)+'</div></div></div>'+
+  '</div>';
+}).join('');
+
+/* ══════════════════════════════════════════════════════════════
+   GRUNDLAGE UND GRENZEN
+   ══════════════════════════════════════════════════════════════ */
+document.getElementById('seitentab').innerHTML =
+  '<thead><tr><th>Seite</th><th>Adresse</th><th>Gewicht</th><th>Wofür sie steht</th><th>Abruf</th></tr></thead><tbody>'+
+  (D.seiten||[]).map(function(s){
+    return '<tr><td style="white-space:nowrap">'+esc(s.t)+'</td>'+
+      '<td style="word-break:break-all">'+esc(s.u)+'</td>'+
+      '<td>'+esc(s.g)+'</td><td style="min-width:240px">'+esc(s.b)+'</td>'+
+      '<td style="white-space:nowrap"><span class="src-tag" data-guard="off">'+esc(s.d)+'</span></td></tr>';
+  }).join('')+'</tbody>';
+
+(function(){
+  var z=D.zielgruppe||{};
+  document.getElementById('zielg').innerHTML = '<div class="sa">'+
+    '<div class="sa-head"><span class="sa-caret">&#9662;</span><div class="sa-id">'+
+      '<div class="sa-num" style="border-color:'+FARBE_A.P+';color:'+FARBE.P+'">Z</div>'+
+      '<div><div class="sa-name">Die erschlossene Zielgruppe</div>'+
+      '<div class="sa-sub" data-guard="off">Sicherheit '+esc(z.sicherheit||'offen')+'</div></div>'+
+    '</div></div>'+
+    '<div class="sa-body">'+
+      '<div class="row"><div class="row-l">Wer angesprochen wird</div><div class="row-v">'+esc(z.wer)+'</div></div>'+
+      '<div class="row"><div class="row-l">Woran man das erkennt</div><div class="row-v">'+esc(z.woran)+'</div></div>'+
+      '<div class="row" style="margin-bottom:0"><div class="row-l">Was offen bleibt</div><div class="row-v">'+esc(z.luecke)+'</div></div>'+
+    '</div></div>';
+})();
+
+document.getElementById('warn').innerHTML = '<h3>Grenzen dieses Durchlaufs</h3><ul>'+
+  (D.grenzen||[]).map(function(g){return '<li>'+esc(g)+'</li>'}).join('')+'</ul>';
+
+bindeKlapp();
+
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.05});
+document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
+
+/* ══════════════════════════════════════════════════════════════
+   EXPORT: Markdown und PDF, beides direkt im Browser gebaut
+   ══════════════════════════════════════════════════════════════ */
+function stamp(){
+  var d=new Date(), p=function(n){return String(n).padStart(2,'0')};
+  return {
+    file: String(d.getFullYear()).slice(2)+p(d.getMonth()+1)+p(d.getDate()),
+    nice: p(d.getDate())+'.'+p(d.getMonth()+1)+'.'+d.getFullYear(),
+    iso: d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())
+  };
+}
+
+/* Zellentext fuer Markdown-Tabellen: Trennstriche der Tabelle schuetzen. */
+function mz(t){ return String(t==null?'':t).replace(/\|/g,'/').replace(/\s+/g,' ').trim(); }
+/* Einzeiliger Fliesstext, damit Zitate eine Blockquote-Zeile bleiben. */
+function ez(t){ return String(t==null?'':t).replace(/\s+/g,' ').trim(); }
+/* Name einer Leiterstufe. */
+function stufenName(n){ var s=STUFEN[n-1]; return s?s.t:''; }
+/* Gewichteter Schnitt der Leiterstufe, wie im Report gerechnet. */
+function leiterSchnitt(d){
+  var gew={hoch:3, mittel:2, niedrig:1}, schwer=0, summe=0;
+  (d.bloecke||[]).forEach(function(b){ var g=gew[b.gewicht]||1; schwer+=g; summe+=b.stufe*g; });
+  var mittel = schwer ? summe/schwer : 0;
+  return {mittel:mittel, stufe:Math.max(1,Math.min(5,Math.round(mittel)))};
+}
+/* Punkte der Kauf-Formel aus der Multiplikation, nicht aus dem Feld. */
+function formelPunkte(d){
+  var b=d.beziehung||{wert:0}, p=d.pain||{wert:0};
+  return Math.round(25*(b.wert/5)*(p.wert/5));
+}
+/* Die Rechnung als Zeile, in beiden Exporten gleich. */
+function formelZeile(d){
+  var b=d.beziehung||{wert:0}, p=d.pain||{wert:0};
+  return '25 × '+b.wert+'/5 × '+p.wert+'/5 = '+formelPunkte(d)+' Punkte';
+}
+
+function buildMarkdown(){
+  var L=[], st=stamp(), u=urteil(SCORE);
+  L.push('# Emotions-Check: AI-Boutique');
+  L.push('');
+  L.push('Geprüfte Adresse: '+D.url);
+  L.push('Stand der Erhebung: '+D.stand);
+  L.push('Erstellt am '+st.nice+'.');
+  L.push('');
+  L.push('Bewertet wird ausschließlich, was auf den geprüften Seiten steht. Jede Bewertung hängt an einem wörtlichen Zitat mit Angabe der Seite.');
+  L.push('');
+
+  L.push('## Der Score');
+  L.push('');
+  L.push('**'+SCORE+' von 100 Punkten.** Urteilsband: **'+u[0]+'**');
+  L.push('');
+  L.push(u[1]);
+  L.push('');
+  if(D.score!=null && D.score!==SCORE){
+    L.push('Hinweis: Der Datensatz nennt '+D.score+' Punkte, die Summe der vier Dimensionen ergibt '+SCORE+'. Maßgeblich ist die Summe.');
+    L.push('');
+  }
+  L.push('| Dimension | Punkte | Maximum | Befund |');
+  L.push('|---|---|---|---|');
+  D.dimensionen.forEach(function(d){
+    L.push('| '+mz(d.name)+' | '+d.punkte+' | '+d.max+' | '+mz(d.kurz)+' |');
+  });
+  L.push('');
+
+  /* Dimension 1: Leiterstufe */
+  var dl=dim('leiter');
+  if(dl){
+    var ls=leiterSchnitt(dl);
+    L.push('## Leiterstufe');
+    L.push('');
+    L.push(dl.punkte+' von '+dl.max+' Punkten. '+dl.kurz);
+    L.push('');
+    L.push(dl.b);
+    L.push('');
+    L.push('Gewichteter Schnitt: **'+ls.mittel.toFixed(1)+' von 5**, das entspricht Stufe **'+ls.stufe+'**: '+stufenName(ls.stufe)+'.');
+    L.push('');
+    (dl.bloecke||[]).forEach(function(b){
+      L.push('### '+b.ort);
+      L.push('');
+      L.push('Seite: '+b.seite+'. Stufe '+b.stufe+' ('+stufenName(b.stufe)+'). Gewicht: '+b.gewicht+'.');
+      L.push('');
+      if(b.zitat){
+        L.push('> '+ez(b.zitat));
+        L.push('>');
+        L.push('> Quelle: '+b.seite);
+        L.push('');
+      }
+      L.push('Einordnung: '+b.b);
+      L.push('');
+    });
+  }
+
+  /* Dimension 2: Antrieb */
+  var da=dim('antrieb');
+  if(da){
+    L.push('## Antrieb');
+    L.push('');
+    L.push(da.punkte+' von '+da.max+' Punkten. '+da.kurz);
+    L.push('');
+    L.push(da.b);
+    L.push('');
+    (da.antriebe||[]).forEach(function(a){
+      L.push('### '+a.name+': '+a.wert+' von 100');
+      L.push('');
+      L.push('Barometer: '+a.wert+' von 100, Hebel '+(a.hebel||'offen')+'.');
+      L.push('');
+      L.push('Einordnung: '+a.b);
+      L.push('');
+      (a.belege||[]).forEach(function(z){
+        L.push('> '+ez(z.zitat));
+        L.push('>');
+        L.push('> Quelle: '+(z.seite||'')+', wirkt: '+(z.wirkt||''));
+        L.push('');
+        if(z.b){ L.push(z.b); L.push(''); }
+      });
+      if(a.potential){
+        L.push('**Potential:** '+a.potential);
+        L.push('');
+      }
+    });
+    if(da.richtung){
+      L.push('Richtung des Status: **'+da.richtung+'**. '+(da.richtungB||''));
+      L.push('');
+    }
+    if(da.konsistenz){
+      L.push('Konsistenz: '+da.konsistenz);
+      L.push('');
+    }
+  }
+
+  /* Dimension 3: Kauf-Formel */
+  var df=dim('formel');
+  if(df){
+    var fb=df.beziehung||{wert:0}, fp=df.pain||{wert:0};
+    L.push('## Kauf-Formel');
+    L.push('');
+    L.push(df.punkte+' von '+df.max+' Punkten. '+df.kurz);
+    L.push('');
+    L.push(df.b);
+    L.push('');
+    L.push('- **Beziehung: '+fb.wert+' von 5.** '+(fb.b||''));
+    L.push('- **Pain: '+fp.wert+' von 5.** '+(fp.b||''));
+    L.push('');
+    L.push('Rechnung: '+formelZeile(df));
+    if(formelPunkte(df)!==df.punkte){
+      L.push('');
+      L.push('Hinweis: Im Datensatz stehen '+df.punkte+' Punkte, die Multiplikation ergibt '+formelPunkte(df)+'.');
+    }
+    L.push('');
+    if(df.nullstelle){
+      L.push('Nullstelle: '+df.nullstelle);
+      L.push('');
+    }
+    var belege=[].concat(fb.belege||[]).concat(fp.belege||[]);
+    if(belege.length){
+      L.push('### Belege');
+      L.push('');
+      belege.forEach(function(z){
+        L.push('> '+ez(z.zitat));
+        L.push('>');
+        L.push('> Quelle: '+(z.seite||'')+'. Trägt: '+(z.traegt||''));
+        L.push('');
+      });
+    }
+    if(df.verstaerker){
+      L.push('Verstärker: **'+df.verstaerker+'**. '+(df.verstaerkerB||''));
+      L.push('');
+    }
+  }
+
+  /* Dimension 4: Bremsen */
+  var db=dim('bremsen');
+  if(db){
+    L.push('## Bremsen');
+    L.push('');
+    L.push(db.punkte+' von '+db.max+' Punkten. '+db.kurz);
+    L.push('');
+    L.push(db.b);
+    L.push('');
+    L.push('| Bremse | Bearbeitet | Was der Text tut | Was helfen würde |');
+    L.push('|---|---|---|---|');
+    (db.bremsen||[]).forEach(function(x){
+      var tut=mz(x.b)+(x.zitat ? ' Zitat: „'+mz(x.zitat)+'“ ('+mz(x.seite||'')+')' : '');
+      L.push('| '+mz(x.name)+' | '+mz(x.bearbeitet)+' | '+tut+' | '+mz(x.hilft||'')+' |');
+    });
+    L.push('');
+  }
+
+  /* Die Sätze */
+  var sa=D.saetze||{stark:[],schwach:[]};
+  L.push('## Die Sätze');
+  L.push('');
+  L.push('### Sätze, die tragen');
+  L.push('');
+  (sa.stark||[]).forEach(function(x){
+    L.push('> '+ez(x.zitat));
+    L.push('>');
+    L.push('> Quelle: '+(x.seite||''));
+    L.push('');
+    L.push(x.warum);
+    L.push('');
+  });
+  L.push('### Sätze, die umgeschrieben gehören');
+  L.push('');
+  (sa.schwach||[]).forEach(function(x){
+    L.push('> '+ez(x.zitat));
+    L.push('>');
+    L.push('> Quelle: '+(x.seite||''));
+    L.push('');
+    L.push(x.warum);
+    L.push('');
+    if(x.besser){
+      L.push('So könnte es stehen: '+x.besser);
+      L.push('');
+    }
+  });
+
+  /* Maßnahmen */
+  L.push('## Maßnahmen');
+  L.push('');
+  (D.massnahmen||[]).forEach(function(m,i){
+    L.push('### '+(i+1)+'. '+m.titel);
+    L.push('');
+    L.push('- Warum: '+m.warum);
+    L.push('- Wie: '+m.wie);
+    L.push('- Aufwand: '+m.aufwand);
+    L.push('');
+  });
+
+  /* Grundlage */
+  L.push('## Die geprüften Seiten');
+  L.push('');
+  L.push('| Seite | Adresse | Gewicht | Wofür sie steht | Abruf |');
+  L.push('|---|---|---|---|---|');
+  (D.seiten||[]).forEach(function(s){
+    L.push('| '+mz(s.t)+' | '+mz(s.u)+' | '+mz(s.g)+' | '+mz(s.b)+' | '+mz(s.d)+' |');
+  });
+  L.push('');
+
+  var z=D.zielgruppe||{};
+  L.push('## Die erschlossene Zielgruppe');
+  L.push('');
+  L.push('- Wer angesprochen wird: '+(z.wer||''));
+  L.push('- Woran man das erkennt: '+(z.woran||''));
+  L.push('- Sicherheit: '+(z.sicherheit||'offen'));
+  L.push('- Was offen bleibt: '+(z.luecke||''));
+  L.push('');
+
+  L.push('## Grenzen dieses Durchlaufs');
+  L.push('');
+  (D.grenzen||[]).forEach(function(g){ L.push('- '+g); });
+  L.push('');
+  L.push('---');
+  L.push('');
+  L.push('(c) AI-Boutique. Alle Rechte vorbehalten.');
+  return L.join('\n');
+}
+
+/* Minimaler PDF-1.4-Writer: Helvetica mit WinAnsiEncoding traegt ae/oe/ue/ss. */
+function buildPdf(){
+  var W=595.28, H=841.89, M=54;
+  var pages=[], ops=[], y=H-M;
+  function hex2rgb(h){return [parseInt(h.slice(1,3),16)/255,parseInt(h.slice(3,5),16)/255,parseInt(h.slice(5,7),16)/255]}
+  function pesc(s){return s.replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)')}
+  /* WinAnsi kennt die typografischen Zeichen, sie liegen dort aber auf Bytes
+     zwischen 128 und 159 und nicht auf ihrem Unicode-Punkt. Ohne diese Tabelle
+     wird aus jedem Anfuehrungszeichen ein Fragezeichen, und ein Report, der aus
+     Zitaten besteht, verliert seine Anfuehrungszeichen komplett. Zeichen ohne
+     WinAnsi-Entsprechung werden lesbar ersetzt statt weggeworfen. */
+  var WA={'\u201a':'\u0082','\u201e':'\u0084','\u2026':'\u0085',
+          '\u2020':'\u0086','\u2021':'\u0087','\u2030':'\u0089',
+          '\u2039':'\u008b','\u2018':'\u0091','\u2019':'\u0092',
+          '\u201c':'\u0093','\u201d':'\u0094','\u2022':'\u0095',
+          '\u2013':'\u0096','\u2014':'\u0097','\u203a':'\u009b',
+          '\u20ac':'\u0080','\u2192':'->','\u2190':'<-','\u2265':'>=',
+          '\u2264':'<=','\u00d7':'x','\u2011':'-','\u00ad':''};
+  function toLatin(s){
+    var o='';s=String(s==null?'':s);
+    for(var i=0;i<s.length;i++){
+      var z=s[i]; if(WA[z]!==undefined){o+=WA[z];continue}
+      var c=s.charCodeAt(i); o+=(c>=32&&c<=255)?z:'?';
+    }
+    return o
+  }
+  function newPage(){if(ops.length)pages.push(ops);ops=[];y=H-M}
+  function need(h){if(y-h<M+26)newPage()}
+  function text(str,x,size,font,rgb){
+    ops.push(rgb[0].toFixed(3)+' '+rgb[1].toFixed(3)+' '+rgb[2].toFixed(3)+' rg');
+    ops.push('BT /'+font+' '+size+' Tf 1 0 0 1 '+x.toFixed(2)+' '+y.toFixed(2)+' Tm ('+pesc(toLatin(str))+') Tj ET');
+  }
+  function rect(x,ry,w,h,rgb){
+    ops.push(rgb[0].toFixed(3)+' '+rgb[1].toFixed(3)+' '+rgb[2].toFixed(3)+' rg');
+    ops.push(x.toFixed(2)+' '+ry.toFixed(2)+' '+w.toFixed(2)+' '+h.toFixed(2)+' re f');
+  }
+  function wrap(str,size,width){
+    var words=toLatin(str).split(/\s+/), lines=[], line='';
+    var maxChars=Math.max(8,Math.floor(width/(size*0.5)));
+    for(var i=0;i<words.length;i++){
+      var t=line?line+' '+words[i]:words[i];
+      if(t.length>maxChars&&line){lines.push(line);line=words[i]}else line=t;
+    }
+    if(line)lines.push(line);
+    return lines;
+  }
+  function para(str,x,size,font,rgb,lh,width){
+    var lines=wrap(str,size,width);
+    for(var i=0;i<lines.length;i++){ need(lh); text(lines[i],x,size,font,rgb); y-=lh; }
+  }
+  var BLACK=[.07,.07,.07], DARK=[.2,.2,.2], GREY=[.45,.45,.45], GOLD=[.54,.48,0], YELLOW=hex2rgb('#FAEF70');
+  var BUL=String.fromCharCode(149)+'  ';
+  var CW=W-2*M, st=stamp();
+  var u=urteil(SCORE);
+
+  text('AI-BOUTIQUE',M,24,'FB',BLACK); y-=15;
+  text('EMOTIONS-CHECK  ·  WERBETEXTE',M,8,'FB',GOLD);
+  text('kilernen.de  ·  Agentic Marketing Masterclass',W-M-200,8.5,'F',GREY); y-=12;
+  text('Erstellt am '+st.nice,W-M-200,8.5,'F',GREY); y-=14;
+  rect(M,y,CW,3,YELLOW); y-=30;
+
+  text(SCORE+' von 100 Punkten: '+u[0],M,20,'FB',BLACK); y-=20;
+  para(u[1],M,9.5,'F',DARK,13,CW); y-=6;
+  para('Geprüfte Adresse: '+D.url+'.  Stand der Erhebung: '+D.stand+'.',M,8.5,'F',GREY,11,CW);
+  para('Bewertet wird ausschließlich, was auf den geprüften Seiten steht. Jede Bewertung hängt an '+
+       'einem wörtlichen Zitat mit Angabe der Seite.',M,8.5,'FI',GREY,11,CW); y-=10;
+  if(D.score!=null && D.score!==SCORE){
+    para('Hinweis: Der Datensatz nennt '+D.score+' Punkte, die Summe der vier Dimensionen ergibt '+SCORE+'. Maßgeblich ist die Summe.',M,8.5,'FB',DARK,11,CW);
+    y-=8;
+  }
+
+  need(60); text('DIE VIER DIMENSIONEN',M,8,'FB',GOLD); y-=13;
+  D.dimensionen.forEach(function(d){
+    need(24);
+    rect(M,y-1.5,8,8,hex2rgb(FARBE_PDF[d.f]));
+    para(d.name+': '+d.punkte+' von '+d.max+' Punkten',M+15,8.5,'FB',BLACK,11,CW-15);
+    para(d.kurz,M+15,8.5,'F',DARK,11,CW-15);
+    y-=4;
+  });
+
+  /* Dimension 1: Leiterstufe */
+  var dl=dim('leiter');
+  if(dl){
+    newPage();
+    rect(M,y-1.5,8,8,hex2rgb(FARBE_PDF[dl.f]));
+    text('LEITERSTUFE',M+15,11,'FB',BLACK); y-=8;
+    rect(M,y,CW,1,[.85,.85,.85]); y-=18;
+    var ls=leiterSchnitt(dl);
+    para(dl.punkte+' von '+dl.max+' Punkten. '+dl.kurz,M,9.5,'FB',BLACK,12,CW);
+    para(dl.b,M,8.5,'F',DARK,11,CW);
+    para('Gewichteter Schnitt '+ls.mittel.toFixed(1)+' von 5, das entspricht Stufe '+ls.stufe+': '+stufenName(ls.stufe)+'.',M,8.5,'FB',DARK,11,CW);
+    y-=8;
+    (dl.bloecke||[]).forEach(function(b){
+      need(50);
+      text(String(b.ort).toUpperCase()+'  (STUFE '+b.stufe+')',M,8,'FB',GOLD); y-=13;
+      para(b.seite+', Gewicht '+b.gewicht+', Stufe '+b.stufe+': '+stufenName(b.stufe),M,8,'FI',GREY,10,CW);
+      if(b.zitat) para('„'+ez(b.zitat)+'“',M+11,8.5,'FI',DARK,11,CW-11);
+      para('Einordnung: '+b.b,M+11,8.5,'F',DARK,11,CW-11);
+      y-=6;
+    });
+  }
+
+  /* Dimension 2: Antrieb */
+  var da=dim('antrieb');
+  if(da){
+    newPage();
+    rect(M,y-1.5,8,8,hex2rgb(FARBE_PDF[da.f]));
+    text('ANTRIEB',M+15,11,'FB',BLACK); y-=8;
+    rect(M,y,CW,1,[.85,.85,.85]); y-=18;
+    para(da.punkte+' von '+da.max+' Punkten. '+da.kurz,M,9.5,'FB',BLACK,12,CW);
+    para(da.b,M,8.5,'F',DARK,11,CW);
+    y-=8;
+    (da.antriebe||[]).forEach(function(a){
+      need(56);
+      text(String(a.name).toUpperCase()+'  '+a.wert+' VON 100  ·  HEBEL '+String(a.hebel||'offen').toUpperCase(),M,8,'FB',GOLD); y-=11;
+      // Das Barometer als Balken, damit das PDF dieselbe Aussage traegt wie der Report.
+      rect(M,y,CW,5,[.86,.86,.88]);
+      rect(M,y,CW*Math.max(2,Math.min(100,a.wert))/100,5,YELLOW); y-=13;
+      para('Einordnung: '+a.b,M+11,8.5,'F',DARK,11,CW-11);
+      (a.belege||[]).forEach(function(z){
+        need(30);
+        para('„'+ez(z.zitat)+'“',M+11,8.5,'FI',DARK,11,CW-11);
+        para(String(z.seite||'')+', wirkt: '+String(z.wirkt||''),M+11,7.5,'F',GREY,10,CW-11);
+        if(z.b) para(z.b,M+11,8.5,'F',DARK,11,CW-11);
+        y-=3;
+      });
+      if(a.potential){
+        need(30);
+        para(BUL+'Potential: '+a.potential,M+11,8.5,'F',DARK,11,CW-11);
+      }
+      y-=8;
+    });
+    if(da.richtung){
+      need(34);
+      para(BUL+'Richtung des Status: '+da.richtung,M,8.5,'FB',BLACK,11,CW);
+      if(da.richtungB) para(da.richtungB,M+11,8.5,'F',DARK,11,CW-11);
+      y-=4;
+    }
+    if(da.konsistenz){
+      need(28);
+      para(BUL+'Konsistenz: '+da.konsistenz,M,8.5,'F',DARK,11,CW);
+      y-=4;
+    }
+  }
+
+  /* Dimension 3: Kauf-Formel */
+  var df=dim('formel');
+  if(df){
+    newPage();
+    rect(M,y-1.5,8,8,hex2rgb(FARBE_PDF[df.f]));
+    text('KAUF-FORMEL',M+15,11,'FB',BLACK); y-=8;
+    rect(M,y,CW,1,[.85,.85,.85]); y-=18;
+    var fb=df.beziehung||{wert:0}, fp=df.pain||{wert:0};
+    para(df.punkte+' von '+df.max+' Punkten. '+df.kurz,M,9.5,'FB',BLACK,12,CW);
+    para(df.b,M,8.5,'F',DARK,11,CW);
+    y-=6;
+    need(40);
+    para(BUL+'Beziehung, Vertrauen zu dieser Firma: '+fb.wert+' von 5',M,8.5,'FB',BLACK,11,CW);
+    para(fb.b||'',M+11,8.5,'F',DARK,11,CW-11);
+    para(BUL+'Pain, das bewusste Problem: '+fp.wert+' von 5',M,8.5,'FB',BLACK,11,CW);
+    para(fp.b||'',M+11,8.5,'F',DARK,11,CW-11);
+    y-=4;
+    need(24);
+    para('Rechnung: '+formelZeile(df),M,9.5,'FB',BLACK,12,CW);
+    if(formelPunkte(df)!==df.punkte){
+      para('Im Datensatz stehen '+df.punkte+' Punkte, die Multiplikation ergibt '+formelPunkte(df)+'.',M,8,'FI',GREY,11,CW);
+    }
+    y-=4;
+    if(df.nullstelle){
+      need(26);
+      para('Nullstelle: '+df.nullstelle,M,8.5,'FB',DARK,11,CW);
+      y-=4;
+    }
+    var belege=[].concat(fb.belege||[]).concat(fp.belege||[]);
+    if(belege.length){
+      need(40); text('BELEGE',M,8,'FB',GOLD); y-=13;
+      belege.forEach(function(z){
+        need(26);
+        para('„'+ez(z.zitat)+'“',M+11,8.5,'FI',DARK,11,CW-11);
+        para((z.seite||'')+', trägt: '+(z.traegt||''),M+22,7.5,'F',GREY,10,CW-22);
+        y-=3;
+      });
+      y-=4;
+    }
+    if(df.verstaerker){
+      need(28);
+      para(BUL+'Verstärker: '+df.verstaerker,M,8.5,'FB',BLACK,11,CW);
+      if(df.verstaerkerB) para(df.verstaerkerB,M+11,8.5,'F',DARK,11,CW-11);
+      y-=4;
+    }
+  }
+
+  /* Dimension 4: Bremsen */
+  var db=dim('bremsen');
+  if(db){
+    newPage();
+    rect(M,y-1.5,8,8,hex2rgb(FARBE_PDF[db.f]));
+    text('BREMSEN',M+15,11,'FB',BLACK); y-=8;
+    rect(M,y,CW,1,[.85,.85,.85]); y-=18;
+    para(db.punkte+' von '+db.max+' Punkten. '+db.kurz,M,9.5,'FB',BLACK,12,CW);
+    para(db.b,M,8.5,'F',DARK,11,CW);
+    y-=8;
+    (db.bremsen||[]).forEach(function(x){
+      need(40);
+      para(BUL+x.name+'  (bearbeitet '+x.bearbeitet+')',M,8.5,'FB',BLACK,11,CW);
+      para('Was der Text tut: '+x.b,M+11,8.5,'F',DARK,11,CW-11);
+      if(x.zitat) para('„'+ez(x.zitat)+'“  ('+(x.seite||'')+')',M+11,8,'FI',GREY,10.5,CW-11);
+      if(x.hilft) para('Was helfen würde: '+x.hilft,M+11,8.5,'F',DARK,11,CW-11);
+      y-=5;
+    });
+  }
+
+  /* Die Sätze */
+  var sa=D.saetze||{stark:[],schwach:[]};
+  newPage();
+  text('DIE SÄTZE',M,11,'FB',BLACK); y-=6;
+  rect(M,y,CW,1,[.85,.85,.85]); y-=18;
+  need(30); text('SÄTZE, DIE TRAGEN',M,8,'FB',GOLD); y-=13;
+  (sa.stark||[]).forEach(function(x){
+    need(34);
+    para('„'+ez(x.zitat)+'“',M+11,9,'FI',BLACK,11.5,CW-11);
+    para((x.seite||''),M+22,7.5,'F',GREY,10,CW-22);
+    para(x.warum,M+11,8.5,'F',DARK,11,CW-11);
+    y-=5;
+  });
+  y-=4;
+  need(30); text('SÄTZE, DIE UMGESCHRIEBEN GEHÖREN',M,8,'FB',GOLD); y-=13;
+  (sa.schwach||[]).forEach(function(x){
+    need(46);
+    para('„'+ez(x.zitat)+'“',M+11,9,'FI',BLACK,11.5,CW-11);
+    para((x.seite||''),M+22,7.5,'F',GREY,10,CW-22);
+    para(x.warum,M+11,8.5,'F',DARK,11,CW-11);
+    if(x.besser) para('So könnte es stehen: '+x.besser,M+11,8.5,'FB',DARK,11,CW-11);
+    y-=6;
+  });
+
+  /* Maßnahmen */
+  newPage();
+  text('MASSNAHMEN',M,11,'FB',BLACK); y-=6;
+  rect(M,y,CW,1,[.85,.85,.85]); y-=18;
+  (D.massnahmen||[]).forEach(function(m,i){
+    need(46);
+    para((i+1)+'. '+m.titel,M,9.5,'FB',BLACK,12,CW);
+    para('Warum: '+m.warum,M+11,8.5,'F',DARK,11,CW-11);
+    para('Wie: '+m.wie,M+11,8.5,'F',DARK,11,CW-11);
+    para('Aufwand: '+m.aufwand,M+11,8,'FI',GREY,10.5,CW-11);
+    y-=6;
+  });
+
+  /* Grundlage und Grenzen */
+  y-=6;
+  need(40); text('DIE GEPRÜFTEN SEITEN',M,11,'FB',BLACK); y-=6;
+  rect(M,y,CW,1,[.85,.85,.85]); y-=18;
+  (D.seiten||[]).forEach(function(s){
+    need(32);
+    para(BUL+s.t+'  (Gewicht '+s.g+', Abruf '+s.d+')',M,8.5,'FB',BLACK,11,CW);
+    para(s.u,M+11,7.5,'F',GREY,10,CW-11);
+    para(s.b,M+11,8.5,'F',DARK,11,CW-11);
+    y-=3;
+  });
+  y-=8;
+
+  var z=D.zielgruppe||{};
+  need(60); text('DIE ERSCHLOSSENE ZIELGRUPPE',M,11,'FB',BLACK); y-=6;
+  rect(M,y,CW,1,[.85,.85,.85]); y-=18;
+  para(BUL+'Wer angesprochen wird: '+(z.wer||''),M,8.5,'F',DARK,11,CW);
+  para(BUL+'Woran man das erkennt: '+(z.woran||''),M,8.5,'F',DARK,11,CW);
+  para(BUL+'Sicherheit: '+(z.sicherheit||'offen'),M,8.5,'F',DARK,11,CW);
+  para(BUL+'Was offen bleibt: '+(z.luecke||''),M,8.5,'FB',DARK,11,CW);
+  y-=10;
+
+  need(50); text('GRENZEN DIESES DURCHLAUFS',M,11,'FB',BLACK); y-=6;
+  rect(M,y,CW,1,[.85,.85,.85]); y-=18;
+  (D.grenzen||[]).forEach(function(g){ need(24); para(BUL+g,M,8.5,'F',DARK,11,CW); y-=5; });
+  newPage();
+
+  var objs=[];
+  objs.push('<< /Type /Catalog /Pages 2 0 R >>');
+  var kids=[];
+  for(var p=0;p<pages.length;p++) kids.push((6+p*2)+' 0 R');
+  objs.push('<< /Type /Pages /Count '+pages.length+' /Kids ['+kids.join(' ')+'] >>');
+  objs.push('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>');
+  objs.push('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>');
+  objs.push('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding >>');
+  for(var p2=0;p2<pages.length;p2++){
+    var foot=[];
+    foot.push('0.55 0.55 0.55 rg');
+    foot.push('BT /F 8 Tf 1 0 0 1 '+M+' '+(M-14)+' Tm ('+pesc(toLatin('© AI-Boutique  ·  Alle Rechte vorbehalten'))+') Tj ET');
+    foot.push('BT /F 8 Tf 1 0 0 1 '+(W-M-52)+' '+(M-14)+' Tm ('+pesc('Seite '+(p2+1)+'/'+pages.length)+') Tj ET');
+    var stream=pages[p2].concat(foot).join('\n');
+    objs.push('<< /Type /Page /Parent 2 0 R /MediaBox [0 0 '+W+' '+H+'] '+
+      '/Resources << /Font << /F 3 0 R /FB 4 0 R /FI 5 0 R >> >> /Contents '+(7+p2*2)+' 0 R >>');
+    objs.push('<< /Length '+stream.length+' >>\nstream\n'+stream+'\nendstream');
+  }
+  var out='%PDF-1.4\n', offsets=[];
+  for(var o=0;o<objs.length;o++){ offsets.push(out.length); out+=(o+1)+' 0 obj\n'+objs[o]+'\nendobj\n'; }
+  var xref=out.length;
+  out+='xref\n0 '+(objs.length+1)+'\n0000000000 65535 f \n';
+  for(var x=0;x<offsets.length;x++) out+=String(offsets[x]).padStart(10,'0')+' 00000 n \n';
+  out+='trailer\n<< /Size '+(objs.length+1)+' /Root 1 0 R >>\nstartxref\n'+xref+'\n%%EOF';
+  var bytes=new Uint8Array(out.length);
+  for(var b=0;b<out.length;b++) bytes[b]=out.charCodeAt(b)&0xFF;
+  return bytes;
+}
+
+function lade(blob,name){
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob); a.download=name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
+}
+document.getElementById('btnPdf').addEventListener('click',function(){
+  lade(new Blob([buildPdf()],{type:'application/pdf'}), stamp().file+' emotions-check-ai-boutique.pdf');
+});
+document.getElementById('btnMd').addEventListener('click',function(){
+  lade(new Blob([buildMarkdown()],{type:'text/markdown;charset=utf-8'}), stamp().file+' emotions-check-ai-boutique.md');
+});
+document.getElementById('btnCopy').addEventListener('click',function(){
+  var b=this, l=b.textContent;
+  navigator.clipboard.writeText(buildMarkdown()).then(function(){
+    b.textContent='Kopiert'; setTimeout(function(){b.textContent=l},1800);
+  });
+});
+
+</script>
+
+<script>
+
+/* ═══════════════════════════════════════════════════════════════════
+   ZEILENUMBRUCH-GUARD  ·  Pflicht-Snippet fuer JEDE kilernen-Slide
+   Verhindert zwei Fehler in JEDEM Textelement der Seite:
+     1. Waisenzeilen (Zeile mit zu wenigen Woertern)
+     2. Treppen      (letzte Zeile viel kuerzer als die Zeilen darueber)
+   Sucht die Elemente selbst, ohne gepflegte Selektorliste: jedes Element,
+   das Text direkt enthaelt und keine Block-Kinder hat.
+   Nimmt jede Aenderung zurueck, die den Umbruch verschlechtert oder das
+   Element ueberlaufen laesst. Dann ist der Text zu lang und muss umgetextet
+   werden: der Guard ersetzt kein gutes Texten.
+   Doku: .claude/references/zeilenumbruch-guard.md
+   ═══════════════════════════════════════════════════════════════════ */
+(function () {
+  var NB = '\u00A0';
+  var SKIP = /^(SCRIPT|STYLE|SVG|PATH|CIRCLE|LINE|POLYLINE|RECT|CODE|PRE|IFRAME|VIDEO|IMG|INPUT|TEXTAREA|SELECT|OPTION)$/;
+  var MIN_CHARS = 24;        // kurze Schnipsel wie Tags und Labels ignorieren
+  var MIN_LAST_RATIO = 0.3;  // letzte Zeile muss mindestens 30% der Breite fuellen
+  var MIN_MID_RATIO = 0.72;  // Zeilen davor duerfen keine Delle in die rechte Kante reissen
+
+  function minWords(el) {
+    var attr = el.getAttribute('data-guard');
+    if (attr === 'off') return 0;
+    if (attr && !isNaN(parseInt(attr, 10))) return parseInt(attr, 10);
+    if (/^H[1-6]$/.test(el.tagName)) return 3;
+    var cl = el.classList;
+    if (cl.contains('t-big') || cl.contains('c-big') || cl.contains('cmp-claim') ||
+        cl.contains('def-main') || cl.contains('fc-main') || cl.contains('path-title')) return 3;
+    return 2;
+  }
+
+  // Alle Elemente, die selbst Text tragen und keine Block-Kinder haben
+  function candidates() {
+    var out = [], all = document.body.querySelectorAll('*');
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i];
+      if (SKIP.test(el.tagName)) continue;
+      if (el.getAttribute('data-guard') === 'off') continue;
+      if (el.closest('.topbar') || el.closest('.site-footer')) continue;
+      if (el.textContent.trim().length < MIN_CHARS) continue;
+      // Inline-Elemente wie <strong> oder <a> nie einzeln messen:
+      // ihr Umbruch gehoert zum umgebenden Absatz.
+      if (getComputedStyle(el).display === 'inline') continue;
+
+      var hasText = false, hasBlockChild = false;
+      for (var c = 0; c < el.childNodes.length; c++) {
+        var n = el.childNodes[c];
+        if (n.nodeType === 3 && n.nodeValue.trim()) hasText = true;
+        if (n.nodeType === 1 && !SKIP.test(n.tagName)) {
+          var d = getComputedStyle(n).display;
+          if (d !== 'inline' && d !== 'inline-block' && d !== 'contents') hasBlockChild = true;
+        }
+      }
+      if (hasText && !hasBlockChild) out.push(el);
+    }
+    return out;
+  }
+
+  function textNodes(el) {
+    var out = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), n;
+    while ((n = w.nextNode())) { if (n.nodeValue.trim()) out.push(n); }
+    return out;
+  }
+
+  function snapshot(el) {
+    var nodes = textNodes(el), s = [];
+    for (var i = 0; i < nodes.length; i++) s.push([nodes[i], nodes[i].nodeValue]);
+    return s;
+  }
+  function restore(s) { for (var i = 0; i < s.length; i++) s[i][0].nodeValue = s[i][1]; }
+  function reset(el) {
+    var nodes = textNodes(el);
+    for (var i = 0; i < nodes.length; i++) {
+      if (nodes[i].nodeValue.indexOf(NB) !== -1) {
+        nodes[i].nodeValue = nodes[i].nodeValue.replace(/\u00A0/g, ' ');
+      }
+    }
+  }
+
+  function words(el) {
+    var out = [], nodes = textNodes(el);
+    for (var i = 0; i < nodes.length; i++) {
+      var node = nodes[i], text = node.nodeValue, start = -1;
+      for (var c = 0; c <= text.length; c++) {
+        var isSpace = c === text.length || /[\s\u00A0]/.test(text[c]);
+        if (!isSpace && start === -1) start = c;
+        if (isSpace && start !== -1) {
+          var r = document.createRange();
+          r.setStart(node, start); r.setEnd(node, c);
+          var rect = r.getBoundingClientRect();
+          if (rect.width || rect.height) {
+            out.push({ node: node, start: start, top: Math.round(rect.top), left: rect.left, right: rect.right });
+          }
+          start = -1;
+        }
+      }
+    }
+    return out;
+  }
+
+  function lines(el) {
+    var w = words(el), ls = [];
+    for (var i = 0; i < w.length; i++) {
+      var last = ls[ls.length - 1];
+      if (last && Math.abs(last.top - w[i].top) <= 3) {
+        last.words.push(w[i]); last.right = w[i].right;
+      } else {
+        ls.push({ top: w[i].top, words: [w[i]], first: i, left: w[i].left, right: w[i].right });
+      }
+    }
+    return ls;
+  }
+
+  function minLineWords(ls) {
+    var m = Infinity;
+    for (var i = 0; i < ls.length; i++) m = Math.min(m, ls[i].words.length);
+    return m;
+  }
+  // Anteil, den die letzte Zeile gegenueber der breitesten Zeile fuellt
+  function lastRatio(ls) {
+    var widest = 0;
+    for (var i = 0; i < ls.length; i++) widest = Math.max(widest, ls[i].right - ls[i].left);
+    if (!widest) return 1;
+    var last = ls[ls.length - 1];
+    return (last.right - last.left) / widest;
+  }
+  // Schlechteste Zeile AUSSER der letzten. Faellt sie zu weit ab, entsteht mitten
+  // im Absatz eine Delle und die rechte Kante wirkt zerrissen.
+  function midRatio(ls) {
+    var widest = 0, worst = 1;
+    for (var i = 0; i < ls.length; i++) widest = Math.max(widest, ls[i].right - ls[i].left);
+    if (!widest || ls.length < 2) return 1;
+    for (var j = 0; j < ls.length - 1; j++) {
+      worst = Math.min(worst, (ls[j].right - ls[j].left) / widest);
+    }
+    return worst;
+  }
+  function overflows(el) { return el.scrollWidth > el.clientWidth + 1; }
+
+  // Den GESAMTEN Whitespace vor dem Wort durch ein geschuetztes Leerzeichen ersetzen.
+  // Im formatierten Quelltext steht dort meist Zeilenumbruch plus Einrueckung.
+  function glueBefore(word) {
+    var node = word.node, text = node.nodeValue, end = word.start, i = end - 1;
+    while (i >= 0 && /[\s\u00A0]/.test(text[i])) i--;
+    if (i < 0 || i === end - 1) return false;
+    if (text.slice(i + 1, end) === NB) return false;
+    node.nodeValue = text.slice(0, i + 1) + NB + text.slice(end);
+    return true;
+  }
+
+  function fix(el) {
+    var need = minWords(el);
+    if (!need) return;
+    reset(el);
+
+    for (var pass = 0; pass < 8; pass++) {
+      var w = words(el), ls = lines(el);
+      if (ls.length < 2) return;
+
+      var mw = minLineWords(ls), lr = lastRatio(ls);
+      var wordProblem = mw < need;
+      var stairProblem = lr < MIN_LAST_RATIO;
+      if (!wordProblem && !stairProblem) return;
+
+      // Zuerst die zu kurze Zeile, sonst die Treppe am Ende
+      var bad = -1;
+      if (wordProblem) {
+        for (var i = ls.length - 1; i >= 0; i--) { if (ls[i].words.length < need) { bad = i; break; } }
+      } else {
+        bad = ls.length - 1;
+      }
+      if (bad <= 0) return; // erste Zeile betroffen: nur Umtexten hilft
+
+      var idx = ls[bad].first;
+      if (idx <= 0) return;
+      var snap = snapshot(el);
+      if (!glueBefore(w[idx])) { restore(snap); return; }
+
+      var after = lines(el);
+      var improved = wordProblem
+        ? (minLineWords(after) > mw || (minLineWords(after) === mw && lastRatio(after) > lr))
+        : (lastRatio(after) > lr && minLineWords(after) >= Math.min(mw, need));
+
+      // Kein Fix darf mitten im Absatz eine Delle reissen: sonst ist die Waise weg,
+      // dafuer sieht die rechte Kante zerrissen aus.
+      var dented = midRatio(after) < MIN_MID_RATIO && midRatio(after) < midRatio(ls);
+
+      if (overflows(el) || after.length > ls.length || dented || !improved) {
+        restore(snap); return;
+      }
+    }
+  }
+
+  function run() {
+    var els = candidates();
+    for (var i = 0; i < els.length; i++) fix(els[i]);
+  }
+
+  var t;
+  function debounced() { clearTimeout(t); t = setTimeout(run, 120); }
+
+  // Mehrfach anstossen: 'load' allein reicht nicht, weil eine externe Font-Datei
+  // das Event verzoegern oder (ohne Netz) ganz ausbleiben lassen kann.
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+  window.addEventListener('load', run);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(run);
+  setTimeout(run, 400);
+  setTimeout(run, 1500);
+  window.addEventListener('resize', debounced);
+})();
+
+</script>
+</body>
+</html>

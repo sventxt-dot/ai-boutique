@@ -1,0 +1,225 @@
+{
+  "stand": "2026-10-08",
+  "url": "https://www.ai-boutique.de",
+  "firma": "AI-Boutique",
+  "firma_kurz": "AI-Boutique",
+  "slug": "ai-boutique",
+  "footer": "AI-Boutique",
+  "score": 41,
+  "kennzahlen": [
+    {"n": "41", "l": "von 100 Punkten"},
+    {"n": "2", "l": "geprüfte Seiten"},
+    {"n": "32", "l": "ausgewertete Zitate"},
+    {"n": "3", "l": "unbearbeitete Bremsen"}
+  ],
+  "seiten": [
+    {"u": "https://www.ai-boutique.de/", "t": "Startseite", "d": "2026-10-08", "g": "hoch",
+     "b": "Hero, acht Leistungen, Rechenbeispiel, Vorgehen, KI-Potential-Check, Über mich und Schlussaufruf. Hier entscheidet sich, ob ein Besucher weiterliest."},
+    {"u": "https://www.ai-boutique.de/kontakt", "t": "Kontakt", "d": "2026-10-08", "g": "mittel",
+     "b": "Der Weg nach dem Klick auf Erstgespräch anfragen. Steht für die Reibung bis zum Kontakt."}
+  ],
+  "zielgruppe": {
+    "wer": "Marketingteams und Agenturen, vermutlich in kleinen und mittleren Unternehmen mit mehreren Personen im Marketing.",
+    "woran": "Die Einleitung nennt die Gruppe direkt: „Ich entwickle KI-Lösungen für Aufgaben, die Marketingteams und Agenturen unnötig Zeit kosten“. Das Rechenbeispiel rechnet mit „Fünf Personen“, der Schlussaufruf wiederholt „Marketingteams und Agenturen“.",
+    "sicherheit": "mittel",
+    "luecke": "Die Seite sagt nicht, wie groß die Unternehmen sind, welche Rolle den Text liest (Marketingleitung, Geschäftsführung, Agenturinhaber) und was diese Person im Alltag konkret belastet. Bei den Leistungen Voice Bots, Corporate LLM und RAG Systeme ist offen, ob dieselbe Person angesprochen wird wie im Hero. Die Branchenauswahl im Potential-Check lässt zudem offen, ob auch Unternehmen außerhalb von Marketing gemeint sind."
+  },
+  "dimensionen": [
+    {
+      "id": "leiter", "name": "Leiterstufe", "max": 30, "punkte": 14, "f": "S",
+      "kurz": "Der Text steht im gewichteten Schnitt knapp auf Stufe 3, dem Ergebnis.",
+      "b": "Die Hauptüberschrift beschreibt einen Zustand ohne Wiederholungsarbeit, bleibt aber bei der Automatisierung als Ergebnis stehen. Die Einleitung und die meisten Leistungsblöcke beschreiben, was die Lösung tut. Nur die Schulung und der Potential-Check kommen bis zum Alltag danach. Ein Gefühl wird auf der Seite nirgends ausgesprochen.",
+      "bloecke": [
+        {"ort": "Hauptüberschrift", "seite": "Startseite",
+         "zitat": "Was Ihr Team täglich wiederholt, läuft ab morgen automatisch.",
+         "stufe": 3, "gewicht": "hoch",
+         "b": "Nennt das Ergebnis (die Aufgabe läuft von selbst) und deutet den Zustand an, stellt aber nicht dar, wie der Alltag danach aussieht oder wie sich das anfühlt."},
+        {"ort": "Unterzeile", "seite": "Startseite",
+         "zitat": "Ich entwickle KI-Lösungen für Aufgaben, die Marketingteams und Agenturen unnötig Zeit kosten: von der Wettbewerbsanalyse bis zum fertigen Funnel.",
+         "stufe": 2, "gewicht": "hoch",
+         "b": "Beschreibt, was der Anbieter tut (entwickeln) und für welche Aufgaben. Das Ergebnis beim Kunden bleibt offen."},
+        {"ort": "Angebotsblock Voice Bots", "seite": "Startseite",
+         "zitat": "Es nimmt ab, qualifiziert, informiert und bucht",
+         "stufe": 2, "gewicht": "mittel",
+         "b": "Funktion als Vorgang. Der Satz davor („Anrufe kommen, wenn gerade niemand abheben kann.“) benennt ein Problem, danach folgt die Leistung."},
+        {"ort": "Angebotsblock Workflows", "seite": "Startseite",
+         "zitat": "Ein Workflow erledigt diese Schritte, Ihr Team prüft nur noch das Ergebnis.",
+         "stufe": 3, "gewicht": "mittel",
+         "b": "Zeigt, was beim Team ankommt: Prüfen statt Erledigen. Das ist ein Ergebnis, noch kein Zustand."},
+        {"ort": "Angebotsblock AI-Schulung", "seite": "Startseite",
+         "zitat": "Nach der Schulung arbeitet Ihr Team mit klaren Regeln, und Sie können jede Frage dazu beantworten.",
+         "stufe": 4, "gewicht": "mittel",
+         "b": "Der einzige Satz, der den Zustand danach beschreibt. Er steht in der achten und letzten Leistungskachel."},
+        {"ort": "Handlungsaufforderung", "seite": "Startseite",
+         "zitat": "Erstes Gespräch. 30 Minuten. Kostenlos. Direkt mit Sven.",
+         "stufe": 1, "gewicht": "niedrig",
+         "b": "Umfang und Konditionen des Angebots. Nichts darüber, was das Gespräch klärt oder was danach anders ist."}
+      ]
+    },
+    {
+      "id": "antrieb", "name": "Antrieb", "max": 25, "punkte": 14, "f": "T",
+      "kurz": "Seelenfrieden ist der stärkste Antrieb, Status und Zugehörigkeit kommen nur angedeutet vor.",
+      "b": "Die Seite stellt Kontrolle her: Freigabe bleibt beim Team, die Daten bleiben auf eigenen Servern, die Marke bleibt erhalten. Das passt zu einem Leser, der Verantwortung für Marke und Datenschutz trägt. Der Antrieb wird überwiegend als Eigenschaft der Lösung formuliert und seltener als erlebte Wirkung.",
+      "antriebe": [
+        {"name": "Zugehörigkeit", "wert": 20,
+         "b": "Zugehörigkeit entsteht höchstens über die persönliche Ansprache des Gründers. Eine Gruppe, zu der der Leser gehören würde, wird nicht benannt.",
+         "belege": [
+           {"zitat": "Dafür sorge ich persönlich, mit über 20 Jahren Marketing- und fünf Jahren KI-Erfahrung.",
+            "seite": "Startseite", "wirkt": "teilweise",
+            "b": "Persönliche Zusage, aber an eine Person gebunden und nicht an eine Gemeinschaft von Kunden."},
+           {"zitat": "Klingt kompliziert? Ich mach's einfach.",
+            "seite": "Startseite", "wirkt": "nein",
+            "b": "Nimmt dem Leser eine Sorge, stellt aber keine Nähe zu einer Gruppe her."}
+         ],
+         "potential": "Für Marketingteams und Agenturen läge der Hebel in der Branchenzugehörigkeit: ein Satz, der zeigt, dass andere Teams in derselben Lage bereits so arbeiten. Das setzt einen Beleg voraus, den die Seite derzeit nicht trägt.",
+         "hebel": "mittel"},
+        {"name": "Status", "wert": 25,
+         "b": "Status taucht als Souveränität nach innen auf: Das Team soll sicher mit KI umgehen und die Fragen dazu beantworten können. Sonst wird er nicht bedient.",
+         "belege": [
+           {"zitat": "Machen Sie Ihr Team fit für KI.",
+            "seite": "Startseite", "wirkt": "teilweise",
+            "b": "Kompetenzgewinn als Aufforderung, nicht als beschriebene Wirkung."},
+           {"zitat": "Nach der Schulung arbeitet Ihr Team mit klaren Regeln, und Sie können jede Frage dazu beantworten.",
+            "seite": "Startseite", "wirkt": "ja",
+            "b": "Der Leser wird in der Gruppe der Verantwortlichen ernst genommen. Das ist Status nach innen."}
+         ],
+         "potential": "Für Teamleitungen und Agenturinhaber ist Status nach innen der naheliegende Hebel: Wer die Entscheidung für KI im eigenen Haus vertritt, will dort gut dastehen. Ein Satz, der beschreibt, wie das Team den Fortschritt im Haus zeigen kann, würde ihn heben. Er braucht nur einen Beleg, kein neues Versprechen.",
+         "hebel": "hoch"},
+        {"name": "Seelenfrieden", "wert": 55,
+         "b": "Die Seite räumt Kontrollverlust und Datenrisiko aus und setzt das mehrfach an sichtbarer Stelle. Es bleibt bei Eigenschaften (Freigabe, EU-Hosting, DSGVO), selten wird die erlebte Entlastung beschrieben.",
+         "belege": [
+           {"zitat": "Markenkonform und nur mit Ihrer Freigabe.",
+            "seite": "Startseite", "wirkt": "ja",
+            "b": "Steht direkt in der Einleitung und nimmt die Angst vor Kontrollverlust."},
+           {"zitat": "Strategie und Freigabe bleiben bei Ihrem Team.",
+            "seite": "Startseite", "wirkt": "ja",
+            "b": "Wiederholt das Kontrollversprechen im Agentic-Marketing-Block."},
+           {"zitat": "Ihre Daten bleiben auf eigenen Servern, und Ihr Team bedient die Lösung ohne Umwege.",
+            "seite": "Startseite", "wirkt": "teilweise",
+            "b": "Nennt die Absicherung, steht aber weit unten im Über-mich-Block."},
+           {"zitat": "Mehr Zeit für die Arbeit, die wirklich nur Menschen können.",
+            "seite": "Startseite", "wirkt": "nein",
+            "b": "Formelhaft. Beschreibt keine konkrete Entlastung des Lesers."}
+         ],
+         "potential": "Der Leser trägt Verantwortung für Marke und Kundendaten. Der Hebel ist, die Entlastung als Szene zu beschreiben (Freigabe am Montagmorgen statt Zuarbeit am Freitagabend), aber nur mit dem, was die Seite belegen kann, also Freigabeprozess und Datenhaltung.",
+         "hebel": "mittel"}
+      ],
+      "richtung": "nach innen",
+      "richtungB": "Status wirkt nach innen: Anerkennung im eigenen Haus als verantwortlicher Ansprechpartner für KI. Die Seite bedient keinen Status nach oben (Rang, Exklusivität), was zu Marketingteams im Mittelstand passt, die auffällige Werbung für sich selbst meiden.",
+      "konsistenz": "Der stärkste Antrieb bleibt über die Seite hinweg derselbe: Kontrolle und Absicherung ziehen sich vom Hero bis in den Über-mich-Block. Die Rechenaufgabe (Zeitgewinn) und die Aussage über Fleißarbeit sprechen dagegen einen leistungsorientierten Leser an. Das stört nicht, verwässert den Seelenfrieden aber leicht."
+    },
+    {
+      "id": "formel", "name": "Kauf-Formel", "max": 25, "punkte": 6, "f": "E",
+      "kurz": "Beziehung 2 mal Pain 3 ergibt 6 von 25 Punkten.",
+      "b": "Das Problem wird an mehreren Stellen so beschrieben, dass der Leser es wiedererkennt, und das Rechenbeispiel liefert eine Größenordnung. Vertrauen stützt sich auf Erfahrung und Zertifizierung des Gründers. Es gibt keinen benannten Kunden, kein Ergebnis mit Zahl und keine Stimme eines Dritten.",
+      "beziehung": {
+        "wert": 2,
+        "b": "Der Gründer tritt mit Namen, Erfahrung und Zertifizierung auf. Das stiftet Vertrauen in die Person. Prüfbare Ergebnisse, benannte Kunden und Zahlen mit Herkunft fehlen. Die Badges sind Aussagen über Datenschutz, keine Kundenergebnisse.",
+        "belege": [
+          {"zitat": "Zertifiziert MMAI", "seite": "Startseite", "traegt": "teilweise"},
+          {"zitat": "Mehr als 20 Jahre Erfahrung in Markenpositionierung, Kampagnenentwicklung, Copywriting und Social Media geben mir einen praxisorientierten Blick auf die KI.", "seite": "Startseite", "traegt": "teilweise"},
+          {"zitat": "DSGVO-konform", "seite": "Startseite", "traegt": "nein"}
+        ]
+      },
+      "pain": {
+        "wert": 3,
+        "b": "Mehrere Leistungsblöcke beginnen mit einer Szene, die der Leser an sich selbst erkennt, und das Rechenbeispiel nennt Stunden. Es fehlt die Übersetzung in Geld und die Folge für das Team oder die Marke.",
+        "belege": [
+          {"zitat": "Ihr Team beantwortet jeden Tag dieselben Fragen.", "seite": "Startseite", "traegt": "ja"},
+          {"zitat": "Ihr Team behilft sich mit Excel-Listen, weil keine Software zum eigenen Ablauf passt.", "seite": "Startseite", "traegt": "ja"},
+          {"zitat": "Fünf Personen verbringen je drei bis vier Stunden pro Woche mit Angeboten, Reportings und Abstimmungen. Das sind 15 bis 20 Stunden pro Woche und 60 bis 80 Stunden im Monat.", "seite": "Startseite", "traegt": "teilweise"}
+        ]
+      },
+      "verstaerker": "gemischt",
+      "verstaerkerB": "Die Leistungsblöcke argumentieren vom Schmerz weg („Ihr Team behilft sich mit Excel-Listen“), Hero, Vorgehen und Schlussaufruf argumentieren auf ein Zielbild hin („läuft ab morgen automatisch“). Der Hero, die sichtbarste Stelle, trägt damit keinen Verlust.",
+      "nullstelle": ""
+    },
+    {
+      "id": "bremsen", "name": "Bremsen", "max": 20, "punkte": 7, "f": "P",
+      "kurz": "Eine Bremse ist bearbeitet, zwei teilweise, drei stehen offen.",
+      "b": "Der Weg bis zum Kontakt ist kurz und klar beschrieben. Kein Vertrauen, kein Wert und keine Eile bleiben offen. Das Risiko ist durch Kostenlosigkeit und Freigabe teilweise kleiner geschnitten, die Kosten des Nichtstuns sind nur als Stunden beziffert.",
+      "bremsen": [
+        {"name": "Kein Bedarf", "bearbeitet": "teilweise", "seite": "Startseite",
+         "zitat": "Das sind 15 bis 20 Stunden pro Woche und 60 bis 80 Stunden im Monat.",
+         "b": "Die Kosten des Nichtstuns stehen in Stunden da, nicht in Euro, und das Beispiel ist eine Annahme und kein Kundenfall.",
+         "hilft": "Die Stunden in Geld umrechnen und mit einem Kundenfall belegen."},
+        {"name": "Kein Vertrauen", "bearbeitet": "nein", "seite": "Startseite",
+         "zitat": "",
+         "b": "Auf beiden Seiten steht kein Ergebnis eines Kunden, der dem Leser ähnlich ist. Es gibt weder Namen noch Zahlen noch Stimmen.",
+         "hilft": "Ein bis zwei Ergebnisse von Kunden mit Zahl und, wenn möglich, Namen."},
+        {"name": "Kein Wert", "bearbeitet": "nein", "seite": "Startseite",
+         "zitat": "",
+         "b": "Auf keiner der beiden Seiten steht ein Preis, ein Preisrahmen oder ein Vergleich von Kosten und Ergebnis. Nur der Potential-Check und das Erstgespräch sind als kostenlos genannt.",
+         "hilft": "Einen Preisrahmen oder ein Beispielprojekt mit Kosten neben dem Ergebnis nennen."},
+        {"name": "Keine Eile", "bearbeitet": "nein", "seite": "Startseite",
+         "zitat": "Was Ihr Team täglich wiederholt, läuft ab morgen automatisch.",
+         "b": "„Ab morgen“ beschreibt Tempo der Lösung, nicht einen Anlass, jetzt zu handeln. Es gibt keine Frist, keine Kapazitätsangabe und keine Preisstufe.",
+         "hilft": "Einen echten Anlass nennen, etwa freie Plätze im Monat oder einen Starttermin."},
+        {"name": "Zu viel Risiko", "bearbeitet": "teilweise", "seite": "Startseite",
+         "zitat": "Erstes Gespräch. 30 Minuten. Kostenlos. Direkt mit Sven.",
+         "b": "Der Einstieg ist klein und kostenlos, und die Freigabe bleibt beim Team. Eine Testphase, ein Teilprojekt oder eine Ausstiegsregel für das eigentliche Projekt steht nicht da.",
+         "hilft": "Ein begrenztes Pilotprojekt mit klarem Umfang und Ausstiegsregel nennen."},
+        {"name": "Zu viel Reibung", "bearbeitet": "ja", "seite": "Startseite",
+         "zitat": "Im nächsten Schritt geben Sie Ihre E-Mail-Adresse an. Ich bearbeite Ihre Analyse persönlich und schicke sie Ihnen zu.",
+         "b": "Der Check hat vier Felder, drei davon Auswahlfelder, und sagt, was als Nächstes passiert. Das Erstgespräch führt auf eine Kontaktseite mit E-Mail-Adresse und Telefonnummer, also ohne Formular. Das ist kurz, auch wenn kein Termin direkt buchbar ist.",
+         "hilft": ""}
+      ]
+    }
+  ],
+  "saetze": {
+    "stark": [
+      {"zitat": "Ihr Team behilft sich mit Excel-Listen, weil keine Software zum eigenen Ablauf passt.",
+       "seite": "Startseite",
+       "warum": "Eine Szene, die der Leser an sich selbst erkennt, statt einer Kategorie."},
+      {"zitat": "Markenkonform und nur mit Ihrer Freigabe.",
+       "seite": "Startseite",
+       "warum": "Nimmt in fünf Wörtern die größte Sorge eines Marketingteams, den Kontrollverlust über die Marke."},
+      {"zitat": "Nach der Schulung arbeitet Ihr Team mit klaren Regeln, und Sie können jede Frage dazu beantworten.",
+       "seite": "Startseite",
+       "warum": "Beschreibt den Zustand danach aus Sicht des Lesers. Der einzige Satz auf dieser Stufe."},
+      {"zitat": "Fünf Personen verbringen je drei bis vier Stunden pro Woche mit Angeboten, Reportings und Abstimmungen.",
+       "seite": "Startseite",
+       "warum": "Konkrete Aufgaben und eine Spanne statt einer Behauptung. Der Leser kann die eigene Zahl einsetzen."}
+    ],
+    "schwach": [
+      {"zitat": "Mehr Zeit für die Arbeit, die wirklich nur Menschen können.",
+       "seite": "Startseite",
+       "warum": "Formel, die auf jeder KI-Seite stehen könnte. Sie benennt weder die Arbeit noch den Gewinn.",
+       "besser": "Ihr Team prüft Angebote und Reportings, statt sie zu schreiben. Die Zeit geht in Kundengespräche und Konzepte."},
+      {"zitat": "Klingt kompliziert? Ich mach's einfach.",
+       "seite": "Startseite",
+       "warum": "Verspricht Einfachheit, ohne zu zeigen, woran der Leser sie merkt.",
+       "besser": "Sie nennen mir Ihre drei zeitraubendsten Aufgaben. Ich schicke Ihnen einen Plan, den Ihr Team an einem Nachmittag versteht."},
+      {"zitat": "Erstes Gespräch. 30 Minuten. Kostenlos. Direkt mit Sven.",
+       "seite": "Startseite",
+       "warum": "Nennt Umfang und Preis des Gesprächs, aber nicht, was der Leser danach in der Hand hat.",
+       "besser": "Im 30-Minuten-Gespräch klären wir, welche Ihrer Aufgaben sich zuerst automatisieren lässt. Sie gehen mit einer Priorität und einer Zeiteinschätzung."},
+      {"zitat": "Schreiben Sie mir direkt",
+       "seite": "Kontakt",
+       "warum": "Die Aufforderung enthält keinen Anlass und keinen Hinweis, was im Text der Nachricht stehen soll. Der Leser steht vor einem leeren Feld im Mailprogramm.",
+       "besser": "Schreiben Sie mir in zwei Sätzen, welche Aufgabe Ihr Team am meisten Zeit kostet. Ich antworte persönlich."}
+    ]
+  },
+  "massnahmen": [
+    {"titel": "Ein Kundenergebnis mit Zahl auf die Startseite setzen",
+     "warum": "Hebt die Kauf-Formel (Beziehung von 2 auf 3 bis 4) und die Bremse Kein Vertrauen, zusammen etwa 5 bis 9 Punkte.",
+     "wie": "Ein Projekt mit Branche, Ausgangslage und Ergebnis in Stunden oder Prozent nennen, direkt unter dem Rechenbeispiel. Kundenname, wo er freigegeben ist.",
+     "aufwand": "ein halber Tag"},
+    {"titel": "Preisrahmen und Pilotprojekt nennen",
+     "warum": "Öffnet zwei Bremsen (Kein Wert, Zu viel Risiko), etwa 3 bis 5 Punkte.",
+     "wie": "Einen Richtpreis oder ein Beispielprojekt mit Kosten und Ergebnis nennen und einen kleinen Einstieg mit festem Umfang beschreiben.",
+     "aufwand": "eine Stunde"},
+    {"titel": "Die Hauptüberschrift um den Zustand danach ergänzen",
+     "warum": "Hebt die Leiterstufe von 3 auf 4 und damit etwa 4 bis 6 Punkte.",
+     "wie": "In die Unterzeile einen Satz setzen, der den Alltag des Teams danach beschreibt, zum Beispiel Freigabe statt Zuarbeit.",
+     "aufwand": "eine Stunde"}
+  ],
+  "grenzen": [
+    "Der Check misst den Text, nicht die Wirkung. Ob die Seite Potential-Checks und Erstgespräche auslöst, zeigt nur eine Messung der Besuche und Abschlüsse.",
+    "Die Zielgruppe wurde nur aus der Seite erschlossen. Was der Betreiber über seine Kunden weiß und nicht hinschreibt, ist nicht in die Bewertung eingegangen, auch nicht Referenzen, die er im Gespräch nennt.",
+    "Der Check sieht keinen Kontext vor dem Klick. Wer über einen LinkedIn-Beitrag oder eine Empfehlung kommt, liest dieselbe Seite anders als jemand aus der Suche.",
+    "Bewertet wurde eine Momentaufnahme vom 8. Oktober 2026. Das Abrufwerkzeug liefert den Text in aufbereiteter Form. Bilder, Grafiken und die Gestaltung der Badges sind nicht eingeflossen.",
+    "Geprüft wurden nur die Startseite und die Kontaktseite. Eine Seite für Preise oder Referenzen gibt es nicht, die Unterseite /potential-check liefert einen 404-Fehler. Das fehlende Angebot an dieser Stelle ist selbst ein Befund und steht in den Bremsen Kein Vertrauen und Kein Wert.",
+    "Die Schritte nach dem Absenden des Potential-Checks (E-Mail-Abfrage, Ergebnisseite, die drei Maßnahmen) wurden nicht durchlaufen und gehen nicht in die Bewertung ein."
+  ]
+}
