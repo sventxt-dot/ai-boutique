@@ -17,8 +17,8 @@ export const services: Service[] = [
     image: "/AI-Boutique_Images/icons/chat-bots.png"
   },
   {
-    title: "Agentic Marketing",
-    copy: "Von der Wettbewerbsanalyse bis zum Reporting: KI-Agenten übernehmen die Fleißarbeit im Marketing. Strategie und Freigabe bleiben bei Ihrem Team.",
+    title: "AI Copywriting",
+    copy: "Mails, Websites, Produkttexte und Broschüren. In Ihrer Tonalität, mit Ihrer Corporate Identity und dem Fachwissen Ihres Unternehmens. Als Copywriter mit mehr als 20 Jahren Kampagnenarbeit und fünf Jahren KI-Erfahrung zählt das zu meinem Spezialgebiet.",
     image: "/AI-Boutique_Images/icons/agentic-marketing.png"
   },
   {
@@ -27,8 +27,8 @@ export const services: Service[] = [
     image: "/AI-Boutique_Images/icons/corporate-llm.png"
   },
   {
-    title: "RAG Systeme",
-    copy: "Das Wissen Ihres Unternehmens steckt in Ordnern, Postfächern und Köpfen, und niemand findet es, wenn es gebraucht wird. Ihre Dokumente, Datenbanken und Prozesse – intelligent verknüpft und jederzeit abrufbar. Die richtige Antwort. Sofort.",
+    title: "CRM Pipeline",
+    copy: "Anfragen kommen per Formular, Mail und Telefon und landen in Excel-Listen oder im Kopf einzelner Kollegen. Eine CRM Pipeline erfasst jeden Kontakt, ordnet ihn ein, erinnert ans Nachfassen und schreibt die passende Mail als Entwurf. Ihr Team sieht jederzeit, wo ein Kontakt steht, und entscheidet, was rausgeht.",
     image: "/AI-Boutique_Images/icons/rag-systeme.png"
   },
   {

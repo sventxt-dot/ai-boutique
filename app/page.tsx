@@ -24,7 +24,7 @@ export default function Home() {
         eyebrow="AI-Boutique.de — Kreative Intelligenz"
         headline={
           <>
-            Was Ihr Team täglich wiederholt, läuft ab morgen automatisch.
+            Was Ihr Team täglich wiederholt, erledigen ab morgen KI-Agenten.
           </>
         }
         subline={
@@ -56,10 +56,10 @@ export default function Home() {
           <MonoLabel><span className="block mb-4">Framework</span></MonoLabel>
           {/* DRAFT */}
           <h2 className="text-2xl md:text-3xl font-bold font-sans text-white leading-snug mb-6">
-            Mein Prozedere: das S.C.A.L.E.-Framework.
+            Mit dem S.C.A.L.E.-Framework zum effektiven KI-Tool.
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            KI hilft nur dort, wo sie zu Ihren Abläufen passt. Diese lassen sich ganz einfach und ganz systematisch lokalisieren. Mit diesen fünf Schritten kommt KI bei Ihnen effektiv zum Einsatz.
+            KI-Tools helfen nur dort, wo sie zu Ihren Abläufen passen. Diese zu lokalisieren und systematisch zu hinterfragen ist für mich ein fünfstufiger Prozess, der KI-Anwendungen unverzichtbar macht.
           </p>
         </div>
         <ScaleLetters />
