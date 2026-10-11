@@ -28,7 +28,7 @@ export const services: Service[] = [
   },
   {
     title: "CRM Pipeline",
-    copy: "Anfragen kommen per Formular, Mail und Telefon und landen in Excel-Listen oder im Kopf einzelner Kollegen. Eine CRM Pipeline erfasst jeden Kontakt, ordnet ihn ein, erinnert ans Nachfassen und schreibt die passende Mail als Entwurf. Ihr Team sieht jederzeit, wo ein Kontakt steht, und entscheidet, was rausgeht.",
+    copy: "Kundenbeziehungen konstant pflegen ist heute eine klassische KI-Arbeit. Ob Onboarding, Kundenpflege, Bindung oder News. KI-Agenten ermöglichen eine individuelle und relevante Betreuung all Ihrer Kunden zum richtigen Zeitpunkt. Ganz mühelos.",
     image: "/AI-Boutique_Images/icons/rag-systeme.png"
   },
   {

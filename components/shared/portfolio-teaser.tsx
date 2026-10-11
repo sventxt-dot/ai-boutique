@@ -117,7 +117,7 @@ export default function PortfolioTeaser() {
           <>
           {/* DRAFT */}
           <p className="text-base md:text-lg text-white/70 leading-relaxed font-medium max-w-3xl mb-6">
-            Kampagnen für Media Markt, CRM-Entwicklung für BMW und MINI, dazu Anzeigen, Employer Branding und Social Media. Eine Minute Schnelldurchlauf durch mein Werbeportfolio.
+            Texterschmiede, Werbeagenturen in Hamburg und München. Funk, Plakat, TV, Pitch, New Business und große Kunden. Marketing Studium. Seit 2016 freier Creative Director. Jetzt zertifizierter KI-Experte, um meinen Output zu skalieren. Hier ein kleiner Ausschnitt in mein klassisches Werbeportfolio.
           </p>
           {/* The click on the tab counts as user gesture, so playback with sound is allowed. */}
           <video
