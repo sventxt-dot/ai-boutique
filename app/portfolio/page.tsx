@@ -15,6 +15,14 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <Section className="pt-32 md:pt-40">
+      {/* DRAFT */}
+      <Link
+        href="/#leistungen"
+        className="inline-flex items-center gap-2 mb-8 text-sm font-semibold text-accent-lila hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-lila"
+      >
+        <span aria-hidden="true">←</span>
+        Zurück zur Startseite
+      </Link>
       <MonoLabel>
         <span className="block mb-4">Portfolio</span>
       </MonoLabel>

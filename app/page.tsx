@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import VideoHero from "@/components/shared/video-hero";
+import Hero from "@/components/shared/hero";
 import Section from "@/components/shared/section";
 import MonoLabel from "@/components/shared/mono-label";
 import ServicesGrid from "@/components/shared/services-grid";
@@ -18,9 +18,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <VideoHero
-        videoSrc="/video/hero-placeholder.mp4"
-        posterSrc="/images/hero-poster.jpg"
+      <Hero
         eyebrow="AI-Boutique.de — Kreative Intelligenz"
         headline={
           <>
@@ -43,7 +41,7 @@ export default function Home() {
         ]}
       />
 
-      {/* Services Bento Grid */}
+      {/* Services */}
       <Section className="pt-8 md:pt-12" id="leistungen">
         <ServicesGrid />
       </Section>

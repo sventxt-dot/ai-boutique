@@ -54,7 +54,7 @@ interface MultiSelectProps {
 }
 
 const inputClass =
-  "w-full bg-[#141414] border border-white/10 rounded-xl px-5 py-4 text-white text-base font-medium placeholder:text-white/25 outline-none focus:border-[#C77DFF]/60 focus:ring-1 focus:ring-[#C77DFF]/20 transition-colors";
+  "w-full bg-[#1c1c1c] border border-white/40 rounded-xl px-5 py-4 text-white text-base font-medium placeholder:text-white/60 outline-none focus:border-[#C77DFF] focus:ring-2 focus:ring-[#C77DFF]/40 transition-colors";
 
 function MultiSelect({ label, step, options, selected, onChange, placeholder }: MultiSelectProps) {
   const [open, setOpen] = useState(false);
@@ -86,10 +86,10 @@ function MultiSelect({ label, step, options, selected, onChange, placeholder }: 
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between bg-[#141414] border border-white/10 rounded-xl px-5 py-4 text-base font-medium text-left hover:border-[#C77DFF]/40 transition-colors cursor-pointer"
+        className="w-full flex items-center justify-between bg-[#1c1c1c] border border-white/40 rounded-xl px-5 py-4 text-base font-medium text-left hover:border-[#C77DFF] focus-visible:border-[#C77DFF] focus-visible:ring-2 focus-visible:ring-[#C77DFF]/40 outline-none transition-colors cursor-pointer"
       >
         {selected.length === 0 ? (
-          <span className="text-white/30">{placeholder}</span>
+          <span className="text-white/60">{placeholder}</span>
         ) : (
           <span className="text-white">{selected.length} ausgewählt</span>
         )}
@@ -401,7 +401,7 @@ export default function PotentialCheck() {
               onChange={(e) => setEmail(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleEmailSubmit()}
               placeholder="Ihre E-Mail-Adresse"
-              className="w-full bg-[#141414] border border-white/10 rounded-xl px-5 py-4 text-white text-base placeholder:text-white/30 outline-none focus:border-[#C77DFF]/60 transition-colors"
+              className="w-full bg-[#1c1c1c] border border-white/40 rounded-xl px-5 py-4 text-white text-base placeholder:text-white/60 outline-none focus:border-[#C77DFF] focus:ring-2 focus:ring-[#C77DFF]/40 transition-colors"
               autoFocus
             />
             <button
