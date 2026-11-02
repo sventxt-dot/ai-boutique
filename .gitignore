@@ -46,3 +46,9 @@ next-env.d.ts
 # knowledge base: CRM data stays local
 kontext/crm/*
 !kontext/crm/README.md
+
+# licensed course material and its outputs stay local
+skills/amm-quick-emotioncheck/
+daten/*-emotions-check/
+kontext/agentic Marketing materialien/
+kontext/*.rtf
