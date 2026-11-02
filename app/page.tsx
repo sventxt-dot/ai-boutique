@@ -19,19 +19,34 @@ export default function Home() {
   return (
     <>
       <Hero
-        eyebrow="AI-Boutique.de — Kreative Intelligenz"
+        eyebrow="AI-Boutique // Agentic Marketing mit Kreativer Intelligenz"
         headline={
           <>
-            Was Ihr Team täglich wiederholt, erledigen ab morgen KI-Agenten.
+            <span className="@container block max-w-3xl whitespace-nowrap">
+              <span className="block text-[13.49cqw] leading-[1.1]">
+                Agentic Marketing
+              </span>
+              <span className="block text-[11.16cqw] leading-[1.1]">
+                vom Creative Director
+              </span>
+              <span className="block mt-[2.5cqw] text-[5.63cqw] leading-[1.25] normal-case">
+                Für Marken, die auch mit KI markant bleiben
+              </span>
+            </span>
           </>
         }
         subline={
           <>
-            Ich entwickle KI-Lösungen für Aufgaben, die Marketingteams und
-            Agenturen unnötig Zeit kosten: von der Wettbewerbsanalyse bis zum
-            fertigen Funnel. Markenkonform und nur nach Freigabe Ihres Teams. Dafür
-            sorge ich persönlich, mit über 20 Jahren Marketing- und fünf
-            Jahren KI-Erfahrung.
+            <span className="block">
+              Wissen gibt’s umsonst. Erfahrung bleibt kostbar.
+            </span>
+            <span className="block mt-4">
+              Mit 20 Jahren Markenpraxis und 4 Jahren KI-Praxis bringe ich
+              fundiertes Know-how für Agentic Marketing in Ihr Marketingteam.
+            </span>
+            <span className="block mt-4">
+              On Brand. On Purpose. On Point.
+            </span>
           </>
         }
         cta={{ label: "Drei KI-Maßnahmen ermitteln", href: "#potential-check" }}

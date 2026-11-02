@@ -15,37 +15,55 @@ interface UseCase {
 }
 
 const painOptions = [
-  "Zu viel manuelle Arbeit",
-  "Kundenservice frisst Zeit",
-  "Content-Produktion dauert zu lang",
-  "Angebote schreiben ist aufwändig",
-  "Wissen geht beim Ausscheiden verloren",
-  "Fachkräftemangel",
-  "Reporting & Auswertungen kosten Zeit",
-  "Onboarding neuer Mitarbeiter dauert",
-  "Keine einheitliche Markenstimme",
-  "Leads werden zu langsam bearbeitet",
-  "Übersetzungen & Lokalisierung",
-  "Zu wenig Kapazität für Social Media",
-  "Rechnungen & Buchhaltung manuell",
-  "Produktdaten pflegen ist mühsam",
+  "Positionierung & Zielgruppe",
+  "Mikro- und Makroanalysen",
+  "Ideenfindung",
+  "KI markenkonform einrichten",
+  "Content-Produktion",
+  "Newsletter & Social Media",
+  "Reporting",
+  "Lead-Bearbeitung",
+  "Angebote",
+  "Kundenservice",
 ];
 
 const winOptions = [
-  "Zeit sparen",
-  "Kosten senken",
-  "24/7 erreichbar sein",
-  "Schneller skalieren",
-  "Markenstimme wahren",
-  "Mitarbeiter entlasten",
-  "Mehr Umsatz generieren",
-  "Neues Serviceangebot aufbauen",
-  "Daten besser nutzen",
-  "Wettbewerbsvorsprung sichern",
+  "Assistenz",
+  "Copywriter",
+  "Recherche",
+  "Analyse",
+  "Ideen-Sparring",
+  "Proaktive Impulse",
+  "Trendradar",
+  "Content-Produktion",
+  "Markenprüfung",
+  "Kampagnenplanung",
+  "Reporting",
+];
+
+const toolOptions = [
+  "Wrike",
+  "Asana",
+  "monday.com",
+  "Slack",
+  "Microsoft Teams",
+  "Notion",
+  "Canva",
+  "Adobe Creative Cloud",
+  "Figma",
+  "HubSpot",
+  "Salesforce",
+  "Mailchimp",
+  "Brevo",
+  "WordPress",
+  "Google Analytics",
+  "Meta Ads",
+  "ChatGPT",
+  "Microsoft Copilot",
 ];
 
 interface MultiSelectProps {
-  label: string;
+  label: React.ReactNode;
   step: string;
   options: string[];
   selected: string[];
@@ -166,7 +184,8 @@ export default function PotentialCheck() {
   const [extraPain, setExtraPain] = useState("");
   const [selectedWins, setSelectedWins] = useState<string[]>([]);
   const [extraWin, setExtraWin] = useState("");
-  const [ergaenzung, setErgaenzung] = useState("");
+  const [selectedTools, setSelectedTools] = useState<string[]>([]);
+  const [extraTool, setExtraTool] = useState("");
   const [email, setEmail] = useState("");
   const [emailSending, setEmailSending] = useState(false);
   const [usecases, setUsecases] = useState<UseCase[]>([]);
@@ -208,6 +227,8 @@ export default function PotentialCheck() {
 
     return () => clearTimeout(timeout);
   }, [charIndex, brancheIndex, branche]);
+
+  const ergaenzung = [...selectedTools, extraTool].filter(Boolean).join(", ");
 
   async function handleSubmit() {
     setStep("loading");
@@ -267,10 +288,10 @@ export default function PotentialCheck() {
           <span className="block mb-4">KI-Potential-Check</span>
         </MonoLabel>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Wo und wie kann KI Ihr Unternehmen supporten?
+          Was bringt Agentic-Marketing?
         </h2>
         <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl font-medium">
-          Angepasst an Ihre Branche, Ihre Pains und Ihre Ziele analysiert der KI-Potential-Check drei konkrete KI-Maßnahmen für Ihren Betrieb. Kostenlos.
+          Angepasst an Ihre Branche, Ihre Pains und Ihre Ziele analysiert der KI-Potential-Check drei konkrete Agentic-Marketing-Maßnahmen für Ihren Betrieb. Kostenlos.
         </p>
       </div>
 
@@ -298,7 +319,7 @@ export default function PotentialCheck() {
             <div className="space-y-3">
               <MultiSelect
                 step="02"
-                label="Was kostet Sie am meisten Zeit oder Geld?"
+                label="Was kostet Sie am meisten Zeit und Geld?"
                 options={painOptions}
                 selected={selectedPains}
                 onChange={setSelectedPains}
@@ -317,7 +338,7 @@ export default function PotentialCheck() {
             <div className="space-y-3">
               <MultiSelect
                 step="03"
-                label="Was soll KI für Sie erreichen?"
+                label="Wie möchten Sie KI im Marketing einbinden?"
                 options={winOptions}
                 selected={selectedWins}
                 onChange={setSelectedWins}
@@ -332,18 +353,27 @@ export default function PotentialCheck() {
               />
             </div>
 
-            {/* 04 — Ergänzung (optional) */}
-            <div>
-              <div className="font-display text-xs text-[#C77DFF] uppercase tracking-widest mb-2">04</div>
-              <p className="text-2xl font-bold text-white mb-4">
-                Noch etwas?{" "}
-                <span className="text-white/60 font-normal text-lg">Optional</span>
-              </p>
-              <textarea
-                value={ergaenzung}
-                onChange={(e) => setErgaenzung(e.target.value)}
-                placeholder="Was bewegt Sie sonst noch?"
-                className={`${inputClass} min-h-[80px] resize-y`}
+            {/* 04 — Tools (optional) */}
+            <div className="space-y-3">
+              <MultiSelect
+                step="04"
+                label={
+                  <>
+                    Welche Tools nutzen Sie bisher?{" "}
+                    <span className="text-white/60 font-normal text-lg">Optional</span>
+                  </>
+                }
+                options={toolOptions}
+                selected={selectedTools}
+                onChange={setSelectedTools}
+                placeholder="Auswählen..."
+              />
+              <input
+                type="text"
+                value={extraTool}
+                onChange={(e) => setExtraTool(e.target.value)}
+                placeholder="Weiteres Tool..."
+                className={inputClass}
               />
             </div>
 
