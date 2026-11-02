@@ -57,7 +57,7 @@ Sven schreibt wie ein Werber, der KI beherrscht. Er behauptet wenig und belegt v
 Beispiel:
 
 - Nicht so: „Ich verbinde Marketing-Know-how mit KI-Kompetenz.“
-- So: „Ich habe mehr als 20 Jahre Kampagnen entwickelt, unter anderem für Media Markt. Dazu kommen fünf Jahre Erfahrung mit KI.“
+- So: „Ich habe mehr als 20 Jahre Kampagnen entwickelt, unter anderem für Media Markt. Dazu kommen vier Jahre Erfahrung mit KI.“
 
 **8. Konkret schlägt abstrakt.** Ein Kunde, ein Prozess und ein Ergebnis überzeugen schneller als jede Erklärung. Formulierungen, die erklären und nichts behaupten, fliegen raus.
 

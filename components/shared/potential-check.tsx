@@ -188,6 +188,7 @@ export default function PotentialCheck() {
   const [extraTool, setExtraTool] = useState("");
   const [email, setEmail] = useState("");
   const [emailSending, setEmailSending] = useState(false);
+  const [emailError, setEmailError] = useState(false);
   const [usecases, setUsecases] = useState<UseCase[]>([]);
 
   const branches = [
@@ -260,8 +261,9 @@ export default function PotentialCheck() {
   async function handleEmailSubmit() {
     if (!email) return;
     setEmailSending(true);
+    setEmailError(false);
     try {
-      await fetch("/api/save-lead", {
+      const response = await fetch("/api/save-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -273,9 +275,11 @@ export default function PotentialCheck() {
           usecases,
         }),
       });
+      if (!response.ok) throw new Error("Lead could not be delivered");
       setStep("thankyou");
     } catch (err) {
       console.error(err);
+      setEmailError(true);
       setEmailSending(false);
     }
   }
@@ -441,6 +445,12 @@ export default function PotentialCheck() {
             >
               {emailSending ? "Wird gespeichert..." : "Ergebnis zusenden →"}
             </button>
+            {emailError && (
+              <p role="alert" className="text-sm text-white/80 font-medium">
+                {/* DRAFT */}
+                Das hat nicht geklappt. Senden Sie es bitte noch einmal oder schreiben Sie mir an sven@ai-boutique.de.
+              </p>
+            )}
           </div>
         </div>
       )}

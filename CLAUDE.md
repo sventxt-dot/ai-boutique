@@ -42,7 +42,7 @@ The idea behind it: the automation has to work reliably. The creative part is ch
 
 Proof points you may use. Do not invent others, and do not invent numbers, client names, or quotes.
 
-- More than 20 years of campaign development, five years of AI experience before the hype
+- More than 20 years of campaign development, four years of AI experience before the hype
 - Trained Marketing-Fachkaufmann plus certified AI expertise
 - CRM development for BMW and MINI, long-running campaign work for Media Markt
 - AI implementations for a catering company and a bakery, each across customer interaction (chat and voice bot), workflow automation, and content automation

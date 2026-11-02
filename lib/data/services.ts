@@ -18,7 +18,7 @@ export const services: Service[] = [
   },
   {
     title: "AI Copywriting",
-    copy: "Mails, Websites, Produkttexte und Broschüren. In Ihrer Tonalität, mit Ihrer Corporate Identity und dem Fachwissen Ihres Unternehmens. Als Copywriter mit mehr als 20 Jahren Kampagnenarbeit und fünf Jahren KI-Erfahrung zählt das zu meinem Spezialgebiet.",
+    copy: "Mails, Websites, Produkttexte und Broschüren. In Ihrer Tonalität, mit Ihrer Corporate Identity und dem Fachwissen Ihres Unternehmens. Als Copywriter mit mehr als 20 Jahren Kampagnenarbeit und 4 Jahren KI-Erfahrung zählt das zu meinem Spezialgebiet.",
     image: "/AI-Boutique_Images/icons/agentic-marketing.png"
   },
   {

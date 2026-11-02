@@ -26,11 +26,11 @@ export default function Home() {
               <span className="block text-[13.49cqw] leading-[1.1]">
                 Agentic Marketing
               </span>
-              <span className="block text-[11.16cqw] leading-[1.1]">
-                vom Creative Director
+              <span className="block text-[12.04cqw] leading-[1.1]">
+                vom Kreativdirektor
               </span>
-              <span className="block mt-[2.5cqw] text-[5.63cqw] leading-[1.25] normal-case">
-                Für Marken, die auch mit KI markant bleiben
+              <span className="block mt-[2.5cqw] text-[5.2cqw] leading-[1.25] normal-case">
+                Für Marken, die markant bleiben wollen – mit KI.
               </span>
             </span>
           </>
@@ -38,18 +38,20 @@ export default function Home() {
         subline={
           <>
             <span className="block">
-              Wissen gibt’s umsonst. Erfahrung bleibt kostbar.
+              Aus 20 Jahren Markenpraxis weiß ich, wo im Marketing der Schuh drückt:
+              Kampagnen adaptieren, Content deklinieren, Produkttexte schreiben,
+              Mailings verfassen, Analysen, Recherche, Reportings. Die Liste ist lang.
             </span>
             <span className="block mt-4">
-              Mit 20 Jahren Markenpraxis und 4 Jahren KI-Praxis bringe ich
-              fundiertes Know-how für Agentic Marketing in Ihr Marketingteam.
+              Mein Ansatz: Agentic Marketing. Es spart Zeit und gibt Ihrem Team
+              wieder Luft für die strategischen Aufgaben im Marketing.
             </span>
             <span className="block mt-4">
               On Brand. On Purpose. On Point.
             </span>
           </>
         }
-        cta={{ label: "Drei KI-Maßnahmen ermitteln", href: "#potential-check" }}
+        cta={{ label: "Agentic Marketing Potential-Check", href: "#potential-check" }}
         badges={[
           { src: "/EU-Hosting_Logo.png", alt: "100 % EU-Hosting" },
           { src: "/Siegel_MMAI.png", alt: "Zertifiziert MMAI – Master Management with AI" },
