@@ -27,55 +27,68 @@ export async function POST(request: NextRequest) {
 
     const [u1, u2, u3] = usecases ?? [];
 
-    const { error } = await supabaseAdmin
-      .from("potential_check_leads")
-      .insert({
-        email,
-        branche,
-        pain_points: pains,
-        ki_wins: wins,
-        ergaenzung: ergaenzung || null,
-        usecase_1_titel: u1?.titel,
-        usecase_1_beschreibung: u1?.beschreibung,
-        usecase_1_machbarkeit: u1?.machbarkeit,
-        usecase_1_umsetzung: u1?.umsetzung,
-        usecase_1_einsparung: u1?.einsparung,
-        usecase_1_naechster_schritt: u1?.naechster_schritt,
-        usecase_2_titel: u2?.titel,
-        usecase_2_beschreibung: u2?.beschreibung,
-        usecase_2_machbarkeit: u2?.machbarkeit,
-        usecase_2_umsetzung: u2?.umsetzung,
-        usecase_2_einsparung: u2?.einsparung,
-        usecase_2_naechster_schritt: u2?.naechster_schritt,
-        usecase_3_titel: u3?.titel,
-        usecase_3_beschreibung: u3?.beschreibung,
-        usecase_3_machbarkeit: u3?.machbarkeit,
-        usecase_3_umsetzung: u3?.umsetzung,
-        usecase_3_einsparung: u3?.einsparung,
-        usecase_3_naechster_schritt: u3?.naechster_schritt,
-        status: "new",
-      });
+    let saved = false;
+    let mailed = false;
 
-    if (error) {
-      console.error("Supabase insert error:", error);
-      return NextResponse.json(
-        { error: "Speichern fehlgeschlagen." },
-        { status: 500 }
-      );
+    try {
+      const { error } = await supabaseAdmin
+        .from("potential_check_leads")
+        .insert({
+          email,
+          branche,
+          pain_points: pains,
+          ki_wins: wins,
+          ergaenzung: ergaenzung || null,
+          usecase_1_titel: u1?.titel,
+          usecase_1_beschreibung: u1?.beschreibung,
+          usecase_1_machbarkeit: u1?.machbarkeit,
+          usecase_1_umsetzung: u1?.umsetzung,
+          usecase_1_einsparung: u1?.einsparung,
+          usecase_1_naechster_schritt: u1?.naechster_schritt,
+          usecase_2_titel: u2?.titel,
+          usecase_2_beschreibung: u2?.beschreibung,
+          usecase_2_machbarkeit: u2?.machbarkeit,
+          usecase_2_umsetzung: u2?.umsetzung,
+          usecase_2_einsparung: u2?.einsparung,
+          usecase_2_naechster_schritt: u2?.naechster_schritt,
+          usecase_3_titel: u3?.titel,
+          usecase_3_beschreibung: u3?.beschreibung,
+          usecase_3_machbarkeit: u3?.machbarkeit,
+          usecase_3_umsetzung: u3?.umsetzung,
+          usecase_3_einsparung: u3?.einsparung,
+          usecase_3_naechster_schritt: u3?.naechster_schritt,
+          status: "new",
+        });
+
+      if (error) {
+        console.error("Supabase insert error:", error);
+      } else {
+        saved = true;
+        console.log("✅ New lead saved:", email, branche);
+      }
+    } catch (saveError) {
+      console.error("Supabase insert failed:", saveError);
     }
 
-    console.log("✅ New lead saved:", email, branche);
-
+    // The mail is the fallback copy of the lead, so it must not depend on the database.
     try {
       const info = await transporter.sendMail({
         from: `"AI-Boutique.de" <${process.env.SMTP_USER}>`,
         to: process.env.SMTP_TO,
-        subject: `Neuer KI-Potential Check: ${branche} — ${email}`,
+        subject: `${saved ? "" : "[Nicht gespeichert] "}Neuer KI-Potential Check: ${branche} — ${email}`,
         html: buildEmailHtml({ email, branche, pains, wins, ergaenzung, usecases }),
       });
+      mailed = true;
       console.log("✅ Email sent:", info.messageId, info.response);
     } catch (emailError) {
       console.error("❌ Email send failed:", emailError);
+    }
+
+    if (!saved && !mailed) {
+      return NextResponse.json(
+        { error: "Speichern fehlgeschlagen." },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ success: true });
