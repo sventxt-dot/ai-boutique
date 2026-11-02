@@ -9,6 +9,15 @@ interface UseCase {
   umsetzung: string;
   einsparung: string;
   naechster_schritt: string;
+  arbeitsform?: string;
+  ausloeser?: string;
+  ablauf?: string[];
+  tools?: string;
+  voraussetzungen?: string;
+  freigabe?: string;
+  pruefkriterium?: string;
+  referenz?: string;
+  annahmen?: string;
 }
 
 export async function POST(request: NextRequest) {
@@ -105,14 +114,28 @@ function buildEmailHtml({
   const tag = (text: string) =>
     `<span style="display:inline-block;background:rgba(199,125,255,0.12);border:1px solid rgba(199,125,255,0.3);color:rgba(255,255,255,0.85);font-size:12px;padding:3px 10px;border-radius:100px;margin:2px 4px 2px 0;">${text}</span>`;
 
+  const detail = (label: string, value?: string) =>
+    value
+      ? `<div style="margin-bottom:12px;">
+          <div style="font-family:monospace;font-size:10px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">${label}</div>
+          <div style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.55;">${value}</div>
+        </div>`
+      : "";
+
   const usecasesHtml = usecases
     .map(
       (uc, i) => `
       <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px;margin-bottom:14px;">
         <div style="font-family:monospace;font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:6px;">0${i + 1}</div>
         <div style="color:#fff;font-weight:700;font-size:16px;margin-bottom:8px;">${uc.titel}</div>
-        <span style="display:inline-block;font-family:monospace;font-size:10px;color:#C77DFF;border:1px solid #C77DFF;padding:2px 8px;border-radius:4px;margin-bottom:12px;">${uc.machbarkeit}</span>
+        <span style="display:inline-block;font-family:monospace;font-size:10px;color:#C77DFF;border:1px solid #C77DFF;padding:2px 8px;border-radius:4px;margin-bottom:12px;">${uc.arbeitsform ?? ""} · ${uc.machbarkeit}</span>
         <div style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.65;margin-bottom:14px;">${uc.beschreibung}</div>
+        ${detail("Auslöser", uc.ausloeser)}
+        ${detail("Ablauf", uc.ablauf?.map((step, n) => `${n + 1}. ${step}`).join("<br>"))}
+        ${detail("Tools", uc.tools)}
+        ${detail("Voraussetzungen", uc.voraussetzungen)}
+        ${detail("Freigabe", uc.freigabe)}
+        ${detail("Prüfkriterium", uc.pruefkriterium)}
         <table style="width:100%;border-collapse:separate;border-spacing:8px;margin-bottom:12px;">
           <tr>
             <td style="background:rgba(255,255,255,0.05);border-radius:6px;padding:10px 12px;width:50%;vertical-align:top;">
@@ -126,8 +149,12 @@ function buildEmailHtml({
           </tr>
         </table>
         <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:12px;">
-          <div style="font-family:monospace;font-size:10px;color:#C77DFF;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px;">Nächster Schritt</div>
+          <div style="font-family:monospace;font-size:10px;color:#C77DFF;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px;">Erster Testlauf</div>
           <div style="color:rgba(255,255,255,0.5);font-size:12px;line-height:1.55;">${uc.naechster_schritt}</div>
+        </div>
+        <div style="margin-top:12px;">
+          ${detail("Referenz", uc.referenz)}
+          ${detail("Nur für dich: Annahmen", uc.annahmen)}
         </div>
       </div>`
     )
@@ -159,18 +186,18 @@ function buildEmailHtml({
     </div>
 
     ${wins?.length ? `<div style="margin-bottom:16px;">
-      <div style="color:rgba(255,255,255,0.35);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">KI-Wünsche</div>
+      <div style="color:rgba(255,255,255,0.35);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">Einbindung im Marketing</div>
       <div>${wins.map(tag).join("")}</div>
     </div>` : ""}
 
     ${ergaenzung ? `<div style="margin-bottom:16px;">
-      <div style="color:rgba(255,255,255,0.35);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Ergänzung</div>
+      <div style="color:rgba(255,255,255,0.35);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Bisher genutzte Tools</div>
       <div style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;">${ergaenzung}</div>
     </div>` : ""}
 
     <div style="border-top:1px solid rgba(255,255,255,0.06);margin:28px 0;"></div>
 
-    <div style="font-family:monospace;font-size:11px;color:#C77DFF;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:18px;">3 KI-Potenziale</div>
+    <div style="font-family:monospace;font-size:11px;color:#C77DFF;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:18px;">3 Agentic-Marketing-Cases (Entwurf)</div>
     ${usecasesHtml}
 
   </div>
