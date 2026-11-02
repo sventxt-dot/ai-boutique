@@ -14,18 +14,18 @@ Alle Texte stehen wörtlich so wie auf der Website, auch dort, wo sie noch nicht
 
 **Headline:**
 Agentic Marketing
-vom Creative Director
-Für Marken, die auch mit KI markant bleiben
+vom Kreativdirektor
+Für Marken, die markant bleiben wollen – mit KI.
 
 **Subline:**
 
-Wissen gibt’s umsonst. Erfahrung bleibt kostbar.
+Aus 20 Jahren Markenpraxis weiß ich, wo im Marketing der Schuh drückt: Kampagnen adaptieren, Content deklinieren, Produkttexte schreiben, Mailings verfassen, Analysen, Recherche, Reportings. Die Liste ist lang.
 
-Mit 20 Jahren Markenpraxis und 4 Jahren KI-Praxis bringe ich fundiertes Know-how für Agentic Marketing in Ihr Marketingteam.
+Mein Ansatz: Agentic Marketing. Es spart Zeit und gibt Ihrem Team wieder Luft für die strategischen Aufgaben im Marketing.
 
 On Brand. On Purpose. On Point.
 
-**CTA:** Drei KI-Maßnahmen ermitteln
+**CTA:** Agentic Marketing Potential-Check
 
 **Siegel (Alt-Texte):** 100 % EU-Hosting / Zertifiziert MMAI – Master Management with AI
 
@@ -42,7 +42,7 @@ Anrufe kommen, wenn gerade niemand abheben kann. Ihr Telefon schläft nie. Es ni
 Ihr Team beantwortet jeden Tag dieselben Fragen. In der App, auf der Website oder am POS – ein gut strukturierter Chatbot greift auf das gesamte Firmenwissen zurück und antwortet wie ein Mensch.
 
 **AI Copywriting**
-Mails, Websites, Produkttexte und Broschüren. In Ihrer Tonalität, mit Ihrer Corporate Identity und dem Fachwissen Ihres Unternehmens. Als Copywriter mit mehr als 20 Jahren Kampagnenarbeit und fünf Jahren KI-Erfahrung zählt das zu meinem Spezialgebiet.
+Mails, Websites, Produkttexte und Broschüren. In Ihrer Tonalität, mit Ihrer Corporate Identity und dem Fachwissen Ihres Unternehmens. Als Copywriter mit mehr als 20 Jahren Kampagnenarbeit und 4 Jahren KI-Erfahrung zählt das zu meinem Spezialgebiet.
 
 **Corporate LLM**
 Ihre sensiblen Daten gehören in einen geschützten Rahmen, nicht in die Cloud eines amerikanischen Konzerns. Ich entwickle Ihr Firmenmodell auf Ihrer Infrastruktur.
@@ -65,17 +65,11 @@ In Ihrem Team nutzt jeder KI anders, und niemand weiß, was erlaubt ist. KI-Basi
 
 **Headline (Entwurf):** Was ich bisher kreiert habe.
 
-**Intro (Entwurf):** Mehr als 20 Jahre Kampagnenentwicklung sowie fünf Jahre Arbeit und kontinuierliche Weiterbildung im Bereich der KI. Hier ein Überblick auf mein kreativ technisches Portfolio.
+**Intro (Entwurf):** Mehr als 20 Jahre Kampagnenentwicklung sowie 4 Jahre Arbeit und kontinuierliche Weiterbildung im Bereich der KI. Hier ein Überblick auf mein kreativ technisches Portfolio.
 
-**Tabs:** KI-Systeme im Einsatz / Werbung & Marketing
+**Reiter:** Werbung & Marketing (aktiv) / KI-Systeme im Einsatz (Link zur Unterseite Portfolio)
 
-**Tab „KI-Systeme im Einsatz“ (Entwurf):** KI sollte keine Menschen ersetzen. Im Gegenteil, sie sollte Menschen befähigen, beflügeln und ihnen mehr Zeit für andere Dinge geben. Oder kennen Sie eine Schreinerei, die ihre Bretter noch mit der Hand sägt?
-
-Darunter stehen drei Kacheln: Location Designer, Brotbot, ayvio AI-Sport Coach. Die Texte stehen im Abschnitt „Portfolio“.
-
-**Link:** Alle Arbeiten ansehen →
-
-**Tab „Werbung & Marketing“ (Entwurf):** Texterschmiede, Werbeagenturen in Hamburg und München. Funk, Plakat, TV, Pitch, New Business und große Kunden. Marketing Studium. Seit 2016 freier Creative Director. Jetzt zertifizierter KI-Experte, um meinen Output zu skalieren. Hier ein kleiner Ausschnitt in mein klassisches Werbeportfolio.
+**Text zum Film (Entwurf):** Texterschmiede, Werbeagenturen in Hamburg und München. Funk, Plakat, TV, Pitch, New Business und große Kunden. Marketing Studium. Seit 2016 freier Creative Director. Jetzt zertifizierter KI-Experte, um meinen Output zu skalieren. Hier ein kleiner Ausschnitt in mein klassisches Werbeportfolio.
 
 **Video-Fehlermeldungen:** Das Video lässt sich gerade nicht laden. / Ihr Browser kann dieses Video nicht abspielen.
 
@@ -185,6 +179,7 @@ Text: Ich schicke Ihnen das Ergebnis in einer persönlichen E-Mail zu. Und weite
 Platzhalter: Ihre E-Mail-Adresse
 Button: Ergebnis zusenden →
 Button beim Senden: Wird gespeichert...
+Fehlermeldung (Entwurf): Das hat nicht geklappt. Senden Sie es bitte noch einmal oder schreiben Sie mir an sven@ai-boutique.de.
 
 **Danke-Schritt**
 Headline: Vielen Dank.
@@ -229,6 +224,8 @@ Alle Portfolio-Texte sind als Entwurf markiert.
 **Intro:** Chatbots, Workflows und Content-Automation für Catering, Bäckerei und eigene Produkte.
 
 **CTA am Seitenende:** Drei KI-Maßnahmen für mein Team ermitteln
+
+**Link am Seitenende:** ← Zurück zur Startseite
 
 ### Location Designer (Catering/Event)
 
