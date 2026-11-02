@@ -79,12 +79,22 @@ export default function PortfolioPage() {
         ))}
       </div>
 
-      <Link
-        href="/#potential-check"
-        className="inline-block mt-10 bg-[#C77DFF] hover:bg-[#d490ff] text-black font-bold rounded-xl px-8 py-4 transition-colors"
-      >
-        Drei KI-Maßnahmen für mein Team ermitteln
-      </Link>
+      <div className="mt-10 flex flex-col items-start gap-6">
+        <Link
+          href="/#potential-check"
+          className="inline-block bg-[#C77DFF] hover:bg-[#d490ff] text-black font-bold rounded-xl px-8 py-4 transition-colors"
+        >
+          Drei KI-Maßnahmen für mein Team ermitteln
+        </Link>
+        {/* DRAFT */}
+        <Link
+          href="/#leistungen"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-accent-lila hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-lila"
+        >
+          <span aria-hidden="true">←</span>
+          Zurück zur Startseite
+        </Link>
+      </div>
     </Section>
   );
 }
