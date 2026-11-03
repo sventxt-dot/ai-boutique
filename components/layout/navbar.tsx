@@ -45,7 +45,8 @@ export default function Navbar() {
     >
       <div className="max-w-[1440px] mx-auto px-8 md:px-16 lg:px-20 py-3 md:py-4 flex items-center justify-between">
         {/* Logo — transparent PNG, no wrapper */}
-        <Link href="/" className="flex items-center shrink-0">
+        {/* The logo PNG has about 8% transparent margin on the left; pull it back onto the content edge. */}
+        <Link href="/" className="flex items-center shrink-0 -ml-[9px] md:-ml-[13px]">
           <Image
             src="/images/AiB_Logo_Trans-Weiss.png"
             alt="Ai Boutique"
