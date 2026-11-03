@@ -18,7 +18,7 @@ export default function PortfolioPage() {
       {/* DRAFT */}
       <Link
         href="/#leistungen"
-        className="inline-flex items-center gap-2 mb-8 text-sm font-semibold text-accent-lila hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-lila"
+        className="inline-flex items-center gap-2 mb-8 text-sm font-semibold text-accent-lila-ink hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-lila"
       >
         <span aria-hidden="true">←</span>
         Zurück zur Startseite
@@ -28,7 +28,7 @@ export default function PortfolioPage() {
       </MonoLabel>
       <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">KI-Systeme im Einsatz</h1>
       {/* DRAFT */}
-      <p className="text-lg text-white/60 max-w-2xl mb-10">
+      <p className="text-lg text-muted-foreground max-w-2xl mb-10">
         Chatbots, Workflows und Content-Automation für Catering, Bäckerei und eigene Produkte.
       </p>
 
@@ -37,12 +37,12 @@ export default function PortfolioPage() {
           <details
             key={item.id}
             id={item.id}
-            className="group rounded-2xl bg-[#0f0f0f] border border-white/5 open:border-[#C77DFF]/30 target:border-[#C77DFF]/30"
+            className="group rounded-2xl bg-white border border-border open:border-[#C77DFF]/30 target:border-[#C77DFF]/30"
           >
             <summary className="flex cursor-pointer list-none items-center gap-4 p-5">
               <div className="flex-1">
                 <div className="font-display uppercase text-xl">{item.title}</div>
-                <p className="text-sm text-white/60 mt-1">{item.teaser}</p>
+                <p className="text-sm text-muted-foreground mt-1">{item.teaser}</p>
               </div>
               {item.client && (
                 <span className="hidden sm:block text-xs text-[#C77DFF]">{item.client}</span>
@@ -65,7 +65,7 @@ export default function PortfolioPage() {
               {item.steps.length > 0 && (
                 <ol className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 mb-4">
                   {item.steps.map((step, i) => (
-                    <li key={step} className="flex gap-3 rounded-xl border border-white/5 p-3 text-sm text-white/70">
+                    <li key={step} className="flex gap-3 rounded-xl border border-border p-3 text-sm text-[#3E3A44]">
                       <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#C77DFF] text-xs font-bold text-black">
                         {i + 1}
                       </span>
@@ -89,7 +89,7 @@ export default function PortfolioPage() {
         {/* DRAFT */}
         <Link
           href="/#leistungen"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-accent-lila hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-lila"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-accent-lila-ink hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-lila"
         >
           <span aria-hidden="true">←</span>
           Zurück zur Startseite

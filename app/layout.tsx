@@ -77,7 +77,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={cn("dark h-full", "antialiased", geistSans.variable, "font-sans", montserrat.variable, anton.variable)}
+      className={cn("h-full", "antialiased", geistSans.variable, "font-sans", montserrat.variable, anton.variable)}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import MonoLabel from "./mono-label";
 
 type Step = "form" | "processing" | "email" | "thankyou";
@@ -70,7 +71,12 @@ interface MultiSelectProps {
 }
 
 const inputClass =
-  "w-full bg-[#1c1c1c] border border-white/40 rounded-xl px-5 py-4 text-white text-base font-medium placeholder:text-white/60 outline-none focus:border-[#C77DFF] focus:ring-2 focus:ring-[#C77DFF]/40 transition-colors";
+  "w-full h-[54px] bg-white border-0 rounded-full px-6 text-foreground text-base font-medium placeholder:text-[#6B6573] outline-none focus-visible:ring-2 focus-visible:ring-foreground/60 transition-shadow";
+
+// Fixed head height keeps the fields of both columns on one line, even when a label wraps
+const stepHeadClass = "md:min-h-24 flex flex-col justify-end mb-4";
+const stepNumberClass = "font-display text-sm tracking-[0.12em] text-[#2E0F4D] mb-2";
+const stepLabelClass = "text-xl leading-[1.3] font-bold text-foreground";
 
 function MultiSelect({ label, step, options, selected, onChange, placeholder }: MultiSelectProps) {
   const [open, setOpen] = useState(false);
@@ -96,21 +102,23 @@ function MultiSelect({ label, step, options, selected, onChange, placeholder }: 
 
   return (
     <div ref={ref} className="relative">
-      <div className="font-display text-xs text-[#C77DFF] uppercase tracking-widest mb-2">{step}</div>
-      <p className="text-2xl font-bold text-white mb-4">{label}</p>
+      <div className={stepHeadClass}>
+        <div className={stepNumberClass}>{step}</div>
+        <p className={stepLabelClass}>{label}</p>
+      </div>
 
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between bg-[#1c1c1c] border border-white/40 rounded-xl px-5 py-4 text-base font-medium text-left hover:border-[#C77DFF] focus-visible:border-[#C77DFF] focus-visible:ring-2 focus-visible:ring-[#C77DFF]/40 outline-none transition-colors cursor-pointer"
+        className="w-full h-[54px] flex items-center justify-between bg-white rounded-full px-6 text-base font-medium text-left focus-visible:ring-2 focus-visible:ring-foreground/60 outline-none transition-shadow cursor-pointer"
       >
         {selected.length === 0 ? (
-          <span className="text-white/60">{placeholder}</span>
+          <span className="text-[#6B6573]">{placeholder}</span>
         ) : (
-          <span className="text-white">{selected.length} ausgewählt</span>
+          <span className="text-foreground">{selected.length} ausgewählt</span>
         )}
         <svg
-          className={`w-4 h-4 text-white/60 transition-transform duration-200 flex-shrink-0 ${open ? "rotate-180" : ""}`}
+          className={`w-4 h-4 text-foreground transition-transform duration-200 flex-shrink-0 ${open ? "rotate-180" : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -124,13 +132,13 @@ function MultiSelect({ label, step, options, selected, onChange, placeholder }: 
           {selected.map((s) => (
             <span
               key={s}
-              className="text-sm bg-[#1a0a2e] border border-[#C77DFF] text-white font-medium rounded-full px-3 py-1.5 flex items-center gap-1"
+              className="text-sm bg-white/85 text-foreground font-medium rounded-full px-3 py-1.5 flex items-center gap-1"
             >
               {s}
               <button
                 type="button"
                 onClick={() => toggle(s)}
-                className="text-white/70 hover:text-white ml-1"
+                className="text-foreground/60 hover:text-foreground ml-1"
               >
                 ×
               </button>
@@ -140,7 +148,7 @@ function MultiSelect({ label, step, options, selected, onChange, placeholder }: 
       )}
 
       {open && (
-        <div className="absolute z-50 w-full mt-1 bg-[#141414] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
+        <div className="absolute z-50 w-full mt-2 bg-white rounded-3xl shadow-xl overflow-hidden">
           <div className="max-h-72 overflow-y-auto">
             {options.map((option) => {
               const isSelected = selected.includes(option);
@@ -149,13 +157,13 @@ function MultiSelect({ label, step, options, selected, onChange, placeholder }: 
                   key={option}
                   type="button"
                   onClick={() => toggle(option)}
-                  className="w-full flex items-center gap-3 px-5 py-3 text-white text-sm font-medium text-left hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 cursor-pointer"
+                  className="w-full flex items-center gap-3 px-6 py-3 text-foreground text-sm font-medium text-left hover:bg-[#F3ECFB] transition-colors border-b border-border last:border-0 cursor-pointer"
                 >
                   <span
                     className={`w-4 h-4 rounded flex-shrink-0 flex items-center justify-center border transition-colors ${
                       isSelected
                         ? "bg-[#C77DFF] border-[#C77DFF]"
-                        : "border-white/20 bg-transparent"
+                        : "border-foreground/30 bg-transparent"
                     }`}
                   >
                     {isSelected && (
@@ -281,31 +289,62 @@ export default function PotentialCheck() {
   }
 
   return (
-    <div ref={rootRef} className="scroll-mt-28">
-      {/* Header */}
-      <div className="mb-12">
-        <MonoLabel>
-          <span className="block mb-4">Agentic-Marketing-Check</span>
-        </MonoLabel>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Welche Aufgaben kann KI in Ihrem Marketing morgen übernehmen?
-        </h2>
-        <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl font-medium">
-          Ihre Branche, Ihre Pains, Ihre Wünsche, Ihre Tools – ich liefere drei konkrete Maßnahmen. Kostenlos.
-        </p>
+    <div
+      ref={rootRef}
+      className="scroll-mt-28 relative rounded-[28px] overflow-hidden bg-linear-to-b from-[#A35AD3] from-45% via-[#B47BE2] via-75% to-[#CBA6EE]"
+    >
+      {/* Header: laptop on the purple shelf, the lila runs on into the form */}
+      <div className="relative">
+        <div className="relative">
+          <Image
+            src="/images/redesign/check-laptop.jpg"
+            alt=""
+            width={1080}
+            height={530}
+            sizes="(min-width: 1440px) 1280px, 100vw"
+            className="block w-full h-auto"
+          />
+          <div className="absolute left-[15.4%] right-[55.2%] top-[26.6%] bottom-[33.8%] bg-white flex items-center justify-center">
+            <Image
+              src="/images/portfolio/brotbot-thumb.png"
+              alt="Brotbot, die Chatbot-Figur einer Bäckerei"
+              width={256}
+              height={256}
+              className="h-[88%] w-auto"
+            />
+          </div>
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-[14%] bg-linear-to-b from-[#A35AD3]/0 to-[#A35AD3]"
+          />
+        </div>
+        <div className="px-6 pt-8 md:absolute md:left-[52%] md:right-[5%] md:top-[11%] md:p-0">
+          <MonoLabel dot="#FFF56E" className="mb-3.5 text-[#2A1F38]">Agentic-Marketing-Check</MonoLabel>
+          <h2 className="text-2xl lg:text-[38px] font-bold leading-tight text-foreground mb-4">
+            Welche Aufgaben kann KI in Ihrem Marketing morgen übernehmen?
+          </h2>
+          <p className="text-base lg:text-lg text-[#1E1726] leading-relaxed font-medium">
+            Ihre Branche, Ihre Pains, Ihre Wünsche, Ihre Tools – ich liefere drei konkrete Maßnahmen. Kostenlos.
+          </p>
+        </div>
       </div>
+
+      <div className="px-6 md:px-[5%] pt-10 md:pt-14 pb-12 md:pb-16">
 
       {step === "form" && (
         <div>
           <form
             onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}
-            className="space-y-10 max-w-3xl"
+            className="grid grid-cols-1 md:grid-cols-2 gap-y-11 md:gap-x-[4.4445%]"
           >
             {/* 01 — Branche */}
             <div>
-              <div className="font-display text-xs text-[#C77DFF] uppercase tracking-widest mb-2">01</div>
-              <p className="text-2xl font-bold text-white mb-4">Ihre Branche</p>
+              <div className={stepHeadClass}>
+                <div className={stepNumberClass}>01</div>
+                <label htmlFor="pc-branche" className={stepLabelClass}>Ihre Branche</label>
+              </div>
               <input
+                id="pc-branche"
                 type="text"
                 value={branche}
                 onChange={(e) => setBranche(e.target.value)}
@@ -359,7 +398,7 @@ export default function PotentialCheck() {
                 label={
                   <>
                     Welche Tools nutzen Sie im Marketing?{" "}
-                    <span className="text-white/60 font-normal text-lg">Optional</span>
+                    <span className="text-[#2E0F4D] font-medium text-base">Optional</span>
                   </>
                 }
                 options={toolOptions}
@@ -376,14 +415,16 @@ export default function PotentialCheck() {
               />
             </div>
 
-            <button
-              type="submit"
-              disabled={!branche.trim()}
-              className="w-full bg-[#C77DFF] hover:bg-[#d490ff] text-black font-bold text-lg rounded-xl py-5 px-8 transition-colors cursor-pointer mt-4 disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              KI-Potential analysieren →
-            </button>
-            <p className="text-sm text-white/60 leading-relaxed font-medium">
+            <div className="md:pt-2">
+              <button
+                type="submit"
+                disabled={!branche.trim()}
+                className="w-full h-[60px] bg-foreground hover:bg-foreground/85 text-white font-bold text-[17px] rounded-full px-8 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                KI-Potential analysieren →
+              </button>
+            </div>
+            <p className="md:pt-2 self-center text-sm text-[#1E1726] leading-relaxed font-medium">
               Im nächsten Schritt geben Sie Ihre E-Mail-Adresse an. Ich bearbeite Ihre Analyse persönlich und schicke sie Ihnen zu.
             </p>
           </form>
@@ -394,14 +435,14 @@ export default function PotentialCheck() {
       {step === "processing" && (
         <div role="status" className="py-16 max-w-lg mx-auto flex flex-col items-center gap-8">
           <div className="relative w-20 h-20">
-            <div className="absolute inset-0 rounded-full bg-[#C77DFF]/25 animate-ping" />
-            <div className="absolute inset-2 rounded-full bg-[#C77DFF]/15 animate-pulse" />
-            <div className="absolute inset-5 rounded-full bg-[#C77DFF]/60" />
+            <div className="absolute inset-0 rounded-full bg-white/40 animate-ping" />
+            <div className="absolute inset-2 rounded-full bg-white/30 animate-pulse" />
+            <div className="absolute inset-5 rounded-full bg-white" />
           </div>
           <div className="text-center">
             {/* DRAFT */}
-            <p className="text-white/70 text-lg mb-1 font-medium">Ihre Angaben werden verarbeitet.</p>
-            <p className="text-white/60 text-base font-medium">Einen Moment bitte.</p>
+            <p className="text-foreground text-lg mb-1 font-medium">Ihre Angaben werden verarbeitet.</p>
+            <p className="text-[#1E1726] text-base font-medium">Einen Moment bitte.</p>
           </div>
         </div>
       )}
@@ -409,9 +450,9 @@ export default function PotentialCheck() {
       {/* Email capture */}
       {step === "email" && (
         <div ref={emailRef} className="py-16 max-w-lg mx-auto text-center scroll-mt-12">
-          <div className="w-14 h-14 rounded-full bg-[#C77DFF]/20 border border-[#C77DFF]/40 flex items-center justify-center mx-auto mb-8">
+          <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mx-auto mb-8">
             <svg
-              className="w-7 h-7 text-[#C77DFF]"
+              className="w-7 h-7 text-accent-lila-ink"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -420,14 +461,14 @@ export default function PotentialCheck() {
             </svg>
           </div>
           {/* DRAFT */}
-          <h3 className="text-2xl font-bold text-white mb-4">Ihre Angaben sind vollständig.</h3>
-          <p className="text-base text-white/70 font-medium mb-3">So geht es weiter:</p>
-          <ol className="text-left text-base text-white/60 leading-relaxed font-medium space-y-2 mb-6 list-decimal pl-5">
+          <h3 className="text-2xl font-bold text-foreground mb-4">Ihre Angaben sind vollständig.</h3>
+          <p className="text-base text-foreground font-medium mb-3">So geht es weiter:</p>
+          <ol className="text-left text-base text-[#1E1726] leading-relaxed font-medium space-y-2 mb-6 list-decimal pl-5">
             <li>Eine KI entwirft aus Ihren Angaben drei Agentic-Marketing-Maßnahmen.</li>
             <li>Ich prüfe jede Maßnahme persönlich und ergänze, was ich bei Ihnen einrichten würde.</li>
             <li>Sie erhalten das Ergebnis in einer persönlichen E-Mail von mir.</li>
           </ol>
-          <p className="text-base text-white/60 leading-relaxed mb-10 font-medium">
+          <p className="text-base text-[#1E1726] leading-relaxed mb-10 font-medium">
             Und weiter nichts, versprochen.
           </p>
           <div className="flex flex-col gap-3 w-full max-w-md mx-auto">
@@ -437,18 +478,18 @@ export default function PotentialCheck() {
               onChange={(e) => setEmail(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleEmailSubmit()}
               placeholder="Ihre E-Mail-Adresse"
-              className="w-full bg-[#1c1c1c] border border-white/40 rounded-xl px-5 py-4 text-white text-base placeholder:text-white/60 outline-none focus:border-[#C77DFF] focus:ring-2 focus:ring-[#C77DFF]/40 transition-colors"
+              className={inputClass}
               autoFocus
             />
             <button
               onClick={handleEmailSubmit}
               disabled={!email || emailSending}
-              className="w-full bg-[#C77DFF] hover:bg-[#d490ff] disabled:opacity-40 text-black font-bold text-base rounded-xl py-4 transition-colors cursor-pointer disabled:cursor-not-allowed"
+              className="w-full h-[56px] bg-foreground hover:bg-foreground/85 disabled:opacity-50 text-white font-bold text-base rounded-full transition-colors cursor-pointer disabled:cursor-not-allowed"
             >
               {emailSending ? "Wird gespeichert..." : "Ergebnis zusenden →"}
             </button>
             {emailError && (
-              <p role="alert" className="text-sm text-white/80 font-medium">
+              <p role="alert" className="text-sm text-foreground font-medium">
                 {/* DRAFT */}
                 Das hat nicht geklappt. Senden Sie es bitte noch einmal oder schreiben Sie mir an sven@ai-boutique.de.
               </p>
@@ -460,12 +501,13 @@ export default function PotentialCheck() {
       {/* Thank you */}
       {step === "thankyou" && (
         <div ref={thanksRef} className="py-12 text-center max-w-md mx-auto scroll-mt-28">
-          <h3 className="text-2xl font-bold text-white mb-4">Vielen Dank.</h3>
-          <p className="text-base text-white/60 leading-relaxed font-medium">
+          <h3 className="text-2xl font-bold text-foreground mb-4">Vielen Dank.</h3>
+          <p className="text-base text-[#1E1726] leading-relaxed font-medium">
             Ich bearbeite Ihren KI-Potential-Check persönlich und schicke Ihnen die drei KI-Maßnahmen per E-Mail zu.
           </p>
         </div>
       )}
+      </div>
     </div>
   );
 }

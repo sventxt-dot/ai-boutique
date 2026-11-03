@@ -1,98 +1,20 @@
-"use client";
+import { pillars } from "@/lib/data/scale";
 
-import { useEffect, useState } from "react";
-import { pillars, type Pillar } from "@/lib/data/scale";
-
-function ScaleCard({ pillar, flipped }: { pillar: Pillar; flipped: boolean }) {
+export default function ScaleLetters() {
   return (
-    <div
-      className="w-[calc(50%-8px)] sm:flex-1 sm:w-auto h-56 md:h-64 lg:h-72"
-      style={{ perspective: "1000px" }}
-    >
-      <div
-        className="relative w-full h-full"
-        style={{
-          transformStyle: "preserve-3d",
-          transition: "transform 0.55s cubic-bezier(.4, 0, .2, 1)",
-          transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
-        }}
-      >
-        {/* Front: large letter */}
-        <div
-          className="absolute inset-0 flex items-center justify-center bg-foreground/5 rounded-xl overflow-hidden"
-          style={{ backfaceVisibility: "hidden" }}
-        >
+    <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+      {pillars.map((pillar) => (
+        <li key={pillar.letter} className="flex flex-col gap-3 rounded-[20px] bg-white px-6 pt-7 pb-8">
           <span
-            className="font-display uppercase text-[#C77DFF] leading-none select-none"
-            style={{ fontSize: "clamp(140px, 16vw, 220px)", lineHeight: 1 }}
+            aria-hidden="true"
+            className="font-display uppercase text-accent-lila text-8xl leading-none select-none"
           >
             {pillar.letter}
           </span>
-        </div>
-
-        {/* Back: name + description */}
-        <div
-          className="absolute inset-0 flex flex-col justify-between p-4 md:p-5 bg-foreground/5 rounded-xl overflow-hidden"
-          style={{
-            backfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-          }}
-        >
-          <div className="flex flex-col gap-1">
-            <span className="font-sans font-bold text-2xl uppercase text-[#C77DFF] leading-none">
-              {pillar.name}
-            </span>
-            <p className="text-base text-foreground/80 leading-relaxed mt-2 font-medium">
-              {pillar.description}
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default function ScaleLetters() {
-  const [flipped, setFlipped] = useState(false);
-  const [isTouch, setIsTouch] = useState(false);
-
-  useEffect(() => {
-    setIsTouch(window.matchMedia("(pointer: coarse)").matches);
-  }, []);
-
-  return (
-    <>
-      {/* Below lg: static list, no tapping needed */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:hidden">
-        {pillars.map((pillar) => (
-          <div
-            key={pillar.letter}
-            className="flex items-start gap-5 bg-foreground/5 rounded-xl p-5"
-          >
-            <div className="flex flex-col gap-1">
-              <span className="font-sans font-bold text-2xl uppercase text-[#C77DFF] leading-none">
-                <span className="text-accent-coral">{pillar.name.charAt(0)}</span>
-                {pillar.name.slice(1)}
-              </span>
-              <p className="text-base text-foreground/80 leading-relaxed mt-2 font-medium">
-                {pillar.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div
-        className="hidden lg:flex flex-nowrap w-full gap-6 cursor-pointer"
-        onMouseEnter={() => { if (!isTouch) setFlipped(true); }}
-        onMouseLeave={() => { if (!isTouch) setFlipped(false); }}
-        onClick={() => { if (isTouch) setFlipped(f => !f); }}
-      >
-        {pillars.map((pillar) => (
-          <ScaleCard key={pillar.letter} pillar={pillar} flipped={flipped} />
-        ))}
-      </div>
-    </>
+          <h3 className="mt-2 text-lg font-bold tracking-wide text-accent-lila-ink">{pillar.name}</h3>
+          <p className="text-[15px] leading-relaxed font-medium text-[#3E3A44]">{pillar.description}</p>
+        </li>
+      ))}
+    </ol>
   );
 }

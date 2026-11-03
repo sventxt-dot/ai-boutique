@@ -13,7 +13,7 @@ export default function DatenschutzPage() {
     <main className="min-h-screen bg-background pt-32 pb-24 px-6 md:px-12">
       <div className="max-w-2xl mx-auto">
         <MonoLabel>Rechtliches</MonoLabel>
-        <h1 className="text-[1.75rem] sm:text-4xl break-words hyphens-auto font-bold text-white mt-4 mb-12">
+        <h1 className="text-[1.75rem] sm:text-4xl break-words hyphens-auto font-bold text-foreground mt-4 mb-12">
           Datenschutzerklärung
         </h1>
 
@@ -21,7 +21,7 @@ export default function DatenschutzPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             1. Verantwortlicher
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Sven Günzel<br />
             Bachstraße 17<br />
             83209 Prien am Chiemsee<br />
@@ -42,7 +42,7 @@ export default function DatenschutzPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             2. Erhebung und Verarbeitung personenbezogener Daten
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Wir erheben personenbezogene Daten nur, wenn Sie uns diese freiwillig mitteilen.
             Im Rahmen des KI-Potential Checks haben Sie die Möglichkeit, Ihre E-Mail-Adresse
             anzugeben, damit wir Ihnen die Analyseergebnisse zusenden können. Die Angabe ist
@@ -54,7 +54,7 @@ export default function DatenschutzPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             3. Zweck der Datenverarbeitung
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Ihre E-Mail-Adresse wird ausschließlich verwendet, um Ihnen die Ergebnisse Ihres
             KI-Potential Checks zuzusenden. Eine Weitergabe an Dritte, eine Nutzung für
             Werbezwecke oder die Aufnahme in einen Newsletter erfolgt nicht.
@@ -65,7 +65,7 @@ export default function DatenschutzPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             4. Rechtsgrundlage
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Die Verarbeitung Ihrer E-Mail-Adresse erfolgt auf Grundlage von Art. 6 Abs. 1
             lit. a DSGVO (Einwilligung). Sie können Ihre Einwilligung jederzeit widerrufen,
             indem Sie uns eine E-Mail an sven@ai-boutique.de senden. Die Rechtmäßigkeit der
@@ -77,7 +77,7 @@ export default function DatenschutzPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             5. Speicherung und Löschung
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Ihre Daten werden in einer gesicherten Datenbank gespeichert (Supabase,
             Server-Standort: EU/Paris). Sie werden gelöscht, sobald der Zweck der Speicherung
             entfällt oder Sie die Löschung verlangen. Zur Löschung Ihrer Daten genügt eine
@@ -89,7 +89,7 @@ export default function DatenschutzPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             6. Einsatz von KI-Diensten
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Zur Erstellung der KI-Analyse werden die von Ihnen eingegebenen Informationen
             (Branche, Herausforderungen, Wünsche) an die Anthropic API übermittelt. Es werden
             dabei keine personenbezogenen Daten übermittelt — ausschließlich die sachlichen
@@ -102,7 +102,7 @@ export default function DatenschutzPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             7. Hosting
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Diese Website wird auf Servern der Hetzner Online GmbH (Industriestr. 25, 91710
             Gunzenhausen, Deutschland) gehostet. Hetzner ist ein nach DSGVO zertifizierter
             europäischer Anbieter. Bei jedem Seitenaufruf werden Server-Logfiles erfasst
@@ -115,7 +115,7 @@ export default function DatenschutzPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             8. Cookies
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Diese Website verwendet keine Tracking-Cookies und kein Web-Analytics. Es werden
             ausschließlich technisch notwendige Session-Daten verarbeitet, die für den Betrieb
             der Website erforderlich sind.
@@ -126,7 +126,7 @@ export default function DatenschutzPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             9. Ihre Rechte
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Sie haben das Recht auf Auskunft über Ihre gespeicherten personenbezogenen Daten
             (Art. 15 DSGVO), Berichtigung unrichtiger Daten (Art. 16 DSGVO), Löschung Ihrer
             Daten (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO) sowie
@@ -141,7 +141,7 @@ export default function DatenschutzPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             10. Aktualität
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Diese Datenschutzerklärung ist aktuell gültig und hat den Stand August 2026.
           </p>
         </section>

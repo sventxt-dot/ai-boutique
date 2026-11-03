@@ -3,13 +3,15 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = useCallback(() => setMenuOpen(false), []);
+  // Only the homepage starts on the purple hero image; everywhere else the navbar sits on the light ground
+  const onDark = usePathname() === "/" && !scrolled && !menuOpen;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -39,7 +41,7 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled || menuOpen
-          ? "bg-[#0a0a0a]/90 backdrop-blur-sm border-b border-white/5"
+          ? "bg-background/90 backdrop-blur-sm border-b border-border"
           : "bg-transparent"
       )}
     >
@@ -52,8 +54,11 @@ export default function Navbar() {
             alt="Ai Boutique"
             width={300}
             height={100}
-            priority
-            className="h-14 md:h-20 w-auto object-contain"
+            preload
+            className={cn(
+              "h-14 md:h-20 w-auto object-contain transition-[filter] duration-300",
+              !onDark && "invert"
+            )}
           />
         </Link>
 
@@ -61,32 +66,42 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           <Link
             href="/#leistungen"
-            className="text-sm text-foreground hover:text-foreground/70 transition-colors underline-offset-4 hover:underline hover:decoration-accent-yellow"
+            className={cn(
+              "text-sm font-medium transition-colors underline-offset-4 hover:underline hover:decoration-accent-yellow",
+              onDark ? "text-white hover:text-white/80" : "text-foreground hover:text-foreground/70"
+            )}
           >
             Leistungen
           </Link>
 
           <Link
             href="/#potential-check"
-            className="text-sm text-foreground hover:text-foreground/70 transition-colors underline-offset-4 hover:underline hover:decoration-accent-yellow"
+            className={cn(
+              "text-sm font-medium transition-colors underline-offset-4 hover:underline hover:decoration-accent-yellow",
+              onDark ? "text-white hover:text-white/80" : "text-foreground hover:text-foreground/70"
+            )}
           >
             Potential Check
           </Link>
 
-          <Link href="/kontakt">
-            <Button
-              size="sm"
-              className="bg-[#1a0a2e] text-white border-none hover:bg-[#1a0a2e]/85"
-            >
-              Kontakt
-            </Button>
+          <Link
+            href="/kontakt"
+            className={cn(
+              "inline-flex min-h-11 items-center rounded-full px-6 text-sm font-semibold transition-colors",
+              onDark ? "bg-white text-foreground hover:bg-white/85" : "bg-foreground text-white hover:bg-foreground/85"
+            )}
+          >
+            Kontakt
           </Link>
         </div>
 
         {/* Mobile menu button */}
         <button
           type="button"
-          className="md:hidden flex h-11 w-11 items-center justify-center text-foreground"
+          className={cn(
+            "md:hidden flex h-11 w-11 items-center justify-center",
+            onDark ? "text-white" : "text-foreground"
+          )}
           aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
@@ -134,7 +149,7 @@ export default function Navbar() {
           <Link
             href="/kontakt"
             onClick={closeMenu}
-            className="mt-2 flex min-h-12 items-center justify-center rounded-xl bg-[#C77DFF] font-bold text-black"
+            className="mt-2 flex min-h-12 items-center justify-center rounded-full bg-foreground font-bold text-white"
           >
             Kontakt
           </Link>

@@ -1,6 +1,6 @@
 # Website-Texte ai-boutique.de
 
-Stand: 2. November 2026, Arbeitsstand im Repo (lokal, noch nicht live).
+Stand: 3. November 2026, Arbeitsstand im Repo (lokal, noch nicht live).
 
 Alle Texte stehen wörtlich so wie auf der Website, auch dort, wo sie noch nicht final sind. In Klammern steht die Datei, in der der Text gepflegt wird.
 
@@ -33,7 +33,7 @@ On Brand. On Purpose. On Point.
 
 **Headline:** So arbeitet KI im Marketing.
 
-**Intro:** Acht KI Tools für Ihr Daily-Business.
+**Intro:** Acht mögliche KI Tools für Ihr Daily-Business.
 
 **AI Voice-Bots**
 Ein Telefon, das abnimmt, qualifiziert, informiert und bucht. In Ihrem Ton, rund um die Uhr.
@@ -63,9 +63,9 @@ Ich mache Ihr Team fit: gutes Prompten, nach den Regeln des EU AI Act, die richt
 
 **Eyebrow:** Portfolio
 
-**Headline (Entwurf):** Was ich bisher kreiert habe.
+**Headline:** Native Creative
 
-**Intro (Entwurf):** Mehr als 20 Jahre Kampagnenentwicklung sowie 4 Jahre Arbeit und kontinuierliche Weiterbildung im Bereich der KI. Hier ein Überblick auf mein kreativ technisches Portfolio.
+**Intro:** Mehr als 20 Jahre Werbung und vier Jahre kontinuierliche Weiterbildung im Bereich der KI.
 
 **Reiter:** Werbung & Marketing (aktiv) / KI-Systeme im Einsatz (Link zur Unterseite Portfolio)
 
@@ -77,9 +77,9 @@ Ich mache Ihr Team fit: gutes Prompten, nach den Regeln des EU AI Act, die richt
 
 **Eyebrow:** Framework
 
-**Headline (Entwurf):** Fünf Steps zum effektiven KI-Tool.
+**Headline:** Meine fünf Steps zum effektiven KI-Tool.
 
-**Intro (Entwurf):** KI hilft nur dort, wo sie zu Ihren Abläufen passt. Diese lokalisiere ich mit meinem S.C.A.L.E.-Framework.
+**Intro:** KI hilft nur dort, wo sie zu Ihren Abläufen passt. Mit dem S.C.A.L.E.-Framework werden wir das herausfinden.
 
 **SCAN**
 Ich höre zu, verstehe Ihre Marketingabläufe und analysiere Kanäle und Status quo. Daraus entsteht ein Gesamtbild.

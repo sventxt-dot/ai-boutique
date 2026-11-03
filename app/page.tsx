@@ -7,7 +7,6 @@ import ScaleLetters from "@/components/shared/scale-letters";
 import PotentialCheck from "@/components/shared/potential-check";
 import AboutMe from "@/components/shared/about-me";
 import CtaClosing from "@/components/shared/cta-closing";
-import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
   title: "KI Beratung für KMU — Künstliche Intelligenz für kleine Unternehmen",
@@ -20,37 +19,34 @@ export default function Home() {
     <>
       <Hero
         eyebrow="AI-Boutique // Agentic Marketing mit Kreativer Intelligenz"
+        image="/images/redesign/hero-wand.jpg"
         headline={
           <>
-            <span className="@container block max-w-3xl whitespace-nowrap">
-              <span className="block text-[13.49cqw] leading-[1.1]">
-                Agentic Marketing
-              </span>
-              <span className="block text-[12.04cqw] leading-[1.1]">
-                vom Kreativdirektor
-              </span>
-              <span className="block mt-[2.5cqw] text-[5.2cqw] leading-[1.25] normal-case">
-                Für Marken, die markant bleiben wollen – mit KI.
-              </span>
+            <span className="block font-display uppercase text-[clamp(34px,10vw,120px)] md:text-[clamp(48px,8vw,120px)] leading-none">
+              Agentic Marketing
+            </span>
+            <span className="block font-display uppercase text-[clamp(34px,10vw,120px)] md:text-[clamp(48px,8vw,120px)] leading-none">
+              vom Kreativdirektor
+            </span>
+            <span className="block mt-6 font-sans font-semibold text-[clamp(22px,2.4vw,32px)] leading-[1.3]">
+              Für Marken, die markant bleiben wollen – mit KI.
             </span>
           </>
         }
-        subline={
+        intro={[
+          <span key="pain" className="font-semibold text-foreground">
+            Aus 20 Jahren Markenpraxis weiß ich, wo im Marketing der Schuh drückt:
+            Kampagnen adaptieren, Content deklinieren, Produkttexte schreiben,
+            Mailings verfassen, Analysen, Recherche, Reportings. Die Liste ist lang.
+          </span>,
           <>
-            <span className="block">
-              Aus 20 Jahren Markenpraxis weiß ich, wo im Marketing der Schuh drückt:
-              Kampagnen adaptieren, Content deklinieren, Produkttexte schreiben,
-              Mailings verfassen, Analysen, Recherche, Reportings. Die Liste ist lang.
-            </span>
-            <span className="block mt-4">
-              Mein Ansatz, um Ihrem Team wieder Luft für die strategischen Aufgaben
-              im Marketing zu geben: Agentic Marketing.
-            </span>
-            <span className="block mt-4">
-              On Brand. On Purpose. On Point.
-            </span>
-          </>
-        }
+            Mein Ansatz, um Ihrem Team wieder Luft für die strategischen Aufgaben
+            im Marketing zu geben: Agentic Marketing.
+          </>,
+          <strong key="claim" className="font-bold text-foreground">
+            On Brand. On Purpose. On Point.
+          </strong>,
+        ]}
         cta={{ label: "Agentic Marketing Potential-Check", href: "#potential-check" }}
         badges={[
           { src: "/EU-Hosting_Logo.png", alt: "100 % EU-Hosting" },
@@ -59,47 +55,38 @@ export default function Home() {
       />
 
       {/* Services */}
-      <Section className="pt-8 md:pt-12" id="leistungen">
+      <Section className="pt-0 md:pt-0" id="leistungen">
         <ServicesGrid />
       </Section>
 
-      <Separator className="bg-foreground/5" />
-
       {/* S.C.A.L.E. Framework */}
-      <Section>
-        <div className="mb-12 md:mb-16">
-          <MonoLabel><span className="block mb-4">Framework</span></MonoLabel>
-          {/* DRAFT */}
-          <h2 className="text-2xl md:text-3xl font-bold font-sans text-white leading-snug mb-6">
-            Fünf Steps zum effektiven KI-Tool.
+      <Section className="bg-linear-to-b from-background via-[#F1E8FB] to-background">
+        <div className="mb-12 md:mb-14">
+          <MonoLabel dot="#6F77F4" className="mb-4">Framework</MonoLabel>
+          <h2 className="text-3xl md:text-4xl font-bold font-sans leading-tight mb-5">
+            Meine fünf Steps zum effektiven KI-Tool.
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
-            KI hilft nur dort, wo sie zu Ihren Abläufen passt. Diese lokalisiere ich mit meinem S.C.A.L.E.-Framework.
+          <p className="text-lg leading-relaxed font-medium text-[#34303A] max-w-2xl">
+            KI hilft nur dort, wo sie zu Ihren Abläufen passt. Mit dem S.C.A.L.E.-Framework werden wir das herausfinden.
           </p>
         </div>
         <ScaleLetters />
       </Section>
 
-      <Separator className="bg-foreground/5" />
-
       {/* AI Potential Check */}
-      <Section id="potential-check">
+      <Section id="potential-check" className="scroll-mt-20">
         <PotentialCheck />
       </Section>
 
-      <Separator className="bg-foreground/5" />
-
       {/* About Me */}
-      <Section id="ueber-mich">
+      <Section id="ueber-mich" className="bg-linear-to-b from-background via-[#F3ECFB] to-background">
         <AboutMe />
       </Section>
 
-      <Separator className="bg-foreground/5" />
-
       {/* CTA Closing */}
-      <Section id="kontakt">
+      <section id="kontakt" className="relative w-full overflow-hidden">
         <CtaClosing />
-      </Section>
+      </section>
     </>
   );
 }

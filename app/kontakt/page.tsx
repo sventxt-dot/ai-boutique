@@ -13,24 +13,24 @@ export default function KontaktPage() {
       <div className="max-w-xl w-full text-center">
         <MonoLabel className="mb-6 inline-block">Kontakt</MonoLabel>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
           Lassen Sie uns sprechen.
         </h1>
 
-        <p className="text-lg text-white/60 leading-relaxed mb-12 font-medium">
+        <p className="text-lg text-muted-foreground leading-relaxed mb-12 font-medium">
           Schreiben Sie mir in zwei Sätzen, welche Aufgabe Ihr Team am meisten Zeit kostet. Ich antworte persönlich.
         </p>
 
         <a
           href="mailto:sven@ai-boutique.de?subject=Anfrage%20ai-boutique.de"
-          className="inline-flex items-center gap-3 bg-[#C77DFF] hover:bg-[#d490ff] text-black font-bold text-lg rounded-xl px-10 py-5 transition-colors"
+          className="inline-flex items-center gap-3 bg-[#C77DFF] hover:bg-[#d490ff] text-black font-bold text-lg rounded-full px-10 py-5 transition-colors"
         >
           sven@ai-boutique.de
         </a>
 
         <a
           href="tel:+4917949706860"
-          className="font-sans font-medium text-sm text-white/70 hover:text-[#C77DFF] transition-colors mt-8 inline-block"
+          className="font-sans font-medium text-sm text-muted-foreground hover:text-accent-lila-ink transition-colors mt-8 inline-block"
         >
           +49 179 49 70 686
         </a>

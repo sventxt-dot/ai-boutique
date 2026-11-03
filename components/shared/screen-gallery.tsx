@@ -14,7 +14,7 @@ export default function ScreenGallery({ screens }: { screens: { src: string; alt
             width={480}
             height={1043}
             sizes="200px"
-            className="h-[360px] w-auto rounded-2xl border border-white/10"
+            className="h-[360px] w-auto rounded-2xl border border-border"
           />
         </li>
       ))}

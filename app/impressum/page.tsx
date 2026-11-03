@@ -13,13 +13,13 @@ export default function ImpressumPage() {
     <main className="min-h-screen bg-background pt-32 pb-24 px-6 md:px-12">
       <div className="max-w-2xl mx-auto">
         <MonoLabel>Rechtliches</MonoLabel>
-        <h1 className="text-4xl font-bold text-white mt-4 mb-12">Impressum</h1>
+        <h1 className="text-4xl font-bold text-foreground mt-4 mb-12">Impressum</h1>
 
         <section className="mb-10">
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Angaben gemäß § 5 TMG
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Sven Günzel<br />
             Bachstraße 17<br />
             83209 Prien am Chiemsee<br />
@@ -31,7 +31,7 @@ export default function ImpressumPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Kontakt
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Telefon:{" "}
             <a href="tel:+4917949706860" className="hover:text-[#C77DFF] transition-colors">
               +49 179 49 70 686
@@ -48,7 +48,7 @@ export default function ImpressumPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Umsatzsteuer
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
             DE246252795
           </p>
@@ -58,7 +58,7 @@ export default function ImpressumPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Steuernummer
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             156/223/51940
           </p>
         </section>
@@ -67,7 +67,7 @@ export default function ImpressumPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Berufsbezeichnung
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Unternehmensberater / KI-Berater<br />
             Tätigkeitsort: Deutschland
           </p>
@@ -77,7 +77,7 @@ export default function ImpressumPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Sven Günzel<br />
             Bachstraße 17<br />
             83209 Prien am Chiemsee
@@ -88,7 +88,7 @@ export default function ImpressumPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Haftung für Inhalte
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen
             Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir
             als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
@@ -105,7 +105,7 @@ export default function ImpressumPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Haftung für Links
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir
             keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr
             übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter
@@ -122,7 +122,7 @@ export default function ImpressumPage() {
           <h2 className="text-sm font-display uppercase tracking-widest text-[#C77DFF] mb-4">
             Urheberrecht
           </h2>
-          <p className="text-white/80 leading-relaxed font-medium">
+          <p className="text-foreground/85 leading-relaxed font-medium">
             Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
             unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung
             und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der

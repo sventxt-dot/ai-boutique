@@ -1,33 +1,34 @@
 import Image from "next/image";
 import MonoLabel from "./mono-label";
-import { Badge } from "@/components/ui/badge";
+
+const tagClass =
+  "inline-flex items-center min-h-8 px-3.5 rounded-full border-[1.5px] border-accent-lila text-[13px] font-semibold text-accent-lila-ink";
 
 export default function AboutMe() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-20 items-start">
       {/* Photo */}
-      <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
+      <div className="relative aspect-[3/4] max-w-[520px] w-full rounded-[28px] overflow-hidden">
         <Image
           src="/Sven-Guenzel-Creative-Cartel-LR-5870-2.jpg"
           alt="Sven Günzel — ai-boutique"
           fill
+          sizes="(min-width: 768px) 520px, 100vw"
           className="object-cover object-top"
         />
       </div>
 
       {/* Text */}
       <div>
-        <MonoLabel>
-          <span className="block mb-6">Über mich</span>
-        </MonoLabel>
+        <MonoLabel dot="#FF6666" className="mb-7">Über mich</MonoLabel>
 
-        <p className="text-base text-foreground/80 leading-relaxed mb-6 font-medium">
+        <p className="text-[17px] text-[#34303A] leading-[1.7] mb-6 font-medium">
           Mit der ai-boutique bilde ich die Schnittstelle zwischen kreativer Markenführung und
           operativer Performance. Zentrale Fragen: Wie lassen sich kreative Leitideen maschinell
           skalieren? Und in welchen Geschäftsbereichen kann KI Ihr Geschäft effektiver machen?
         </p>
 
-        <p className="text-base text-foreground/80 leading-relaxed mb-6 font-medium">
+        <p className="text-[17px] text-[#34303A] leading-[1.7] mb-7 font-medium">
           Mehr als 20 Jahre Erfahrung in Markenpositionierung, Kampagnenentwicklung, Copywriting und Social
           Media geben mir einen praxisorientierten Blick auf die KI. Mit zertifizierter KI-Expertise
           verkaufe ich nicht „irgendwas mit Agenten" oder „irgendeinen Chatbot" – ich rede mit
@@ -36,20 +37,16 @@ export default function AboutMe() {
           Firmenwissen ungefiltert ins Netz schmeißen.
         </p>
 
-        <p className="font-sans font-medium text-sm text-foreground/60 leading-relaxed mb-4">
+        <p className="font-sans font-semibold text-sm text-[#5A4E68] leading-relaxed mb-4">
           RAG, Agentic Workflows, MCP-Protokoll.
         </p>
 
-        <div className="flex gap-2 mb-6">
-          <Badge variant="outline" className="text-xs border-[#C77DFF] text-[#C77DFF]">
-            DSGVO-konform
-          </Badge>
-          <Badge variant="outline" className="text-xs border-[#C77DFF] text-[#C77DFF]">
-            EU AI Act ready
-          </Badge>
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className={tagClass}>DSGVO-konform</span>
+          <span className={tagClass}>EU AI Act ready</span>
         </div>
 
-        <p className="font-sans font-medium text-sm text-foreground/60 leading-relaxed">
+        <p className="font-sans font-medium text-sm text-[#5A4E68] leading-relaxed">
           Ihre Daten bleiben auf eigenen Servern, und Ihr Team bedient die Tools völlig intuitiv ohne Umwege auf einem firmeninternen Dashboard. Versteckt hinter einem verschlüsselten Login.
         </p>
       </div>
