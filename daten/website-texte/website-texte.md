@@ -36,28 +36,28 @@ On Brand. On Purpose. On Point.
 **Intro:** Acht KI Tools für Ihr Daily-Business.
 
 **AI Voice-Bots**
-Ihr Anschluss schläft nie. Der aktuelle Stand der Technik erlaubt ein nie dagewesenes Maß an Gesprächsqualität.
+Ein Telefon, das abnimmt, qualifiziert, informiert und bucht. In Ihrem Ton, rund um die Uhr.
 
 **AI Chat-Bots**
-Ihr Team beantwortet jeden Tag dieselben Fragen. In der App, auf der Website oder am POS – ein gut strukturierter Chatbot greift auf das gesamte Firmenwissen zurück und antwortet wie ein Mensch.
+Auf Website und Mobile beantworten Chat-Bots Fragen, statt welche aufzuwerfen.
 
 **AI Copywriting**
-Mails, Websites, Produkttexte und Broschüren. In Ihrer Tonalität, mit Ihrer Corporate Identity und dem Fachwissen Ihres Unternehmens. Als Copywriter mit mehr als 20 Jahren Kampagnenarbeit und 4 Jahren KI-Erfahrung zählt das zu meinem Spezialgebiet.
+Ihre Tonalität, Ihr Fachwissen, Ihre Freigabe. Agenten, die schreiben wie das Texterteam, das Sie sich schon immer gewünscht haben.
 
 **Corporate LLM**
-Ihre sensiblen Daten gehören in einen geschützten Rahmen, nicht in die Cloud eines amerikanischen Konzerns. Ich entwickle Ihr Firmenmodell auf Ihrer Infrastruktur.
+Sensible Daten gehören nicht in die Cloud eines US-Konzerns. Ich baue Ihr Firmenmodell auf Ihrer Infrastruktur.
 
 **CRM-Pipeline**
-Ob Onboarding, Kundenpflege, Bindung oder News. KI-Agenten ermöglichen eine individuelle und auf Wunsch proaktive Betreuung all Ihrer Kunden zum richtigen Zeitpunkt. Ganz mühelos.
+Agenten betreuen Ihre Kunden zum richtigen Zeitpunkt, auf Wunsch auch proaktiv. Persönlich im Ton, automatisch im Ablauf.
 
 **Workflows**
-Bei Angeboten, Reportings und Freigaben geht das meiste KI-Potential verloren. Nie wieder Zeit verschwenden mit zeitraubenden Standardaufgaben.
+Angebote, Reportings, Freigaben: Hier steckt das meiste KI-Potenzial. Standardaufgaben laufen, Ihr Team macht das Marketing.
 
-**AI-Apps**
-Ihr Team behilft sich mit Excel-Listen, weil keine Software zum eigenen Ablauf passt. Wenn Standardsoftware nicht reicht, baue ich genau das Tool, das Ihr Team braucht. Leicht zu bedienen und datenschutzkonform.
+**Mobile-Apps**
+Kundenbindung auf dem Smartphone. Ihre Marke bietet Features, die Ihre Kunden wirklich nutzen.
 
 **AI-Schulung**
-Machen Sie Ihr Team fit für KI. KI-Basics wie gutes Prompten, rechtskonforme Anwendungen nach European AI Act, Datensicherung und erste Automationen.
+Ich mache Ihr Team fit: gutes Prompten, nach den Regeln des EU AI Act, die richtigen Tools, erste Automationen.
 
 ### Portfolio-Teaser (`components/shared/portfolio-teaser.tsx`)
 
@@ -69,7 +69,7 @@ Machen Sie Ihr Team fit für KI. KI-Basics wie gutes Prompten, rechtskonforme An
 
 **Reiter:** Werbung & Marketing (aktiv) / KI-Systeme im Einsatz (Link zur Unterseite Portfolio)
 
-**Text zum Film (Entwurf):** Texterschmiede, Werbeagenturen in Hamburg und München. Funk, Plakat, TV, Pitch, New Business und große Kunden. Marketing Studium. Seit 2016 freier Creative Director. Jetzt zertifizierter KI-Experte, um meinen Output zu skalieren. Hier ein kleiner Ausschnitt in mein klassisches Werbeportfolio.
+**Text zum Film (Entwurf):** Texterschmiede, Werbeagenturen in Hamburg und München. Funk, Plakat, TV, Pitch, Social Media, New Business und große Kunden. Marketing Studium. Seit 2016 freier Creative Director. Jetzt zertifizierter KI-Experte.
 
 **Video-Fehlermeldungen:** Das Video lässt sich gerade nicht laden. / Ihr Browser kann dieses Video nicht abspielen.
 
@@ -77,38 +77,38 @@ Machen Sie Ihr Team fit für KI. KI-Basics wie gutes Prompten, rechtskonforme An
 
 **Eyebrow:** Framework
 
-**Headline (Entwurf):** Mit dem S.C.A.L.E.-Framework zum effektiven KI-Tool.
+**Headline (Entwurf):** Fünf Steps zum effektiven KI-Tool.
 
-**Intro (Entwurf):** KI-Tools helfen nur dort, wo sie zu Ihren Abläufen passen. Diese zu lokalisieren und systematisch zu hinterfragen ist für mich ein fünfstufiger Prozess, der KI-Anwendungen unverzichtbar macht.
+**Intro (Entwurf):** KI hilft nur dort, wo sie zu Ihren Abläufen passt. Diese lokalisiere ich mit meinem S.C.A.L.E.-Framework.
 
-**S: SCAN (Audit)**
-Am Anfang stehen die richtigen Fragen. Nicht aus dem Handbuch sondern aus mehr als 20 Jahren Markenerfahrung. Wo liegt das Potenzial?
+**SCAN**
+Ich höre zu, verstehe Ihre Marketingabläufe und analysiere Kanäle und Status quo. Daraus entsteht ein Gesamtbild.
 
-**C: CONSULT (Beratung)**
-Aus den Antworten entsteht ein konkreter Plan. Empfohlen wird nur, was wirklich zu Ihrer Marke, Ihrem Team und Ihren Zielen passt.
+**CONSULT**
+Gemeinsam entwickeln wir einen konkreten KI-Plan, ausgerichtet an Ihrer Marke, Ihrem Team und Ihren Zielen.
 
-**A: ACT (Implementierung)**
-Der Plan wird gebaut. Kampagnen, Systeme und Tools, die zur Markenstimme passen. Technisch sauber. Kommunikativ stimmig.
+**ACT**
+Ich setze den Plan um. Technisch sauber. Kommunikativ stimmig.
 
-**L: LEARN (Schulung)**
-Die Technologie steht. Jetzt lernt Ihr Team, wie KI so eingesetzt wird, dass sie selbst und die Marke dabei gewinnt.
+**LEARN**
+Ihr Team lernt nicht nur, wie KI funktioniert. Es hat Spaß daran und erlebt echte Erfolge.
 
-**E: EXPAND (Skalierung)**
-Was funktioniert, wird auf den nächsten Bereich übertragen. Das ist S.C.A.L.E.
+**EXPAND**
+Was funktioniert, wird auf den nächsten Bereich übertragen. So wächst Ihre KI mit: S.C.A.L.E.
 
 ### KI-Potential-Check (`components/shared/potential-check.tsx`)
 
-**Eyebrow:** KI-Potential-Check
+**Eyebrow:** Agentic-Marketing-Check
 
-**Headline:** Was bringt Agentic-Marketing?
+**Headline:** Welche Aufgaben kann KI in Ihrem Marketing morgen übernehmen?
 
-**Intro:** Angepasst an Ihre Branche, Ihre Pains und Ihre Ziele analysiert der KI-Potential-Check drei konkrete Agentic-Marketing-Maßnahmen für Ihren Betrieb. Kostenlos.
+**Intro:** Ihre Branche, Ihre Pains, Ihre Wünsche, Ihre Tools – ich liefere drei konkrete Maßnahmen. Kostenlos.
 
 **01 Ihre Branche**
 Platzhalter: Ihre Branche...
 Wechselnde Beispiele im Feld: Bäckerei, Versicherung, Werbeagentur, Zahnarztpraxis, Maschinenbau, Immobilienmakler, Online-Shop, Steuerberatung, Hotel & Gastronomie, Rechtsanwaltskanzlei
 
-**02 Was kostet Sie am meisten Zeit und Geld?**
+**02 Welche Aufgaben kosten Ihr Marketing zu viel Zeit?**
 Platzhalter: Auswählen...
 
 - Positionierung & Zielgruppe
@@ -124,7 +124,7 @@ Platzhalter: Auswählen...
 
 Freitextfeld: Weiterer Pain Point...
 
-**03 Wie möchten Sie KI im Marketing einbinden?**
+**03 Wie soll KI in Ihrem Team arbeiten?**
 Platzhalter: Auswählen...
 
 - Assistenz
@@ -141,7 +141,7 @@ Platzhalter: Auswählen...
 
 Freitextfeld: Weiterer Wunsch...
 
-**04 Welche Tools nutzen Sie bisher?** Optional
+**04 Welche Tools nutzen Sie im Marketing?** Optional
 Platzhalter: Auswählen...
 
 - Adobe Creative Cloud
