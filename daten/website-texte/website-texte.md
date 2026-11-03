@@ -214,7 +214,7 @@ Ihre Daten bleiben auf eigenen Servern, und Ihr Team bedient die Tools völlig i
 
 **Headline:** Ich bringe KI auf den Punkt und automatisiere damit Geschäftsprozesse für Marketingteams und Agenturen.
 
-**Text:** Als AI-Boutique will ich neben hilfreichen Tools vor allem eines liefern: eine persönliche und kompetente Beratung. Um das sicherzustellen, gehört es zu meiner Politik, maximal 5 Projekte parallel anzunehmen. Aktuell frei: 3. Stand Oktober 2026.
+**Text:** Als AI-Boutique will ich neben hilfreichen Tools vor allem eines liefern: eine persönliche und kompetente Beratung. Um das sicherzustellen, gehört es zu meiner Politik, maximal 5 Projekte parallel anzunehmen. Aktuell frei: 2. Stand November 2026.
 
 **CTA:** Erstgespräch anfragen
 

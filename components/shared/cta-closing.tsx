@@ -7,7 +7,7 @@ export default function CtaClosing() {
         Ich bringe KI auf den Punkt und automatisiere damit Geschäftsprozesse für Marketingteams und Agenturen.
       </h2>
       <p className="text-foreground/60 text-base">
-        Als AI-Boutique will ich neben hilfreichen Tools vor allem eines liefern: eine persönliche und kompetente Beratung. Um das sicherzustellen, gehört es zu meiner Politik, maximal 5 Projekte parallel anzunehmen. <span className="text-accent-coral font-semibold">Aktuell frei: 3</span>. Stand Oktober 2026.
+        Als AI-Boutique will ich neben hilfreichen Tools vor allem eines liefern: eine persönliche und kompetente Beratung. Um das sicherzustellen, gehört es zu meiner Politik, maximal 5 Projekte parallel anzunehmen. <span className="text-accent-coral font-semibold">Aktuell frei: 2</span>. Stand November 2026.
       </p>
       <Link
         href="/kontakt"
