@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import MonoLabel from "./mono-label";
 
-type Step = "form" | "email" | "thankyou";
+type Step = "form" | "processing" | "email" | "thankyou";
 
 const painOptions = [
   "Positionierung & Zielgruppe",
@@ -228,8 +228,29 @@ export default function PotentialCheck() {
 
   const ergaenzung = [...selectedTools, extraTool].filter(Boolean).join(", ");
 
+  const rootRef = useRef<HTMLDivElement>(null);
+  const emailRef = useRef<HTMLDivElement>(null);
+
+  // The form is much taller than the next step; bring the check back into view instead of jumping.
+  // The email step scrolls to its own block so the input field is visible on phones.
+  function showStep(next: Step) {
+    setStep(next);
+    requestAnimationFrame(() =>
+      (next === "email" ? emailRef : rootRef).current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    );
+  }
+
+  useEffect(() => {
+    if (step !== "processing") return;
+    const timer = setTimeout(() => showStep("email"), 5000);
+    return () => clearTimeout(timer);
+  }, [step]);
+
   function handleSubmit() {
-    setStep("email");
+    showStep("processing");
   }
 
   async function handleEmailSubmit() {
@@ -258,7 +279,7 @@ export default function PotentialCheck() {
   }
 
   return (
-    <div>
+    <div ref={rootRef} className="scroll-mt-28">
       {/* Header */}
       <div className="mb-12">
         <MonoLabel>
@@ -367,9 +388,25 @@ export default function PotentialCheck() {
         </div>
       )}
 
+      {/* Processing signal between form and email step */}
+      {step === "processing" && (
+        <div role="status" className="py-16 max-w-lg mx-auto flex flex-col items-center gap-8">
+          <div className="relative w-20 h-20">
+            <div className="absolute inset-0 rounded-full bg-[#C77DFF]/25 animate-ping" />
+            <div className="absolute inset-2 rounded-full bg-[#C77DFF]/15 animate-pulse" />
+            <div className="absolute inset-5 rounded-full bg-[#C77DFF]/60" />
+          </div>
+          <div className="text-center">
+            {/* DRAFT */}
+            <p className="text-white/70 text-lg mb-1 font-medium">Ihre Angaben werden verarbeitet.</p>
+            <p className="text-white/60 text-base font-medium">Einen Moment bitte.</p>
+          </div>
+        </div>
+      )}
+
       {/* Email capture */}
       {step === "email" && (
-        <div className="py-16 max-w-lg mx-auto text-center">
+        <div ref={emailRef} className="py-16 max-w-lg mx-auto text-center scroll-mt-12">
           <div className="w-14 h-14 rounded-full bg-[#C77DFF]/20 border border-[#C77DFF]/40 flex items-center justify-center mx-auto mb-8">
             <svg
               className="w-7 h-7 text-[#C77DFF]"

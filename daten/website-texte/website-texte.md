@@ -178,6 +178,8 @@ Freitextfeld: Weiteres Tool...
 
 **Hinweis unter dem Button:** Im nächsten Schritt geben Sie Ihre E-Mail-Adresse an. Ich bearbeite Ihre Analyse persönlich und schicke sie Ihnen zu.
 
+**Verarbeitung (5 Sekunden, Entwurf):** Ihre Angaben werden verarbeitet. / Einen Moment bitte.
+
 **E-Mail-Schritt**
 Headline (Entwurf): Ihre Angaben sind vollständig.
 Text (Entwurf): So geht es weiter:
