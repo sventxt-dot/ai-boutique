@@ -424,9 +424,6 @@ export default function PotentialCheck() {
                 KI-Potential analysieren →
               </button>
             </div>
-            <p className="md:pt-2 self-center text-sm text-[#1E1726] leading-relaxed font-medium">
-              Im nächsten Schritt geben Sie Ihre E-Mail-Adresse an. Ich bearbeite Ihre Analyse persönlich und schicke sie Ihnen zu.
-            </p>
           </form>
         </div>
       )}

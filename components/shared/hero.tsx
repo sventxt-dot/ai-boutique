@@ -31,15 +31,20 @@ export default function Hero({
   return (
     <>
       {/* Background matches the wall in the image, so on narrow screens the image can sit at its own ratio below the text */}
-      <section className="relative w-full md:min-h-[clamp(620px,62vw,900px)] overflow-hidden bg-[#7555AA]">
-        <div className="absolute inset-x-0 bottom-0 aspect-[1080/636] md:aspect-auto md:top-0">
+      <section className="relative w-full md:min-h-[clamp(760px,70vw,1080px)] overflow-hidden bg-[#5B3878]">
+        <div className="absolute inset-x-0 bottom-0 aspect-[1485/1055] md:aspect-auto md:top-0">
           <Image
             src={image}
             alt=""
             fill
             preload
             sizes="100vw"
-            className="object-cover object-bottom"
+            className="object-cover object-bottom md:object-[center_85%]"
+          />
+          {/* On narrow screens the image starts below the text; blend its top edge into the wall color */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 top-0 h-1/3 bg-linear-to-b from-[#5B3878] to-[#5B3878]/0 md:hidden"
           />
         </div>
         {/* Lets the floor of the image run into the page ground */}
@@ -52,7 +57,7 @@ export default function Hero({
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative w-full max-w-[1440px] mx-auto px-8 md:px-16 lg:px-20 pt-36 md:pt-44 pb-[52vw] md:pb-20 text-white"
+          className="relative w-full max-w-[1440px] mx-auto px-8 md:px-16 lg:px-20 pt-36 md:pt-44 pb-[28vw] md:pb-20 text-white"
         >
           <MonoLabel className="block mb-8 text-[#F3EDFB]">
             {eyebrow}

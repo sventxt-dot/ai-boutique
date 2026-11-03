@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <Hero
         eyebrow="AI-Boutique // Agentic Marketing mit Kreativer Intelligenz"
-        image="/images/redesign/hero-wand.jpg"
+        image="/images/redesign/hero-sofa-lila.jpg"
         headline={
           <>
             <span className="block font-display uppercase text-[clamp(34px,10vw,120px)] md:text-[clamp(48px,8vw,120px)] leading-none">

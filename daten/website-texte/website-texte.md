@@ -176,8 +176,6 @@ Freitextfeld: Weiteres Tool...
 
 **Button:** KI-Potential analysieren →
 
-**Hinweis unter dem Button:** Im nächsten Schritt geben Sie Ihre E-Mail-Adresse an. Ich bearbeite Ihre Analyse persönlich und schicke sie Ihnen zu.
-
 **Verarbeitung (5 Sekunden, Entwurf):** Ihre Angaben werden verarbeitet. / Einen Moment bitte.
 
 **E-Mail-Schritt**
