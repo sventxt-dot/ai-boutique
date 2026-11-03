@@ -28,10 +28,10 @@ export default function ServicesGrid() {
   return (
     <>
       <p className="text-2xl md:text-3xl font-bold font-sans text-left text-white mb-6 leading-snug">
-        So arbeitet KI für Ihr Unternehmen.
+        So arbeitet KI im Marketing.
       </p>
       <p className="text-lg font-sans font-medium text-white/60 leading-relaxed mb-10 max-w-2xl text-left">
-        Acht Agentic Marketing-Tools, die ich einsetze. Für sofortige Ergebnisse.
+        Acht KI Tools für Ihr Daily-Business.
       </p>
       <ul className="border-b border-white/15">
         {services.map((service) => (

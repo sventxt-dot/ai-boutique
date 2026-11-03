@@ -1,95 +1,122 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import { transporter } from "@/lib/mailer";
+import { generateUsecases, type UseCase } from "@/lib/potential-check-llm";
 
-interface UseCase {
-  titel: string;
-  beschreibung: string;
-  machbarkeit: string;
-  umsetzung: string;
-  einsparung: string;
-  naechster_schritt: string;
-  arbeitsform?: string;
-  ausloeser?: string;
-  ablauf?: string[];
-  tools?: string;
-  voraussetzungen?: string;
-  freigabe?: string;
-  pruefkriterium?: string;
-  referenz?: string;
-  annahmen?: string;
+type Lead = {
+  email: string;
+  branche: string;
+  pains: string[];
+  wins: string[];
+  ergaenzung: string;
+};
+
+const usecaseColumns = (usecases: UseCase[]) =>
+  Object.fromEntries(
+    usecases.slice(0, 3).flatMap((uc, i) =>
+      (
+        ["titel", "beschreibung", "machbarkeit", "umsetzung", "einsparung", "naechster_schritt"] as const
+      ).map((field) => [`usecase_${i + 1}_${field}`, uc[field]])
+    )
+  );
+
+async function sendLeadMail(lead: Lead, usecases: UseCase[], flags: string[]) {
+  const prefix = flags.map((flag) => `[${flag}] `).join("");
+  const info = await transporter.sendMail({
+    from: `"AI-Boutique.de" <${process.env.SMTP_USER}>`,
+    to: process.env.SMTP_TO,
+    subject: `${prefix}Neuer KI-Potential Check: ${lead.branche} — ${lead.email}`,
+    html: buildEmailHtml({ ...lead, usecases }),
+  });
+  console.log("✅ Email sent:", info.messageId, info.response);
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const { email, branche, pains, wins, ergaenzung, usecases } =
-      await request.json();
+    const body = await request.json();
+    const lead: Lead = {
+      email: body.email,
+      branche: body.branche,
+      pains: body.pains ?? [],
+      wins: body.wins ?? [],
+      ergaenzung: body.ergaenzung ?? "",
+    };
 
-    const [u1, u2, u3] = usecases ?? [];
+    if (!lead.email || !lead.branche) {
+      return NextResponse.json(
+        { error: "E-Mail und Branche sind erforderlich." },
+        { status: 400 }
+      );
+    }
 
-    let saved = false;
-    let mailed = false;
-
+    let leadId: string | null = null;
     try {
-      const { error } = await supabaseAdmin
+      const { data, error } = await supabaseAdmin
         .from("potential_check_leads")
         .insert({
-          email,
-          branche,
-          pain_points: pains,
-          ki_wins: wins,
-          ergaenzung: ergaenzung || null,
-          usecase_1_titel: u1?.titel,
-          usecase_1_beschreibung: u1?.beschreibung,
-          usecase_1_machbarkeit: u1?.machbarkeit,
-          usecase_1_umsetzung: u1?.umsetzung,
-          usecase_1_einsparung: u1?.einsparung,
-          usecase_1_naechster_schritt: u1?.naechster_schritt,
-          usecase_2_titel: u2?.titel,
-          usecase_2_beschreibung: u2?.beschreibung,
-          usecase_2_machbarkeit: u2?.machbarkeit,
-          usecase_2_umsetzung: u2?.umsetzung,
-          usecase_2_einsparung: u2?.einsparung,
-          usecase_2_naechster_schritt: u2?.naechster_schritt,
-          usecase_3_titel: u3?.titel,
-          usecase_3_beschreibung: u3?.beschreibung,
-          usecase_3_machbarkeit: u3?.machbarkeit,
-          usecase_3_umsetzung: u3?.umsetzung,
-          usecase_3_einsparung: u3?.einsparung,
-          usecase_3_naechster_schritt: u3?.naechster_schritt,
+          email: lead.email,
+          branche: lead.branche,
+          pain_points: lead.pains,
+          ki_wins: lead.wins,
+          ergaenzung: lead.ergaenzung || null,
           status: "new",
-        });
+        })
+        .select("id")
+        .single();
 
       if (error) {
         console.error("Supabase insert error:", error);
       } else {
-        saved = true;
-        console.log("✅ New lead saved:", email, branche);
+        leadId = data.id;
+        console.log("✅ New lead saved:", lead.email, lead.branche);
       }
     } catch (saveError) {
       console.error("Supabase insert failed:", saveError);
     }
 
-    // The mail is the fallback copy of the lead, so it must not depend on the database.
-    try {
-      const info = await transporter.sendMail({
-        from: `"AI-Boutique.de" <${process.env.SMTP_USER}>`,
-        to: process.env.SMTP_TO,
-        subject: `${saved ? "" : "[Nicht gespeichert] "}Neuer KI-Potential Check: ${branche} — ${email}`,
-        html: buildEmailHtml({ email, branche, pains, wins, ergaenzung, usecases }),
-      });
-      mailed = true;
-      console.log("✅ Email sent:", info.messageId, info.response);
-    } catch (emailError) {
-      console.error("❌ Email send failed:", emailError);
+    // Without a database row, the lead must reach the inbox before the visitor sees a success.
+    if (!leadId) {
+      try {
+        await sendLeadMail(lead, [], ["Nicht gespeichert", "Analyse folgt"]);
+      } catch (emailError) {
+        console.error("❌ Email send failed:", emailError);
+        return NextResponse.json(
+          { error: "Speichern fehlgeschlagen." },
+          { status: 500 }
+        );
+      }
     }
 
-    if (!saved && !mailed) {
-      return NextResponse.json(
-        { error: "Speichern fehlgeschlagen." },
-        { status: 500 }
-      );
-    }
+    // The analysis takes about a minute, so it runs after the visitor already got the response.
+    after(async () => {
+      let usecases: UseCase[] = [];
+      const flags: string[] = leadId ? [] : ["Nicht gespeichert"];
+      try {
+        usecases = await generateUsecases({
+          branche: lead.branche,
+          pains: lead.pains,
+          wins: lead.wins,
+          tools: lead.ergaenzung,
+        });
+      } catch (analysisError) {
+        console.error("❌ Analysis failed:", analysisError);
+        flags.push("Analyse fehlgeschlagen");
+      }
+
+      if (leadId && usecases.length) {
+        const { error } = await supabaseAdmin
+          .from("potential_check_leads")
+          .update(usecaseColumns(usecases))
+          .eq("id", leadId);
+        if (error) console.error("Supabase update error:", error);
+      }
+
+      try {
+        await sendLeadMail(lead, usecases, flags);
+      } catch (emailError) {
+        console.error("❌ Email send failed:", emailError);
+      }
+    });
 
     return NextResponse.json({ success: true });
   } catch (error) {
@@ -143,8 +170,11 @@ function buildEmailHtml({
         <div style="color:#fff;font-weight:700;font-size:16px;margin-bottom:8px;">${uc.titel}</div>
         <span style="display:inline-block;font-family:monospace;font-size:10px;color:#C77DFF;border:1px solid #C77DFF;padding:2px 8px;border-radius:4px;margin-bottom:12px;">${uc.arbeitsform ?? ""} · ${uc.machbarkeit}</span>
         <div style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.65;margin-bottom:14px;">${uc.beschreibung}</div>
+        ${detail("Mein Anteil", uc.mein_anteil)}
+        ${detail("Ihr Beitrag", uc.ihr_beitrag)}
+        ${detail("Schnittstellen", uc.schnittstellen?.join("<br>"))}
         ${detail("Auslöser", uc.ausloeser)}
-        ${detail("Ablauf", uc.ablauf?.map((step, n) => `${n + 1}. ${step}`).join("<br>"))}
+        ${detail("Ablauf im Betrieb", uc.ablauf?.map((step, n) => `${n + 1}. ${step}`).join("<br>"))}
         ${detail("Tools", uc.tools)}
         ${detail("Voraussetzungen", uc.voraussetzungen)}
         ${detail("Freigabe", uc.freigabe)}
@@ -162,7 +192,7 @@ function buildEmailHtml({
           </tr>
         </table>
         <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:12px;">
-          <div style="font-family:monospace;font-size:10px;color:#C77DFF;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px;">Erster Testlauf</div>
+          <div style="font-family:monospace;font-size:10px;color:#C77DFF;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px;">Gemeinsamer Pilot</div>
           <div style="color:rgba(255,255,255,0.5);font-size:12px;line-height:1.55;">${uc.naechster_schritt}</div>
         </div>
         <div style="margin-top:12px;">
@@ -211,7 +241,7 @@ function buildEmailHtml({
     <div style="border-top:1px solid rgba(255,255,255,0.06);margin:28px 0;"></div>
 
     <div style="font-family:monospace;font-size:11px;color:#C77DFF;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:18px;">3 Agentic-Marketing-Cases (Entwurf)</div>
-    ${usecasesHtml}
+    ${usecases.length ? usecasesHtml : `<div style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;">Die Analyse ist ausgefallen. Die Angaben oben reichen für eine eigene Einschätzung.</div>`}
 
   </div>
 </body>

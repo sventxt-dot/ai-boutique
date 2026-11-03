@@ -7,8 +7,8 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    title: "AI Voice Bots",
-    copy: "Anrufe kommen, wenn gerade niemand abheben kann. Ihr Telefon schläft nie. Es nimmt ab, qualifiziert, informiert und bucht – während Sie sich um das kümmern, was wirklich Ihre Zeit verdient.",
+    title: "AI Voice-Bots",
+    copy: "Ihr Anschluss schläft nie. Der aktuelle Stand der Technik erlaubt ein nie dagewesenes Maß an Gesprächsqualität.",
     image: "/AI-Boutique_Images/icons/voice-bots.png"
   },
   {
@@ -27,23 +27,23 @@ export const services: Service[] = [
     image: "/AI-Boutique_Images/icons/corporate-llm.png"
   },
   {
-    title: "CRM Pipeline",
-    copy: "Kundenbeziehungen konstant pflegen ist heute eine klassische KI-Arbeit. Ob Onboarding, Kundenpflege, Bindung oder News. KI-Agenten ermöglichen eine individuelle und relevante Betreuung all Ihrer Kunden zum richtigen Zeitpunkt. Ganz mühelos.",
+    title: "CRM-Pipeline",
+    copy: "Ob Onboarding, Kundenpflege, Bindung oder News. KI-Agenten ermöglichen eine individuelle und auf Wunsch proaktive Betreuung all Ihrer Kunden zum richtigen Zeitpunkt. Ganz mühelos.",
     image: "/AI-Boutique_Images/icons/rag-systeme.png"
   },
   {
     title: "Workflows",
-    copy: "Angebote, Reportings und Freigaben kosten jede Woche Stunden. Ein Workflow erledigt diese Schritte. Ihr Team prüft Angebote und Reportings, statt sie zu schreiben. Die Zeit geht in Kundengespräche und Konzepte.",
+    copy: "Bei Angeboten, Reportings und Freigaben geht das meiste KI-Potential verloren. Nie wieder Zeit verschwenden mit zeitraubenden Standardaufgaben.",
     image: "/AI-Boutique_Images/icons/workflows.png"
   },
   {
-    title: "AI Apps",
+    title: "AI-Apps",
     copy: "Ihr Team behilft sich mit Excel-Listen, weil keine Software zum eigenen Ablauf passt. Wenn Standardsoftware nicht reicht, baue ich genau das Tool, das Ihr Team braucht. Leicht zu bedienen und datenschutzkonform.",
     image: "/AI-Boutique_Images/icons/ai-apps.png"
   },
   {
-    title: "AI Schulung",
-    copy: "In Ihrem Team nutzt jeder KI anders, und niemand weiß, was erlaubt ist. KI-Basics wie gutes Prompten, rechtskonforme Anwendungen nach European AI Act, Datensicherung und erste Automationen. Machen Sie Ihr Team fit für KI. Nach der Schulung arbeitet Ihr Team mit klaren Regeln, und Sie können jede Frage dazu beantworten.",
+    title: "AI-Schulung",
+    copy: "Machen Sie Ihr Team fit für KI. KI-Basics wie gutes Prompten, rechtskonforme Anwendungen nach European AI Act, Datensicherung und erste Automationen.",
     image: "/AI-Boutique_Images/icons/ai-schulung.png"
   }
 ]

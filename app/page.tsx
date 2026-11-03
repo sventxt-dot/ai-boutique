@@ -43,8 +43,8 @@ export default function Home() {
               Mailings verfassen, Analysen, Recherche, Reportings. Die Liste ist lang.
             </span>
             <span className="block mt-4">
-              Mein Ansatz: Agentic Marketing. Es spart Zeit und gibt Ihrem Team
-              wieder Luft für die strategischen Aufgaben im Marketing.
+              Mein Ansatz, um Ihrem Team wieder Luft für die strategischen Aufgaben
+              im Marketing zu geben: Agentic Marketing.
             </span>
             <span className="block mt-4">
               On Brand. On Purpose. On Point.

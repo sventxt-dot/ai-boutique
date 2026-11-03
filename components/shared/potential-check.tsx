@@ -3,16 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import MonoLabel from "./mono-label";
 
-type Step = "form" | "loading" | "email" | "thankyou";
-
-interface UseCase {
-  titel: string;
-  beschreibung: string;
-  machbarkeit: "Hoch" | "Mittel";
-  umsetzung: string;
-  einsparung: string;
-  naechster_schritt: string;
-}
+type Step = "form" | "email" | "thankyou";
 
 const painOptions = [
   "Positionierung & Zielgruppe",
@@ -42,24 +33,31 @@ const winOptions = [
 ];
 
 const toolOptions = [
-  "Wrike",
-  "Asana",
-  "monday.com",
-  "Slack",
-  "Microsoft Teams",
-  "Notion",
-  "Canva",
   "Adobe Creative Cloud",
-  "Figma",
-  "HubSpot",
-  "Salesforce",
-  "Mailchimp",
+  "Asana",
   "Brevo",
-  "WordPress",
-  "Google Analytics",
-  "Meta Ads",
+  "Canva",
   "ChatGPT",
+  "Claude",
+  "Figma",
+  "Google Analytics",
+  "HubSpot",
+  "Mailchimp",
+  "Make",
+  "Meta Ads",
+  "Microsoft 365",
   "Microsoft Copilot",
+  "Microsoft Teams",
+  "monday.com",
+  "n8n",
+  "Notion",
+  "Salesforce",
+  "Semrush",
+  "Shopify",
+  "Slack",
+  "WordPress",
+  "Wrike",
+  "Zapier",
 ];
 
 interface MultiSelectProps {
@@ -189,7 +187,6 @@ export default function PotentialCheck() {
   const [email, setEmail] = useState("");
   const [emailSending, setEmailSending] = useState(false);
   const [emailError, setEmailError] = useState(false);
-  const [usecases, setUsecases] = useState<UseCase[]>([]);
 
   const branches = [
     "Bäckerei",
@@ -231,31 +228,8 @@ export default function PotentialCheck() {
 
   const ergaenzung = [...selectedTools, extraTool].filter(Boolean).join(", ");
 
-  async function handleSubmit() {
-    setStep("loading");
-    const minDelay = new Promise<void>((resolve) => setTimeout(resolve, 2500));
-    try {
-      const [response] = await Promise.all([
-        fetch("/api/potential-check", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            branche,
-            pains: [...selectedPains, extraPain].filter(Boolean),
-            wins: [...selectedWins, extraWin].filter(Boolean),
-            ergaenzung,
-          }),
-        }),
-        minDelay,
-      ]);
-      const data = await response.json();
-      if (data.error) throw new Error(data.error);
-      setUsecases(data.usecases);
-      setStep("email");
-    } catch (err) {
-      console.error(err);
-      setStep("form");
-    }
+  function handleSubmit() {
+    setStep("email");
   }
 
   async function handleEmailSubmit() {
@@ -272,7 +246,6 @@ export default function PotentialCheck() {
           pains: [...selectedPains, extraPain].filter(Boolean),
           wins: [...selectedWins, extraWin].filter(Boolean),
           ergaenzung,
-          usecases,
         }),
       });
       if (!response.ok) throw new Error("Lead could not be delivered");
@@ -299,9 +272,8 @@ export default function PotentialCheck() {
         </p>
       </div>
 
-      {/* Form — visible in 'form' and 'loading' steps, grayed out during loading */}
-      {(step === "form" || step === "loading") && (
-        <div className={step === "loading" ? "opacity-40 pointer-events-none select-none" : ""}>
+      {step === "form" && (
+        <div>
           <form
             onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}
             className="space-y-10 max-w-3xl"
@@ -395,21 +367,6 @@ export default function PotentialCheck() {
         </div>
       )}
 
-      {/* Loading animation — shown below grayed-out form */}
-      {step === "loading" && (
-        <div className="max-w-3xl flex flex-col items-center justify-center py-16 gap-8">
-          <div className="relative w-20 h-20">
-            <div className="absolute inset-0 rounded-full bg-[#C77DFF]/25 animate-ping" />
-            <div className="absolute inset-2 rounded-full bg-[#C77DFF]/15 animate-pulse" />
-            <div className="absolute inset-5 rounded-full bg-[#C77DFF]/60" />
-          </div>
-          <div className="text-center">
-            <p className="text-white/70 text-lg mb-1 font-medium">KI analysiert Ihr Potenzial...</p>
-            <p className="text-white/60 text-base font-medium">Das dauert einen Moment.</p>
-          </div>
-        </div>
-      )}
-
       {/* Email capture */}
       {step === "email" && (
         <div className="py-16 max-w-lg mx-auto text-center">
@@ -423,9 +380,15 @@ export default function PotentialCheck() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 className="text-2xl font-bold text-white mb-4">Ihre Anfrage wird bearbeitet.</h3>
+          {/* DRAFT */}
+          <h3 className="text-2xl font-bold text-white mb-4">Ihre Angaben sind vollständig.</h3>
+          <p className="text-base text-white/70 font-medium mb-3">So geht es weiter:</p>
+          <ol className="text-left text-base text-white/60 leading-relaxed font-medium space-y-2 mb-6 list-decimal pl-5">
+            <li>Eine KI entwirft aus Ihren Angaben drei Agentic-Marketing-Maßnahmen.</li>
+            <li>Ich prüfe jede Maßnahme persönlich und ergänze, was ich bei Ihnen einrichten würde.</li>
+            <li>Sie erhalten das Ergebnis in einer persönlichen E-Mail von mir.</li>
+          </ol>
           <p className="text-base text-white/60 leading-relaxed mb-10 font-medium">
-            Ich schicke Ihnen das Ergebnis in einer persönlichen E-Mail zu.
             Und weiter nichts, versprochen.
           </p>
           <div className="flex flex-col gap-3 w-full max-w-md mx-auto">

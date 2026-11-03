@@ -3,6 +3,20 @@
 
 export const SYSTEM_PROMPT = `Du entwirfst für Sven Günzel drei Agentic-Marketing-Cases. Sven betreibt die AI-Boutique in Prien am Chiemsee: Agentic Marketing vom Creative Director für Marketingteams und Agenturen. Ein Besucher hat den Potential Check ausgefüllt. Dein Ergebnis geht als Entwurf an Sven. Er prüft es und schickt es persönlich an den Besucher. Schreib die Cases deshalb so, dass Sven sie mit wenigen Korrekturen versenden kann, in der Sie-Anrede.
 
+## Svens Rolle in jedem Case
+Jeder Case ist ein Angebot von Sven, keine Anleitung zum Selbermachen. Sven richtet ein, baut, bindet an, testet und übergibt. Das Team des Kunden liefert Wissen und Material, trifft die Entscheidungen und gibt frei. Beschreibe Svens Teil in der Ich-Form, den Teil des Teams in der Sie-Anrede.
+
+Das baut und liefert Sven:
+- Agenten und Workflows, etwa auf Claude-Basis, die feste Abläufe übernehmen
+- Wissensbasen aus Unternehmenswissen, auf die Bots und Agenten zugreifen
+- eigene Oberflächen mit Login und Chat, über die das Team mit dem System arbeitet
+- Anbindungen an vorhandene Tools wie CRM, Google Sheets, Newsletter-Tool, Projektmanagement oder Slack
+- Regelwerke für Markenstimme und Freigaben, eingerichtet im jeweiligen Tool
+- Schulung des Teams und eine Übergabe mit klaren Zuständigkeiten
+Reicht ein Standard-Tool wie ein ChatGPT- oder Claude-Projekt, beschreibe, was Sven daran einrichtet und wie er es in die Abläufe einbindet.
+
+Der erste Testlauf ist ein gemeinsamer Pilot, den Sven aufsetzt und mit dem Team auswertet. Er ist keine Hausaufgabe für das Team.
+
 ## Was Agentic Marketing ist
 Agenten führen aus, der Mensch setzt Ziel und Maßstab und gibt frei. Die Kanäle bleiben dieselben, es ändert sich, wer die Arbeit macht. Regeln automatisieren feste Abläufe, Agenten verfolgen ein Ziel und wählen ihre Schritte innerhalb klarer Grenzen.
 
@@ -90,10 +104,27 @@ export const USECASES_SCHEMA = {
             description: "Zwei bis drei Sätze: Engpass, Zweck und was sich für das Team ändert.",
           },
           arbeitsform: { type: "string", enum: ["Assistenz", "Workflow", "Agent"] },
-          ausloeser: { type: "string", description: "Was den Ablauf startet, in einem Satz." },
+          mein_anteil: {
+            type: "string",
+            description:
+              "Svens Teil in der Ich-Form, zwei bis drei Sätze: was ich einrichte, baue, anbinde, teste und übergebe.",
+          },
+          ihr_beitrag: {
+            type: "string",
+            description:
+              "Der Teil des Teams in der Sie-Anrede, ein bis zwei Sätze: welches Wissen und Material es liefert, was es entscheidet, mit grober Spanne für den Zeitaufwand.",
+          },
+          schnittstellen: {
+            type: "array",
+            description:
+              "Zwei bis vier Verbindungen im Betrieb. Je Eintrag: Tool, Zugriff (liest, schreibt Entwürfe, schreibt) und was dort fließt.",
+            items: { type: "string" },
+          },
+          ausloeser: { type: "string", description: "Was den Ablauf im Betrieb startet, in einem Satz." },
           ablauf: {
             type: "array",
-            description: "Drei bis fünf kurze Schritte. Menschliche Prüfungen stehen als eigener Schritt darin.",
+            description:
+              "Drei bis fünf kurze Schritte im laufenden Betrieb nach der Übergabe. Jeder Schritt beginnt mit dem Akteur: Agent, Workflow, Assistenz oder Ihr Team. Menschliche Prüfungen stehen als eigener Schritt darin.",
             items: { type: "string" },
           },
           tools: { type: "string", description: "Tools aus den Angaben, sonst allgemein benannt." },
@@ -104,7 +135,10 @@ export const USECASES_SCHEMA = {
             description: "Zielgröße mit Gegenmetrik, plus ein Kriterium für Marke oder Qualität.",
           },
           machbarkeit: { type: "string", enum: ["Hoch", "Mittel"] },
-          umsetzung: { type: "string", description: "Ehrliche Spanne, zum Beispiel: zwei bis vier Wochen." },
+          umsetzung: {
+            type: "string",
+            description: "Ehrliche Spanne bis zur Übergabe des Piloten durch Sven, zum Beispiel: zwei bis vier Wochen.",
+          },
           einsparung: {
             type: "string",
             description:
@@ -112,7 +146,8 @@ export const USECASES_SCHEMA = {
           },
           naechster_schritt: {
             type: "string",
-            description: "Der erste kleine Testlauf, den das Team sofort beginnen kann, in einem Satz.",
+            description:
+              "Der gemeinsame Pilot in ein bis zwei Sätzen: was Sven in welchem Umfang aufsetzt und woran Sven und das Team ihn nach kurzer Zeit gemeinsam bewerten.",
           },
           referenz: { type: "string", description: "Passende Arbeit aus der Liste oder: Keine direkte Referenz." },
           annahmen: {
@@ -124,6 +159,9 @@ export const USECASES_SCHEMA = {
           "titel",
           "beschreibung",
           "arbeitsform",
+          "mein_anteil",
+          "ihr_beitrag",
+          "schnittstellen",
           "ausloeser",
           "ablauf",
           "tools",
