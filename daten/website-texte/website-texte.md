@@ -35,6 +35,24 @@ On Brand. On Purpose. On Point.
 
 **Intro:** Acht Werkzeuge, die ich implementiere, um Standardaufgaben im Marketing zu übernehmen.
 
+**Block unter den Leistungen:**
+
+- Label: Aus der Praxis
+- Titel: LinkedIn-Content-Maschine
+- Text: Agenten Teams suchen wöchentlich nach aktuellen Themen entlang vorab definierter Content-Container. Stufe 1: Aus zehn relevanten Themenvorschlägen wird eines ausgewählt. Stufe 2: Drei Captions werden nach Algorithmusmuster von CopyAgenten vorgeschlagen, eine ausgewählt. Stufe 3: BildAgent schlägt aus Bild Archiv passendes Motiv vor und setzt Headline.
+- Vorher: 3 bis 4 Stunden pro Woche
+- Heute: 10 bis 15 Minuten pro Woche
+- Link (Entwurf): Mehr im Portfolio →
+
+**Zweiter Block unter den Leistungen:**
+
+- Label: Aus der Praxis
+- Titel: Social Media Pipeline
+- Text: Kontextbasierte Agenten erstellen in drei Freigabestufen Reels, die nach vorab definierten Reibungsmustern für Aufmerksamkeit sorgen. Stufe 1: Aus mehreren Kontrast-Parametern den gewünschten Hook ableiten. Stufe 2: Scriptfreigabe. Stufe 3: Freigabe der generierten Bilder. Stufe 4: Freigabe der Sprechertexte, die bei ElevenLabs erstellt wurden. Stufe 5: Freigabe des fertigen Clips. Ab hier übernimmt das Agententeam die Ausspielung und das Reporting.
+- Vorher: 4 Stunden pro Clip
+- Heute: 15 bis 20 Minuten pro Clip
+- Link (Entwurf): Mehr im Portfolio →
+
 **AI Voice-Bots**
 Ein Telefon, das abnimmt, qualifiziert, informiert und bucht. In Ihrem Ton, rund um die Uhr.
 

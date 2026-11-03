@@ -1,4 +1,5 @@
 import PortfolioTeaser from "./portfolio-teaser";
+import PracticeResult from "./practice-result";
 import { services, type Service } from "@/lib/data/services";
 
 function ServiceCard({ service, number }: { service: Service; number: string }) {
@@ -30,6 +31,8 @@ export default function ServicesGrid() {
           <ServiceCard key={service.title} service={service} number={String(i + 1).padStart(2, "0")} />
         ))}
       </ol>
+
+      <PracticeResult />
 
       <PortfolioTeaser />
     </>
