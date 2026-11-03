@@ -230,13 +230,15 @@ export default function PotentialCheck() {
 
   const rootRef = useRef<HTMLDivElement>(null);
   const emailRef = useRef<HTMLDivElement>(null);
+  const thanksRef = useRef<HTMLDivElement>(null);
 
   // The form is much taller than the next step; bring the check back into view instead of jumping.
-  // The email step scrolls to its own block so the input field is visible on phones.
+  // Email and thank-you steps scroll to their own block so it sits below the fixed navbar.
   function showStep(next: Step) {
     setStep(next);
+    const target = next === "email" ? emailRef : next === "thankyou" ? thanksRef : rootRef;
     requestAnimationFrame(() =>
-      (next === "email" ? emailRef : rootRef).current?.scrollIntoView({
+      target.current?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       })
@@ -270,7 +272,7 @@ export default function PotentialCheck() {
         }),
       });
       if (!response.ok) throw new Error("Lead could not be delivered");
-      setStep("thankyou");
+      showStep("thankyou");
     } catch (err) {
       console.error(err);
       setEmailError(true);
@@ -457,7 +459,7 @@ export default function PotentialCheck() {
 
       {/* Thank you */}
       {step === "thankyou" && (
-        <div className="py-12 text-center max-w-md mx-auto">
+        <div ref={thanksRef} className="py-12 text-center max-w-md mx-auto scroll-mt-28">
           <h3 className="text-2xl font-bold text-white mb-4">Vielen Dank.</h3>
           <p className="text-base text-white/60 leading-relaxed font-medium">
             Ich bearbeite Ihren KI-Potential-Check persönlich und schicke Ihnen die drei KI-Maßnahmen per E-Mail zu.
