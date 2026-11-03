@@ -21,7 +21,7 @@ Für Marken, die markant bleiben wollen – mit KI.
 
 Aus 20 Jahren Markenpraxis weiß ich, wo im Marketing der Schuh drückt: Kampagnen adaptieren, Content deklinieren, Produkttexte schreiben, Mailings verfassen, Analysen, Recherche, Reportings. Die Liste ist lang.
 
-Mein Ansatz: Agentic Marketing. Es spart Zeit und gibt Ihrem Team wieder Luft für die strategischen Aufgaben im Marketing.
+Mein Ansatz, um Ihrem Team wieder Luft für die strategischen Aufgaben im Marketing zu geben: Agentic Marketing.
 
 On Brand. On Purpose. On Point.
 
@@ -31,12 +31,12 @@ On Brand. On Purpose. On Point.
 
 ### Leistungen (`components/shared/services-grid.tsx`, `lib/data/services.ts`)
 
-**Headline:** So arbeitet KI für Ihr Unternehmen.
+**Headline:** So arbeitet KI im Marketing.
 
-**Intro:** Acht Agentic Marketing-Tools, die ich einsetze. Für sofortige Ergebnisse.
+**Intro:** Acht KI Tools für Ihr Daily-Business.
 
-**AI Voice Bots**
-Anrufe kommen, wenn gerade niemand abheben kann. Ihr Telefon schläft nie. Es nimmt ab, qualifiziert, informiert und bucht – während Sie sich um das kümmern, was wirklich Ihre Zeit verdient.
+**AI Voice-Bots**
+Ihr Anschluss schläft nie. Der aktuelle Stand der Technik erlaubt ein nie dagewesenes Maß an Gesprächsqualität.
 
 **AI Chat-Bots**
 Ihr Team beantwortet jeden Tag dieselben Fragen. In der App, auf der Website oder am POS – ein gut strukturierter Chatbot greift auf das gesamte Firmenwissen zurück und antwortet wie ein Mensch.
@@ -47,17 +47,17 @@ Mails, Websites, Produkttexte und Broschüren. In Ihrer Tonalität, mit Ihrer Co
 **Corporate LLM**
 Ihre sensiblen Daten gehören in einen geschützten Rahmen, nicht in die Cloud eines amerikanischen Konzerns. Ich entwickle Ihr Firmenmodell auf Ihrer Infrastruktur.
 
-**CRM Pipeline**
-Kundenbeziehungen konstant pflegen ist heute eine klassische KI-Arbeit. Ob Onboarding, Kundenpflege, Bindung oder News. KI-Agenten ermöglichen eine individuelle und relevante Betreuung all Ihrer Kunden zum richtigen Zeitpunkt. Ganz mühelos.
+**CRM-Pipeline**
+Ob Onboarding, Kundenpflege, Bindung oder News. KI-Agenten ermöglichen eine individuelle und auf Wunsch proaktive Betreuung all Ihrer Kunden zum richtigen Zeitpunkt. Ganz mühelos.
 
 **Workflows**
-Angebote, Reportings und Freigaben kosten jede Woche Stunden. Ein Workflow erledigt diese Schritte. Ihr Team prüft Angebote und Reportings, statt sie zu schreiben. Die Zeit geht in Kundengespräche und Konzepte.
+Bei Angeboten, Reportings und Freigaben geht das meiste KI-Potential verloren. Nie wieder Zeit verschwenden mit zeitraubenden Standardaufgaben.
 
-**AI Apps**
+**AI-Apps**
 Ihr Team behilft sich mit Excel-Listen, weil keine Software zum eigenen Ablauf passt. Wenn Standardsoftware nicht reicht, baue ich genau das Tool, das Ihr Team braucht. Leicht zu bedienen und datenschutzkonform.
 
-**AI Schulung**
-In Ihrem Team nutzt jeder KI anders, und niemand weiß, was erlaubt ist. KI-Basics wie gutes Prompten, rechtskonforme Anwendungen nach European AI Act, Datensicherung und erste Automationen. Machen Sie Ihr Team fit für KI. Nach der Schulung arbeitet Ihr Team mit klaren Regeln, und Sie können jede Frage dazu beantworten.
+**AI-Schulung**
+Machen Sie Ihr Team fit für KI. KI-Basics wie gutes Prompten, rechtskonforme Anwendungen nach European AI Act, Datensicherung und erste Automationen.
 
 ### Portfolio-Teaser (`components/shared/portfolio-teaser.tsx`)
 
@@ -144,24 +144,31 @@ Freitextfeld: Weiterer Wunsch...
 **04 Welche Tools nutzen Sie bisher?** Optional
 Platzhalter: Auswählen...
 
-- Wrike
-- Asana
-- monday.com
-- Slack
-- Microsoft Teams
-- Notion
-- Canva
 - Adobe Creative Cloud
-- Figma
-- HubSpot
-- Salesforce
-- Mailchimp
+- Asana
 - Brevo
-- WordPress
-- Google Analytics
-- Meta Ads
+- Canva
 - ChatGPT
+- Claude
+- Figma
+- Google Analytics
+- HubSpot
+- Mailchimp
+- Make
+- Meta Ads
+- Microsoft 365
 - Microsoft Copilot
+- Microsoft Teams
+- monday.com
+- n8n
+- Notion
+- Salesforce
+- Semrush
+- Shopify
+- Slack
+- WordPress
+- Wrike
+- Zapier
 
 Freitextfeld: Weiteres Tool...
 
@@ -171,11 +178,13 @@ Freitextfeld: Weiteres Tool...
 
 **Hinweis unter dem Button:** Im nächsten Schritt geben Sie Ihre E-Mail-Adresse an. Ich bearbeite Ihre Analyse persönlich und schicke sie Ihnen zu.
 
-**Ladezustand:** KI analysiert Ihr Potenzial... / Das dauert einen Moment.
-
 **E-Mail-Schritt**
-Headline: Ihre Anfrage wird bearbeitet.
-Text: Ich schicke Ihnen das Ergebnis in einer persönlichen E-Mail zu. Und weiter nichts, versprochen.
+Headline (Entwurf): Ihre Angaben sind vollständig.
+Text (Entwurf): So geht es weiter:
+1. Eine KI entwirft aus Ihren Angaben drei Agentic-Marketing-Maßnahmen.
+2. Ich prüfe jede Maßnahme persönlich und ergänze, was ich bei Ihnen einrichten würde.
+3. Sie erhalten das Ergebnis in einer persönlichen E-Mail von mir.
+Und weiter nichts, versprochen.
 Platzhalter: Ihre E-Mail-Adresse
 Button: Ergebnis zusenden →
 Button beim Senden: Wird gespeichert...
