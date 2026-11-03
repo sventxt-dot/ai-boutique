@@ -50,7 +50,7 @@ export default function Home() {
             On Brand. On Purpose. On Point.
           </strong>,
         ]}
-        cta={{ label: "Agentic Marketing Potential-Check", href: "#potential-check" }}
+        cta={{ label: "Drei Agentic Marketing-Maßnahmen ermitteln", href: "#potential-check" }}
         badges={[
           { src: "/EU-Hosting_Logo.png", alt: "100 % EU-Hosting" },
           { src: "/Siegel_MMAI.png", alt: "Zertifiziert MMAI – Master Management with AI" },

@@ -25,7 +25,7 @@ Mein Ansatz, um Ihrem Team wieder Luft für die strategischen Aufgaben im Market
 
 On Brand. On Purpose. On Point.
 
-**CTA:** Agentic Marketing Potential-Check
+**CTA:** Drei Agentic Marketing-Maßnahmen ermitteln
 
 **Siegel (Alt-Texte):** 100 % EU-Hosting / Zertifiziert MMAI – Master Management with AI
 
@@ -33,7 +33,7 @@ On Brand. On Purpose. On Point.
 
 **Headline:** So arbeitet KI im Marketing.
 
-**Intro:** Acht mögliche KI Tools für Ihr Daily-Business.
+**Intro:** Acht Werkzeuge, die ich implementiere, um Standardaufgaben im Marketing zu übernehmen.
 
 **AI Voice-Bots**
 Ein Telefon, das abnimmt, qualifiziert, informiert und bucht. In Ihrem Ton, rund um die Uhr.
@@ -65,11 +65,9 @@ Ich mache Ihr Team fit: gutes Prompten, nach den Regeln des EU AI Act, die richt
 
 **Headline:** Native Creative
 
-**Intro:** Mehr als 20 Jahre Werbung und vier Jahre kontinuierliche Weiterbildung im Bereich der KI.
-
 **Reiter:** Werbung & Marketing (aktiv) / KI-Systeme im Einsatz (Link zur Unterseite Portfolio)
 
-**Text zum Film (Entwurf):** Texterschmiede, Werbeagenturen in Hamburg und München. Funk, Plakat, TV, Pitch, Social Media, New Business und große Kunden. Marketing Studium. Seit 2016 freier Creative Director. Jetzt zertifizierter KI-Experte.
+**Text zum Film:** Texterschmiede, Werbeagenturen in Hamburg und München. Funk, Plakat, TV, Pitch, Branding, Social Media, New Business und große Kunden. 2008 Marketing Studium. Seit 2016 freier Creative Director. Jetzt zertifizierter KI-Experte.
 
 **Video-Fehlermeldungen:** Das Video lässt sich gerade nicht laden. / Ihr Browser kann dieses Video nicht abspielen.
 
@@ -88,10 +86,10 @@ Ich höre zu, verstehe Ihre Marketingabläufe und analysiere Kanäle und Status 
 Gemeinsam entwickeln wir einen konkreten KI-Plan, ausgerichtet an Ihrer Marke, Ihrem Team und Ihren Zielen.
 
 **ACT**
-Ich setze den Plan um. Technisch sauber. Kommunikativ stimmig.
+Ich setze den Plan um, richte die Tools ein, binde sie an Ihre Abläufe an und schule das Team.
 
 **LEARN**
-Ihr Team lernt nicht nur, wie KI funktioniert. Es hat Spaß daran und erlebt echte Erfolge.
+Ihr Team arbeitet nach der Schulung selbständig: mit guten Prompts, nach den Regeln des EU AI Act und mit ersten eigenen Automationen.
 
 **EXPAND**
 Was funktioniert, wird auf den nächsten Bereich übertragen. So wächst Ihre KI mit: S.C.A.L.E.
@@ -100,7 +98,7 @@ Was funktioniert, wird auf den nächsten Bereich übertragen. So wächst Ihre KI
 
 **Eyebrow:** Agentic-Marketing-Check
 
-**Headline:** Welche Aufgaben kann KI in Ihrem Marketing morgen übernehmen?
+**Headline:** Drei KI-Maßnahmen für Ihr Marketing ermitteln.
 
 **Intro:** Ihre Branche, Ihre Pains, Ihre Wünsche, Ihre Tools – ich liefere drei konkrete Maßnahmen. Kostenlos.
 
@@ -215,6 +213,14 @@ Ihre Daten bleiben auf eigenen Servern, und Ihr Team bedient die Tools völlig i
 **Headline:** Ich bringe KI auf den Punkt und automatisiere damit Geschäftsprozesse für Marketingteams und Agenturen.
 
 **Text:** Als AI-Boutique will ich neben hilfreichen Tools vor allem eines liefern: eine persönliche und kompetente Beratung. Um das sicherzustellen, gehört es zu meiner Politik, maximal 5 Projekte parallel anzunehmen. Aktuell frei: 2. Stand November 2026.
+
+**Headline Einstiegsangebot:** Beispiel für einen sicheren Einstieg in das Agentic Marketing.
+
+**Einstiegsangebot 01:** Die perfekte Basis: Eine Makro-, Mikro- und Unternehmensanalyse, umgesetzt in 3 Tagen. Der Startpunkt für alle weiteren Marketing-Maßnahmen. Festpreis 850 Euro.
+
+**Einstiegsangebot 02:** Danach: Ein Agentic Copywriter in Ihrer Corporate Tonalität mit allen Do's und Don'ts, umgesetzt in zwei Wochen. Festpreis 1.500 Euro.
+
+**Hinweis unter den Angeboten:** Nach der Analyse entscheiden Sie, ob es weitergeht.
 
 **CTA:** Erstgespräch anfragen
 

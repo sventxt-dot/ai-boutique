@@ -23,7 +23,7 @@ export default function ServicesGrid() {
         So arbeitet KI im Marketing.
       </h2>
       <p className="text-lg font-sans font-medium text-muted-foreground leading-relaxed mb-14 max-w-2xl text-left">
-        Acht mögliche KI Tools für Ihr Daily-Business.
+        Acht Werkzeuge, die ich implementiere, um Standardaufgaben im Marketing zu übernehmen.
       </p>
       <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-14">
         {services.map((service, i) => (

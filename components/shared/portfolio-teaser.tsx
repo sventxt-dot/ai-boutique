@@ -18,9 +18,6 @@ export default function PortfolioTeaser() {
       <h2 className="text-3xl md:text-4xl font-bold font-sans leading-tight mb-5">
         Native Creative
       </h2>
-      <p className="text-lg text-[#34303A] leading-relaxed font-medium max-w-3xl mb-7">
-        Mehr als 20 Jahre Werbung und vier Jahre kontinuierliche Weiterbildung im Bereich der KI.
-      </p>
       <nav
         aria-label="Portfolio-Bereich"
         className="inline-flex flex-wrap gap-1 rounded-full border border-border bg-white p-1 mb-7"
@@ -39,9 +36,8 @@ export default function PortfolioTeaser() {
         </div>
       ) : (
         <>
-          {/* DRAFT */}
           <p className="text-base md:text-lg text-[#34303A] leading-relaxed font-medium max-w-3xl mb-8">
-            Texterschmiede, Werbeagenturen in Hamburg und München. Funk, Plakat, TV, Pitch, Social Media, New Business und große Kunden. Marketing Studium. Seit 2016 freier Creative Director. Jetzt zertifizierter KI-Experte.
+            Texterschmiede, Werbeagenturen in Hamburg und München. Funk, Plakat, TV, Pitch, Branding, Social Media, New Business und große Kunden. 2008 Marketing Studium. Seit 2016 freier Creative Director. Jetzt zertifizierter KI-Experte.
           </p>
           <video
             controls

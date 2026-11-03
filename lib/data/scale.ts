@@ -30,14 +30,14 @@ export const pillars: Pillar[] = [
     letter: "A",
     name: "ACT",
     tagline: "Implementierung",
-    description: "Ich setze den Plan um. Technisch sauber. Kommunikativ stimmig.",
+    description: "Ich setze den Plan um, richte die Tools ein, binde sie an Ihre Abläufe an und schule das Team.",
     services: []
   },
   {
     letter: "L",
     name: "LEARN",
     tagline: "Schulung",
-    description: "Ihr Team lernt nicht nur, wie KI funktioniert. Es hat Spaß daran und erlebt echte Erfolge.",
+    description: "Ihr Team arbeitet nach der Schulung selbständig: mit guten Prompts, nach den Regeln des EU AI Act und mit ersten eigenen Automationen.",
     services: []
   },
   {
