@@ -319,7 +319,7 @@ export default function PotentialCheck() {
           />
         </div>
         <div className="px-6 pt-8 md:absolute md:left-[52%] md:right-[5%] md:top-[11%] md:p-0">
-          <MonoLabel dot="#FFF56E" className="mb-3.5 text-[#2A1F38]">Agentic-Marketing-Check</MonoLabel>
+          <MonoLabel className="block mb-3.5 text-[#2A1F38]">Agentic-Marketing-Check</MonoLabel>
           <h2 className="text-2xl lg:text-[38px] font-bold leading-tight text-foreground mb-4">
             Welche Aufgaben kann KI in Ihrem Marketing morgen übernehmen?
           </h2>

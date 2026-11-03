@@ -3,20 +3,16 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import MonoLabel from "./mono-label";
-import { cn } from "@/lib/utils";
 
 interface HeroProps {
   eyebrow: string;
   headline: React.ReactNode;
-  /** Intro paragraphs below the image, each marked with one brand color */
+  /** Intro paragraphs below the image */
   intro: React.ReactNode[];
   cta: { label: string; href: string };
   badges?: { src: string; alt: string }[];
   image: string;
 }
-
-// null keeps the space of the square so all paragraphs start on one line
-const introColors = ["#FF6666", null, "#C77DFF"];
 
 export default function Hero({
   eyebrow,
@@ -71,18 +67,9 @@ export default function Hero({
         <div className="max-w-[1440px] mx-auto px-8 md:px-16 lg:px-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-y-[30px] md:gap-8 mb-16">
             {intro.map((paragraph, i) => (
-              <div key={i}>
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    "block size-3 rounded-[2px] mb-5",
-                    // Without a color the square only holds the column line on desktop
-                    !introColors[i % introColors.length] && "hidden md:block"
-                  )}
-                  style={{ backgroundColor: introColors[i % introColors.length] ?? "transparent" }}
-                />
-                <p className="text-lg leading-[1.7] font-medium text-[#34303A]">{paragraph}</p>
-              </div>
+              <p key={i} className="text-lg leading-[1.7] font-medium text-[#34303A]">
+                {paragraph}
+              </p>
             ))}
           </div>
 

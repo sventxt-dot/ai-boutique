@@ -10,7 +10,7 @@ export default function AboutMe() {
       {/* Photo */}
       <div className="relative aspect-[3/4] max-w-[520px] w-full rounded-[28px] overflow-hidden">
         <Image
-          src="/Sven-Guenzel-Creative-Cartel-LR-5870-2.jpg"
+          src="/images/redesign/portrait-streifen.jpg"
           alt="Sven Günzel — ai-boutique"
           fill
           sizes="(min-width: 768px) 520px, 100vw"
@@ -20,7 +20,7 @@ export default function AboutMe() {
 
       {/* Text */}
       <div>
-        <MonoLabel dot="#FF6666" className="mb-7">Über mich</MonoLabel>
+        <MonoLabel className="block mb-7">Über mich</MonoLabel>
 
         <p className="text-[17px] text-[#34303A] leading-[1.7] mb-6 font-medium">
           Mit der ai-boutique bilde ich die Schnittstelle zwischen kreativer Markenführung und

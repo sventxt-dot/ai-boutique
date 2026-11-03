@@ -14,7 +14,7 @@ export default function PortfolioTeaser() {
 
   return (
     <div className="mt-28">
-      <MonoLabel dot="#C77DFF" className="mb-4">Portfolio</MonoLabel>
+      <MonoLabel className="block mb-4">Portfolio</MonoLabel>
       <h2 className="text-3xl md:text-4xl font-bold font-sans leading-tight mb-5">
         Native Creative
       </h2>

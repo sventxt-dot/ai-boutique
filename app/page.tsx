@@ -43,7 +43,10 @@ export default function Home() {
             Mein Ansatz, um Ihrem Team wieder Luft für die strategischen Aufgaben
             im Marketing zu geben: Agentic Marketing.
           </>,
-          <strong key="claim" className="font-bold text-foreground">
+          <strong
+            key="claim"
+            className="font-bold text-foreground box-decoration-clone px-1 -mx-1 bg-[linear-gradient(transparent_52%,var(--accent-yellow)_52%,var(--accent-yellow)_92%,transparent_92%)]"
+          >
             On Brand. On Purpose. On Point.
           </strong>,
         ]}
@@ -62,7 +65,7 @@ export default function Home() {
       {/* S.C.A.L.E. Framework */}
       <Section className="bg-linear-to-b from-background via-[#F1E8FB] to-background">
         <div className="mb-12 md:mb-14">
-          <MonoLabel dot="#6F77F4" className="mb-4">Framework</MonoLabel>
+          <MonoLabel className="block mb-4">Framework</MonoLabel>
           <h2 className="text-3xl md:text-4xl font-bold font-sans leading-tight mb-5">
             Meine fünf Steps zum effektiven KI-Tool.
           </h2>
