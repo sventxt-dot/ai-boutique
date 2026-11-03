@@ -71,10 +71,10 @@ export default function Home() {
           <MonoLabel><span className="block mb-4">Framework</span></MonoLabel>
           {/* DRAFT */}
           <h2 className="text-2xl md:text-3xl font-bold font-sans text-white leading-snug mb-6">
-            Mit dem S.C.A.L.E.-Framework zum effektiven KI-Tool.
+            Fünf Steps zum effektiven KI-Tool.
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            KI-Tools helfen nur dort, wo sie zu Ihren Abläufen passen. Diese zu lokalisieren und systematisch zu hinterfragen ist für mich ein fünfstufiger Prozess, der KI-Anwendungen unverzichtbar macht.
+            KI hilft nur dort, wo sie zu Ihren Abläufen passt. Diese lokalisiere ich mit meinem S.C.A.L.E.-Framework.
           </p>
         </div>
         <ScaleLetters />

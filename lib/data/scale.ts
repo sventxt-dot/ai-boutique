@@ -16,35 +16,35 @@ export const pillars: Pillar[] = [
     letter: "S",
     name: "SCAN",
     tagline: "Audit",
-    description: "Am Anfang stehen die richtigen Fragen. Nicht aus dem Handbuch sondern aus mehr als 20 Jahren Markenerfahrung. Wo liegt das Potenzial?",
+    description: "Ich höre zu, verstehe Ihre Marketingabläufe und analysiere Kanäle und Status quo. Daraus entsteht ein Gesamtbild.",
     services: []
   },
   {
     letter: "C",
     name: "CONSULT",
     tagline: "Beratung",
-    description: "Aus den Antworten entsteht ein konkreter Plan. Empfohlen wird nur, was wirklich zu Ihrer Marke, Ihrem Team und Ihren Zielen passt.",
+    description: "Gemeinsam entwickeln wir einen konkreten KI-Plan, ausgerichtet an Ihrer Marke, Ihrem Team und Ihren Zielen.",
     services: []
   },
   {
     letter: "A",
     name: "ACT",
     tagline: "Implementierung",
-    description: "Der Plan wird gebaut. Kampagnen, Systeme und Tools, die zur Markenstimme passen. Technisch sauber. Kommunikativ stimmig.",
+    description: "Ich setze den Plan um. Technisch sauber. Kommunikativ stimmig.",
     services: []
   },
   {
     letter: "L",
     name: "LEARN",
     tagline: "Schulung",
-    description: "Die Technologie steht. Jetzt lernt Ihr Team, wie KI so eingesetzt wird, dass sie selbst und die Marke dabei gewinnt.",
+    description: "Ihr Team lernt nicht nur, wie KI funktioniert. Es hat Spaß daran und erlebt echte Erfolge.",
     services: []
   },
   {
     letter: "E",
     name: "EXPAND",
     tagline: "Skalierung",
-    description: "Was funktioniert, wird auf den nächsten Bereich übertragen. Das ist S.C.A.L.E.",
+    description: "Was funktioniert, wird auf den nächsten Bereich übertragen. So wächst Ihre KI mit: S.C.A.L.E.",
     services: []
   }
 ]
