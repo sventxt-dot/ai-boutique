@@ -45,7 +45,7 @@ export default function PortfolioTeaser() {
         <>
           {/* DRAFT */}
           <p className="text-base md:text-lg text-white/70 leading-relaxed font-medium max-w-3xl mb-6">
-            Texterschmiede, Werbeagenturen in Hamburg und München. Funk, Plakat, TV, Pitch, New Business und große Kunden. Marketing Studium. Seit 2016 freier Creative Director. Jetzt zertifizierter KI-Experte, um meinen Output zu skalieren. Hier ein kleiner Ausschnitt in mein klassisches Werbeportfolio.
+            Texterschmiede, Werbeagenturen in Hamburg und München. Funk, Plakat, TV, Pitch, Social Media, New Business und große Kunden. Marketing Studium. Seit 2016 freier Creative Director. Jetzt zertifizierter KI-Experte.
           </p>
           <video
             controls

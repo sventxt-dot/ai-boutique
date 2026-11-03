@@ -262,13 +262,13 @@ export default function PotentialCheck() {
       {/* Header */}
       <div className="mb-12">
         <MonoLabel>
-          <span className="block mb-4">KI-Potential-Check</span>
+          <span className="block mb-4">Agentic-Marketing-Check</span>
         </MonoLabel>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Was bringt Agentic-Marketing?
+          Welche Aufgaben kann KI in Ihrem Marketing morgen übernehmen?
         </h2>
         <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl font-medium">
-          Angepasst an Ihre Branche, Ihre Pains und Ihre Ziele analysiert der KI-Potential-Check drei konkrete Agentic-Marketing-Maßnahmen für Ihren Betrieb. Kostenlos.
+          Ihre Branche, Ihre Pains, Ihre Wünsche, Ihre Tools – ich liefere drei konkrete Maßnahmen. Kostenlos.
         </p>
       </div>
 
@@ -295,7 +295,7 @@ export default function PotentialCheck() {
             <div className="space-y-3">
               <MultiSelect
                 step="02"
-                label="Was kostet Sie am meisten Zeit und Geld?"
+                label="Welche Aufgaben kosten Ihr Marketing zu viel Zeit?"
                 options={painOptions}
                 selected={selectedPains}
                 onChange={setSelectedPains}
@@ -314,7 +314,7 @@ export default function PotentialCheck() {
             <div className="space-y-3">
               <MultiSelect
                 step="03"
-                label="Wie möchten Sie KI im Marketing einbinden?"
+                label="Wie soll KI in Ihrem Team arbeiten?"
                 options={winOptions}
                 selected={selectedWins}
                 onChange={setSelectedWins}
@@ -335,7 +335,7 @@ export default function PotentialCheck() {
                 step="04"
                 label={
                   <>
-                    Welche Tools nutzen Sie bisher?{" "}
+                    Welche Tools nutzen Sie im Marketing?{" "}
                     <span className="text-white/60 font-normal text-lg">Optional</span>
                   </>
                 }
