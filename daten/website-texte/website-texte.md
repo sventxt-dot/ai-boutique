@@ -48,7 +48,7 @@ On Brand. On Purpose. On Point.
 
 - Label: Aus der Praxis
 - Titel: Social Media Pipeline
-- Text: Kontextbasierte Agenten erstellen in drei Freigabestufen Reels, die nach vorab definierten Reibungsmustern für Aufmerksamkeit sorgen. Stufe 1: Aus mehreren Kontrast-Parametern den gewünschten Hook ableiten. Stufe 2: Scriptfreigabe. Stufe 3: Freigabe der generierten Bilder. Stufe 4: Freigabe der Sprechertexte, die bei ElevenLabs erstellt wurden. Stufe 5: Freigabe des fertigen Clips. Ab hier übernimmt das Agententeam die Ausspielung und das Reporting.
+- Text: Kontextbasierte Agenten erstellen in vier Freigabestufen Reels, die nach vorab definierten Reibungsmustern für aufmerksamkeitsstarke Scrollstopper sorgen. Stufe 1: Aus mehreren Kontrast-Parametern den gewünschten Hook ableiten. Stufe 2: Scriptfreigabe. Stufe 3: Freigabe der generierten Bilder. Stufe 4: Freigabe der Sprechertexte, die bei ElevenLabs erstellt wurden. Stufe 5: Freigabe des fertigen Clips. Ab hier übernimmt das Agententeam die Ausspielung und das Reporting.
 - Vorher: 4 Stunden pro Clip
 - Heute: 15 bis 20 Minuten pro Clip
 - Link (Entwurf): Mehr im Portfolio →
@@ -212,6 +212,10 @@ Text: Ich bearbeite Ihren KI-Potential-Check persönlich und schicke Ihnen die d
 
 ### Über mich (`components/shared/about-me.tsx`)
 
+**Name im Foto:** Sven Günzel
+
+**Alt-Text Foto:** Porträt vor einer Wand mit lila Streifen
+
 **Eyebrow:** Über mich
 
 Mit der ai-boutique bilde ich die Schnittstelle zwischen kreativer Markenführung und operativer Performance. Zentrale Fragen: Wie lassen sich kreative Leitideen maschinell skalieren? Und in welchen Geschäftsbereichen kann KI Ihr Geschäft effektiver machen?
@@ -223,8 +227,6 @@ RAG, Agentic Workflows, MCP-Protokoll.
 **Badges:** DSGVO-konform / EU AI Act ready
 
 Ihre Daten bleiben auf eigenen Servern, und Ihr Team bedient die Tools völlig intuitiv ohne Umwege auf einem firmeninternen Dashboard. Versteckt hinter einem verschlüsselten Login.
-
-**Alt-Text Foto:** Sven Günzel — ai-boutique
 
 ### Abschluss (`components/shared/cta-closing.tsx`)
 

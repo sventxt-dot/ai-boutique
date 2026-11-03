@@ -8,15 +8,23 @@ export default function AboutMe() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-14 lg:gap-20 items-start">
       {/* Photo */}
-      <div className="relative aspect-[3/4] max-w-[520px] w-full rounded-[28px] overflow-hidden">
+      <figure className="relative aspect-[3/4] max-w-[520px] w-full rounded-[28px] overflow-hidden">
         <Image
           src="/images/redesign/portrait-streifen.jpg"
-          alt="Sven Günzel — ai-boutique"
+          alt="Porträt vor einer Wand mit lila Streifen"
           fill
           sizes="(min-width: 768px) 520px, 100vw"
           className="object-cover object-top"
         />
-      </div>
+        {/* Dark fade so the name stays readable on any part of the photo */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-black/60 to-black/0"
+        />
+        <figcaption className="absolute left-6 bottom-6 md:left-8 md:bottom-8 font-display uppercase text-white text-4xl md:text-5xl leading-none tracking-wide">
+          Sven Günzel
+        </figcaption>
+      </figure>
 
       {/* Text */}
       <div>

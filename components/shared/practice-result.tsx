@@ -29,7 +29,7 @@ const cases: PracticeCase[] = [
   },
   {
     title: "Social Media Pipeline",
-    intro: "Kontextbasierte Agenten erstellen in drei Freigabestufen Reels, die nach vorab definierten Reibungsmustern für Aufmerksamkeit sorgen.",
+    intro: "Kontextbasierte Agenten erstellen in vier Freigabestufen Reels, die nach vorab definierten Reibungsmustern für aufmerksamkeitsstarke Scrollstopper sorgen.",
     stages: [
       { label: "Stufe 1:", text: "Aus mehreren Kontrast-Parametern den gewünschten Hook ableiten." },
       { label: "Stufe 2:", text: "Scriptfreigabe." },
