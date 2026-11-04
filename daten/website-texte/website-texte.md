@@ -31,9 +31,9 @@ On Brand. On Purpose. On Point.
 
 ### Leistungen (`components/shared/services-grid.tsx`, `lib/data/services.ts`)
 
-**Headline:** So arbeitet KI im Marketing.
+**Headline:** So arbeitet KI im Marketing-Team.
 
-**Intro:** Acht Werkzeuge, die ich implementiere, um Standardaufgaben im Marketing zu übernehmen.
+**Intro:** Acht Werkzeuge, die Standardaufgaben im Marketing übernehmen. Individuell angepasst, auf Servern in der EU gehostet und von Ihrem Team gesteuert.
 
 **Block unter den Leistungen:**
 
@@ -70,6 +70,14 @@ On Brand. On Purpose. On Point.
 - Statt Vorher/Heute: Vorschaubild und Button „Brotbot ausprobieren ↗“ (https://brotbot.bot-boutique.com/)
 - Link (Entwurf): Mehr im Portfolio →
 
+**Fünfter Block unter den Leistungen:**
+
+- Label: Aus der Praxis
+- Titel: Location Designer
+- Text: Ein Event-Caterer präsentiert seinen Interessenten mit dem Location Designer fertige Event-Locations. Das Team wählt in der App eine von 19 Eventlocations aus, stellt Möbel aus dem eigenen Mietbestand zusammen und bekommt in Sekunden eine fotorealistische Visualisierung des Raums. Auf Knopfdruck gibt's dazu ein kurzes Video mit Kamerafahrt durch die fertig eingerichtete Location. Stack: Die KI verwandelt echte Locations und echte Möbel in eingerichtete Event-Venues. Alles einfach auf einer Webanwendung zu bedienen, ohne Architektur, Licht und Perspektive zu verfälschen. Der Kunde sieht sein Event, bevor ein einziger Tisch geschleppt wurde.
+- Statt Vorher/Heute: Bildvergleich mit Schieberegler (leere Halle im Frontend, eingerichtete Halle)
+- Link (Entwurf): Mehr im Portfolio →
+
 **AI Voice-Bots**
 Ein Telefon, das abnimmt, qualifiziert, informiert und bucht. In Ihrem Ton, rund um die Uhr.
 
@@ -77,16 +85,16 @@ Ein Telefon, das abnimmt, qualifiziert, informiert und bucht. In Ihrem Ton, rund
 Auf Website und Mobile beantworten Chat-Bots Fragen, statt welche aufzuwerfen.
 
 **AI Copywriting**
-Ihre Tonalität, Ihr Fachwissen, Ihre Freigabe. Agenten, die schreiben wie das Texterteam, das Sie sich schon immer gewünscht haben.
+Ihre Tonalität, Ihr Fachwissen, Ihre Freigabe. Ich konfiguriere das Textteam, das Sie sich schon immer gewünscht haben.
 
 **Corporate LLM**
 Sensible Daten gehören nicht in die Cloud eines US-Konzerns. Ich baue Ihr Firmenmodell auf Ihrer Infrastruktur.
 
 **CRM-Pipeline**
-Agenten betreuen Ihre Kunden zum richtigen Zeitpunkt, auf Wunsch auch proaktiv. Persönlich im Ton, automatisch im Ablauf.
+Spezialisierte Agenten betreuen Ihre Kundenpflege. Persönlich im Ton, automatisch im Ablauf und immer nach Freigabe.
 
 **Workflows**
-Angebote, Reportings, Freigaben: Hier steckt das meiste KI-Potenzial. Standardaufgaben laufen, Ihr Team macht das Marketing.
+Angebote, Reportings, Freigaben, Analysen: Hier steckt das größte KI-Potenzial, um Marketingteams zu entlasten.
 
 **Mobile-Apps**
 Kundenbindung auf dem Smartphone. Ihre Marke bietet Features, die Ihre Kunden wirklich nutzen.

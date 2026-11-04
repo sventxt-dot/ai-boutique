@@ -18,7 +18,7 @@ export const services: Service[] = [
   },
   {
     title: "AI Copywriting",
-    copy: "Ihre Tonalität, Ihr Fachwissen, Ihre Freigabe. Agenten, die schreiben wie das Texterteam, das Sie sich schon immer gewünscht haben.",
+    copy: "Ihre Tonalität, Ihr Fachwissen, Ihre Freigabe. Ich konfiguriere das Textteam, das Sie sich schon immer gewünscht haben.",
     image: "/AI-Boutique_Images/icons/copywriting.png"
   },
   {
@@ -28,12 +28,12 @@ export const services: Service[] = [
   },
   {
     title: "CRM-Pipeline",
-    copy: "Agenten betreuen Ihre Kunden zum richtigen Zeitpunkt, auf Wunsch auch proaktiv. Persönlich im Ton, automatisch im Ablauf.",
+    copy: "Spezialisierte Agenten betreuen Ihre Kundenpflege. Persönlich im Ton, automatisch im Ablauf und immer nach Freigabe.",
     image: "/AI-Boutique_Images/icons/rag-systeme.png"
   },
   {
     title: "Workflows",
-    copy: "Angebote, Reportings, Freigaben: Hier steckt das meiste KI-Potenzial. Standardaufgaben laufen, Ihr Team macht das Marketing.",
+    copy: "Angebote, Reportings, Freigaben, Analysen: Hier steckt das größte KI-Potenzial, um Marketingteams zu entlasten.",
     image: "/AI-Boutique_Images/icons/workflows.png"
   },
   {

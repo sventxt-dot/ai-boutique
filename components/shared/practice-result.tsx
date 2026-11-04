@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import BeforeAfter from "./before-after";
 import MonoLabel from "./mono-label";
 
 interface PracticeCase {
@@ -10,10 +11,11 @@ interface PracticeCase {
   intro: string;
   stages: { label: string; text: string }[];
   outro?: string;
-  // Either a before/after number or, where there is no time saving, a live demo
+  // Either a before/after number or, where there is no time saving, a live demo or an image comparison
   before?: { value: string; unit: string };
   after?: { value: string; unit: string };
   demo?: { image: string; alt: string; href: string; label: string };
+  compare?: { before: string; after: string; beforeAlt: string; afterAlt: string };
   href: string;
 }
 
@@ -77,6 +79,21 @@ const cases: PracticeCase[] = [
     },
     href: "/portfolio#brotbot",
   },
+  {
+    title: "Location Designer",
+    intro: "Ein Event-Caterer präsentiert seinen Interessenten mit dem Location Designer fertige Event-Locations. Das Team wählt in der App eine von 19 Eventlocations aus, stellt Möbel aus dem eigenen Mietbestand zusammen und bekommt in Sekunden eine fotorealistische Visualisierung des Raums. Auf Knopfdruck gibt's dazu ein kurzes Video mit Kamerafahrt durch die fertig eingerichtete Location.",
+    stages: [
+      { label: "Stack:", text: "Die KI verwandelt echte Locations und echte Möbel in eingerichtete Event-Venues. Alles einfach auf einer Webanwendung zu bedienen, ohne Architektur, Licht und Perspektive zu verfälschen." },
+    ],
+    outro: "Der Kunde sieht sein Event, bevor ein einziger Tisch geschleppt wurde.",
+    compare: {
+      before: "/images/portfolio/venue-visualizer-vorher.png",
+      after: "/images/portfolio/venue-visualizer-nachher.png",
+      beforeAlt: "Location Designer: Frontend mit dem Foto einer leeren Halle und der Möbelauswahl",
+      afterAlt: "Location Designer: Ergebnis, die eingerichtete Halle mit Stehtischen für das Angebot",
+    },
+    href: "/portfolio#venue-visualizer",
+  },
 ];
 
 // Proof right below the services: real projects with a before/after number, shown as a carousel
@@ -99,7 +116,8 @@ export default function PracticeResult() {
             aria-label={`${active + 1} von ${cases.length}`}
             className="px-6 pt-10 pb-24 md:pl-[5%] md:pr-[calc(5%+56px)] md:pt-14 md:pb-16 animate-in fade-in slide-in-from-right-8 duration-500 motion-reduce:animate-none"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_17rem] gap-10 lg:gap-16 items-center">
+            {/* The image comparison needs a wide column; numbers and demo fit a narrow one */}
+            <div className={`grid grid-cols-1 gap-10 lg:gap-16 items-center ${item.compare ? "lg:grid-cols-2" : "lg:grid-cols-[minmax(0,1fr)_17rem]"}`}>
               <div>
                 <MonoLabel className="block mb-3">Aus der Praxis</MonoLabel>
                 <h3 className="text-2xl md:text-3xl font-bold leading-tight mb-5">{item.title}</h3>
@@ -123,7 +141,9 @@ export default function PracticeResult() {
                 </Link>
               </div>
 
-              {item.demo ? (
+              {item.compare ? (
+                <BeforeAfter {...item.compare} subtle />
+              ) : item.demo ? (
                 <div className="flex flex-col items-center gap-6 rounded-[20px] bg-white px-6 py-8 md:py-10">
                   <Image src={item.demo.image} alt={item.demo.alt} width={160} height={160} className="size-32 md:size-40 rounded-3xl" />
                   <a
