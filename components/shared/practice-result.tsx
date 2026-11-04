@@ -99,7 +99,7 @@ export default function PracticeResult() {
             aria-label={`${active + 1} von ${cases.length}`}
             className="px-6 pt-10 pb-24 md:pl-[5%] md:pr-[calc(5%+56px)] md:pt-14 md:pb-16 animate-in fade-in slide-in-from-right-8 duration-500 motion-reduce:animate-none"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-[4.4445%] items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_17rem] gap-10 lg:gap-16 items-center">
               <div>
                 <MonoLabel className="block mb-3">Aus der Praxis</MonoLabel>
                 <h3 className="text-2xl md:text-3xl font-bold leading-tight mb-5">{item.title}</h3>
@@ -136,7 +136,7 @@ export default function PracticeResult() {
                   </a>
                 </div>
               ) : (
-                <dl className="grid grid-cols-2 gap-3 md:gap-4">
+                <dl className="grid grid-cols-2 lg:grid-cols-1 gap-3 md:gap-4">
                   <div className="min-w-0 rounded-[20px] bg-white/70 px-4 py-5 md:px-5 md:py-6">
                     <dt className="text-sm font-semibold text-[#5A4E68] mb-2">Vorher</dt>
                     <dd className="font-display text-2xl sm:text-3xl md:text-4xl leading-[1.05] text-foreground break-words">{item.before?.value}</dd>
