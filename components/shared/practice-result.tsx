@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import MonoLabel from "./mono-label";
 
@@ -9,8 +10,10 @@ interface PracticeCase {
   intro: string;
   stages: { label: string; text: string }[];
   outro?: string;
-  before: { value: string; unit: string };
-  after: { value: string; unit: string };
+  // Either a before/after number or, where there is no time saving, a live demo
+  before?: { value: string; unit: string };
+  after?: { value: string; unit: string };
+  demo?: { image: string; alt: string; href: string; label: string };
   href: string;
 }
 
@@ -41,6 +44,38 @@ const cases: PracticeCase[] = [
     before: { value: "4 Stunden", unit: "pro Clip" },
     after: { value: "15 bis 20 Minuten", unit: "pro Clip" },
     href: "/portfolio#reel-pipeline",
+  },
+  {
+    title: "Fünf umfangreiche Analysen",
+    intro: "Bevor ein Agent den ersten Text schreibt, wertet ein starkes Agententeam Umfeld, Markt, Unternehmen, Wettbewerb und Kundenstimmen aus.",
+    stages: [
+      { label: "Makroanalyse:", text: "Entwicklungen aus Gesellschaft, Technik, Wirtschaft und Recht, die Ihren Markt in den nächsten Jahren verändern." },
+      { label: "Mikroanalyse:", text: "Marktgröße, Preisniveau und die Anbieter, gegen die Sie antreten." },
+      { label: "Unternehmensanalyse:", text: "Ihre Stärken und Schwächen, jeweils im Vergleich mit dem stärksten Wettbewerber." },
+      { label: "Wettbewerbsanalyse:", text: "Mit welchen Botschaften und über welche Kanäle Ihre Wettbewerber Kunden gewinnen." },
+      { label: "Review Mining:", text: "Öffentliche Bewertungen, getrennt in Angriffspunkte für Ihr Marketing und Baustellen im eigenen Haus." },
+    ],
+    outro: "Agenten recherchieren zum Teil mehrere Stunden für stichhaltige Ergebnisse.",
+    before: { value: "1 bis 2 Tage", unit: "pro Analyse" },
+    after: { value: "1 bis 2 Stunden", unit: "inklusive Auswertung" },
+    // No portfolio entry for the analyses yet, so link the page itself
+    href: "/portfolio",
+  },
+  {
+    title: "Chatbot",
+    intro: "In der App einer Bäckerei berät der Brotbot zu Sortiment, Brot, Teig, Zutaten, Lagerung und Verträglichkeit im Allgemeinen und gibt Tipps und Rezepte, was man aus alten Broten und Brezen noch machen kann. Easteregg: Er erzählt auch Bäckerwitze.",
+    stages: [
+      { label: "Stack:", text: "Das gesamte Wissen ist in einem RAG-Container gegliedert und greift je nach Anfrage auf die richtige Quelle zu." },
+      { label: "Pflege:", text: "Neue Produkte, Mittagstisch und neues Wissen trägt das Team über ein Frontend ein. Der Brotbot ist so immer auf aktuellem Stand." },
+    ],
+    outro: "Die Kunden stellen ihre Fragen in der App der Bäckerei und bleiben dort.",
+    demo: {
+      image: "/images/portfolio/brotbot-thumb.png",
+      alt: "Brotbot, der Chatbot der Bäckerei",
+      href: "https://brotbot.bot-boutique.com/",
+      label: "Brotbot ausprobieren",
+    },
+    href: "/portfolio#brotbot",
   },
 ];
 
@@ -88,18 +123,32 @@ export default function PracticeResult() {
                 </Link>
               </div>
 
-              <dl className="grid grid-cols-2 gap-3 md:gap-4">
-                <div className="min-w-0 rounded-[20px] bg-white/70 px-4 py-5 md:px-5 md:py-6">
-                  <dt className="text-sm font-semibold text-[#5A4E68] mb-2">Vorher</dt>
-                  <dd className="font-display text-2xl sm:text-3xl md:text-4xl leading-[1.05] text-foreground break-words">{item.before.value}</dd>
-                  <dd className="mt-2 text-sm font-medium text-[#5A4E68]">{item.before.unit}</dd>
+              {item.demo ? (
+                <div className="flex flex-col items-center gap-6 rounded-[20px] bg-white px-6 py-8 md:py-10">
+                  <Image src={item.demo.image} alt={item.demo.alt} width={160} height={160} className="size-32 md:size-40 rounded-3xl" />
+                  <a
+                    href={item.demo.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-white hover:bg-accent-lila-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-lila"
+                  >
+                    {item.demo.label} <span aria-hidden="true">↗</span>
+                  </a>
                 </div>
-                <div className="min-w-0 rounded-[20px] bg-white px-4 py-5 md:px-5 md:py-6">
-                  <dt className="text-sm font-semibold text-accent-lila-ink mb-2">Heute</dt>
-                  <dd className="font-display text-2xl sm:text-3xl md:text-4xl leading-[1.05] text-accent-lila-ink break-words">{item.after.value}</dd>
-                  <dd className="mt-2 text-sm font-medium text-[#5A4E68]">{item.after.unit}</dd>
-                </div>
-              </dl>
+              ) : (
+                <dl className="grid grid-cols-2 gap-3 md:gap-4">
+                  <div className="min-w-0 rounded-[20px] bg-white/70 px-4 py-5 md:px-5 md:py-6">
+                    <dt className="text-sm font-semibold text-[#5A4E68] mb-2">Vorher</dt>
+                    <dd className="font-display text-2xl sm:text-3xl md:text-4xl leading-[1.05] text-foreground break-words">{item.before?.value}</dd>
+                    <dd className="mt-2 text-sm font-medium text-[#5A4E68]">{item.before?.unit}</dd>
+                  </div>
+                  <div className="min-w-0 rounded-[20px] bg-white px-4 py-5 md:px-5 md:py-6">
+                    <dt className="text-sm font-semibold text-accent-lila-ink mb-2">Heute</dt>
+                    <dd className="font-display text-2xl sm:text-3xl md:text-4xl leading-[1.05] text-accent-lila-ink break-words">{item.after?.value}</dd>
+                    <dd className="mt-2 text-sm font-medium text-[#5A4E68]">{item.after?.unit}</dd>
+                  </div>
+                </dl>
+              )}
             </div>
           </div>
       ))}

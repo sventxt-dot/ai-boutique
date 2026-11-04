@@ -53,6 +53,23 @@ On Brand. On Purpose. On Point.
 - Heute: 15 bis 20 Minuten pro Clip
 - Link (Entwurf): Mehr im Portfolio →
 
+**Dritter Block unter den Leistungen:**
+
+- Label: Aus der Praxis
+- Titel: Fünf umfangreiche Analysen
+- Text: Bevor ein Agent den ersten Text schreibt, wertet ein starkes Agententeam Umfeld, Markt, Unternehmen, Wettbewerb und Kundenstimmen aus. Makroanalyse: Entwicklungen aus Gesellschaft, Technik, Wirtschaft und Recht, die Ihren Markt in den nächsten Jahren verändern. Mikroanalyse: Marktgröße, Preisniveau und die Anbieter, gegen die Sie antreten. Unternehmensanalyse: Ihre Stärken und Schwächen, jeweils im Vergleich mit dem stärksten Wettbewerber. Wettbewerbsanalyse: Mit welchen Botschaften und über welche Kanäle Ihre Wettbewerber Kunden gewinnen. Review Mining: Öffentliche Bewertungen, getrennt in Angriffspunkte für Ihr Marketing und Baustellen im eigenen Haus. Agenten recherchieren zum Teil mehrere Stunden für stichhaltige Ergebnisse.
+- Vorher: 1 bis 2 Tage pro Analyse
+- Heute: 1 bis 2 Stunden inklusive Auswertung
+- Link (Entwurf): Mehr im Portfolio → (führt auf /portfolio, dort gibt es noch keinen Eintrag zu den Analysen)
+
+**Vierter Block unter den Leistungen:**
+
+- Label: Aus der Praxis
+- Titel: Chatbot
+- Text: In der App einer Bäckerei berät der Brotbot zu Sortiment, Brot, Teig, Zutaten, Lagerung und Verträglichkeit im Allgemeinen und gibt Tipps und Rezepte, was man aus alten Broten und Brezen noch machen kann. Easteregg: Er erzählt auch Bäckerwitze. Stack: Das gesamte Wissen ist in einem RAG-Container gegliedert und greift je nach Anfrage auf die richtige Quelle zu. Pflege: Neue Produkte, Mittagstisch und neues Wissen trägt das Team über ein Frontend ein. Der Brotbot ist so immer auf aktuellem Stand. Die Kunden stellen ihre Fragen in der App der Bäckerei und bleiben dort.
+- Statt Vorher/Heute: Vorschaubild und Button „Brotbot ausprobieren ↗“ (https://brotbot.bot-boutique.com/)
+- Link (Entwurf): Mehr im Portfolio →
+
 **AI Voice-Bots**
 Ein Telefon, das abnimmt, qualifiziert, informiert und bucht. In Ihrem Ton, rund um die Uhr.
 
