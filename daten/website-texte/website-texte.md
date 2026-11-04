@@ -1,6 +1,6 @@
 # Website-Texte ai-boutique.de
 
-Stand: 3. November 2026, Arbeitsstand im Repo (lokal, noch nicht live).
+Stand: 4. November 2026, Arbeitsstand im Repo (lokal, noch nicht live).
 
 Alle Texte stehen wörtlich so wie auf der Website, auch dort, wo sie noch nicht final sind. In Klammern steht die Datei, in der der Text gepflegt wird.
 
@@ -19,7 +19,7 @@ Für Marken, die markant bleiben wollen – mit KI.
 
 **Subline:**
 
-Aus 20 Jahren Markenpraxis weiß ich, wo im Marketing der Schuh drückt: Kampagnen adaptieren, Content deklinieren, Produkttexte schreiben, Mailings verfassen, Analysen, Recherche, Reportings. Die Liste ist lang.
+Aus 20 Jahren Markenpraxis weiß ich, wo im Marketing der Schuh drückt: Kampagnen adaptieren, Content deklinieren, Produkttexte schreiben, Mailings verfassen, Analysen, Recherche, Reportings. Unnötige Stunden Fleißarbeit.
 
 Mein Ansatz, um Ihrem Team wieder Luft für die strategischen Aufgaben im Marketing zu geben: Agentic Marketing.
 

@@ -62,7 +62,7 @@ export default function PracticeResult() {
             role="group"
             aria-roledescription="Folie"
             aria-label={`${active + 1} von ${cases.length}`}
-            className="pl-6 pr-20 pt-10 pb-14 md:pl-[5%] md:pr-[calc(5%+56px)] md:pt-14 md:pb-16 animate-in fade-in slide-in-from-right-8 duration-500 motion-reduce:animate-none"
+            className="px-6 pt-10 pb-24 md:pl-[5%] md:pr-[calc(5%+56px)] md:pt-14 md:pb-16 animate-in fade-in slide-in-from-right-8 duration-500 motion-reduce:animate-none"
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-[4.4445%] items-center">
               <div>
@@ -88,15 +88,15 @@ export default function PracticeResult() {
                 </Link>
               </div>
 
-              <dl className="grid grid-cols-2 gap-4">
-                <div className="rounded-[20px] bg-white/70 px-5 py-6">
+              <dl className="grid grid-cols-2 gap-3 md:gap-4">
+                <div className="min-w-0 rounded-[20px] bg-white/70 px-4 py-5 md:px-5 md:py-6">
                   <dt className="text-sm font-semibold text-[#5A4E68] mb-2">Vorher</dt>
-                  <dd className="font-display text-3xl md:text-4xl leading-none text-foreground">{item.before.value}</dd>
+                  <dd className="font-display text-2xl sm:text-3xl md:text-4xl leading-[1.05] text-foreground break-words">{item.before.value}</dd>
                   <dd className="mt-2 text-sm font-medium text-[#5A4E68]">{item.before.unit}</dd>
                 </div>
-                <div className="rounded-[20px] bg-white px-5 py-6">
+                <div className="min-w-0 rounded-[20px] bg-white px-4 py-5 md:px-5 md:py-6">
                   <dt className="text-sm font-semibold text-accent-lila-ink mb-2">Heute</dt>
-                  <dd className="font-display text-3xl md:text-4xl leading-none text-accent-lila-ink">{item.after.value}</dd>
+                  <dd className="font-display text-2xl sm:text-3xl md:text-4xl leading-[1.05] text-accent-lila-ink break-words">{item.after.value}</dd>
                   <dd className="mt-2 text-sm font-medium text-[#5A4E68]">{item.after.unit}</dd>
                 </div>
               </dl>
@@ -109,14 +109,14 @@ export default function PracticeResult() {
         type="button"
         onClick={next}
         aria-label="Nächstes Beispiel"
-        className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 flex size-12 items-center justify-center rounded-full bg-white text-foreground shadow-md hover:bg-accent-lila transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-lila-ink cursor-pointer"
+        className="absolute right-4 bottom-4 md:bottom-auto md:right-6 md:top-1/2 md:-translate-y-1/2 flex size-12 items-center justify-center rounded-full bg-white text-foreground shadow-md hover:bg-accent-lila transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-lila-ink cursor-pointer"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M9 6l6 6-6 6" />
         </svg>
       </button>
 
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-7 md:bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
         {cases.map((item, i) => (
           <button
             key={item.title}

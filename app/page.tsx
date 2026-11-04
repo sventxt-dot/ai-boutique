@@ -37,7 +37,7 @@ export default function Home() {
           <span key="pain" className="font-semibold text-foreground">
             Aus 20 Jahren Markenpraxis weiß ich, wo im Marketing der Schuh drückt:
             Kampagnen adaptieren, Content deklinieren, Produkttexte schreiben,
-            Mailings verfassen, Analysen, Recherche, Reportings. Die Liste ist lang.
+            Mailings verfassen, Analysen, Recherche, Reportings. Unnötige Stunden Fleißarbeit.
           </span>,
           <>
             Mein Ansatz, um Ihrem Team wieder Luft für die strategischen Aufgaben
