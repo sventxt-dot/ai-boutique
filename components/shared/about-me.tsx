@@ -31,7 +31,7 @@ export default function AboutMe() {
         <MonoLabel className="block mb-7">Über mich</MonoLabel>
 
         <p className="text-[17px] text-[#34303A] leading-[1.7] mb-7 font-medium">
-          Mit der AI-Boutique verbinde ich die Vorteile der KI-generierten Performance mit meiner Urteilskraft für gute Kommunikation. Meine Praxiserfahrung auf Agentur- und Kundenseite plus das Wissen, wo und wie KI im Marketing Zeit und Geld spart, werden sich für Sie bezahlt machen. Und weil ich will, dass Ihr Team intuitiv mit KI arbeitet, gehört für mich ein empathisches Change-Management zu jedem erfolgreichen Projekt.
+          Mit der AI-Boutique vereine ich zwei Stärken: die Performance der KI und mein Urteilsvermögen für gute Kommunikation. Praxiserfahrung auf Agentur- und Kundenseite plus das Wissen, wo und wie KI im Marketing Zeit und Geld spart, machen sich für Ihr Unternehmen bezahlt. Und weil ich will, dass Ihr Team intuitiv mit KI arbeitet, gehört für mich ein empathisches Change-Management zu jedem erfolgreichen Projekt.
         </p>
         {/* Same yellow marker as the claim in the hero */}
         <p className="text-[17px] text-foreground leading-[1.7] mb-7">
