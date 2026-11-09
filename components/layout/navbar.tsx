@@ -10,8 +10,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = useCallback(() => setMenuOpen(false), []);
-  // Only the homepage starts on the purple hero image; everywhere else the navbar sits on the light ground
-  const onDark = usePathname() === "/" && !scrolled && !menuOpen;
+  // On the homepage the navbar stays on the purple wall of the hero image; elsewhere it sits on the light ground
+  const onDark = usePathname() === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -40,9 +40,11 @@ export default function Navbar() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled || menuOpen
-          ? "bg-background/90 backdrop-blur-sm border-b border-border"
-          : "bg-transparent"
+        !(scrolled || menuOpen)
+          ? "bg-transparent"
+          : onDark
+            ? "bg-[#5B3878] bg-[url(/images/redesign/hero-sofa-lila.jpg)] bg-cover bg-top"
+            : "bg-background/90 backdrop-blur-sm border-b border-border"
       )}
     >
       <div className="max-w-[1440px] mx-auto px-8 md:px-16 lg:px-20 py-3 md:py-4 flex items-center justify-between">
@@ -135,21 +137,24 @@ export default function Navbar() {
           <Link
             href="/#leistungen"
             onClick={closeMenu}
-            className="flex min-h-12 items-center text-base text-foreground"
+            className={cn("flex min-h-12 items-center text-base", onDark ? "text-white" : "text-foreground")}
           >
             Leistungen
           </Link>
           <Link
             href="/#potential-check"
             onClick={closeMenu}
-            className="flex min-h-12 items-center text-base text-foreground"
+            className={cn("flex min-h-12 items-center text-base", onDark ? "text-white" : "text-foreground")}
           >
             Potential Check
           </Link>
           <Link
             href="/kontakt"
             onClick={closeMenu}
-            className="mt-2 flex min-h-12 items-center justify-center rounded-full bg-foreground font-bold text-white"
+            className={cn(
+              "mt-2 flex min-h-12 items-center justify-center rounded-full font-bold",
+              onDark ? "bg-white text-foreground" : "bg-foreground text-white"
+            )}
           >
             Kontakt
           </Link>
