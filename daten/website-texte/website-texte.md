@@ -236,7 +236,7 @@ Text: Ich bearbeite Ihren KI-Potential-Check persönlich und schicke Ihnen die d
 
 **Eyebrow:** Über mich
 
-Mit der AI-Boutique verbinde ich kreative Markenführung und KI-generierte Performance. Ihre Vorteile sind meine Praxiserfahrung auf Agentur- und Kundenseite plus mein Wissen, wo und wie KI im Marketing Zeit und Geld spart. Von der Analyse über Produkt und Vertrieb bis zur konsistenten Kundenbetreuung auf allen Kanälen. Sie bekommen Frontend-Tools oder nutzen bestehende Abläufe, die täglich zum Einsatz kommen.
+Mit der AI-Boutique verbinde ich die Vorteile der KI-generierten Performance mit meiner Urteilskraft für gute Kommunikation. Meine Praxiserfahrung auf Agentur- und Kundenseite plus das Wissen, wo und wie KI im Marketing Zeit und Geld spart, werden sich für Sie bezahlt machen. Und weil ich will, dass Ihr Team intuitiv mit KI arbeitet, gehört für mich ein empathisches Change-Management zu jedem erfolgreichen Projekt.
 
 **Fett unter dem Absatz:** Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen. Ihr Team erreicht mehr Kunden mit weniger Aufwand.
 
