@@ -15,12 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: "https://www.ai-boutique.de/portfolio",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
       url: "https://www.ai-boutique.de/impressum",
       lastModified: new Date(),
       changeFrequency: "yearly",

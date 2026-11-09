@@ -34,7 +34,7 @@ Read `package.json` for exact versions and scripts before you assume anything ab
 Use these as fixed wording. Do not rephrase them.
 
 - Claim: "Kreative Intelligenz."
-- Core sentence: "Ich bringe KI auf den Punkt und automatisiere damit Geschäftsprozesse für Marketingteams und Agenturen."
+- Core sentence: "Die AI-Boutique automatisiert Geschäftsprozesse für Marketingteams und Agenturen." (since November 2026; it replaced the first-person version "Ich bringe KI auf den Punkt und automatisiere damit …" because the page read as too much "Ich")
 - Category: "KI-Sparringspartner für Marketing & Kreation"
 - Audience: marketing teams and agencies
 

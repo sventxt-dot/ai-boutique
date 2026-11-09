@@ -1,6 +1,6 @@
 # Website-Texte ai-boutique.de
 
-Stand: 4. November 2026, Arbeitsstand im Repo (lokal, noch nicht live).
+Stand: 9. November 2026, Arbeitsstand im Repo (lokal, noch nicht live).
 
 Alle Texte stehen wörtlich so wie auf der Website, auch dort, wo sie noch nicht final sind. In Klammern steht die Datei, in der der Text gepflegt wird.
 
@@ -33,7 +33,7 @@ On Brand. On Purpose. On Point.
 
 **Headline:** So arbeitet KI im Marketing-Team.
 
-**Intro:** Acht Werkzeuge, die Standardaufgaben im Marketing übernehmen. Individuell angepasst, auf Servern in der EU gehostet und von Ihrem Team gesteuert.
+**Intro:** Acht Bausteine, die Standardaufgaben im Marketing übernehmen. Individuell angepasst, auf Servern in der EU gehostet und von Ihrem Team gesteuert.
 
 **Block unter den Leistungen:**
 
@@ -42,7 +42,6 @@ On Brand. On Purpose. On Point.
 - Text: Agenten Teams suchen wöchentlich nach aktuellen Themen entlang vorab definierter Content-Container. Stufe 1: Aus zehn relevanten Themenvorschlägen wird eines ausgewählt. Stufe 2: Drei Captions werden nach Algorithmusmuster von CopyAgenten vorgeschlagen, eine ausgewählt. Stufe 3: BildAgent schlägt aus Bild Archiv passendes Motiv vor und setzt Headline.
 - Vorher: 3 bis 4 Stunden pro Woche
 - Heute: 10 bis 15 Minuten pro Woche
-- Link (Entwurf): Mehr im Portfolio →
 
 **Zweiter Block unter den Leistungen:**
 
@@ -51,16 +50,14 @@ On Brand. On Purpose. On Point.
 - Text: Kontextbasierte Agenten erstellen in vier Freigabestufen Reels, die nach vorab definierten Reibungsmustern für aufmerksamkeitsstarke Scrollstopper sorgen. Stufe 1: Aus mehreren Kontrast-Parametern den gewünschten Hook ableiten. Stufe 2: Scriptfreigabe. Stufe 3: Freigabe der generierten Bilder. Stufe 4: Freigabe der Sprechertexte, die bei ElevenLabs erstellt wurden. Stufe 5: Freigabe des fertigen Clips. Ab hier übernimmt das Agententeam die Ausspielung und das Reporting.
 - Vorher: 4 Stunden pro Clip
 - Heute: 15 bis 20 Minuten pro Clip
-- Link (Entwurf): Mehr im Portfolio →
 
 **Dritter Block unter den Leistungen:**
 
 - Label: Aus der Praxis
-- Titel: Fünf umfangreiche Analysen
+- Titel: Fünf tiefgreifende Analysen
 - Text: Bevor ein Agent den ersten Text schreibt, wertet ein starkes Agententeam Umfeld, Markt, Unternehmen, Wettbewerb und Kundenstimmen aus. Makroanalyse: Entwicklungen aus Gesellschaft, Technik, Wirtschaft und Recht, die Ihren Markt in den nächsten Jahren verändern. Mikroanalyse: Marktgröße, Preisniveau und die Anbieter, gegen die Sie antreten. Unternehmensanalyse: Ihre Stärken und Schwächen, jeweils im Vergleich mit dem stärksten Wettbewerber. Wettbewerbsanalyse: Mit welchen Botschaften und über welche Kanäle Ihre Wettbewerber Kunden gewinnen. Review Mining: Öffentliche Bewertungen, getrennt in Angriffspunkte für Ihr Marketing und Baustellen im eigenen Haus. Agenten recherchieren zum Teil mehrere Stunden für stichhaltige Ergebnisse.
 - Vorher: 1 bis 2 Tage pro Analyse
 - Heute: 1 bis 2 Stunden inklusive Auswertung
-- Link (Entwurf): Mehr im Portfolio → (führt auf /portfolio, dort gibt es noch keinen Eintrag zu den Analysen)
 
 **Vierter Block unter den Leistungen:**
 
@@ -68,7 +65,6 @@ On Brand. On Purpose. On Point.
 - Titel: Chatbot
 - Text: In der App einer Bäckerei berät der Brotbot zu Sortiment, Brot, Teig, Zutaten, Lagerung und Verträglichkeit im Allgemeinen und gibt Tipps und Rezepte, was man aus alten Broten und Brezen noch machen kann. Easteregg: Er erzählt auch Bäckerwitze. Stack: Das gesamte Wissen ist in einem RAG-Container gegliedert und greift je nach Anfrage auf die richtige Quelle zu. Pflege: Neue Produkte, Mittagstisch und neues Wissen trägt das Team über ein Frontend ein. Der Brotbot ist so immer auf aktuellem Stand. Die Kunden stellen ihre Fragen in der App der Bäckerei und bleiben dort.
 - Statt Vorher/Heute: Vorschaubild und Button „Brotbot ausprobieren ↗“ (https://brotbot.bot-boutique.com/)
-- Link (Entwurf): Mehr im Portfolio →
 
 **Fünfter Block unter den Leistungen:**
 
@@ -76,7 +72,6 @@ On Brand. On Purpose. On Point.
 - Titel: Location Designer
 - Text: Ein Event-Caterer präsentiert seinen Interessenten mit dem Location Designer fertige Event-Locations. Das Team wählt in der App eine von 19 Eventlocations aus, stellt Möbel aus dem eigenen Mietbestand zusammen und bekommt in Sekunden eine fotorealistische Visualisierung des Raums. Auf Knopfdruck gibt's dazu ein kurzes Video mit Kamerafahrt durch die fertig eingerichtete Location. Stack: Die KI verwandelt echte Locations und echte Möbel in eingerichtete Event-Venues. Alles einfach auf einer Webanwendung zu bedienen, ohne Architektur, Licht und Perspektive zu verfälschen. Der Kunde sieht sein Event, bevor ein einziger Tisch geschleppt wurde.
 - Statt Vorher/Heute: Bildvergleich mit Schieberegler (leere Halle im Frontend, eingerichtete Halle)
-- Link (Entwurf): Mehr im Portfolio →
 
 **AI Voice-Bots**
 Ein Telefon, das abnimmt, qualifiziert, informiert und bucht. In Ihrem Ton, rund um die Uhr.
@@ -108,9 +103,7 @@ Ich mache Ihr Team fit: gutes Prompten, nach den Regeln des EU AI Act, die richt
 
 **Headline:** Native Creative
 
-**Reiter:** Werbung & Marketing (aktiv) / KI-Systeme im Einsatz (Link zur Unterseite Portfolio)
-
-**Text zum Film:** Texterschmiede, Werbeagenturen in Hamburg und München. Funk, Plakat, TV, Pitch, Branding, Social Media, New Business und große Kunden. 2008 Marketing Studium. Seit 2016 freier Creative Director. Jetzt zertifizierter KI-Experte.
+**Text zum Film:** Texterschmiede, Werbeagenturen in Hamburg und München. Funk, Plakat, TV, Pitch, Branding, Social Media, New Business und große Kunden. 2008 Marketing Studium. Seit 2016 freier Creative Director. Jetzt zertifizierter KI-Experte mit Spezialisierung auf Agentic Marketing.
 
 **Video-Fehlermeldungen:** Das Video lässt sich gerade nicht laden. / Ihr Browser kann dieses Video nicht abspielen.
 
@@ -118,9 +111,9 @@ Ich mache Ihr Team fit: gutes Prompten, nach den Regeln des EU AI Act, die richt
 
 **Eyebrow:** Framework
 
-**Headline:** Meine fünf Steps zum effektiven KI-Tool.
+**Headline:** Mit System zum passenden Tool.
 
-**Intro:** KI hilft nur dort, wo sie zu Ihren Abläufen passt. Mit dem S.C.A.L.E.-Framework werden wir das herausfinden.
+**Intro:** KI hilft nur dort, wo sie zu Ihren Abläufen und Zielen passt. Mein S.C.A.L.E.-Framework schafft Klarheit in 5 Schritten.
 
 **SCAN**
 Ich höre zu, verstehe Ihre Marketingabläufe und analysiere Kanäle und Status quo. Daraus entsteht ein Gesamtbild.
@@ -243,21 +236,13 @@ Text: Ich bearbeite Ihren KI-Potential-Check persönlich und schicke Ihnen die d
 
 **Eyebrow:** Über mich
 
-Mit der ai-boutique bilde ich die Schnittstelle zwischen kreativer Markenführung und operativer Performance. Zentrale Fragen: Wie lassen sich kreative Leitideen maschinell skalieren? Und in welchen Geschäftsbereichen kann KI Ihr Geschäft effektiver machen?
+Mit der AI-Boutique verbinde ich kreative Markenführung mit KI-generierter Performance. Ihre Vorteile sind meine Praxiserfahrung auf Agentur- und Kundenseite plus mein Wissen, wo und wie KI im Marketing Zeit und Geld spart: von der Analyse über Produkt und Vertrieb bis zur konsistenten Kundenbetreuung auf allen Kanälen. Ich liefere Frontend-Tools oder benutze bestehende Abläufe, die Ihr Team jeden Tag benutzt.
 
-Mehr als 20 Jahre Erfahrung in Markenpositionierung, Kampagnenentwicklung, Copywriting und Social Media geben mir einen praxisorientierten Blick auf die KI. Mit zertifizierter KI-Expertise verkaufe ich nicht „irgendwas mit Agenten" oder „irgendeinen Chatbot" – ich rede mit Ihnen, erkenne Potentiale und implementiere die richtigen Tools. Und wenn Sie in Ihrem Unternehmen bereits KI nutzen, helfe ich Ihnen gerne, diese Fähigkeiten sauber zu skalieren. Ohne Schatten-KI und Kollegen, die Firmenwissen ungefiltert ins Netz schmeißen.
-
-RAG, Agentic Workflows, MCP-Protokoll.
+**Fett unter dem Absatz:** Die AI-Boutique automatisiert Geschäftsprozesse für Marketingteams und Agenturen.
 
 **Badges:** DSGVO-konform / EU AI Act ready
 
-Ihre Daten bleiben auf eigenen Servern, und Ihr Team bedient die Tools völlig intuitiv ohne Umwege auf einem firmeninternen Dashboard. Versteckt hinter einem verschlüsselten Login.
-
 ### Abschluss (`components/shared/cta-closing.tsx`)
-
-**Headline:** Ich bringe KI auf den Punkt und automatisiere damit Geschäftsprozesse für Marketingteams und Agenturen.
-
-**Text:** Als AI-Boutique will ich neben hilfreichen Tools vor allem eines liefern: eine persönliche und kompetente Beratung. Um das sicherzustellen, gehört es zu meiner Politik, maximal 5 Projekte parallel anzunehmen. Aktuell frei: 2. Stand November 2026.
 
 **Headline Einstiegsangebot:** Beispiel für einen sicheren Einstieg in das Agentic Marketing.
 
@@ -265,13 +250,16 @@ Ihre Daten bleiben auf eigenen Servern, und Ihr Team bedient die Tools völlig i
 
 **Einstiegsangebot 02:** Danach: Ein Agentic Copywriter in Ihrer Corporate Tonalität mit allen Do's und Don'ts, umgesetzt in zwei Wochen. Festpreis 1.500 Euro.
 
-**Hinweis unter den Angeboten:** Nach der Analyse entscheiden Sie, ob es weitergeht.
+**Kapazität über dem Button (Entwurf):** Ich betreue höchstens fünf Projekte gleichzeitig. Aktuell frei: 2. Stand November 2026.
 
 **CTA:** Erstgespräch anfragen
 
 ---
 
-## Portfolio (`app/portfolio/page.tsx`, `lib/data/portfolio.ts`)
+## Portfolio (entfernt am 9. November 2026)
+
+Die Seite `/portfolio` ist gelöscht und leitet dauerhaft auf das Karussell „Aus der Praxis“ auf der Startseite um (`/#praxis`). Die Texte bleiben hier als Archiv für weitere Karussell-Folien.
+
 
 Alle Portfolio-Texte sind als Entwurf markiert.
 
@@ -544,7 +532,7 @@ Beschreibung: Strategische KI-Implementierung und Agentic Marketing für kleine 
 Titel: KI Beratung für KMU — Künstliche Intelligenz für kleine Unternehmen
 Beschreibung: ai-boutique bietet strategische KI-Implementierung, Agentic Marketing und KI Beratung für KMU und Mittelstand. Jetzt kostenlosen KI-Potential-Check starten.
 
-**Portfolio (`app/portfolio/page.tsx`)**
+**Portfolio (Seite entfernt am 9. November 2026)**
 Titel: KI-Systeme im Einsatz — Portfolio der KI-Agentur AI-Boutique
 Beschreibung: Chatbots, Workflows und Content-Automation aus der Praxis: Arbeiten der KI-Agentur AI-Boutique für Marketingteams und Agenturen.
 

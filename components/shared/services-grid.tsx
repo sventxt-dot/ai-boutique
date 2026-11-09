@@ -24,7 +24,7 @@ export default function ServicesGrid() {
         So arbeitet KI im Marketing-Team.
       </h2>
       <p className="text-lg font-sans font-medium text-muted-foreground leading-relaxed mb-14 max-w-2xl text-left">
-        Acht Werkzeuge, die Standardaufgaben im Marketing übernehmen. Individuell angepasst, auf Servern in der EU gehostet und von Ihrem Team gesteuert.
+        Acht Bausteine, die Standardaufgaben im Marketing übernehmen. Individuell angepasst, auf Servern in der EU gehostet und von Ihrem Team gesteuert.
       </p>
       <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-14">
         {services.map((service, i) => (

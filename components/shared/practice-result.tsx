@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import BeforeAfter from "./before-after";
 import MonoLabel from "./mono-label";
 
@@ -16,7 +15,6 @@ interface PracticeCase {
   after?: { value: string; unit: string };
   demo?: { image: string; alt: string; href: string; label: string };
   compare?: { before: string; after: string; beforeAlt: string; afterAlt: string };
-  href: string;
 }
 
 const cases: PracticeCase[] = [
@@ -30,7 +28,6 @@ const cases: PracticeCase[] = [
     ],
     before: { value: "3 bis 4 Stunden", unit: "pro Woche" },
     after: { value: "10 bis 15 Minuten", unit: "pro Woche" },
-    href: "/portfolio#linkedin-content",
   },
   {
     title: "Social Media Pipeline",
@@ -45,10 +42,9 @@ const cases: PracticeCase[] = [
     outro: "Ab hier übernimmt das Agententeam die Ausspielung und das Reporting.",
     before: { value: "4 Stunden", unit: "pro Clip" },
     after: { value: "15 bis 20 Minuten", unit: "pro Clip" },
-    href: "/portfolio#reel-pipeline",
   },
   {
-    title: "Fünf umfangreiche Analysen",
+    title: "Fünf tiefgreifende Analysen",
     intro: "Bevor ein Agent den ersten Text schreibt, wertet ein starkes Agententeam Umfeld, Markt, Unternehmen, Wettbewerb und Kundenstimmen aus.",
     stages: [
       { label: "Makroanalyse:", text: "Entwicklungen aus Gesellschaft, Technik, Wirtschaft und Recht, die Ihren Markt in den nächsten Jahren verändern." },
@@ -60,8 +56,6 @@ const cases: PracticeCase[] = [
     outro: "Agenten recherchieren zum Teil mehrere Stunden für stichhaltige Ergebnisse.",
     before: { value: "1 bis 2 Tage", unit: "pro Analyse" },
     after: { value: "1 bis 2 Stunden", unit: "inklusive Auswertung" },
-    // No portfolio entry for the analyses yet, so link the page itself
-    href: "/portfolio",
   },
   {
     title: "Chatbot",
@@ -77,7 +71,6 @@ const cases: PracticeCase[] = [
       href: "https://brotbot.bot-boutique.com/",
       label: "Brotbot ausprobieren",
     },
-    href: "/portfolio#brotbot",
   },
   {
     title: "Location Designer",
@@ -92,7 +85,6 @@ const cases: PracticeCase[] = [
       beforeAlt: "Location Designer: Frontend mit dem Foto einer leeren Halle und der Möbelauswahl",
       afterAlt: "Location Designer: Ergebnis, die eingerichtete Halle mit Stehtischen für das Angebot",
     },
-    href: "/portfolio#venue-visualizer",
   },
 ];
 
@@ -104,8 +96,9 @@ export default function PracticeResult() {
   return (
     <section
       aria-roledescription="Karussell"
+      id="praxis"
       aria-label="Beispiele aus der Praxis"
-      className="relative mt-20 rounded-[28px] bg-linear-to-br from-[#F1E8FB] to-[#E7D8F7] overflow-hidden"
+      className="scroll-mt-28 relative mt-20 rounded-[28px] bg-linear-to-br from-[#F1E8FB] to-[#E7D8F7] overflow-hidden"
     >
       {/* Only the active slide is rendered, so the tile takes its height instead of the tallest slide's */}
       {[cases[active]].map((item) => (
@@ -132,13 +125,6 @@ export default function PracticeResult() {
                 {item.outro && (
                   <p className="text-[17px] leading-relaxed font-medium text-[#34303A] mb-4">{item.outro}</p>
                 )}
-                <Link
-                  href={item.href}
-                  className="inline-flex items-center gap-2 mt-2 text-sm font-semibold text-accent-lila-ink hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-lila"
-                >
-                  {/* DRAFT */}
-                  Mehr im Portfolio <span aria-hidden="true">→</span>
-                </Link>
               </div>
 
               {item.compare ? (

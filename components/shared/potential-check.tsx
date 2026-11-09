@@ -304,14 +304,32 @@ export default function PotentialCheck() {
             sizes="(min-width: 1440px) 1280px, 100vw"
             className="block w-full h-auto"
           />
-          <div className="absolute left-[15.4%] right-[55.2%] top-[26.6%] bottom-[33.8%] bg-white flex items-center justify-center">
-            <Image
-              src="/images/portfolio/brotbot-thumb.png"
-              alt="Brotbot, die Chatbot-Figur einer Bäckerei"
-              width={256}
-              height={256}
-              className="h-[88%] w-auto"
-            />
+          {/* Screen: a preview of the result, sized in container units so it scales with the laptop */}
+          <div
+            aria-hidden="true"
+            className="@container absolute left-[15.4%] right-[55.2%] top-[26.6%] bottom-[33.8%] bg-white overflow-hidden"
+          >
+            <div className="flex h-full flex-col px-[7cqw] py-[5.5cqw]">
+              <div className="flex items-center gap-[1.6cqw] mb-[4.5cqw]">
+                <span className="size-[2.2cqw] rounded-full bg-[#E4DCEE]" />
+                <span className="size-[2.2cqw] rounded-full bg-[#E4DCEE]" />
+                <span className="size-[2.2cqw] rounded-full bg-[#E4DCEE]" />
+                <span className="ml-auto font-sans text-[3.4cqw] font-semibold text-accent-lila-ink">Agentic-Marketing-Check</span>
+              </div>
+              {/* DRAFT */}
+              <p className="font-sans text-[6.4cqw] font-bold leading-tight text-foreground mb-[4cqw]">Ihre drei KI-Maßnahmen</p>
+              <ol className="flex flex-1 flex-col justify-between">
+                {["w-[78%]", "w-[64%]", "w-[71%]"].map((width, i) => (
+                  <li key={width} className="flex items-center gap-[3.5cqw] border-t border-[#EFE8F6] pt-[2.6cqw]">
+                    <span className="w-[7cqw] shrink-0 font-display text-[6cqw] leading-none text-accent-lila">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="flex flex-1 flex-col gap-[1.6cqw]">
+                      <span className={`block h-[2.2cqw] rounded-full bg-[#D9C6EE] ${width}`} />
+                      <span className="block h-[1.8cqw] w-[92%] rounded-full bg-[#EFE8F6]" />
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
           <div
             aria-hidden="true"

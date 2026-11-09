@@ -30,33 +30,21 @@ export default function AboutMe() {
       <div>
         <MonoLabel className="block mb-7">Über mich</MonoLabel>
 
-        <p className="text-[17px] text-[#34303A] leading-[1.7] mb-6 font-medium">
-          Mit der ai-boutique bilde ich die Schnittstelle zwischen kreativer Markenführung und
-          operativer Performance. Zentrale Fragen: Wie lassen sich kreative Leitideen maschinell
-          skalieren? Und in welchen Geschäftsbereichen kann KI Ihr Geschäft effektiver machen?
-        </p>
-
         <p className="text-[17px] text-[#34303A] leading-[1.7] mb-7 font-medium">
-          Mehr als 20 Jahre Erfahrung in Markenpositionierung, Kampagnenentwicklung, Copywriting und Social
-          Media geben mir einen praxisorientierten Blick auf die KI. Mit zertifizierter KI-Expertise
-          verkaufe ich nicht „irgendwas mit Agenten" oder „irgendeinen Chatbot" – ich rede mit
-          Ihnen, erkenne Potentiale und implementiere die richtigen Tools. Und wenn Sie in Ihrem Unternehmen bereits KI nutzen, helfe ich Ihnen
-          gerne, diese Fähigkeiten sauber zu skalieren. Ohne Schatten-KI und Kollegen, die
-          Firmenwissen ungefiltert ins Netz schmeißen.
+          Mit der AI-Boutique verbinde ich kreative Markenführung mit KI-generierter Performance. Ihre Vorteile sind meine Praxiserfahrung auf Agentur- und Kundenseite plus mein Wissen, wo und wie KI im Marketing Zeit und Geld spart: von der Analyse über Produkt und Vertrieb bis zur konsistenten Kundenbetreuung auf allen Kanälen. Ich liefere Frontend-Tools oder benutze bestehende Abläufe, die Ihr Team jeden Tag benutzt.
+        </p>
+        {/* Same yellow marker as the claim in the hero */}
+        <p className="text-[17px] text-foreground leading-[1.7] mb-7">
+          <strong className="font-bold box-decoration-clone px-1 -mx-1 bg-[linear-gradient(transparent_52%,var(--accent-yellow)_52%,var(--accent-yellow)_92%,transparent_92%)]">
+            Die AI-Boutique automatisiert Geschäftsprozesse für Marketingteams und Agenturen.
+          </strong>
         </p>
 
-        <p className="font-sans font-semibold text-sm text-[#5A4E68] leading-relaxed mb-4">
-          RAG, Agentic Workflows, MCP-Protokoll.
-        </p>
-
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2">
           <span className={tagClass}>DSGVO-konform</span>
           <span className={tagClass}>EU AI Act ready</span>
         </div>
 
-        <p className="font-sans font-medium text-sm text-[#5A4E68] leading-relaxed">
-          Ihre Daten bleiben auf eigenen Servern, und Ihr Team bedient die Tools völlig intuitiv ohne Umwege auf einem firmeninternen Dashboard. Versteckt hinter einem verschlüsselten Login.
-        </p>
       </div>
     </div>
   );
