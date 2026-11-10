@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Hero from "@/components/shared/hero";
 import Section from "@/components/shared/section";
 import MonoLabel from "@/components/shared/mono-label";
@@ -42,7 +43,10 @@ export default function Home() {
           </span>,
           <>
             Mein Ansatz, um Ihrem Team wieder Luft für die strategischen Aufgaben
-            im Marketing zu geben: Agentic Marketing.
+            im Marketing zu geben:{" "}
+            <Link href="/agentic-marketing" className="underline decoration-accent-lila decoration-2 underline-offset-4 hover:text-accent-lila-ink">
+              Agentic Marketing
+            </Link>.
           </>,
           <strong
             key="claim"

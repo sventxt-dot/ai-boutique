@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="bg-background border-t border-foreground/10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-20">
         {/* Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
             {/* Logo without subline, inverted to black on the light ground */}
@@ -25,6 +25,23 @@ export default function Footer() {
             <p className="text-sm text-foreground/60">
               Agentic Marketing mit Kreativer Intelligenz
             </p>
+          </div>
+
+          {/* Topic pages */}
+          <div>
+            <h4 className="text-sm font-semibold text-foreground mb-4 uppercase">
+              Themen
+            </h4>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/agentic-marketing"
+                  className="text-sm text-foreground/60 hover:text-foreground transition-colors"
+                >
+                  Agentic Marketing
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Legal */}
@@ -64,18 +81,13 @@ export default function Footer() {
 
           <div className="flex gap-6">
             <a
-              href="#"
+              href="https://www.linkedin.com/company/ai-boutique-de/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm text-foreground/60 hover:text-foreground transition-colors"
-              aria-label="LinkedIn"
+              aria-label="AI-Boutique auf LinkedIn"
             >
               LinkedIn
-            </a>
-            <a
-              href="#"
-              className="text-sm text-foreground/60 hover:text-foreground transition-colors"
-              aria-label="Twitter"
-            >
-              Twitter
             </a>
           </div>
         </div>

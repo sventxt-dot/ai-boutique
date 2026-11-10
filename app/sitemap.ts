@@ -10,6 +10,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: "https://www.ai-boutique.de/agentic-marketing",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: "https://www.ai-boutique.de/kontakt",
       lastModified: new Date(),
       changeFrequency: "monthly",

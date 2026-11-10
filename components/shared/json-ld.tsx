@@ -14,6 +14,7 @@ export function JsonLd() {
         "description": "Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen.",
         "url": SITE,
         "image": `${SITE}/images/OG_Titel.png`,
+        "sameAs": ["https://www.linkedin.com/company/ai-boutique-de/"],
         "telephone": "+4917949706860",
         "email": "sven@ai-boutique.de",
         "founder": { "@id": `${SITE}/#sven-guenzel` },
