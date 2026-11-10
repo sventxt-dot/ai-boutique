@@ -406,7 +406,7 @@ Screenreader: Menü öffnen / Menü schließen
 
 ### Footer (`components/layout/footer.tsx`)
 
-**Claim:** Kreative Intelligenz. Skaliert.
+**Claim:** Agentic Marketing mit Kreativer Intelligenz
 
 **Rechtliches:** Impressum / Datenschutz
 
