@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     locale: "de_DE",
     url: "https://www.ai-boutique.de",
     siteName: "ai-boutique",
-    title: "ai-boutique — KI Beratung für KMU & Mittelstand",
+    title: "Agentic Marketing mit Kreativer Intelligenz",
     description: "Strategische KI-Implementierung und Agentic Marketing. Künstliche Intelligenz für kleine Unternehmen — mit 20+ Jahren Markenerfahrung.",
     images: [
       {
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ai-boutique — KI Beratung für KMU & Mittelstand",
+    title: "Agentic Marketing mit Kreativer Intelligenz",
     description: "Strategische KI-Implementierung und Agentic Marketing für kleine Unternehmen.",
     images: ["/images/OG_Titel.png"]
   },
