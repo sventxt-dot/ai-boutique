@@ -1,6 +1,6 @@
 # Website-Texte ai-boutique.de
 
-Stand: 9. November 2026, Arbeitsstand im Repo (lokal, noch nicht live).
+Stand: 10. November 2026, Arbeitsstand im Repo (lokal, noch nicht live).
 
 Alle Texte stehen wörtlich so wie auf der Website, auch dort, wo sie noch nicht final sind. In Klammern steht die Datei, in der der Text gepflegt wird.
 
@@ -509,53 +509,57 @@ Diese Datenschutzerklärung ist aktuell gültig und hat den Stand August 2026.
 
 ### Allgemein (`app/layout.tsx`)
 
-**Standard-Titel:** ai-boutique — KI Beratung für KMU & Mittelstand
+**Standard-Titel:** KI-Agentur für Agentic Marketing | AI-Boutique
 
-**Titel-Zusatz auf Unterseiten:** | ai-boutique
+**Titel-Zusatz auf Unterseiten:** | AI-Boutique
 
-**Beschreibung:** Kreative Intelligenz von der Idee bis zur Auslieferung. Strategische KI-Implementierung, Agentic Marketing und künstliche Intelligenz für kleine Unternehmen. 20+ Jahre Markenerfahrung.
+**Beschreibung:** Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen. Mehr als 20 Jahre Kampagnenerfahrung.
 
 **Keywords:** KI Beratung Mittelstand, Künstliche Intelligenz kleine Unternehmen, Agentic Marketing, KI Implementierung KMU, AI Agentur Deutschland, KI Beratung, AI Voice Bots, Corporate LLM, RAG Systeme
 
 **Open Graph**
-Titel: ai-boutique — KI Beratung für KMU & Mittelstand
-Beschreibung: Strategische KI-Implementierung und Agentic Marketing. Künstliche Intelligenz für kleine Unternehmen — mit 20+ Jahren Markenerfahrung.
-Bild-Alt-Text: ai-boutique — Kreative Intelligenz von der Idee bis zur Auslieferung
+Titel: Agentic Marketing mit Kreativer Intelligenz
+Beschreibung: Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen. Mehr als 20 Jahre Kampagnenerfahrung.
+Bild-Alt-Text: Logo der AI-Boutique
 
 **Twitter**
-Titel: ai-boutique — KI Beratung für KMU & Mittelstand
-Beschreibung: Strategische KI-Implementierung und Agentic Marketing für kleine Unternehmen.
+Titel: Agentic Marketing mit Kreativer Intelligenz
+Beschreibung: Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen. Mehr als 20 Jahre Kampagnenerfahrung.
 
 ### Einzelne Seiten
 
 **Startseite (`app/page.tsx`)**
-Titel: KI Beratung für KMU — Künstliche Intelligenz für kleine Unternehmen
-Beschreibung: ai-boutique bietet strategische KI-Implementierung, Agentic Marketing und KI Beratung für KMU und Mittelstand. Jetzt kostenlosen KI-Potential-Check starten.
+Titel: KI-Agentur für Agentic Marketing | AI-Boutique
+Beschreibung: Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen. Mehr als 20 Jahre Kampagnenerfahrung.
 
 **Portfolio (Seite entfernt am 9. November 2026)**
 Titel: KI-Systeme im Einsatz — Portfolio der KI-Agentur AI-Boutique
 Beschreibung: Chatbots, Workflows und Content-Automation aus der Praxis: Arbeiten der KI-Agentur AI-Boutique für Marketingteams und Agenturen.
 
 **Kontakt (`app/kontakt/page.tsx`)**
-Titel: Kontakt — KI Beratung anfragen
-Beschreibung: Sprechen Sie direkt mit Sven Günzel — KI-Berater und Creative Director. Erste Beratung kostenlos.
+Titel: Kontakt: KI-Beratung anfragen
+Beschreibung: Sprechen Sie direkt mit Sven Günzel, KI-Berater und Creative Director in Prien am Chiemsee. Das erste Gespräch ist kostenlos.
 
 **Impressum (`app/impressum/page.tsx`)**
 Titel: Impressum
-Beschreibung: Impressum der ai-boutique — Sven Günzel, KI-Berater, Prien am Chiemsee.
+Beschreibung: Impressum der AI-Boutique, Sven Günzel, Prien am Chiemsee.
 
 **Datenschutz (`app/datenschutz/page.tsx`)**
 Titel: Datenschutz
-Beschreibung: Datenschutzerklärung der ai-boutique gemäß DSGVO.
+Beschreibung: Datenschutzerklärung der AI-Boutique nach DSGVO.
 
 ### Strukturierte Daten (`components/shared/json-ld.tsx`)
 
-**Unternehmen:** Strategische KI-Implementierung und Agentic Marketing für KMU und Mittelstand
+**Unternehmen:** AI-Boutique (ProfessionalService), auch „KI-Agentur AI-Boutique“
 
-**Website:** KI Beratung für KMU und Mittelstand
+**Slogan:** Kreative Intelligenz.
 
-**Position:** KI-Berater & Creative Director
+**Beschreibung:** Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen.
 
-**Leistungen:** KI Beratung, Agentic Marketing, AI Voice Bots, Corporate LLM, RAG Systeme, KI Schulung, Workflows & Automatisierung
+**Zielgruppe:** Marketingteams und Agenturen
 
-**Themen:** Künstliche Intelligenz, KI Implementierung, Agentic Marketing, Large Language Models, RAG Systeme, Marketing Automatisierung
+**Leistungen:** Agentic Marketing, KI-Beratung, AI Voice-Bots, AI Chat-Bots, AI Copywriting, Corporate LLM, CRM-Pipeline, Workflows, Mobile-Apps, AI-Schulung
+
+**Themen:** Agentic Marketing, Künstliche Intelligenz für kleine Unternehmen, KI-Beratung für den Mittelstand, Kampagnenentwicklung, Marketing-Automatisierung
+
+**Person:** Sven Günzel, KI-Berater & Creative Director, LinkedIn de.linkedin.com/in/sventxt, Abschlüsse Marketing-Fachkaufmann und zertifizierter KI-Experte

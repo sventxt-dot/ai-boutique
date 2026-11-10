@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import MonoLabel from "@/components/shared/mono-label";
 
 export const metadata = {
-  title: "Kontakt — KI Beratung anfragen",
-  description: "Sprechen Sie direkt mit Sven Günzel — KI-Berater und Creative Director. Erste Beratung kostenlos.",
+  title: "Kontakt: KI-Beratung anfragen",
+  description: "Sprechen Sie direkt mit Sven Günzel, KI-Berater und Creative Director in Prien am Chiemsee. Das erste Gespräch ist kostenlos.",
   alternates: { canonical: "https://www.ai-boutique.de/kontakt" }
 };
 

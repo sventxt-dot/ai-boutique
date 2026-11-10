@@ -3,7 +3,7 @@ import MonoLabel from "@/components/shared/mono-label";
 
 export const metadata = {
   title: "Datenschutz",
-  description: "Datenschutzerklärung der ai-boutique gemäß DSGVO.",
+  description: "Datenschutzerklärung der AI-Boutique nach DSGVO.",
   robots: { index: false, follow: false },
   alternates: { canonical: "https://www.ai-boutique.de/datenschutz" }
 };

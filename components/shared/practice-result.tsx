@@ -100,13 +100,15 @@ export default function PracticeResult() {
       aria-label="Beispiele aus der Praxis"
       className="scroll-mt-28 relative mt-20 rounded-[28px] bg-linear-to-br from-[#F1E8FB] to-[#E7D8F7] overflow-hidden"
     >
-      {/* Only the active slide is rendered, so the tile takes its height instead of the tallest slide's */}
-      {[cases[active]].map((item) => (
+      {/* Every slide is in the HTML so search engines and AI crawlers read all cases;
+          inactive slides are hidden, so the tile takes the active slide's height */}
+      {cases.map((item, i) => (
           <div
             key={item.title}
+            hidden={i !== active}
             role="group"
             aria-roledescription="Folie"
-            aria-label={`${active + 1} von ${cases.length}`}
+            aria-label={`${i + 1} von ${cases.length}`}
             className="px-6 pt-10 pb-24 md:pl-[5%] md:pr-[calc(5%+56px)] md:pt-14 md:pb-16 animate-in fade-in slide-in-from-right-8 duration-500 motion-reduce:animate-none"
           >
             {/* The image comparison needs a wide column; numbers and demo fit a narrow one */}

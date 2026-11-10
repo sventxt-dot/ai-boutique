@@ -1,20 +1,22 @@
+const SITE = "https://www.ai-boutique.de"
+
 export function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "LocalBusiness",
-        "@id": "https://www.ai-boutique.de",
-        "name": "ai-boutique",
-        "description": "Strategische KI-Implementierung und Agentic Marketing für KMU und Mittelstand",
-        "url": "https://www.ai-boutique.de",
+        "@type": "ProfessionalService",
+        "@id": `${SITE}/#organization`,
+        "name": "AI-Boutique",
+        "alternateName": "KI-Agentur AI-Boutique",
+        "slogan": "Kreative Intelligenz.",
+        // Fixed core sentence from the positioning; keep in sync with CLAUDE.md
+        "description": "Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen.",
+        "url": SITE,
+        "image": `${SITE}/images/OG_Titel.png`,
         "telephone": "+4917949706860",
         "email": "sven@ai-boutique.de",
-        "founder": {
-          "@type": "Person",
-          "name": "Sven Günzel",
-          "jobTitle": "KI-Berater & Creative Director"
-        },
+        "founder": { "@id": `${SITE}/#sven-guenzel` },
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Bachstraße 17",
@@ -23,30 +25,51 @@ export function JsonLd() {
           "addressCountry": "DE"
         },
         "areaServed": "DE",
+        "audience": {
+          "@type": "BusinessAudience",
+          "audienceType": "Marketingteams und Agenturen"
+        },
+        // Mirrors the service titles in lib/data/services.ts
         "serviceType": [
-          "KI Beratung",
           "Agentic Marketing",
-          "AI Voice Bots",
+          "KI-Beratung",
+          "AI Voice-Bots",
+          "AI Chat-Bots",
+          "AI Copywriting",
           "Corporate LLM",
-          "RAG Systeme",
-          "KI Schulung",
-          "Workflows & Automatisierung"
+          "CRM-Pipeline",
+          "Workflows",
+          "Mobile-Apps",
+          "AI-Schulung"
         ],
         "knowsAbout": [
-          "Künstliche Intelligenz",
-          "KI Implementierung",
           "Agentic Marketing",
-          "Large Language Models",
-          "RAG Systeme",
-          "Marketing Automatisierung"
+          "Künstliche Intelligenz für kleine Unternehmen",
+          "KI-Beratung für den Mittelstand",
+          "Kampagnenentwicklung",
+          "Marketing-Automatisierung"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": `${SITE}/#sven-guenzel`,
+        "name": "Sven Günzel",
+        "jobTitle": "KI-Berater & Creative Director",
+        "image": `${SITE}/images/redesign/portrait-streifen.jpg`,
+        "worksFor": { "@id": `${SITE}/#organization` },
+        "sameAs": ["https://de.linkedin.com/in/sventxt"],
+        "knowsAbout": ["Agentic Marketing", "Kampagnenentwicklung", "CRM", "Künstliche Intelligenz"],
+        "hasCredential": [
+          { "@type": "EducationalOccupationalCredential", "name": "Marketing-Fachkaufmann" },
+          { "@type": "EducationalOccupationalCredential", "name": "Zertifizierter KI-Experte" }
         ]
       },
       {
         "@type": "WebSite",
-        "@id": "https://www.ai-boutique.de/#website",
-        "url": "https://www.ai-boutique.de",
-        "name": "ai-boutique",
-        "description": "KI Beratung für KMU und Mittelstand",
+        "@id": `${SITE}/#website`,
+        "url": SITE,
+        "name": "AI-Boutique",
+        "publisher": { "@id": `${SITE}/#organization` },
         "inLanguage": "de-DE"
       }
     ]

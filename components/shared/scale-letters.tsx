@@ -35,7 +35,8 @@ function ScaleCard({ pillar, flipped }: { pillar: Pillar; flipped: boolean }) {
             transform: "rotateY(180deg)",
           }}
         >
-          <h3 className="text-lg font-bold tracking-wide text-accent-lila-ink">{pillar.name}</h3>
+          {/* Not a heading: the mobile list already carries the h3s, so the outline stays free of duplicates */}
+          <p className="text-lg font-bold tracking-wide text-accent-lila-ink">{pillar.name}</p>
           <p className="text-[15px] leading-relaxed font-medium text-[#3E3A44]">{pillar.description}</p>
         </div>
       </div>

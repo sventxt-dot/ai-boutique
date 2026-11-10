@@ -17,10 +17,10 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ai-boutique.de"),
   title: {
-    default: "ai-boutique — KI Beratung für KMU & Mittelstand",
-    template: "%s | ai-boutique"
+    default: "KI-Agentur für Agentic Marketing | AI-Boutique",
+    template: "%s | AI-Boutique"
   },
-  description: "Kreative Intelligenz von der Idee bis zur Auslieferung. Strategische KI-Implementierung, Agentic Marketing und künstliche Intelligenz für kleine Unternehmen. 20+ Jahre Markenerfahrung.",
+  description: "Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen. Mehr als 20 Jahre Kampagnenerfahrung.",
   keywords: [
     "KI Beratung Mittelstand",
     "Künstliche Intelligenz kleine Unternehmen",
@@ -38,22 +38,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     url: "https://www.ai-boutique.de",
-    siteName: "ai-boutique",
+    siteName: "AI-Boutique",
     title: "Agentic Marketing mit Kreativer Intelligenz",
-    description: "Strategische KI-Implementierung und Agentic Marketing. Künstliche Intelligenz für kleine Unternehmen — mit 20+ Jahren Markenerfahrung.",
+    description: "Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen. Mehr als 20 Jahre Kampagnenerfahrung.",
     images: [
       {
         url: "/images/OG_Titel.png",
         width: 1200,
         height: 630,
-        alt: "ai-boutique — Kreative Intelligenz von der Idee bis zur Auslieferung"
+        alt: "Logo der AI-Boutique"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
     title: "Agentic Marketing mit Kreativer Intelligenz",
-    description: "Strategische KI-Implementierung und Agentic Marketing für kleine Unternehmen.",
+    description: "Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen. Mehr als 20 Jahre Kampagnenerfahrung.",
     images: ["/images/OG_Titel.png"]
   },
   robots: {

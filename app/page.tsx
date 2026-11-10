@@ -9,8 +9,9 @@ import AboutMe from "@/components/shared/about-me";
 import CtaClosing from "@/components/shared/cta-closing";
 
 export const metadata: Metadata = {
-  title: "KI Beratung für KMU — Künstliche Intelligenz für kleine Unternehmen",
-  description: "ai-boutique bietet strategische KI-Implementierung, Agentic Marketing und KI Beratung für KMU und Mittelstand. Jetzt kostenlosen KI-Potential-Check starten.",
+  // absolute: the home title already ends with the brand, so the layout template is skipped
+  title: { absolute: "KI-Agentur für Agentic Marketing | AI-Boutique" },
+  description: "Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen. Mehr als 20 Jahre Kampagnenerfahrung.",
   alternates: { canonical: "https://www.ai-boutique.de" }
 }
 
