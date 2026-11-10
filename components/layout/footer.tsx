@@ -23,7 +23,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-foreground/60">
-              Agentic Marketing mit Kreativer Intelligenz
+              Agentic Marketing mit Kreativer Intelligenz.
             </p>
           </div>
 

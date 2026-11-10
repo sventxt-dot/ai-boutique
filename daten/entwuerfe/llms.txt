@@ -1,0 +1,44 @@
+# AI-Boutique
+
+> Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen. KI-Agentur für Agentic Marketing vom Kreativdirektor, mit Sitz in Prien am Chiemsee, geführt von Sven Günzel. Claim: „Agentic Marketing mit Kreativer Intelligenz.“
+
+Schwerpunkt ist Agentic Marketing: KI-Agenten übernehmen Recherche, Analysen und Content-Produktion, das Team des Kunden gibt jeden Schritt frei. Die Systeme laufen auf Servern in der EU und sind DSGVO-konform eingerichtet.
+
+Sven Günzel hat mehr als 20 Jahre Kampagnen entwickelt, unter anderem CRM-Entwicklung für BMW und MINI und langjährige Kampagnenarbeit für Media Markt. Er ist Marketing-Fachkaufmann und zertifizierter KI-Experte und arbeitet seit vier Jahren mit KI.
+
+## Seiten
+
+- [Startseite](https://www.ai-boutique.de/): Leistungen, Praxisbeispiele mit Zeitaufwand vorher und heute, S.C.A.L.E.-Framework, Agentic-Marketing-Check, Einstiegsangebot
+- [Agentic Marketing](https://www.ai-boutique.de/agentic-marketing): Was Agentic Marketing bedeutet, drei Arbeitsformen von KI im Marketing, Arbeitsweise der AI-Boutique, häufige Fragen
+- [Kontakt](https://www.ai-boutique.de/kontakt): Erstgespräch per E-Mail an sven@ai-boutique.de oder Telefon +49 179 49 70 686
+
+## Leistungen
+
+- AI Voice-Bots: Telefonassistenz, die abnimmt, qualifiziert, informiert und bucht
+- AI Chat-Bots für Website und App
+- AI Copywriting: ein Textteam aus Agenten in der Tonalität der Marke, mit Freigabe
+- Corporate LLM: Firmenmodell auf eigener Infrastruktur für sensible Daten
+- CRM-Pipeline: Agenten für die Kundenpflege, immer nach Freigabe
+- Workflows für Angebote, Reportings, Freigaben und Analysen
+- Mobile-Apps zur Kundenbindung
+- AI-Schulung: Prompten, Regeln des EU AI Act, Tools, erste Automationen
+
+## Praxisbeispiele
+
+- LinkedIn-Content-Maschine: 3 bis 4 Stunden vorher, 10 bis 15 Minuten heute, pro Woche
+- Social Media Pipeline für Reels: 4 Stunden vorher, 15 bis 20 Minuten heute, pro Clip, mit vier Freigaben
+- Fünf Analysen (Makro, Mikro, Unternehmen, Wettbewerb, Review Mining): 1 bis 2 Tage vorher, 1 bis 2 Stunden heute, pro Analyse
+- Brotbot: Chatbot in der App einer Bäckerei zu Sortiment, Zutaten, Lagerung und Rezepten
+- Location Designer: fotorealistische Visualisierung eingerichteter Event-Locations für einen Event-Caterer
+
+## Einstieg
+
+- Agentic-Marketing-Check: kostenlos, liefert drei KI-Maßnahmen für das eigene Marketing, https://www.ai-boutique.de/#potential-check
+- Makro-, Mikro- und Unternehmensanalyse: Festpreis 850 Euro, Umsetzung in 3 Tagen
+- Agentic Copywriter in der Tonalität des Kunden: Festpreis 1.500 Euro, Umsetzung in zwei Wochen
+
+## Optional
+
+- [LinkedIn AI-Boutique](https://www.linkedin.com/company/ai-boutique-de/)
+- [LinkedIn Sven Günzel](https://de.linkedin.com/in/sventxt)
+- [Impressum](https://www.ai-boutique.de/impressum)

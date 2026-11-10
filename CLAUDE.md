@@ -33,9 +33,9 @@ Read `package.json` for exact versions and scripts before you assume anything ab
 
 Use these as fixed wording. Do not rephrase them.
 
-- Claim: "Kreative Intelligenz."
+- Positioning: "Agentic Marketing vom Kreativdirektor" (since 10 November 2026; it replaced the category "KI-Sparringspartner für Marketing & Kreation")
+- Claim: "Agentic Marketing mit Kreativer Intelligenz." (since 10 November 2026; it replaced "Kreative Intelligenz.")
 - Core sentence: "Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen." (since 9 November 2026; it replaced "Ich bringe KI auf den Punkt und automatisiere damit Geschäftsprozesse für Marketingteams und Agenturen.")
-- Category: "KI-Sparringspartner für Marketing & Kreation"
 - Audience: marketing teams and agencies
 
 The idea behind it: the automation has to work reliably. The creative part is choosing what gets automated and getting it to the point. Never describe automations themselves as creative.
@@ -66,7 +66,7 @@ When a task needs new copy, write a draft and mark it as a draft. Sven finalizes
 
 ## SEO
 
-Target keywords: "Künstliche Intelligenz für kleine Unternehmen", "KI Beratung Mittelstand", "Agentic Marketing". Keep "KI-Agentur" findable in titles and meta data even where the page copy uses the category wording.
+Target keywords: "Künstliche Intelligenz für kleine Unternehmen", "KI Beratung Mittelstand", "Agentic Marketing". Keep "KI-Agentur" findable in titles and meta data even where the page copy uses the positioning wording.
 
 ## Current priority (as of October 2026)
 

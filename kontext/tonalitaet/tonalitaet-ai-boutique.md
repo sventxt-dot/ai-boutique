@@ -1,6 +1,6 @@
 # Tonalität AI-Boutique
 
-Stand: 9. Oktober 2026
+Stand: 10. November 2026
 
 Dieses Dokument gilt für jeden Text, der unter AI-Boutique erscheint: Website, Briefe, Pitches, Mails, LinkedIn. Es sammelt die Regeln aus der bisherigen Arbeit, die Vorgaben aus dem Positionierungs-Dokument und eine Sperrliste für KI-Phrasen.
 
@@ -172,8 +172,9 @@ Diese Liste stammt aus der Arbeit an den bisherigen Texten und aus keiner der be
 
 Diese Sätze sind abgestimmt und dienen als Maßstab für neue Texte.
 
-- Claim: „Kreative Intelligenz.“
-- Kern-Satz: „Ich bringe KI auf den Punkt und automatisiere damit Geschäftsprozesse für Marketingteams und Agenturen.“
+- Positionierung: „Agentic Marketing vom Kreativdirektor“ (seit 10. November 2026, ersetzt die Kategorie „KI-Sparringspartner für Marketing & Kreation“)
+- Claim: „Agentic Marketing mit Kreativer Intelligenz.“ (seit 10. November 2026, ersetzt „Kreative Intelligenz.“)
+- Kern-Satz: „Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen.“ (seit 9. November 2026, ersetzt „Ich bringe KI auf den Punkt und automatisiere damit Geschäftsprozesse für Marketingteams und Agenturen.“)
 - CTA: „Ein kurzes Ja per Mail reicht.“
 - Beleg: „Für einen Catering-Betrieb habe ich Einkaufszettel, Angebote und Packlisten automatisiert.“
 

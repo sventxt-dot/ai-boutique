@@ -9,7 +9,7 @@ export function JsonLd() {
         "@id": `${SITE}/#organization`,
         "name": "AI-Boutique",
         "alternateName": "KI-Agentur AI-Boutique",
-        "slogan": "Kreative Intelligenz.",
+        "slogan": "Agentic Marketing mit Kreativer Intelligenz.",
         // Fixed core sentence from the positioning; keep in sync with CLAUDE.md
         "description": "Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen.",
         "url": SITE,

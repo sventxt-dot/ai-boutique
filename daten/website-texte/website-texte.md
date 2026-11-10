@@ -504,7 +504,7 @@ Screenreader: Menü öffnen / Menü schließen
 
 ### Footer (`components/layout/footer.tsx`)
 
-**Claim:** Agentic Marketing mit Kreativer Intelligenz
+**Claim:** Agentic Marketing mit Kreativer Intelligenz.
 
 **Themen:** Agentic Marketing
 
@@ -656,7 +656,7 @@ Beschreibung: Beim Agentic Marketing übernehmen KI-Agenten Recherche, Analysen 
 
 **Unternehmen:** AI-Boutique (ProfessionalService), auch „KI-Agentur AI-Boutique“
 
-**Slogan:** Kreative Intelligenz.
+**Slogan:** Agentic Marketing mit Kreativer Intelligenz.
 
 **Beschreibung:** Die AI-Boutique erstellt Kommunikationskonzepte und implementiert KI-gestützte Prozesse für Marketingteams und Agenturen.
 
