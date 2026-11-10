@@ -80,16 +80,21 @@ export default function Hero({
             >
               {cta.label} <span aria-hidden="true">→</span>
             </a>
-            {badges?.map((badge) => (
-              <Image
-                key={badge.src}
-                src={badge.src}
-                alt={badge.alt}
-                width={106}
-                height={106}
-                className="h-[72px] w-[72px] [clip-path:circle(46.5%)]"
-              />
-            ))}
+            {/* Grouped so the badges wrap together, never one beside the button and one below */}
+            {badges && badges.length > 0 && (
+              <div className="flex items-center gap-6">
+                {badges.map((badge) => (
+                  <Image
+                    key={badge.src}
+                    src={badge.src}
+                    alt={badge.alt}
+                    width={96}
+                    height={96}
+                    className="h-24 w-24 [clip-path:circle(46.5%)]"
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>

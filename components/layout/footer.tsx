@@ -12,13 +12,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <Link href="/" className="inline-flex mb-6">
+            {/* Logo without subline, inverted to black on the light ground */}
+            <Link href="/" className="inline-flex mb-6 -ml-[13px]">
               <Image
-                src="/images/logo-source.png"
+                src="/images/AiB_Logo_Trans-Weiss.png"
                 alt="Ai Boutique"
-                width={140}
-                height={48}
-                className="object-contain h-10 w-auto"
+                width={300}
+                height={150}
+                className="object-contain h-20 w-auto invert"
               />
             </Link>
             <p className="text-sm text-foreground/60">
