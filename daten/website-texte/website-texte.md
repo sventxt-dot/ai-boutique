@@ -73,6 +73,27 @@ On Brand. On Purpose. On Point.
 - Text: Ein Event-Caterer präsentiert seinen Interessenten mit dem Location Designer fertige Event-Locations. Das Team wählt in der App eine von 19 Eventlocations aus, stellt Möbel aus dem eigenen Mietbestand zusammen und bekommt in Sekunden eine fotorealistische Visualisierung des Raums. Auf Knopfdruck gibt's dazu ein kurzes Video mit Kamerafahrt durch die fertig eingerichtete Location. Stack: Die KI verwandelt echte Locations und echte Möbel in eingerichtete Event-Venues. Alles einfach auf einer Webanwendung zu bedienen, ohne Architektur, Licht und Perspektive zu verfälschen. Der Kunde sieht sein Event, bevor ein einziger Tisch geschleppt wurde.
 - Statt Vorher/Heute: Bildvergleich mit Schieberegler (leere Halle im Frontend, eingerichtete Halle)
 
+**Sechster Block unter den Leistungen:**
+
+- Label: Aus der Praxis
+- Titel: Kampagnensteuerung
+- Text: Agenten prüfen jeden Morgen Budgets, Klickpreise und ROAS in Google, Meta und LinkedIn. Weicht eine Kampagne vom Plan ab, schlagen sie neue Gebote, Zielgruppen oder eine andere Verteilung des Budgets vor, jeweils mit Begründung. Freigabe: Ihr Team entscheidet über jeden Vorschlag. Umsetzung: Die Agenten setzen die Änderung über die Schnittstellen der Plattformen um und legen neue Varianten der Anzeigen direkt im Werbekonto an. Die Klickarbeit in jeder einzelnen Oberfläche fällt weg.
+- Statt Vorher/Heute: Ablauf (Werbekonten lesen, Abweichungen erkennen, Anpassung vorschlagen, Team gibt frei, Agenten setzen um und berichten)
+
+**Siebter Block unter den Leistungen:**
+
+- Label: Aus der Praxis
+- Titel: Kundenstrecken
+- Text: Agenten lesen Signale aus Shop, CRM und Newsletter. Für jedes Signal startet die passende Strecke, mit einer Nachricht in der Tonalität Ihrer Marke. Warenkorb abgebrochen: Erinnerung mit dem Produkt und einer Antwort auf die häufigste Kaufhürde. Lange nicht bestellt: Persönliches Angebot zur Rückgewinnung. Thema mehrfach gelesen: Passender Inhalt und das Produkt, das dazu gehört. Abwanderung droht: Ein Agent erkennt das steigende Risiko und spielt ein Angebot aus, bevor der Kunde kündigt. Welche Strecken es gibt, legt Ihr Team fest. Den Zeitpunkt wählt der Agent.
+- Statt Vorher/Heute: Ablauf (Signal erkennen, Strecke wählen, Nachricht in Ihrer Tonalität, Zeitpunkt bestimmen, Ausspielen und auswerten)
+
+**Achter Block unter den Leistungen:**
+
+- Label: Aus der Praxis
+- Titel: Performance-Diagnose
+- Text: Die Conversions im Checkout sind heute eingebrochen. Ihr Team fragt den Insight-Agenten nach dem Grund. Abgleich: Er gleicht die Daten aus CRM, Google Analytics und den Werbekonten ab. Ursache: Er findet die Ursache und belegt sie mit Zahlen. Lösung: Er schlägt vor, was Ihr Team jetzt ändern sollte. Die Antwort kommt im Chat. Ihr Team muss dafür kein Dashboard öffnen.
+- Statt Vorher/Heute: Ablauf (Frage im Chat, Daten abgleichen, Ursache belegen, Lösung vorschlagen, Team entscheidet)
+
 **AI Voice-Bots**
 Ein Telefon, das abnimmt, qualifiziert, informiert und bucht. In Ihrem Ton, rund um die Uhr.
 
@@ -390,7 +411,7 @@ Neu am 10. November 2026. Verlinkt im Footer (Spalte „Themen“) und in der He
 
 **Titel:** Agentic Marketing: KI-Agenten im Marketing | AI-Boutique
 
-**Beschreibung:** Beim Agentic Marketing übernehmen KI-Agenten Recherche, Analysen und Content-Produktion. Ihr Team gibt jeden Schritt frei. Beispiele aus fünf Projekten.
+**Beschreibung:** Beim Agentic Marketing übernehmen KI-Agenten Recherche, Analysen und Content-Produktion. Ihr Team gibt jeden Schritt frei. Acht Beispiele aus der Praxis.
 
 ---
 
@@ -436,7 +457,7 @@ In meinen Projekten arbeiten alle drei Formen zusammen. Spielraum bekommen Agent
 
 ### Agentic Marketing in der Praxis
 
-Fünf Systeme aus meinen Projekten, mit dem Aufwand vorher und heute.
+Acht Beispiele, wie Agenten im Marketing arbeiten.
 
 [Karussell „Aus der Praxis“]
 
@@ -650,7 +671,7 @@ Beschreibung: Datenschutzerklärung der AI-Boutique nach DSGVO.
 
 **Agentic Marketing (`app/agentic-marketing/page.tsx`)**
 Titel: Agentic Marketing: KI-Agenten im Marketing | AI-Boutique
-Beschreibung: Beim Agentic Marketing übernehmen KI-Agenten Recherche, Analysen und Content-Produktion. Ihr Team gibt jeden Schritt frei. Beispiele aus fünf Projekten.
+Beschreibung: Beim Agentic Marketing übernehmen KI-Agenten Recherche, Analysen und Content-Produktion. Ihr Team gibt jeden Schritt frei. Acht Beispiele aus der Praxis.
 
 ### Strukturierte Daten (`components/shared/json-ld.tsx`)
 

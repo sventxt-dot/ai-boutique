@@ -11,7 +11,7 @@ const URL = "https://www.ai-boutique.de/agentic-marketing";
 export const metadata: Metadata = {
   title: { absolute: "Agentic Marketing: KI-Agenten im Marketing | AI-Boutique" },
   description:
-    "Beim Agentic Marketing übernehmen KI-Agenten Recherche, Analysen und Content-Produktion. Ihr Team gibt jeden Schritt frei. Beispiele aus fünf Projekten.",
+    "Beim Agentic Marketing übernehmen KI-Agenten Recherche, Analysen und Content-Produktion. Ihr Team gibt jeden Schritt frei. Acht Beispiele aus der Praxis.",
   alternates: { canonical: URL },
 };
 
@@ -151,7 +151,7 @@ export default function AgenticMarketingPage() {
       {/* Practice cases */}
       <Section className="pt-8 md:pt-12">
         <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-4">Agentic Marketing in der Praxis</h2>
-        <p className={bodyText}>Fünf Systeme aus meinen Projekten, mit dem Aufwand vorher und heute.</p>
+        <p className={bodyText}>Acht Beispiele, wie Agenten im Marketing arbeiten.</p>
         <PracticeResult />
       </Section>
 

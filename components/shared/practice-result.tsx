@@ -10,11 +10,12 @@ interface PracticeCase {
   intro: string;
   stages: { label: string; text: string }[];
   outro?: string;
-  // Either a before/after number or, where there is no time saving, a live demo or an image comparison
+  // Either a before/after number or, where there is no time saving, a live demo, an image comparison or a short flow
   before?: { value: string; unit: string };
   after?: { value: string; unit: string };
   demo?: { image: string; alt: string; href: string; label: string };
   compare?: { before: string; after: string; beforeAlt: string; afterAlt: string };
+  flow?: string[];
 }
 
 const cases: PracticeCase[] = [
@@ -86,9 +87,42 @@ const cases: PracticeCase[] = [
       afterAlt: "Location Designer: Ergebnis, die eingerichtete Halle mit Stehtischen für das Angebot",
     },
   },
+  {
+    title: "Kampagnensteuerung",
+    intro: "Agenten prüfen jeden Morgen Budgets, Klickpreise und ROAS in Google, Meta und LinkedIn. Weicht eine Kampagne vom Plan ab, schlagen sie neue Gebote, Zielgruppen oder eine andere Verteilung des Budgets vor, jeweils mit Begründung.",
+    stages: [
+      { label: "Freigabe:", text: "Ihr Team entscheidet über jeden Vorschlag." },
+      { label: "Umsetzung:", text: "Die Agenten setzen die Änderung über die Schnittstellen der Plattformen um und legen neue Varianten der Anzeigen direkt im Werbekonto an." },
+    ],
+    outro: "Die Klickarbeit in jeder einzelnen Oberfläche fällt weg.",
+    flow: ["Werbekonten lesen", "Abweichungen erkennen", "Anpassung vorschlagen", "Team gibt frei", "Agenten setzen um und berichten"],
+  },
+  {
+    title: "Kundenstrecken",
+    intro: "Agenten lesen Signale aus Shop, CRM und Newsletter. Für jedes Signal startet die passende Strecke, mit einer Nachricht in der Tonalität Ihrer Marke.",
+    stages: [
+      { label: "Warenkorb abgebrochen:", text: "Erinnerung mit dem Produkt und einer Antwort auf die häufigste Kaufhürde." },
+      { label: "Lange nicht bestellt:", text: "Persönliches Angebot zur Rückgewinnung." },
+      { label: "Thema mehrfach gelesen:", text: "Passender Inhalt und das Produkt, das dazu gehört." },
+      { label: "Abwanderung droht:", text: "Ein Agent erkennt das steigende Risiko und spielt ein Angebot aus, bevor der Kunde kündigt." },
+    ],
+    outro: "Welche Strecken es gibt, legt Ihr Team fest. Den Zeitpunkt wählt der Agent.",
+    flow: ["Signal erkennen", "Strecke wählen", "Nachricht in Ihrer Tonalität", "Zeitpunkt bestimmen", "Ausspielen und auswerten"],
+  },
+  {
+    title: "Performance-Diagnose",
+    intro: "Die Conversions im Checkout sind heute eingebrochen. Ihr Team fragt den Insight-Agenten nach dem Grund.",
+    stages: [
+      { label: "Abgleich:", text: "Er gleicht die Daten aus CRM, Google Analytics und den Werbekonten ab." },
+      { label: "Ursache:", text: "Er findet die Ursache und belegt sie mit Zahlen." },
+      { label: "Lösung:", text: "Er schlägt vor, was Ihr Team jetzt ändern sollte." },
+    ],
+    outro: "Die Antwort kommt im Chat. Ihr Team muss dafür kein Dashboard öffnen.",
+    flow: ["Frage im Chat", "Daten abgleichen", "Ursache belegen", "Lösung vorschlagen", "Team entscheidet"],
+  },
 ];
 
-// Proof right below the services: real projects with a before/after number, shown as a carousel
+// Proof right below the services: practice cases with a before/after number, demo, comparison or flow, shown as a carousel
 export default function PracticeResult() {
   const [active, setActive] = useState(0);
   const next = () => setActive((i) => (i + 1) % cases.length);
@@ -143,6 +177,15 @@ export default function PracticeResult() {
                     {item.demo.label} <span aria-hidden="true">↗</span>
                   </a>
                 </div>
+              ) : item.flow ? (
+                <ol className="rounded-[20px] bg-white px-5 py-6 md:px-6 md:py-7 space-y-3">
+                  {item.flow.map((step, n) => (
+                    <li key={step} className="flex items-baseline gap-3 text-[15px] font-semibold leading-snug text-foreground">
+                      <span className="font-display text-xl text-accent-lila-ink">{String(n + 1).padStart(2, "0")}</span>
+                      {step}
+                    </li>
+                  ))}
+                </ol>
               ) : (
                 <dl className="grid grid-cols-2 lg:grid-cols-1 gap-3 md:gap-4">
                   <div className="min-w-0 rounded-[20px] bg-white/70 px-4 py-5 md:px-5 md:py-6">
